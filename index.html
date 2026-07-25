@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gardinbussen — Gardiner syet efter mål, leveret hjem til dig</title>
+<meta name="description" content="Gardinbussen kommer hjem til dig med stofprøver, måler op og syr gardiner efter dine vinduer. Gratis og uforpligtende hjemmebesøg. Montering inkluderet.">
+<style>
+  :root{
+    --linen:#EDEEE8;
+    --paper:#F6F5EF;
+    --ink:#1B231E;
+    --ink-soft:#43514A;
+    --loden:#2F4A3E;
+    --loden-deep:#23392F;
+    --sage:#8CA595;
+    --brass:#B98A3E;
+    --brass-deep:#9C7130;
+    --line:rgba(27,35,30,.14);
+    --card:#FFFFFF;
+    --shadow:0 1px 2px rgba(27,35,30,.06),0 12px 30px -18px rgba(27,35,30,.35);
+
+    --bg:var(--linen);
+    --surface:var(--paper);
+    --fg:var(--ink);
+    --fg-soft:var(--ink-soft);
+
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Hoefler Text",Georgia,"Times New Roman",serif;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+    --maxw:1140px;
+    --r:14px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#141A16;
+      --surface:#1A211C;
+      --fg:#EAECE6;
+      --fg-soft:#AEBCB2;
+      --loden:#7FB79C;
+      --loden-deep:#0F1512;
+      --brass:#D6A857;
+      --brass-deep:#C1913F;
+      --line:rgba(234,236,230,.14);
+      --card:#212925;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -22px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:var(--linen);--surface:var(--paper);--fg:var(--ink);--fg-soft:var(--ink-soft);
+    --loden:#2F4A3E;--loden-deep:#23392F;--brass:#B98A3E;--brass-deep:#9C7130;
+    --line:rgba(27,35,30,.14);--card:#FFFFFF;
+    --shadow:0 1px 2px rgba(27,35,30,.06),0 12px 30px -18px rgba(27,35,30,.35);
+  }
+  :root[data-theme="dark"]{
+    --bg:#141A16;--surface:#1A211C;--fg:#EAECE6;--fg-soft:#AEBCB2;
+    --loden:#7FB79C;--loden-deep:#0F1512;--brass:#D6A857;--brass-deep:#C1913F;
+    --line:rgba(234,236,230,.14);--card:#212925;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -22px rgba(0,0,0,.8);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font-family:var(--sans);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;text-wrap:balance;margin:0}
+  h2{font-size:clamp(1.9rem,3.6vw,2.9rem);letter-spacing:-.01em}
+  p{margin:0}
+  a{color:inherit}
+  .eyebrow{
+    font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--brass-deep);display:inline-block;
+  }
+  :root[data-theme="dark"] .eyebrow,@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .eyebrow{color:var(--brass)}}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;cursor:pointer;
+    font-family:var(--sans);font-size:1rem;font-weight:600;
+    padding:.85em 1.5em;border-radius:999px;border:1px solid transparent;
+    text-decoration:none;transition:transform .15s ease,background .2s ease,box-shadow .2s ease;
+  }
+  .btn:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+  .btn-primary{background:var(--brass);color:#20160a;box-shadow:var(--shadow)}
+  .btn-primary:hover{background:var(--brass-deep);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--fg);transform:translateY(-2px)}
+  @media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+
+  /* ---- Header ---- */
+  header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 24px;max-width:var(--maxw);margin:0 auto}
+  .brand{display:flex;align-items:center;gap:.6em;font-family:var(--serif);font-size:1.35rem;font-weight:600;text-decoration:none;letter-spacing:-.01em}
+  .brand .mark{width:26px;height:26px;flex:none;color:var(--loden)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--fg-soft);font-size:.97rem;font-weight:500}
+  .nav-links a:hover{color:var(--fg)}
+  .nav .btn{padding:.6em 1.1em}
+  @media (max-width:860px){.nav-links{display:none}}
+
+  /* ---- Hero ---- */
+  .hero{position:relative;overflow:hidden;padding:clamp(56px,9vw,120px) 0 clamp(48px,7vw,96px)}
+  .pleats{position:absolute;inset:0;z-index:0;opacity:.5;
+    background:
+      repeating-linear-gradient(90deg,
+        color-mix(in srgb,var(--loden) 16%,transparent) 0px,
+        color-mix(in srgb,var(--loden) 4%,transparent) 22px,
+        color-mix(in srgb,var(--loden) 16%,transparent) 46px);
+    -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 92%);
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 92%);
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+  .hero h1{font-size:clamp(2.5rem,6vw,4.4rem);letter-spacing:-.02em;margin-bottom:.35em}
+  .hero .lede{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--fg-soft);max-width:33ch;margin-bottom:1.8em}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .hero-note{margin-top:1.4em;font-size:.92rem;color:var(--fg-soft);display:flex;align-items:center;gap:.5em}
+  .hero-note svg{width:18px;height:18px;color:var(--loden);flex:none}
+
+  /* window illustration */
+  .window{aspect-ratio:4/5;width:100%;border-radius:var(--r);background:var(--card);
+    box-shadow:var(--shadow);border:1px solid var(--line);padding:20px;position:relative;overflow:hidden}
+  .window svg{width:100%;height:100%;display:block}
+
+  /* ---- Section shells ---- */
+  section{padding:clamp(56px,8vw,104px) 0}
+  .sec-head{max-width:60ch;margin-bottom:clamp(32px,5vw,56px)}
+  .sec-head h2{margin-top:.4em}
+  .sec-head p{color:var(--fg-soft);margin-top:.8em;font-size:1.08rem}
+
+  /* ---- Steps ---- */
+  #proces{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  @media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;box-shadow:var(--shadow)}
+  .step .num{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--brass-deep);
+    display:inline-flex;align-items:center;justify-content:center;width:2.4em;height:2.4em;border-radius:50%;
+    border:1px solid var(--brass);margin-bottom:16px;font-variant-numeric:tabular-nums}
+  :root[data-theme="dark"] .step .num{color:var(--brass)}
+  .step h3{font-size:1.22rem;margin-bottom:.4em}
+  .step p{color:var(--fg-soft);font-size:.98rem}
+
+  /* ---- Sortiment ---- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media (max-width:820px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;box-shadow:var(--shadow);
+    transition:transform .18s ease,box-shadow .2s ease}
+  .card:hover{transform:translateY(-4px)}
+  @media (prefers-reduced-motion:reduce){.card:hover{transform:none}}
+  .card .ico{width:34px;height:34px;color:var(--loden);margin-bottom:16px}
+  .card h3{font-size:1.28rem;margin-bottom:.35em}
+  .card p{color:var(--fg-soft);font-size:.97rem}
+
+  /* ---- Why / trust ---- */
+  #hvorfor{background:var(--loden-deep);color:#EDEFE9;border-top:1px solid var(--line)}
+  #hvorfor .eyebrow{color:var(--brass)}
+  #hvorfor h2{color:#F4F5EF}
+  #hvorfor .sec-head p{color:#C6D2C9}
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media (max-width:900px){.trust{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.trust{grid-template-columns:1fr}}
+  .trust .item{padding:22px 20px;border:1px solid rgba(237,239,233,.16);border-radius:var(--r);background:rgba(255,255,255,.03)}
+  .trust .stat{font-family:var(--serif);font-size:2.4rem;font-weight:600;color:var(--brass);line-height:1;margin-bottom:.25em;font-variant-numeric:tabular-nums}
+  .trust h3{font-size:1.05rem;color:#F4F5EF;margin-bottom:.3em}
+  .trust p{color:#C6D2C9;font-size:.94rem}
+
+  /* ---- Area ---- */
+  .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  @media (max-width:820px){.area-grid{grid-template-columns:1fr;gap:32px}}
+  .area-list{columns:2;column-gap:32px;margin-top:8px}
+  @media (max-width:520px){.area-list{columns:1}}
+  .area-list li{list-style:none;padding:10px 0;border-bottom:1px solid var(--line);break-inside:avoid;
+    display:flex;align-items:center;gap:.6em;color:var(--fg-soft)}
+  .area-list li svg{width:16px;height:16px;color:var(--loden);flex:none}
+  .map{aspect-ratio:1/1;border-radius:var(--r);border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);padding:22px}
+  .map svg{width:100%;height:100%}
+
+  /* ---- CTA / kontakt ---- */
+  #kontakt{background:var(--surface);border-top:1px solid var(--line)}
+  .cta-box{background:var(--card);border:1px solid var(--line);border-radius:calc(var(--r) + 6px);box-shadow:var(--shadow);
+    padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  @media (max-width:820px){.cta-box{grid-template-columns:1fr;gap:32px}}
+  .cta-box h2{margin-bottom:.4em}
+  .cta-box .lede{color:var(--fg-soft);font-size:1.08rem;margin-bottom:1.4em}
+  .contact-row{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+  .contact-row a{display:flex;align-items:center;gap:.7em;text-decoration:none;font-weight:600;font-size:1.1rem}
+  .contact-row a svg{width:22px;height:22px;color:var(--brass);flex:none}
+  .contact-row .muted{font-weight:400;font-size:.95rem;color:var(--fg-soft)}
+  form{display:flex;flex-direction:column;gap:14px}
+  label{font-size:.85rem;font-weight:600;letter-spacing:.02em;color:var(--fg-soft)}
+  input,textarea{font-family:var(--sans);font-size:1rem;padding:.8em .9em;border-radius:10px;
+    border:1px solid var(--line);background:var(--surface);color:var(--fg);width:100%}
+  input:focus,textarea:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:transparent}
+  .field{display:flex;flex-direction:column;gap:6px}
+  form .btn-primary{margin-top:6px;justify-content:center}
+  .form-note{font-size:.82rem;color:var(--fg-soft);text-align:center}
+
+  /* ---- Footer ---- */
+  footer{padding:48px 0 40px;border-top:1px solid var(--line);background:var(--bg)}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+  .foot .brand{font-size:1.15rem}
+  .foot p{color:var(--fg-soft);font-size:.9rem}
+  .foot-links{display:flex;gap:22px}
+  .foot-links a{color:var(--fg-soft);text-decoration:none;font-size:.9rem}
+  .foot-links a:hover{color:var(--fg)}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Hovedmenu">
+    <a class="brand" href="#top" aria-label="Gardinbussen forside">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 6h18M4 6v13m16-13v13M4 19h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M7 6v13M10 6v13M13 6v13M16 6v13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
+      </svg>
+      Gardinbussen
+    </a>
+    <div class="nav-links">
+      <a href="#proces">Sådan foregår det</a>
+      <a href="#sortiment">Sortiment</a>
+      <a href="#omraade">Område</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <a class="btn btn-primary" href="#kontakt">Book hjemmebesøg</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="pleats" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Mobil gardinbutik · vi kører ud til dig</span>
+          <h1 id="hero-title">Gardiner syet efter dine vinduer.</h1>
+          <p class="lede">Vi pakker stofprøverne i bussen, kører hjem til dig, måler op og syr gardinerne efter mål. Du behøver ikke forlade sofaen.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#kontakt">Book et gratis hjemmebesøg</a>
+            <a class="btn btn-ghost" href="#proces">Se hvordan det foregår</a>
+          </div>
+          <p class="hero-note">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Gratis og uforpligtende · montering inkluderet
+          </p>
+        </div>
+        <div class="window" aria-hidden="true">
+          <svg viewBox="0 0 200 250" fill="none" role="img">
+            <rect x="30" y="30" width="140" height="150" rx="4" fill="color-mix(in srgb, var(--brass) 14%, var(--card))" stroke="var(--line)"/>
+            <line x1="100" y1="30" x2="100" y2="180" stroke="var(--line)"/>
+            <line x1="30" y1="105" x2="170" y2="105" stroke="var(--line)"/>
+            <rect x="18" y="20" width="164" height="8" rx="4" fill="var(--brass)"/>
+            <circle cx="24" cy="24" r="6" fill="none" stroke="var(--brass)" stroke-width="2"/>
+            <circle cx="176" cy="24" r="6" fill="none" stroke="var(--brass)" stroke-width="2"/>
+            <path d="M24 28 C24 90 30 150 26 210 C40 205 52 210 60 205 C56 150 60 90 60 28 Z" fill="var(--loden)" opacity=".92"/>
+            <path d="M32 28 C32 90 38 150 34 205" stroke="color-mix(in srgb,#000 25%,transparent)" stroke-width="1.5" fill="none" opacity=".3"/>
+            <path d="M46 28 C46 90 52 150 48 206" stroke="color-mix(in srgb,#000 25%,transparent)" stroke-width="1.5" fill="none" opacity=".3"/>
+            <path d="M176 28 C176 90 170 150 174 210 C160 205 148 210 140 205 C144 150 140 90 140 28 Z" fill="var(--loden)" opacity=".92"/>
+            <path d="M168 28 C168 90 162 150 166 205" stroke="color-mix(in srgb,#000 25%,transparent)" stroke-width="1.5" fill="none" opacity=".3"/>
+            <path d="M154 28 C154 90 148 150 152 206" stroke="color-mix(in srgb,#000 25%,transparent)" stroke-width="1.5" fill="none" opacity=".3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCES -->
+  <section id="proces" aria-labelledby="proces-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Sådan foregår det</span>
+        <h2 id="proces-title">Fra første opkald til færdig ophængning</h2>
+        <p>Fire enkle trin — og vi klarer alt det besværlige for dig.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Book besøget</h3>
+          <p>Ring eller skriv, så finder vi en tid der passer dig — også aftener og weekender.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Vi kommer hjem til dig</h3>
+          <p>Bussen holder ved din dør med hundredvis af stofprøver. Vi måler op og rådgiver i dine egne rum.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Syet efter mål</h3>
+          <p>Dine gardiner sys på vores eget systue efter de nøjagtige mål og det stof, du har valgt.</p>
+        </div>
+        <div class="step">
+          <span class="num">04</span>
+          <h3>Vi hænger op</h3>
+          <p>Vi monterer skinner, stænger og gardiner — og rydder op efter os. Du skal bare nyde resultatet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SORTIMENT -->
+  <section id="sortiment" aria-labelledby="sortiment-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Sortiment</span>
+        <h2 id="sortiment-title">Alt til vinduet — samlet i bussen</h2>
+        <p>Uanset om du vil have blødt lysindfald eller total mørklægning, finder vi den rigtige løsning til hvert rum.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3v18M9 3v18M15 3v18M19 3v18M3 3h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Gardiner</h3>
+          <p>Foldegardiner og løse gardiner i alt fra let voile til tunge, lyddæmpende stoffer.</p>
+        </article>
+        <article class="card">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 15v4a3 3 0 0 0 6 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Rullegardiner</h3>
+          <p>Enkle og stilrene — også som mørklægning til soveværelset og børneværelset.</p>
+        </article>
+        <article class="card">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16M4 9h16M4 13h16M4 17h16M4 21h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Plisségardiner</h3>
+          <p>Fleksible og pladsbesparende — perfekte til ovenlys, karnapper og skæve vinduer.</p>
+        </article>
+        <article class="card">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3v18M10 3v18M14 3v18M18 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <h3>Lamelgardiner</h3>
+          <p>Regulér lyset præcist. Et klassisk valg til store vinduespartier og terrassedøre.</p>
+        </article>
+        <article class="card">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 10h18M3 14h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Persienner</h3>
+          <p>Alu- og træpersienner der giver et skarpt, moderne udtryk og fuld lysstyring.</p>
+        </article>
+        <article class="card">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v4l-6 5v7l-4-2v-5L4 8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <h3>Rådgivning</h3>
+          <p>Gratis vejledning om stof, farve og lysindfald — tilpasset netop dit hjem.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HVORFOR -->
+  <section id="hvorfor" aria-labelledby="hvorfor-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Derfor Gardinbussen</span>
+        <h2 id="hvorfor-title">Butikken kommer til dig</h2>
+        <p>Du ser stofferne i dit eget lys, i dine egne rum — og slipper for at slæbe prøver hjem fra en butik.</p>
+      </div>
+      <div class="trust">
+        <div class="item">
+          <div class="stat">20+</div>
+          <h3>År i faget</h3>
+          <p>Erfarne konsulenter der har klædt tusindvis af danske vinduer.</p>
+        </div>
+        <div class="item">
+          <div class="stat">0 kr.</div>
+          <h3>For besøget</h3>
+          <p>Hjemmebesøg, opmåling og tilbud er altid gratis og uforpligtende.</p>
+        </div>
+        <div class="item">
+          <div class="stat">100%</div>
+          <h3>Efter mål</h3>
+          <p>Alt sys på vores eget systue, så det passer præcist til dine vinduer.</p>
+        </div>
+        <div class="item">
+          <div class="stat">✓</div>
+          <h3>Montering med</h3>
+          <p>Vi hænger op og rydder op. Du skal ikke selv røre en skruetrækker.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OMRÅDE -->
+  <section id="omraade" aria-labelledby="omraade-title">
+    <div class="wrap">
+      <div class="area-grid">
+        <div>
+          <span class="eyebrow">Serviceområde</span>
+          <h2 id="omraade-title" style="margin-top:.4em">Vi kører i hele Region Sjælland</h2>
+          <p style="color:var(--fg-soft);margin-top:.8em;font-size:1.05rem">Bor du uden for området? Ring endelig — vi kører gerne længere ud efter aftale.</p>
+          <ul class="area-list">
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>Roskilde</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>Køge</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>Næstved</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>Slagelse</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>Holbæk</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>Ringsted</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>Sorø</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>Greve</li>
+          </ul>
+        </div>
+        <div class="map" aria-hidden="true">
+          <svg viewBox="0 0 200 200" fill="none" role="img">
+            <path d="M40 60 C55 40 90 38 110 46 C140 40 165 60 160 90 C172 110 150 140 120 148 C95 168 60 160 48 135 C28 120 30 80 40 60Z"
+              fill="color-mix(in srgb,var(--loden) 16%,transparent)" stroke="var(--loden)" stroke-width="1.6"/>
+            <circle cx="98" cy="96" r="6" fill="var(--brass)"/>
+            <circle cx="98" cy="96" r="14" fill="none" stroke="var(--brass)" stroke-width="1.4" opacity=".5"/>
+            <circle cx="98" cy="96" r="24" fill="none" stroke="var(--brass)" stroke-width="1" opacity=".3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" aria-labelledby="kontakt-title">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <span class="eyebrow">Book hjemmebesøg</span>
+          <h2 id="kontakt-title">Lad os finde de rigtige gardiner sammen</h2>
+          <p class="lede">Ring, eller send os en besked, så vender vi tilbage inden for én hverdag med en tid til dit gratis hjemmebesøg.</p>
+          <div class="contact-row">
+            <a href="tel:+4570123456">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              70 12 34 56
+            </a>
+            <a href="mailto:kontakt@gardinbussen.dk">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              kontakt@gardinbussen.dk
+            </a>
+            <span class="muted">Åbent man–fre 8–18 · lør 10–14</span>
+          </div>
+        </div>
+        <form aria-label="Book hjemmebesøg" onsubmit="return handleBooking(event)">
+          <div class="field">
+            <label for="navn">Navn</label>
+            <input id="navn" name="navn" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="tlf">Telefon</label>
+            <input id="tlf" name="tlf" type="tel" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="postnr">Postnummer</label>
+            <input id="postnr" name="postnr" type="text" inputmode="numeric" autocomplete="postal-code" required>
+          </div>
+          <div class="field">
+            <label for="besked">Hvad drømmer du om? (valgfrit)</label>
+            <textarea id="besked" name="besked" rows="3"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send og book besøg</button>
+          <p class="form-note" id="form-status">Vi kontakter dig inden for én hverdag.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 6h18M4 6v13m16-13v13M4 19h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M7 6v13M10 6v13M13 6v13M16 6v13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
+      </svg>
+      Gardinbussen
+    </a>
+    <p>© 2026 Gardinbussen · Gardiner syet efter mål, leveret hjem til dig.</p>
+    <div class="foot-links">
+      <a href="#proces">Proces</a>
+      <a href="#sortiment">Sortiment</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleBooking(e){
+    e.preventDefault();
+    var status = document.getElementById('form-status');
+    status.textContent = 'Tak! Vi ringer til dig inden for én hverdag.';
+    status.style.color = 'var(--loden)';
+    e.target.querySelector('button').textContent = 'Sendt ✓';
+    return false;
+  }
+</script>
+</body>
+</html>
