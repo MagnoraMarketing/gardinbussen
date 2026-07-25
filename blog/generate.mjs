@@ -39,6 +39,7 @@ const header = () => `<header class="site">
     <div class="nav-links">
       <a href="${SITE_URL}/#proces">Sådan foregår det</a>
       <a href="${SITE_URL}/#sortiment">Sortiment</a>
+      <a href="${SITE_URL}/inspiration/">Inspiration</a>
       <a href="${BLOG_BASE}/">Guides</a>
       <a href="${SITE_URL}/#kontakt">Kontakt</a>
     </div>
