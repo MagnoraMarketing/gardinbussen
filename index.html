@@ -221,9 +221,67 @@
   .foot-links a:hover{color:var(--fg)}
   .disclosure{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);
     color:var(--fg-soft);font-size:.8rem;line-height:1.5;max-width:70ch}
+
+  /* ---- Promo banner (matcher Gardinbus.nu) ---- */
+  .promo{background:#F6B21E;color:#3b2d05;text-align:center;padding:16px 20px}
+  .promo__inner{max-width:var(--maxw);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .promo__head{font-family:var(--sans);font-weight:800;letter-spacing:.01em;text-transform:uppercase;
+    font-size:clamp(1rem,2.3vw,1.4rem);line-height:1.2;text-wrap:balance;margin:0}
+  .promo__sub{font-weight:700;font-size:clamp(.9rem,1.5vw,1rem);margin:0}
+  .promo__fine{font-style:italic;font-size:.85rem;opacity:.85;margin:0}
+  .countdown{display:flex;gap:10px;margin-top:8px}
+  .cd{background:#D8971A;color:#20160a;border-radius:10px;padding:9px 12px;min-width:62px;
+    display:flex;flex-direction:column;align-items:center;line-height:1}
+  .cd__num{font-size:clamp(1.25rem,3vw,1.6rem);font-weight:800;font-variant-numeric:tabular-nums}
+  .cd__lbl{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:5px}
+  @media (max-width:420px){.cd{min-width:52px;padding:8px 8px}}
+
+  /* ---- Booking-kort (matcher Gardinbus.nu) ---- */
+  .booking{background:#fff;border:1px solid #e7e9ec;border-radius:22px;
+    box-shadow:0 20px 55px -26px rgba(20,30,40,.4);max-width:680px;margin:0 auto;
+    padding:clamp(28px,5vw,52px);color:#2b3947}
+  .steps-ind{display:flex;align-items:center;justify-content:center;margin:0 auto 30px;max-width:440px}
+  .steps-ind .dot{width:36px;height:36px;border-radius:50%;border:1.5px solid #d3dae1;color:#9aa6b2;
+    background:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;flex:none;font-size:1rem}
+  .steps-ind .dot.on{background:#eceff2;color:#4a5a68}
+  .steps-ind .ln{flex:1;height:1.5px;background:#dbe1e7;margin:0 6px}
+  .booking__title{font-family:var(--serif);color:#26323d;font-weight:600;
+    font-size:clamp(1.5rem,3.6vw,2.15rem);line-height:1.12;margin:0 0 24px;text-wrap:balance}
+  .checklist{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:15px}
+  .checklist li{display:flex;align-items:center;gap:12px;font-size:clamp(1.02rem,1.6vw,1.15rem);color:#33414e}
+  .checklist li::before{content:"";width:24px;height:24px;flex:none;border-radius:50%;
+    background:#2fa23f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat}
+  .booking__label{display:block;font-weight:700;color:#2b3947;margin-bottom:12px;font-size:clamp(1rem,1.6vw,1.1rem)}
+  .booking__caret{color:#2fa23f}
+  #booking-form{display:flex;flex-direction:column;gap:18px}
+  #adresse{font-family:var(--sans);font-size:1.05rem;padding:1em 1.1em;border:1px solid #d7dde3;
+    border-radius:12px;background:#fff;color:#2b3947;width:100%}
+  #adresse::placeholder{color:#9aa6b2}
+  #adresse:focus{outline:2px solid #2fa23f;outline-offset:1px;border-color:transparent}
+  .btn-next{align-self:flex-start;background:#2fa23f;color:#fff;border:none;border-radius:999px;
+    padding:.9em 2.6em;font-family:var(--sans);font-size:1.05rem;font-weight:700;cursor:pointer;
+    transition:background .2s ease,transform .15s ease;box-shadow:0 10px 24px -12px rgba(47,162,63,.7)}
+  .btn-next:hover{background:#268a34;transform:translateY(-2px)}
+  .btn-next:focus-visible{outline:3px solid #145a1f;outline-offset:3px}
+  .booking__handoff{margin-top:18px;font-size:.85rem;color:#7a8794;text-align:center}
+  @media (prefers-reduced-motion:reduce){.btn-next:hover{transform:none}}
 </style>
 </head>
 <body>
+
+<div class="promo" role="region" aria-label="Aktuelt tilbud">
+  <div class="promo__inner">
+    <p class="promo__head">Weekendfordel med 5% ekstra rabat&nbsp;🔥&nbsp; Bestil nu og spar i alt 30% på alle gardiner&nbsp;🔥</p>
+    <p class="promo__sub">Book Gardinbussen nu – rabatten gælder, selvom besøget ligger senere.</p>
+    <p class="promo__fine">Gælder ved køb af min. 3 gardiner og tilmelding til nyhedsbrev</p>
+    <div class="countdown" aria-hidden="true">
+      <div class="cd"><span class="cd__num" id="cd-days">0</span><span class="cd__lbl">Dage</span></div>
+      <div class="cd"><span class="cd__num" id="cd-hours">00</span><span class="cd__lbl">Timer</span></div>
+      <div class="cd"><span class="cd__num" id="cd-mins">00</span><span class="cd__lbl">Minutter</span></div>
+      <div class="cd"><span class="cd__num" id="cd-secs">00</span><span class="cd__lbl">Sekunder</span></div>
+    </div>
+  </div>
+</div>
 
 <header>
   <nav class="nav" aria-label="Hovedmenu">
@@ -240,7 +298,7 @@
       <a href="#omraade">Område</a>
       <a href="#kontakt">Kontakt</a>
     </div>
-    <a class="btn btn-primary" href="https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&amp;bannerid=115355&amp;htmlurl=https://gardinbus.nu/gardinbus-book/" target="_blank" rel="sponsored nofollow noopener">Book hjemmebesøg</a>
+    <a class="btn btn-primary" href="#kontakt">Book hjemmebesøg</a>
   </nav>
 </header>
 
@@ -256,7 +314,7 @@
           <h1 id="hero-title">Gardiner syet efter dine vinduer.</h1>
           <p class="lede">Vi pakker stofprøverne i bussen, kører hjem til dig, måler op og syr gardinerne efter mål. Du behøver ikke forlade sofaen.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&amp;bannerid=115355&amp;htmlurl=https://gardinbus.nu/gardinbus-book/" target="_blank" rel="sponsored nofollow noopener">Book et gratis hjemmebesøg</a>
+            <a class="btn btn-primary" href="#kontakt">Book et gratis hjemmebesøg</a>
             <a class="btn btn-ghost" href="#proces">Se hvordan det foregår</a>
           </div>
           <p class="hero-note">
@@ -428,25 +486,26 @@
   <!-- KONTAKT -->
   <section id="kontakt" aria-labelledby="kontakt-title">
     <div class="wrap">
-      <div class="cta-box">
-        <div>
-          <span class="eyebrow">Book hjemmebesøg</span>
-          <h2 id="kontakt-title">Book dit gratis hjemmebesøg hos Gardinbus.nu</h2>
-          <p class="lede">Bestil online på under to minutter. Gardinbus.nu ringer dig op og aftaler en tid, der passer dig — helt uforpligtende.</p>
-          <ul class="perks">
-            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis og uforpligtende opmåling</li>
-            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Stofprøver med hjem til dig</li>
-            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Syet efter mål og monteret</li>
-          </ul>
+      <div class="booking">
+        <div class="steps-ind">
+          <span class="dot on">1</span><span class="ln"></span>
+          <span class="dot">2</span><span class="ln"></span>
+          <span class="dot">3</span><span class="ln"></span>
+          <span class="dot">4</span>
         </div>
-        <div class="book-panel">
-          <p class="book-panel__label">Klar til nye gardiner?</p>
-          <a class="btn btn-primary book-panel__cta" href="https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&amp;bannerid=115355&amp;htmlurl=https://gardinbus.nu/gardinbus-book/" target="_blank" rel="sponsored nofollow noopener">
-            Book online hos Gardinbus.nu
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <p class="book-panel__note">Du sendes videre til gardinbus.nu, hvor du booker dit besøg.</p>
-        </div>
+        <h2 id="kontakt-title" class="booking__title">Bestil GRATIS besøg af Gardinbussen</h2>
+        <ul class="checklist">
+          <li>Gratis rådgivning</li>
+          <li>Kører i hele landet</li>
+          <li>5-stjernet anmeldelser</li>
+          <li>Over 5.759 glade kunder</li>
+        </ul>
+        <label class="booking__label" for="adresse"><span class="booking__caret">▸</span> Indtast din adresse herunder:</label>
+        <form id="booking-form" novalidate>
+          <input id="adresse" name="adresse" type="text" placeholder="Start med at skrive din adresse…" autocomplete="street-address">
+          <button type="submit" class="btn-next">Næste</button>
+        </form>
+        <p class="booking__handoff">Du fuldfører din booking trygt hos Gardinbus.nu.</p>
       </div>
     </div>
   </section>
@@ -473,5 +532,48 @@
     <p class="disclosure">Annonce: Gardinbussen er en uafhængig side. Booking-links fører til Gardinbus.nu og indeholder affiliate-links, som vi kan modtage provision fra. Det påvirker ikke din pris.</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var AFF="https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&bannerid=115355&htmlurl=https://gardinbus.nu/gardinbus-book/";
+
+  /* Rullende weekend-nedtælling: nærmeste søndag kl. 23:59:59 */
+  function nextDeadline(){
+    var n=new Date();
+    var d=new Date(n.getFullYear(),n.getMonth(),n.getDate(),23,59,59,0);
+    d.setDate(d.getDate()+((7-d.getDay())%7));
+    if(d<=n){d.setDate(d.getDate()+7);}
+    return d;
+  }
+  var end=nextDeadline();
+  var el={
+    d:document.getElementById('cd-days'),
+    h:document.getElementById('cd-hours'),
+    m:document.getElementById('cd-mins'),
+    s:document.getElementById('cd-secs')
+  };
+  function pad(x){return String(x).padStart(2,'0');}
+  function tick(){
+    var diff=end-new Date();
+    if(diff<=0){end=nextDeadline();diff=end-new Date();}
+    var t=Math.floor(diff/1000);
+    if(el.d)el.d.textContent=Math.floor(t/86400);
+    if(el.h)el.h.textContent=pad(Math.floor(t%86400/3600));
+    if(el.m)el.m.textContent=pad(Math.floor(t%3600/60));
+    if(el.s)el.s.textContent=pad(t%60);
+  }
+  tick();
+  setInterval(tick,1000);
+
+  /* "Næste" sender brugeren videre til Gardinbus.nu via affiliate-link */
+  var f=document.getElementById('booking-form');
+  if(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      window.open(AFF,'_blank','noopener');
+    });
+  }
+})();
+</script>
 </body>
 </html>
