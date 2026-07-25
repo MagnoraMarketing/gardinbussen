@@ -194,6 +194,14 @@
   .contact-row a{display:flex;align-items:center;gap:.7em;text-decoration:none;font-weight:600;font-size:1.1rem}
   .contact-row a svg{width:22px;height:22px;color:var(--brass);flex:none}
   .contact-row .muted{font-weight:400;font-size:.95rem;color:var(--fg-soft)}
+  .perks{list-style:none;margin:1.4em 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .perks li{display:flex;align-items:center;gap:.7em;color:var(--fg-soft);font-size:1rem}
+  .perks li svg{width:20px;height:20px;color:var(--loden);flex:none}
+  .book-panel{background:var(--loden-deep);color:#EDEFE9;border-radius:calc(var(--r) + 2px);
+    padding:34px 30px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;box-shadow:var(--shadow)}
+  .book-panel__label{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#F4F5EF;line-height:1.15}
+  .book-panel__cta{width:100%;justify-content:center;font-size:1.05rem;padding:1em 1.4em}
+  .book-panel__note{font-size:.85rem;color:#C6D2C9}
   form{display:flex;flex-direction:column;gap:14px}
   label{font-size:.85rem;font-weight:600;letter-spacing:.02em;color:var(--fg-soft)}
   input,textarea{font-family:var(--sans);font-size:1rem;padding:.8em .9em;border-radius:10px;
@@ -211,6 +219,8 @@
   .foot-links{display:flex;gap:22px}
   .foot-links a{color:var(--fg-soft);text-decoration:none;font-size:.9rem}
   .foot-links a:hover{color:var(--fg)}
+  .disclosure{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);
+    color:var(--fg-soft);font-size:.8rem;line-height:1.5;max-width:70ch}
 </style>
 </head>
 <body>
@@ -230,7 +240,7 @@
       <a href="#omraade">Område</a>
       <a href="#kontakt">Kontakt</a>
     </div>
-    <a class="btn btn-primary" href="#kontakt">Book hjemmebesøg</a>
+    <a class="btn btn-primary" href="https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&amp;bannerid=115355&amp;htmlurl=https://gardinbus.nu/gardinbus-book/" target="_blank" rel="sponsored nofollow noopener">Book hjemmebesøg</a>
   </nav>
 </header>
 
@@ -246,7 +256,7 @@
           <h1 id="hero-title">Gardiner syet efter dine vinduer.</h1>
           <p class="lede">Vi pakker stofprøverne i bussen, kører hjem til dig, måler op og syr gardinerne efter mål. Du behøver ikke forlade sofaen.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#kontakt">Book et gratis hjemmebesøg</a>
+            <a class="btn btn-primary" href="https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&amp;bannerid=115355&amp;htmlurl=https://gardinbus.nu/gardinbus-book/" target="_blank" rel="sponsored nofollow noopener">Book et gratis hjemmebesøg</a>
             <a class="btn btn-ghost" href="#proces">Se hvordan det foregår</a>
           </div>
           <p class="hero-note">
@@ -421,40 +431,22 @@
       <div class="cta-box">
         <div>
           <span class="eyebrow">Book hjemmebesøg</span>
-          <h2 id="kontakt-title">Lad os finde de rigtige gardiner sammen</h2>
-          <p class="lede">Ring, eller send os en besked, så vender vi tilbage inden for én hverdag med en tid til dit gratis hjemmebesøg.</p>
-          <div class="contact-row">
-            <a href="tel:+4570123456">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-              70 12 34 56
-            </a>
-            <a href="mailto:kontakt@gardinbussen.dk">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-              kontakt@gardinbussen.dk
-            </a>
-            <span class="muted">Åbent man–fre 8–18 · lør 10–14</span>
-          </div>
+          <h2 id="kontakt-title">Book dit gratis hjemmebesøg hos Gardinbus.nu</h2>
+          <p class="lede">Bestil online på under to minutter. Gardinbus.nu ringer dig op og aftaler en tid, der passer dig — helt uforpligtende.</p>
+          <ul class="perks">
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gratis og uforpligtende opmåling</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Stofprøver med hjem til dig</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Syet efter mål og monteret</li>
+          </ul>
         </div>
-        <form aria-label="Book hjemmebesøg" onsubmit="return handleBooking(event)">
-          <div class="field">
-            <label for="navn">Navn</label>
-            <input id="navn" name="navn" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="tlf">Telefon</label>
-            <input id="tlf" name="tlf" type="tel" autocomplete="tel" required>
-          </div>
-          <div class="field">
-            <label for="postnr">Postnummer</label>
-            <input id="postnr" name="postnr" type="text" inputmode="numeric" autocomplete="postal-code" required>
-          </div>
-          <div class="field">
-            <label for="besked">Hvad drømmer du om? (valgfrit)</label>
-            <textarea id="besked" name="besked" rows="3"></textarea>
-          </div>
-          <button class="btn btn-primary" type="submit">Send og book besøg</button>
-          <p class="form-note" id="form-status">Vi kontakter dig inden for én hverdag.</p>
-        </form>
+        <div class="book-panel">
+          <p class="book-panel__label">Klar til nye gardiner?</p>
+          <a class="btn btn-primary book-panel__cta" href="https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&amp;bannerid=115355&amp;htmlurl=https://gardinbus.nu/gardinbus-book/" target="_blank" rel="sponsored nofollow noopener">
+            Book online hos Gardinbus.nu
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <p class="book-panel__note">Du sendes videre til gardinbus.nu, hvor du booker dit besøg.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -474,20 +466,12 @@
     <div class="foot-links">
       <a href="#proces">Proces</a>
       <a href="#sortiment">Sortiment</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt">Book</a>
     </div>
   </div>
+  <div class="wrap">
+    <p class="disclosure">Annonce: Gardinbussen er en uafhængig side. Booking-links fører til Gardinbus.nu og indeholder affiliate-links, som vi kan modtage provision fra. Det påvirker ikke din pris.</p>
+  </div>
 </footer>
-
-<script>
-  function handleBooking(e){
-    e.preventDefault();
-    var status = document.getElementById('form-status');
-    status.textContent = 'Tak! Vi ringer til dig inden for én hverdag.';
-    status.style.color = 'var(--loden)';
-    e.target.querySelector('button').textContent = 'Sendt ✓';
-    return false;
-  }
-</script>
 </body>
 </html>
