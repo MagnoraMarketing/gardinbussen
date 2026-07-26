@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privatlivspolitik · Gardinbussen</title>
-  <meta name="description" content="Sådan behandler Gardinbussen dine personoplysninger, når du kontakter os eller booker et hjemmebesøg." />
+  <title>Privatlivspolitik · bookgardinbussen.online</title>
+  <meta name="description" content="Sådan behandler bookgardinbussen.online dine personoplysninger, når du kontakter os eller booker et hjemmebesøg." />
   <meta name="robots" content="noindex, follow" />
   <meta name="theme-color" content="#2f5d50" />
   <link rel="stylesheet" href="css/styles.css" />
@@ -13,12 +13,22 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Gardinbussen forside">
-        <span class="brand-text">Gardin<span>bussen</span></span>
+      <a class="brand" href="index.html" aria-label="bookgardinbussen.online forside">
+        <span class="brand-text">bookgardinbussen<span>.online</span></span>
       </a>
       <nav class="site-nav" aria-label="Hovedmenu">
-        <ul class="nav-list" style="display:flex">
-          <li><a class="nav-cta" href="index.html#booking">Book hjemmebesøg</a></li>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+          <span class="sr-only">Menu</span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="index.html#produkter">Produkter</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="nyheder.html">Nyheder</a></li>
+          <li><a href="index.html#omraade">Byer</a></li>
+          <li><a href="om-os.html">Om os</a></li>
+          <li><a class="nav-cta" href="https://gardinbus.nu/book-gardinbus/?paid=52168&amp;pacid=6a657ff9efcc65.73307574&amp;utm_source=partnerads&amp;utm_medium=affiliate&amp;utm_campaign=52168" target="_blank" rel="noopener sponsored">Book hjemmebesøg</a></li>
         </ul>
       </nav>
     </div>
@@ -30,7 +40,7 @@
     <p>Senest opdateret: 26. juli 2026</p>
 
     <h2>Dataansvarlig</h2>
-    <p>Gardinbussen, e-mail <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>, telefon 70 00 00 00, er dataansvarlig for behandlingen af de personoplysninger, du giver os.</p>
+    <p>bookgardinbussen.online, e-mail <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>, er dataansvarlig for behandlingen af de personoplysninger, du giver os.</p>
 
     <h2>Hvilke oplysninger vi indsamler</h2>
     <p>Når du udfylder bookingformularen, indsamler vi de oplysninger, du selv angiver: navn, telefonnummer, postnummer og eventuelt e-mail og en besked om din henvendelse.</p>
@@ -49,8 +59,34 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-bottom" style="border:0;margin:0;padding-top:1.4rem">
-      <p>© <span id="year"></span> Gardinbussen. Alle rettigheder forbeholdes.</p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-text">bookgardinbussen<span>.online</span></span>
+        <p>Vi kører gardinbutikken hjem til dig.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sider</h4>
+        <ul>
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="index.html#produkter">Produkter</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="nyheder.html">Nyheder</a></li>
+          <li><a href="index.html#omraade">Byer</a></li>
+          <li><a href="om-os.html">Om os</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a></li>
+          <li><a href="privatlivspolitik.html">Privatlivspolitik</a></li>
+          <li><a href="https://gardinbus.nu/book-gardinbus/?paid=52168&amp;pacid=6a657ff9efcc65.73307574&amp;utm_source=partnerads&amp;utm_medium=affiliate&amp;utm_campaign=52168" target="_blank" rel="noopener sponsored">Book hjemmebesøg</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> bookgardinbussen.online. Alle rettigheder forbeholdes.</p>
+      <p class="footer-credit">Lavet af <a href="https://magnoramarketing.dk/" target="_blank" rel="noopener">magnoramarketing.dk</a></p>
     </div>
   </footer>
   <script src="js/main.js" defer></script>

@@ -49,6 +49,8 @@
         email: form.elements.email.value.trim(),
         message: form.elements.message.value.trim(),
         company: form.elements.company ? form.elements.company.value.trim() : "",
+        city: form.elements.city ? form.elements.city.value.trim() : "",
+        source: form.elements.source ? form.elements.source.value.trim() : "",
       };
       var firstName = payload.name.split(" ")[0];
 
@@ -73,11 +75,11 @@
           note.classList.add("err");
           note.textContent = (data && data.error)
             ? data.error
-            : "Noget gik galt. Ring venligst til os på 70 00 00 00.";
+            : "Noget gik galt. Skriv venligst til os på mail@bookgardinbussen.online.";
         }
       } catch (err) {
         note.classList.add("err");
-        note.textContent = "Kunne ikke sende lige nu. Ring venligst til os på 70 00 00 00.";
+        note.textContent = "Kunne ikke sende lige nu. Skriv venligst til os på mail@bookgardinbussen.online.";
       } finally {
         if (submitBtn) { submitBtn.disabled = false; }
       }

@@ -44,8 +44,10 @@ async function sendEmail(booking) {
     ["Navn", booking.name],
     ["Telefon", booking.phone],
     ["Postnr.", booking.zip],
+    ["By", booking.city || "—"],
     ["E-mail", booking.email || "—"],
     ["Besked", booking.message || "—"],
+    ["Kilde", booking.source || "—"],
   ]
     .map(function (r) {
       return "<tr><td style=\"padding:4px 12px 4px 0;font-weight:700\">" +
@@ -63,7 +65,7 @@ async function sendEmail(booking) {
       from: from,
       to: [to],
       reply_to: booking.email || undefined,
-      subject: "Ny booking fra " + booking.name + " (" + booking.zip + ")",
+      subject: "Ny booking fra " + booking.name + (booking.city ? " · " + booking.city : "") + " (" + booking.zip + ")",
       html: "<h2>Ny henvendelse via bookgardinbussen.online</h2><table>" + rows + "</table>",
     }),
   });
@@ -88,6 +90,8 @@ module.exports = async function handler(req, res) {
     zip: clean(body.zip, 4),
     email: clean(body.email, 160),
     message: clean(body.message, 2000),
+    city: clean(body.city, 80),
+    source: clean(body.source, 120),
   };
 
   const errors = [];
@@ -108,7 +112,7 @@ module.exports = async function handler(req, res) {
     const result = await sendEmail(booking);
     if (!result.sent && result.reason === "provider_error") {
       console.error("Booking email provider error:", result.status, result.detail);
-      return res.status(502).json({ ok: false, error: "Kunne ikke sende lige nu. Ring venligst til os." });
+      return res.status(502).json({ ok: false, error: "Kunne ikke sende lige nu. Skriv venligst til os på mail@bookgardinbussen.online." });
     }
     if (!result.sent) {
       // Ikke konfigureret endnu — log så henvendelsen ikke går tabt.
