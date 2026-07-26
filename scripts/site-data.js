@@ -291,6 +291,70 @@ const NEWS = [
   },
 ];
 
+// Inspiration & forslag rum for rum.
+const INSPIRATION = [
+  {
+    slug: "stue",
+    title: "Stuen",
+    accent: ["#e8f0ec", "#b7cbb0"],
+    link: { href: "blog/gardiner.html", text: "Læs guide til gardiner" },
+    body: [
+      "Stuen er hjemmets samlingspunkt, og gardinerne sætter tonen. Vælg lette, faldrige gardiner i loft-til-gulv-længde for et blødt, indbydende udtryk — og hæng dem højt og bredt, så vinduerne virker større og loftet højere.",
+      "Vores forslag: Kombinér lyse gardiner med et rullegardin eller en persienne bagved, så du både kan nyde dagslyset og skærme for aftensol og indblik.",
+    ],
+  },
+  {
+    slug: "sovevaerelse",
+    title: "Soveværelset",
+    accent: ["#c9cfdb", "#5a6b8a"],
+    link: { href: "blog/rullegardiner.html", text: "Se mørklægning som rullegardin" },
+    body: [
+      "I soveværelset handler det om ro og mørke. Mørklægningsgardiner lukker morgenlys og lyse sommernætter ude og hjælper dig til en bedre nattesøvn.",
+      "Vores forslag: Et mørklægningsrullegardin eller plisségardin tæt på ruden — gerne kombineret med et blødt gardin, der giver varme og dæmper lyden.",
+    ],
+  },
+  {
+    slug: "koekken",
+    title: "Køkkenet",
+    accent: ["#f2ece3", "#cbb595"],
+    link: { href: "blog/persienner.html", text: "Læs guide til persienner" },
+    body: [
+      "Køkkenet kræver løsninger, der tåler damp, stænk og daglig brug. Her er praktiske gardiner, der er nemme at tørre af, guld værd.",
+      "Vores forslag: Alupersienner eller et fugtbestandigt rullegardin, der giver præcis lysstyring over køkkenbordet og hurtigt kan rengøres.",
+    ],
+  },
+  {
+    slug: "boernevaerelse",
+    title: "Børneværelset",
+    accent: ["#eef0e9", "#8fbf6a"],
+    link: { href: "blog/plissegardiner.html", text: "Se plisségardiner" },
+    body: [
+      "På børneværelset betyder tryghed og mørke mest. God mørklægning giver bedre lure og nattesøvn — og sikkerhed er afgørende.",
+      "Vores forslag: Mørklæggende plissé- eller rullegardiner uden løse snore, gerne som betjeningsvenlige eller motoriserede løsninger, så der ikke er snore i børnehøjde.",
+    ],
+  },
+  {
+    slug: "badevaerelse",
+    title: "Badeværelset",
+    accent: ["#dce4ec", "#9fb6cf"],
+    link: { href: "blog/rullegardiner.html", text: "Se fugtbestandige rullegardiner" },
+    body: [
+      "Vådrum stiller særlige krav: her skal materialerne kunne tåle fugt uden at tage skade, og de skal give privatliv uden at lukke dagslyset helt ude.",
+      "Vores forslag: Et fugtbestandigt rullegardin eller alupersienne, der skærmer for indblik og er nemt at holde rent.",
+    ],
+  },
+  {
+    slug: "hjemmekontor",
+    title: "Hjemmekontoret",
+    accent: ["#e7ddcc", "#cbb595"],
+    link: { href: "blog/lamelgardiner.html", text: "Læs guide til lamelgardiner" },
+    body: [
+      "På hjemmekontoret er lysstyring vigtig — du vil have dagslys uden generende refleks i skærmen. Fleksible løsninger, du kan justere gennem dagen, gør en stor forskel.",
+      "Vores forslag: Lamelgardiner eller persienner, hvor du trinløst kan vippe lyset og undgå blænding — perfekt til store vinduer og skærmarbejde.",
+    ],
+  },
+];
+
 function slugify(name) {
   return String(name)
     .toLowerCase()
@@ -322,6 +386,6 @@ function ctaCard(label, lead) {
 }
 
 module.exports = {
-  AFFILIATE_BOOK_URL, SITE, CITIES, REGION, BLOG, NEWS,
+  AFFILIATE_BOOK_URL, SITE, CITIES, REGION, BLOG, NEWS, INSPIRATION,
   slugify, esc, attr, bookBtn, ctaCard,
 };
