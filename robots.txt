@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /partner/
+
+Sitemap: https://bookgardinbussen.online/sitemap.xml
