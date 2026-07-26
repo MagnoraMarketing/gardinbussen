@@ -7,42 +7,12 @@
 import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { header, footer } from "../assets/site.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = "https://gardinbussen.dk"; // TODO: ret til dit rigtige domæne
 const BRAND = "Gardinbussen";
 const AFF = "https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&amp;bannerid=115355&amp;htmlurl=https://gardinbus.nu/gardinbus-book/";
-
-const markSVG = `<svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M4 6v13m16-13v13M4 19h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 6v13M10 6v13M13 6v13M16 6v13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".7"/></svg>`;
-
-const header = () => `<header class="site">
-  <nav class="nav" aria-label="Hovedmenu">
-    <a class="brand" href="${SITE_URL}/">${markSVG}${BRAND}</a>
-    <div class="nav-links">
-      <a href="${SITE_URL}/#proces">Sådan foregår det</a>
-      <a href="${SITE_URL}/#sortiment">Sortiment</a>
-      <a href="${SITE_URL}/inspiration/">Inspiration</a>
-      <a href="${SITE_URL}/blog/">Guides</a>
-      <a href="${SITE_URL}/#kontakt">Kontakt</a>
-    </div>
-    <a class="btn btn-primary" href="${SITE_URL}/#kontakt">Book hjemmebesøg</a>
-  </nav>
-</header>`;
-
-const footer = () => `<footer class="site">
-  <div class="wrap foot">
-    <a class="brand" href="${SITE_URL}/">${markSVG}${BRAND}</a>
-    <p>© ${new Date().getFullYear()} ${BRAND} · Inspiration til gardiner og vinduesbeklædning.</p>
-    <div class="foot-links">
-      <a href="${SITE_URL}/inspiration/">Inspiration</a>
-      <a href="${SITE_URL}/blog/">Guides</a>
-      <a href="${SITE_URL}/#kontakt">Book</a>
-    </div>
-  </div>
-  <div class="wrap">
-    <p class="disclosure">Annonce: ${BRAND} er en uafhængig inspirations- og guide-side. Links til Gardinbus.nu er affiliate-links, som vi kan modtage provision fra, hvis du booker eller køber. Det påvirker ikke din pris. Billederne herunder er stiliserede illustrationer.</p>
-  </div>
-</footer>`;
 
 /* Stiliseret rum-scene tegnet i SVG — varierer efter vægfarve og gardinfarve */
 function scene(wall, curtain, floor) {
@@ -181,7 +151,7 @@ ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</sc
 </style>
 </head>
 <body>
-${header()}
+${header(SITE_URL)}
 <main>
   <div class="wrap">
     <nav class="crumbs" aria-label="Brødkrumme">
@@ -208,7 +178,7 @@ ${header()}
     </section>
   </div>
 </main>
-${footer()}
+${footer(SITE_URL)}
 </body>
 </html>`;
 

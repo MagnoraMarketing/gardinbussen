@@ -2,67 +2,192 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gardinbussen.dk/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://gardinbussen.dk/byer/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://gardinbussen.dk/inspiration/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gardinbussen.dk/blog/vaelg-gardiner-til-stuen.html</loc>
-    <lastmod>2026-07-25</lastmod>
+    <loc>https://gardinbussen.dk/byer/koebenhavn.html</loc>
+    <lastmod>2026-07-26</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/roskilde.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/koege.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/hilleroed.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/helsingoer.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/naestved.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/slagelse.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/holbaek.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/ringsted.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/odense.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/svendborg.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/aarhus.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/aalborg.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/esbjerg.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/randers.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/kolding.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/horsens.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/vejle.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/herning.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/silkeborg.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/viborg.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/fredericia.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/soenderborg.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/byer/frederikshavn.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gardinbussen.dk/blog/vaelg-gardiner-til-stuen.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/moerklaegningsgardiner-guide.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/gardiner-til-sovevaerelset.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/plisse-vs-rullegardin.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/maal-vinduer-op-til-gardiner.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/gardiner-til-bornevaerelset.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/lamelgardiner-store-vinduer.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/persienner-alu-eller-trae.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/gardintrends-2026.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gardinbussen.dk/blog/hvad-koster-gardiner-efter-maal.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-26</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>

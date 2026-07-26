@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Affiliate-link generator — Gardinbus.nu (partner 52168)</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Internt værktøj: byg Partner-ads affiliate-links til Gardinbus.nu (website og Instagram/Facebook).">
+<link rel="stylesheet" href="/blog/blog.css">
+<style>
+  main{padding-bottom:40px}
+  .tool{max-width:860px;margin:0 auto}
+  .lead{color:var(--fg-soft);font-size:1.1rem;margin:.4em 0 1.6em}
+  .ids{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 28px}
+  .id-pill{background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:.5em 1em;font-size:.9rem;color:var(--fg-soft)}
+  .id-pill strong{color:var(--fg);font-variant-numeric:tabular-nums}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);padding:26px 26px;margin:0 0 26px}
+  .panel h2{font-size:1.3rem;margin:0 0 6px}
+  .panel .hint{color:var(--fg-soft);font-size:.92rem;margin:0 0 16px}
+  label{display:block;font-weight:600;font-size:.85rem;letter-spacing:.02em;color:var(--fg-soft);margin-bottom:6px}
+  input[type=url],input[type=text]{width:100%;font-family:var(--sans);font-size:1rem;padding:.8em .9em;
+    border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--fg)}
+  input:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:transparent}
+  .out{margin-top:18px}
+  .out .row{margin-bottom:14px}
+  .out .row:last-child{margin-bottom:0}
+  .out .row > span{display:block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--brass-deep);margin-bottom:6px}
+  :root[data-theme="dark"] .out .row > span{color:var(--brass)}
+  .linkbox{display:flex;gap:10px;align-items:stretch}
+  .linkbox code{flex:1;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:.75em .9em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;
+    color:var(--fg);overflow-x:auto;white-space:nowrap}
+  .copy{flex:none;cursor:pointer;border:none;border-radius:10px;background:var(--brass);color:#20160a;
+    font-weight:700;font-size:.85rem;padding:0 1.1em;transition:background .2s ease}
+  .copy:hover{background:var(--brass-deep)}
+  .copy:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+  .copy.ok{background:#2fa23f;color:#fff}
+  table.presets{width:100%;border-collapse:collapse;margin-top:6px}
+  table.presets th,table.presets td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.presets th{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-soft)}
+  table.presets td .name{font-weight:600}
+  table.presets td .dest{font-size:.8rem;color:var(--fg-soft);word-break:break-all}
+  .mini{display:flex;flex-direction:column;gap:8px}
+  .note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brass);
+    border-radius:0 10px 10px 0;padding:16px 18px;color:var(--fg-soft);font-size:.92rem;margin-top:8px}
+  .note code{font-family:ui-monospace,monospace;font-size:.85em;color:var(--fg)}
+  @media (max-width:620px){.presets thead{display:none}
+    .presets td{display:block;border:none;padding:6px 0}
+    .presets tr{display:block;border-bottom:1px solid var(--line);padding:14px 0}}
+</style>
+</head>
+<body>
+<header class="site">
+  <nav class="nav" aria-label="Menu">
+    <a class="brand" href="/"><svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M4 6v13m16-13v13M4 19h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 6v13M10 6v13M13 6v13M16 6v13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".7"/></svg>Gardinbussen</a>
+    <a class="btn btn-primary" href="/">Til forsiden</a>
+  </nav>
+</header>
+<main>
+  <div class="wrap tool">
+    <p class="crumbs" style="padding-top:22px"><a href="/">Forside</a> <span>›</span> Affiliate-værktøj</p>
+    <h1 style="font-size:clamp(1.9rem,4vw,2.6rem);margin:.3em 0 .1em">Affiliate-link generator</h1>
+    <p class="lead">Byg korrekte Partner-ads links til Gardinbus.nu. Indsæt en hvilken som helst side fra gardinbus.nu, så får du både website-linket og Instagram/Facebook-linket klar til at kopiere.</p>
+    <div class="ids">
+      <span class="id-pill">Partner-id: <strong id="pid">52168</strong></span>
+      <span class="id-pill">Banner-id: <strong id="bid">115355</strong></span>
+      <span class="id-pill">Butik: <strong>Gardinbus.nu</strong></span>
+    </div>
+
+    <!-- Live generator -->
+    <div class="panel">
+      <h2>Lav et nyt link</h2>
+      <p class="hint">Fx en produktkategori: <code>https://gardinbus.nu/produkt-kategori/gardiner/</code></p>
+      <label for="src">Gardinbus.nu-URL (inkl. https://)</label>
+      <input id="src" type="url" placeholder="https://gardinbus.nu/…" autocomplete="off" spellcheck="false">
+      <div class="out">
+        <div class="row">
+          <span>Website / blog / nyhedsbrev</span>
+          <div class="linkbox"><code id="web">—</code><button class="copy" data-for="web" type="button">Kopiér</button></div>
+        </div>
+        <div class="row">
+          <span>Instagram / Facebook</span>
+          <div class="linkbox"><code id="social">—</code><button class="copy" data-for="social" type="button">Kopiér</button></div>
+        </div>
+        <div class="row">
+          <span>Færdig HTML til hjemmeside</span>
+          <div class="linkbox"><code id="html">—</code><button class="copy" data-for="html" type="button">Kopiér</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Presets -->
+    <div class="panel">
+      <h2>Færdige links</h2>
+      <p class="hint">Destinationer jeg kender med sikkerhed. Kopiér direkte.</p>
+      <table class="presets">
+        <thead><tr><th>Destination</th><th>Website-link</th><th>Instagram/Facebook</th></tr></thead>
+        <tbody id="preset-rows"></tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Produktkategorier og undersider:</strong> Jeg kunne ikke hente kategori-URL'erne fra gardinbus.nu automatisk (adgang blokeret). Find kategoriens URL på gardinbus.nu, indsæt den i generatoren øverst, og kopiér linket. Mønsteret er altid:<br>
+      Website: <code>…/klikbanner.php?partnerid=52168&amp;bannerid=115355&amp;htmlurl=DIN-URL</code><br>
+      Social: <code>…/c/p/52168/b/115355/DIN-URL</code>
+    </div>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap foot">
+    <a class="brand" href="/"><svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M4 6v13m16-13v13M4 19h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Gardinbussen</a>
+    <p>Internt værktøj · ikke indekseret</p>
+  </div>
+</footer>
+<script>
+(function(){
+  var PID="52168", BID="115355";
+  var CLICK="https://www.partner-ads.com/dk/klikbanner.php?partnerid="+PID+"&bannerid="+BID;
+  var SOCIAL="https://www.partner-ads.com/dk/c/p/"+PID+"/b/"+BID+"/";
+
+  function webLink(url){ url=(url||"").trim(); return url ? CLICK+"&htmlurl="+url : CLICK; }
+  function socialLink(url){ url=(url||"").trim(); return SOCIAL+url; }
+  function htmlSnippet(url,label){
+    return '<a href="'+webLink(url)+'" target="_blank" rel="sponsored nofollow noopener">'+(label||"Gardinbus.nu")+'</a>';
+  }
+
+  var src=document.getElementById("src");
+  var elWeb=document.getElementById("web"), elSocial=document.getElementById("social"), elHtml=document.getElementById("html");
+  function render(){
+    var u=src.value.trim();
+    elWeb.textContent=webLink(u);
+    elSocial.textContent=socialLink(u);
+    elHtml.textContent=htmlSnippet(u,"Gardinbus.nu");
+  }
+  src.addEventListener("input",render);
+  render();
+
+  // Copy buttons (delegeret)
+  document.addEventListener("click",function(e){
+    var btn=e.target.closest(".copy"); if(!btn) return;
+    var el=document.getElementById(btn.getAttribute("data-for"));
+    var text=el.textContent; if(!text||text==="—") return;
+    navigator.clipboard.writeText(text).then(function(){
+      var old=btn.textContent; btn.textContent="Kopieret ✓"; btn.classList.add("ok");
+      setTimeout(function(){btn.textContent=old;btn.classList.remove("ok");},1400);
+    });
+  });
+
+  // Presets
+  var presets=[
+    {name:"Forside", url:""},                                   // ren forside-link uden htmlurl
+    {name:"Book bussen", url:"https://gardinbus.nu/gardinbus-book/"},
+    {name:"Inspiration", url:"https://gardinbus.nu/inspiration/"}
+  ];
+  var tbody=document.getElementById("preset-rows");
+  presets.forEach(function(p,i){
+    var tr=document.createElement("tr");
+    var dest=p.url||"https://gardinbus.nu/";
+    tr.innerHTML=
+      '<td><div class="name">'+p.name+'</div><div class="dest">'+dest+'</div></td>'+
+      '<td><div class="mini"><div class="linkbox"><code id="pw'+i+'">'+webLink(p.url)+'</code><button class="copy" data-for="pw'+i+'" type="button">Kopiér</button></div></div></td>'+
+      '<td><div class="mini"><div class="linkbox"><code id="ps'+i+'">'+socialLink(p.url)+'</code><button class="copy" data-for="ps'+i+'" type="button">Kopiér</button></div></div></td>';
+    tbody.appendChild(tr);
+  });
+})();
+</script>
+</body>
+</html>

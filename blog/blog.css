@@ -57,6 +57,27 @@ header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--
 @media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
 @media (max-width:800px){.nav-links{display:none}}
 
+/* By-dropdown i header (bygget med <details>) */
+.dropdown{position:relative}
+.dropdown>summary{list-style:none;cursor:pointer;color:var(--fg-soft);font-size:.96rem;font-weight:500;
+  display:inline-flex;align-items:center;gap:.35em}
+.dropdown>summary::-webkit-details-marker{display:none}
+.dropdown>summary::after{content:"▾";font-size:.8em;opacity:.7}
+.dropdown>summary:hover{color:var(--fg)}
+.dropdown[open]>summary{color:var(--fg)}
+.dropmenu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);
+  padding:18px 20px;width:min(620px,88vw);z-index:60}
+.dropmenu__all{display:inline-block;font-weight:700;text-decoration:none;color:var(--brass-deep);
+  margin-bottom:12px;font-size:.9rem}
+:root[data-theme="dark"] .dropmenu__all{color:var(--brass)}
+.dropcols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 22px}
+.dropcol__h{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-soft);
+  margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.dropcol a{display:block;text-decoration:none;color:var(--fg-soft);font-size:.92rem;padding:4px 0}
+.dropcol a:hover{color:var(--fg)}
+@media (max-width:560px){.dropcols{grid-template-columns:repeat(2,1fr)}.dropmenu{left:0;transform:none}}
+
 /* Breadcrumb */
 .crumbs{font-size:.85rem;color:var(--fg-soft);padding:22px 0 0}
 .crumbs a{color:var(--fg-soft);text-decoration:none}

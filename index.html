@@ -102,6 +102,19 @@
   .nav-links a:hover{color:var(--fg)}
   .nav .btn{padding:.6em 1.1em}
   @media (max-width:860px){.nav-links{display:none}}
+  .dropdown{position:relative}
+  .dropdown>summary{list-style:none;cursor:pointer;color:var(--fg-soft);font-size:.97rem;font-weight:500;display:inline-flex;align-items:center;gap:.35em}
+  .dropdown>summary::-webkit-details-marker{display:none}
+  .dropdown>summary::after{content:"▾";font-size:.8em;opacity:.7}
+  .dropdown>summary:hover,.dropdown[open]>summary{color:var(--fg)}
+  .dropmenu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 20px;width:min(620px,88vw);z-index:60}
+  .dropmenu__all{display:inline-block;font-weight:700;text-decoration:none;color:var(--brass-deep);margin-bottom:12px;font-size:.9rem}
+  :root[data-theme="dark"] .dropmenu__all{color:var(--brass)}
+  .dropcols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 22px}
+  .dropcol__h{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-soft);margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .dropcol a{display:block;text-decoration:none;color:var(--fg-soft);font-size:.92rem;padding:4px 0}
+  .dropcol a:hover{color:var(--fg)}
+  @media (max-width:560px){.dropcols{grid-template-columns:repeat(2,1fr)}.dropmenu{left:0;transform:none}}
 
   /* ---- Hero ---- */
   .hero{position:relative;overflow:hidden;padding:clamp(56px,9vw,120px) 0 clamp(48px,7vw,96px)}
@@ -295,6 +308,13 @@
     <div class="nav-links">
       <a href="#proces">Sådan foregår det</a>
       <a href="#sortiment">Sortiment</a>
+      <details class="dropdown">
+        <summary>Landsdækkende gardinservice</summary>
+        <div class="dropmenu">
+          <a class="dropmenu__all" href="/byer/">Se alle byer →</a>
+          <div class="dropcols"><div class="dropcol"><p class="dropcol__h">Sjælland</p><a href="/byer/koebenhavn.html">København</a><a href="/byer/roskilde.html">Roskilde</a><a href="/byer/koege.html">Køge</a><a href="/byer/hilleroed.html">Hillerød</a><a href="/byer/helsingoer.html">Helsingør</a><a href="/byer/naestved.html">Næstved</a><a href="/byer/slagelse.html">Slagelse</a><a href="/byer/holbaek.html">Holbæk</a><a href="/byer/ringsted.html">Ringsted</a></div><div class="dropcol"><p class="dropcol__h">Fyn</p><a href="/byer/odense.html">Odense</a><a href="/byer/svendborg.html">Svendborg</a></div><div class="dropcol"><p class="dropcol__h">Jylland</p><a href="/byer/aarhus.html">Aarhus</a><a href="/byer/aalborg.html">Aalborg</a><a href="/byer/esbjerg.html">Esbjerg</a><a href="/byer/randers.html">Randers</a><a href="/byer/kolding.html">Kolding</a><a href="/byer/horsens.html">Horsens</a><a href="/byer/vejle.html">Vejle</a><a href="/byer/herning.html">Herning</a><a href="/byer/silkeborg.html">Silkeborg</a><a href="/byer/viborg.html">Viborg</a><a href="/byer/fredericia.html">Fredericia</a><a href="/byer/soenderborg.html">Sønderborg</a><a href="/byer/frederikshavn.html">Frederikshavn</a></div></div>
+        </div>
+      </details>
       <a href="/inspiration/">Inspiration</a>
       <a href="/blog/">Guides</a>
       <a href="#kontakt">Kontakt</a>
