@@ -108,7 +108,7 @@ module.exports = async function handler(req, res) {
     const result = await sendEmail(booking);
     if (!result.sent && result.reason === "provider_error") {
       console.error("Booking email provider error:", result.status, result.detail);
-      return res.status(502).json({ ok: false, error: "Kunne ikke sende lige nu. Ring venligst til os." });
+      return res.status(502).json({ ok: false, error: "Kunne ikke sende lige nu. Skriv venligst til os på mail@bookgardinbussen.online." });
     }
     if (!result.sent) {
       // Ikke konfigureret endnu — log så henvendelsen ikke går tabt.

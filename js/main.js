@@ -73,11 +73,11 @@
           note.classList.add("err");
           note.textContent = (data && data.error)
             ? data.error
-            : "Noget gik galt. Ring venligst til os på 70 00 00 00.";
+            : "Noget gik galt. Skriv venligst til os på mail@bookgardinbussen.online.";
         }
       } catch (err) {
         note.classList.add("err");
-        note.textContent = "Kunne ikke sende lige nu. Ring venligst til os på 70 00 00 00.";
+        note.textContent = "Kunne ikke sende lige nu. Skriv venligst til os på mail@bookgardinbussen.online.";
       } finally {
         if (submitBtn) { submitBtn.disabled = false; }
       }
