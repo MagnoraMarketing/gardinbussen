@@ -23,13 +23,36 @@ python3 -m http.server 8000
 
 ## Sådan tilpasser du indholdet
 
-- **Telefon/e-mail:** søg efter `70 00 00 00` og `kontakt@gardinbussen.dk` i `index.html` og udskift.
+- **Telefon/e-mail:** søg efter `70 00 00 00` og `kontakt@bookgardinbussen.online` i `index.html` og udskift.
 - **Dækningsområde:** rediger listen i sektionen `#omraade`.
 - **Farver:** justér CSS-variablerne øverst i `css/styles.css` (`:root`).
 
 ## Bookingformular
 
-Formularen validerer i browseren og viser en kvittering, men sender endnu
-**ikke** data til en server. For at modtage henvendelser skal `js/main.js`
-kobles til en backend eller en formular-tjeneste (f.eks. et `fetch`-kald til
-et endpoint eller en e-mailservice).
+Formularen sender via `fetch` en POST til serverless-endpointet
+**`api/booking.js`** (Vercel-funktion). Den validerer i browseren *og* på
+serveren, har et honeypot-felt mod spam, og kvitterer til brugeren.
+
+For at modtage henvendelser på e-mail sættes disse miljøvariabler i Vercel
+(Project → Settings → Environment Variables):
+
+| Variabel | Beskrivelse |
+| --- | --- |
+| `RESEND_API_KEY` | API-nøgle fra [Resend](https://resend.com) |
+| `BOOKING_TO` | Modtager-e-mail (hvor henvendelser sendes hen) |
+| `BOOKING_FROM` | Afsender, f.eks. `Gardinbussen <booking@bookgardinbussen.online>` (valgfri) |
+
+Er nøglerne ikke sat, virker formularen stadig — henvendelsen valideres,
+kvitteres og logges i funktionens log, så intet går tabt inden e-mail kobles på.
+
+## SEO
+
+- OpenGraph-, Twitter- og canonical-tags samt JSON-LD (`HomeAndConstructionBusiness`) i `index.html`
+- `sitemap.xml`, `robots.txt` og `site.webmanifest`
+- Delbart forhåndsvisningsbillede i `assets/og-image.svg` (udskift gerne med en PNG for bredest mulig understøttelse på sociale medier)
+
+## Sider
+
+- `index.html` — forsiden
+- `privatlivspolitik.html` — privatlivspolitik (GDPR)
+- `tak.html` — kvitteringsside

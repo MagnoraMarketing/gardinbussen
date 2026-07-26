@@ -23,11 +23,13 @@
     });
   }
 
-  // Booking form (no backend yet — validate and give feedback)
+  // Booking form — posts to /api/booking, falls back gracefully.
   var form = document.getElementById("booking-form");
   var note = document.getElementById("form-note");
   if (form && note) {
-    form.addEventListener("submit", function (e) {
+    var submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
       note.className = "form-note";
       note.textContent = "";
@@ -40,12 +42,45 @@
         return;
       }
 
-      var name = (form.elements.name.value || "").trim().split(" ")[0];
-      note.classList.add("ok");
-      note.textContent = name
-        ? "Tak, " + name + "! Vi ringer til dig inden for 1 hverdag."
-        : "Tak! Vi ringer til dig inden for 1 hverdag.";
-      form.reset();
+      var payload = {
+        name: form.elements.name.value.trim(),
+        phone: form.elements.phone.value.trim(),
+        zip: form.elements.zip.value.trim(),
+        email: form.elements.email.value.trim(),
+        message: form.elements.message.value.trim(),
+        company: form.elements.company ? form.elements.company.value.trim() : "",
+      };
+      var firstName = payload.name.split(" ")[0];
+
+      if (submitBtn) { submitBtn.disabled = true; }
+      note.textContent = "Sender …";
+
+      try {
+        var res = await fetch("/api/booking", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        var data = await res.json().catch(function () { return {}; });
+
+        if (res.ok && data.ok) {
+          note.classList.add("ok");
+          note.textContent = firstName
+            ? "Tak, " + firstName + "! Vi ringer til dig inden for 1 hverdag."
+            : "Tak! Vi ringer til dig inden for 1 hverdag.";
+          form.reset();
+        } else {
+          note.classList.add("err");
+          note.textContent = (data && data.error)
+            ? data.error
+            : "Noget gik galt. Ring venligst til os på 70 00 00 00.";
+        }
+      } catch (err) {
+        note.classList.add("err");
+        note.textContent = "Kunne ikke sende lige nu. Ring venligst til os på 70 00 00 00.";
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; }
+      }
     });
   }
 })();

@@ -185,6 +185,17 @@ img, svg { max-width: 100%; }
 .product-card h3 { color: var(--green-900); }
 .product-card p { color: var(--ink-soft); margin: 0; }
 
+/* Gallery ---------------------------------------------------------------- */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+.gallery-item { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--white); border: 1px solid var(--sand-200); box-shadow: var(--shadow-sm); transition: transform .15s ease, box-shadow .2s ease; }
+.gallery-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.gallery-art { display: block; width: 100%; height: auto; }
+.gallery-item figcaption { padding: 0.7rem 0.9rem; font-weight: 700; font-size: 0.92rem; color: var(--green-900); }
+.gallery-note { text-align: center; color: var(--ink-soft); font-size: 0.88rem; margin: 1.4rem 0 0; }
+
+/* Honeypot (spam trap) --------------------------------------------------- */
+.field-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
 /* Area ------------------------------------------------------------------- */
 .area-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; }
 .area-list {
@@ -242,6 +253,12 @@ img, svg { max-width: 100%; }
 .form-note.err { color: #cc4b3a; }
 .form-fineprint { font-size: 0.82rem; color: var(--ink-soft); margin: 0.8rem 0 0; }
 
+/* Legal pages ------------------------------------------------------------ */
+.legal { max-width: 720px; }
+.legal h1 { margin-bottom: 0.3rem; }
+.legal h2 { font-size: 1.25rem; margin-top: 2rem; }
+.legal > p:first-of-type + p { color: var(--ink-soft); }
+
 /* Footer ----------------------------------------------------------------- */
 .site-footer { background: var(--green-900); color: #c9d8d1; padding: 3rem 0 1.5rem; }
 .footer-inner { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 2rem; }
@@ -262,6 +279,7 @@ img, svg { max-width: 100%; }
   .hero-card { max-width: 420px; }
   .usp-grid { grid-template-columns: 1fr; gap: 1.2rem; }
   .steps, .product-grid, .review-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .area-inner, .booking-inner { grid-template-columns: 1fr; gap: 2rem; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 
