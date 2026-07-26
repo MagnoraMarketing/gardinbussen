@@ -48,7 +48,12 @@ function header(relPrefix) {
         <span class="brand-text">Gardin<span>bussen</span></span>
       </a>
       <nav class="site-nav" aria-label="Hovedmenu">
-        <ul class="nav-list" style="display:flex">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+          <span class="sr-only">Menu</span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="${relPrefix}index.html">Forside</a></li>
           <li><a href="${relPrefix}index.html#produkter">Produkter</a></li>
           <li><a href="${relPrefix}blog/index.html">Blog</a></li>
           <li><a href="${relPrefix}index.html#omraade">Byer</a></li>
