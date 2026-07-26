@@ -5,7 +5,7 @@
 // hertil. Skift kun denne linje for at opdatere linket overalt.
 const AFFILIATE_BOOK_URL = "https://gardinbus.nu/book-gardinbus/?paid=52168&pacid=6a657ff9efcc65.73307574&utm_source=partnerads&utm_medium=affiliate&utm_campaign=52168";
 
-const SITE = "https://bookgardinbussen.online";
+const SITE = "https://www.bookgardinbussen.online";
 
 const CITIES = [
   "København", "Aarhus", "Odense", "Aalborg", "Esbjerg",
