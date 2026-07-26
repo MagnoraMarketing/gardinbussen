@@ -44,6 +44,7 @@ async function sendEmail(booking) {
     ["Navn", booking.name],
     ["Telefon", booking.phone],
     ["Postnr.", booking.zip],
+    ["By", booking.city || "—"],
     ["E-mail", booking.email || "—"],
     ["Besked", booking.message || "—"],
   ]
@@ -63,7 +64,7 @@ async function sendEmail(booking) {
       from: from,
       to: [to],
       reply_to: booking.email || undefined,
-      subject: "Ny booking fra " + booking.name + " (" + booking.zip + ")",
+      subject: "Ny booking fra " + booking.name + (booking.city ? " · " + booking.city : "") + " (" + booking.zip + ")",
       html: "<h2>Ny henvendelse via bookgardinbussen.online</h2><table>" + rows + "</table>",
     }),
   });
@@ -88,6 +89,7 @@ module.exports = async function handler(req, res) {
     zip: clean(body.zip, 4),
     email: clean(body.email, 160),
     message: clean(body.message, 2000),
+    city: clean(body.city, 80),
   };
 
   const errors = [];

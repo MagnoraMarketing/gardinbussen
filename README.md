@@ -56,3 +56,21 @@ kvitteres og logges i funktionens log, så intet går tabt inden e-mail kobles p
 - `index.html` — forsiden
 - `privatlivspolitik.html` — privatlivspolitik (GDPR)
 - `tak.html` — kvitteringsside
+- `byer/<by>.html` — én lokal landingsside pr. by (de 50 største byer i DK)
+
+## By-sider (lokal SEO)
+
+De 50 by-sider genereres fra en skabelon, så de er ensartede og nemme at
+opdatere samlet. Rediger by-listen eller skabelonen i
+`scripts/build-cities.js` og kør:
+
+```bash
+node scripts/build-cities.js
+```
+
+Scriptet gør tre ting: skriver alle `byer/<by>.html`, indsætter by-linkene på
+forsiden (mellem `<!-- CITIES:START -->` og `<!-- CITIES:END -->`) og
+regenererer `sitemap.xml`. Hver by-side har lokal titel/meta, unikt indhold pr.
+landsdel, en FAQ og structured data (`HomeAndConstructionBusiness`,
+`BreadcrumbList` og `FAQPage` til rich snippets i Google). Booking-formularen
+sender et skjult `city`-felt med, så leads viser hvilken by de kommer fra.
