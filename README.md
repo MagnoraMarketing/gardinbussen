@@ -23,7 +23,7 @@ python3 -m http.server 8000
 
 ## Sådan tilpasser du indholdet
 
-- **Telefon/e-mail:** søg efter `70 00 00 00` og `kontakt@bookgardinbussen.online` i `index.html` og udskift.
+- **Telefon/e-mail:** søg efter `70 00 00 00` og `mail@bookgardinbussen.online` i `index.html` og udskift.
 - **Dækningsområde:** rediger listen i sektionen `#omraade`.
 - **Farver:** justér CSS-variablerne øverst i `css/styles.css` (`:root`).
 
