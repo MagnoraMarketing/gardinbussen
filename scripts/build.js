@@ -57,6 +57,7 @@ function header(relPrefix) {
           <li><a href="${relPrefix}index.html#produkter">Produkter</a></li>
           <li><a href="${relPrefix}blog/index.html">Blog</a></li>
           <li><a href="${relPrefix}index.html#omraade">Byer</a></li>
+          <li><a href="${relPrefix}om-os.html">Om os</a></li>
           <li><a class="nav-cta" href="${BOOK}" target="_blank" rel="noopener sponsored">Book hjemmebesøg</a></li>
         </ul>
       </nav>
@@ -363,6 +364,7 @@ fs.writeFileSync(path.join(BLOG_DIR, "index.html"), blogIndex());
 // sitemap
 const urls = [
   { loc: `${SITE}/`, freq: "weekly", pri: "1.0" },
+  { loc: `${SITE}/om-os.html`, freq: "monthly", pri: "0.5" },
   { loc: `${SITE}/blog/index.html`, freq: "weekly", pri: "0.6" },
   { loc: `${SITE}/privatlivspolitik.html`, freq: "yearly", pri: "0.3" },
 ]
