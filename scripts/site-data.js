@@ -46,7 +46,7 @@ const REGION = {
 const BLOG = [
   {
     slug: "gardiner",
-    metaTitle: "Gardiner: Den komplette guide til valg af gardiner | Gardinbussen",
+    metaTitle: "Gardiner: Den komplette guide til valg af gardiner | bookgardinbussen.online",
     h1: "Gardiner — den komplette guide",
     tag: "Gardiner",
     desc: "Alt om gardiner: typer, stoffer, ophæng og hvordan du vælger de rigtige gardiner til hvert rum. Få gratis rådgivning og opmåling hjemme hos dig.",
@@ -65,7 +65,7 @@ const BLOG = [
       ]},
       { h: "Ophæng: stænger, skinner og montering", p: [
         "Gardiner kan hænges i en synlig gardinstang som en detalje eller i en diskret skinne, der næsten forsvinder. Valget påvirker både udtryk og funktion.",
-        "En korrekt opmåling er afgørende for et flot fald. Gardinbussen måler op på stedet og monterer det hele, så resultatet sidder perfekt.",
+        "En korrekt opmåling er afgørende for et flot fald. bookgardinbussen.online måler op på stedet og monterer det hele, så resultatet sidder perfekt.",
       ]},
     ],
     faq: [
@@ -76,7 +76,7 @@ const BLOG = [
   },
   {
     slug: "rullegardiner",
-    metaTitle: "Rullegardiner: Guide til valg, mørklægning og montering | Gardinbussen",
+    metaTitle: "Rullegardiner: Guide til valg, mørklægning og montering | bookgardinbussen.online",
     h1: "Rullegardiner — enkelt, funktionelt og lækkert",
     tag: "Rullegardiner",
     desc: "Rullegardiner er enkle, funktionelle og fås også som mørklægning. Læs guiden til valg, materialer og montering — og book gratis opmåling hjemme.",
@@ -106,7 +106,7 @@ const BLOG = [
   },
   {
     slug: "persienner",
-    metaTitle: "Persienner: Alu eller træ? Guide til lysstyring | Gardinbussen",
+    metaTitle: "Persienner: Alu eller træ? Guide til lysstyring | bookgardinbussen.online",
     h1: "Persienner — præcis lysstyring",
     tag: "Persienner",
     desc: "Persienner giver præcis kontrol over lys og indblik. Læs om alu- og træpersienner, farver og montering, og book en gratis opmåling hjemme hos dig.",
@@ -136,7 +136,7 @@ const BLOG = [
   },
   {
     slug: "plissegardiner",
-    metaTitle: "Plisségardiner: Fleksibel skærmning til alle vinduer | Gardinbussen",
+    metaTitle: "Plisségardiner: Fleksibel skærmning til alle vinduer | bookgardinbussen.online",
     h1: "Plisségardiner — fleksible og elegante",
     tag: "Plisségardiner",
     desc: "Plisségardiner kan skærme oppefra og nedefra og passer perfekt til ovenlys og specielle vinduer. Læs guiden, og book en gratis opmåling hjemme.",
@@ -166,7 +166,7 @@ const BLOG = [
   },
   {
     slug: "lamelgardiner",
-    metaTitle: "Lamelgardiner: Elegant løsning til store vinduer | Gardinbussen",
+    metaTitle: "Lamelgardiner: Elegant løsning til store vinduer | bookgardinbussen.online",
     h1: "Lamelgardiner — til store partier og skydedøre",
     tag: "Lamelgardiner",
     desc: "Lamelgardiner er den elegante løsning til store vinduespartier og skydedøre. Læs om funktion, stoffer og montering, og book en gratis opmåling.",
@@ -196,7 +196,7 @@ const BLOG = [
   },
   {
     slug: "gardinstaenger-og-skinner",
-    metaTitle: "Gardinstænger og skinner: Sådan vælger du ophæng | Gardinbussen",
+    metaTitle: "Gardinstænger og skinner: Sådan vælger du ophæng | bookgardinbussen.online",
     h1: "Gardinstænger og skinner — det rigtige ophæng",
     tag: "Gardinstænger & skinner",
     desc: "Gardinstang eller skinne? Guide til det rigtige ophæng til dine gardiner — udtryk, funktion og montering. Book en gratis opmåling hjemme hos dig.",
@@ -222,6 +222,71 @@ const BLOG = [
       { q: "Skal jeg vælge stang eller skinne?", a: "Vælg en gardinstang, hvis ophænget må ses og gerne må være en detalje. Vælg en skinne, hvis den skal være diskret, eller hvis du vil kunne føre gardinet rundt om hjørner." },
       { q: "Kan ophæng bøjes rundt om hjørner?", a: "Ja, gardinskinner kan bøjes og føres rundt om f.eks. karnapvinduer, så gardinet følger væggen." },
       { q: "Kan gardinstænger og skinner motoriseres?", a: "Ja, begge dele fås med motor, så du kan trække gardinerne med fjernbetjening eller app." },
+    ],
+  },
+];
+
+// Nyheder / inspiration (info fra gardinbus.nu/nyheder). Billeder er
+// pladsholder-illustrationer, indtil rigtige fotos er tilgængelige.
+const NEWS = [
+  {
+    slug: "plissegardiner-trendy",
+    title: "Plisségardiner er trendy!",
+    accent: ["#dbe2d4", "#b7cbb0"],
+    link: { href: "blog/plissegardiner.html", text: "Læs guide til plisségardiner" },
+    body: [
+      "En af de helt store fordele ved plisségardiner er, at de kan trækkes både oppefra og nedefra. Det gør dem utrolig fleksible: du kan skærme for indblik forneden og samtidig lade dagslyset strømme ind foroven — perfekt til stuer, badeværelser og køkkener, hvor du vil have både lys og privatliv.",
+      "Plisségardiner fås i et væld af farver og stoftætheder, fra lette lysfiltrerende til helt mørklæggende. De fylder næsten ingenting, når de er trukket sammen, og passer også til ovenlys og skæve vinduer. Ikke så mærkeligt, at de er et af de mest populære valg lige nu.",
+    ],
+  },
+  {
+    slug: "fordele-lamelgardiner",
+    title: "Fordele ved lamelgardiner",
+    accent: ["#e7ddcc", "#cbb595"],
+    link: { href: "blog/lamelgardiner.html", text: "Læs guide til lamelgardiner" },
+    body: [
+      "Lamelgardiner har eksisteret i mange år og er stadig et populært valg — og med god grund. De lodrette lameller er skabt til store vinduespartier og skydedøre, hvor de dækker elegant uden at virke tunge, og de kan nemt trækkes til side, når du vil ud på terrassen.",
+      "Ved at dreje lamellerne styrer du lys og indblik helt trinløst, og stofferne fås i alt fra lyse, luftige toner til mørklæggende varianter. Det gør lamelgardiner til en fleksibel løsning, der både er praktisk og pæn — i hjemmet såvel som på kontoret.",
+    ],
+  },
+  {
+    slug: "luxaflex-powerview",
+    title: "Luxaflex PowerView – det smarte valg",
+    accent: ["#dce4ec", "#9fb6cf"],
+    link: { href: "book", text: "Book og hør om smarte løsninger" },
+    body: [
+      "Mange af vores kunder efterspørger automatiske løsninger, og med Luxaflex PowerView er du sikret gardiner, der kører helt af sig selv. Via app'en kan du åbne og lukke gardinerne, lægge tidsplaner og styre det hele fra mobilen — også når du ikke er hjemme.",
+      "Motoriserede gardiner er ideelle til høje eller svært tilgængelige vinduer, og de giver både komfort og et ekstra lag tryghed, fordi hjemmet ser beboet ud. Vi rådgiver om, hvilke smarte løsninger der passer bedst til dine vinduer.",
+    ],
+  },
+  {
+    slug: "sov-bedre-moerklaegning",
+    title: "Sov bedre med mørklægningsgardiner",
+    accent: ["#c9cfdb", "#5a6b8a"],
+    link: { href: "blog/rullegardiner.html", text: "Se mørklægning som rullegardin" },
+    body: [
+      "Tidligt morgenlys og lyse sommernætter kan forstyrre din søvn. Mørklægningsgardiner lukker effektivt lyset ude og hjælper kroppen med at falde til ro — særligt vigtigt i soveværelser og børneværelser.",
+      "Du kan få mørklægning som rullegardiner, plisségardiner eller foerede gardiner, alt efter dit vindue og din stil. Vil du undgå lysstriber i siderne, rådgiver vi om en montering, der dækker helt til kanten.",
+    ],
+  },
+  {
+    slug: "lounge-stemning-gardiner",
+    title: "Lounge-stemning med gardiner",
+    accent: ["#e2ece7", "#bcd6cc" ],
+    link: { href: "blog/gardiner.html", text: "Læs guide til gardiner" },
+    body: [
+      "Bløde gardiner gør mere end at skærme for lys — de dæmper lyd, blødgør rummet og skaber med det samme en lun lounge-stemning. Med de rette stoffer og et fald fra loft til gulv får du et rum, der føles færdigt og indbydende.",
+      "Vi hjælper dig med at finde farver og strukturer, der binder din indretning sammen, og hænger gardinerne højt og bredt for at fremhæve loftshøjden og få vinduerne til at virke større.",
+    ],
+  },
+  {
+    slug: "insektnet-indeklima",
+    title: "Insektnet giver bedre indeklima",
+    accent: ["#e6efdc", "#8fbf6a"],
+    link: { href: "book", text: "Book et besøg om insektnet" },
+    body: [
+      "Et godt indeklima starter med frisk luft — men åbne vinduer inviterer også insekter indenfor. Med et insektnet kan du lufte ud hele sommeren uden myg, fluer og hvepse i hjemmet.",
+      "Insektnet fås som diskrete rullenet og faste rammer, der passer til både vinduer og døre, og de er nemme at betjene i hverdagen. En lille løsning, der gør en stor forskel for komforten.",
     ],
   },
 ];
@@ -257,6 +322,6 @@ function ctaCard(label, lead) {
 }
 
 module.exports = {
-  AFFILIATE_BOOK_URL, SITE, CITIES, REGION, BLOG,
+  AFFILIATE_BOOK_URL, SITE, CITIES, REGION, BLOG, NEWS,
   slugify, esc, attr, bookBtn, ctaCard,
 };

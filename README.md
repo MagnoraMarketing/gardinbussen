@@ -55,6 +55,7 @@ kvitteres og logges i funktionens log, så intet går tabt inden e-mail kobles p
 
 - `index.html` — forsiden (inkl. indlejret founder-video nederst)
 - `om-os.html` — Om os-side med indlejret founder-video
+- `nyheder.html` — nyheder & inspiration (genereres fra `NEWS` i `scripts/site-data.js`)
 - `privatlivspolitik.html` — privatlivspolitik (GDPR)
 - `tak.html` — kvitteringsside
 - `byer/<by>.html` — én lokal landingsside pr. by (de 50 største byer i DK)

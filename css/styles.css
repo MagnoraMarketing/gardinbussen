@@ -322,6 +322,21 @@ img, svg { max-width: 100%; }
 .legal h2 { font-size: 1.25rem; margin-top: 2rem; }
 .legal > p:first-of-type + p { color: var(--ink-soft); }
 
+/* Nyheder ---------------------------------------------------------------- */
+.news-list { display: grid; gap: 3rem; }
+.news-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem; align-items: center; }
+.news-row:nth-child(even) .news-media { order: 2; }
+.news-media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+.news-art { display: block; width: 100%; height: auto; }
+.news-text h2 { color: var(--green-900); }
+.news-text p { color: var(--ink-soft); }
+.news-actions { margin-top: 1.2rem; }
+
+@media (max-width: 780px) {
+  .news-row { grid-template-columns: 1fr; gap: 1.2rem; }
+  .news-row:nth-child(even) .news-media { order: 0; }
+}
+
 /* Video ------------------------------------------------------------------ */
 .video-wrap { max-width: 520px; margin: 0 auto; }
 .founder-video {
@@ -331,7 +346,9 @@ img, svg { max-width: 100%; }
 
 /* Footer ----------------------------------------------------------------- */
 .site-footer { background: var(--green-900); color: #c9d8d1; padding: 3rem 0 1.5rem; }
-.footer-inner { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 2rem; }
+.footer-inner { display: flex; flex-wrap: wrap; gap: 2rem 2.5rem; }
+.footer-brand { flex: 1 1 240px; }
+.footer-inner .footer-col { flex: 1 1 150px; }
 .footer-brand .brand-text { color: #fff; font-size: 1.3rem; font-weight: 800; }
 .footer-brand .brand-text span { color: var(--amber); }
 .footer-brand p { margin: 0.6rem 0 0; color: #a9c7bd; }

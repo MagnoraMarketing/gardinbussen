@@ -11,6 +11,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://bookgardinbussen.online/nyheder.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://bookgardinbussen.online/blog/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

@@ -9,7 +9,7 @@ const D = require("./site-data");
 const ROOT = path.join(__dirname, "..");
 const BYER_DIR = path.join(ROOT, "byer");
 const BLOG_DIR = path.join(ROOT, "blog");
-const { SITE, CITIES, REGION, BLOG, slugify, esc, attr, bookBtn, ctaCard, AFFILIATE_BOOK_URL } = D;
+const { SITE, CITIES, REGION, BLOG, NEWS, slugify, esc, attr, bookBtn, ctaCard, AFFILIATE_BOOK_URL } = D;
 const BOOK = attr(AFFILIATE_BOOK_URL); // klar til href="" i skabeloner
 
 // ---------- fælles skabelon-dele ----------
@@ -25,7 +25,7 @@ function head({ title, desc, url, relPrefix, jsonld }) {
   <meta name="theme-color" content="#2f5d50" />
   <link rel="canonical" href="${url}" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Gardinbussen" />
+  <meta property="og:site_name" content="bookgardinbussen.online" />
   <meta property="og:locale" content="da_DK" />
   <meta property="og:title" content="${attr(title)}" />
   <meta property="og:description" content="${attr(desc)}" />
@@ -44,8 +44,8 @@ ${ld}
 function header(relPrefix) {
   return `  <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="brand" href="${relPrefix}index.html" aria-label="Gardinbussen forside">
-        <span class="brand-text">Gardin<span>bussen</span></span>
+      <a class="brand" href="${relPrefix}index.html" aria-label="bookgardinbussen.online forside">
+        <span class="brand-text">bookgardinbussen<span>.online</span></span>
       </a>
       <nav class="site-nav" aria-label="Hovedmenu">
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
@@ -56,6 +56,7 @@ function header(relPrefix) {
           <li><a href="${relPrefix}index.html">Forside</a></li>
           <li><a href="${relPrefix}index.html#produkter">Produkter</a></li>
           <li><a href="${relPrefix}blog/index.html">Blog</a></li>
+          <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
           <li><a href="${relPrefix}index.html#omraade">Byer</a></li>
           <li><a href="${relPrefix}om-os.html">Om os</a></li>
           <li><a class="nav-cta" href="${BOOK}" target="_blank" rel="noopener sponsored">Book hjemmebesøg</a></li>
@@ -67,8 +68,33 @@ function header(relPrefix) {
 
 function footer(relPrefix) {
   return `  <footer class="site-footer">
-    <div class="container footer-bottom" style="border:0;margin:0;padding-top:1.4rem">
-      <p>© <span id="year"></span> Gardinbussen. Alle rettigheder forbeholdes.</p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-text">bookgardinbussen<span>.online</span></span>
+        <p>Vi kører gardinbutikken hjem til dig.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sider</h4>
+        <ul>
+          <li><a href="${relPrefix}index.html">Forside</a></li>
+          <li><a href="${relPrefix}index.html#produkter">Produkter</a></li>
+          <li><a href="${relPrefix}blog/index.html">Blog</a></li>
+          <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
+          <li><a href="${relPrefix}index.html#omraade">Byer</a></li>
+          <li><a href="${relPrefix}om-os.html">Om os</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a></li>
+          <li><a href="${relPrefix}privatlivspolitik.html">Privatlivspolitik</a></li>
+          <li><a href="${BOOK}" target="_blank" rel="noopener sponsored">Book hjemmebesøg</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> bookgardinbussen.online. Alle rettigheder forbeholdes.</p>
       <p class="footer-credit">Lavet af <a href="https://magnoramarketing.dk/" target="_blank" rel="noopener">magnoramarketing.dk</a></p>
     </div>
   </footer>
@@ -95,10 +121,10 @@ function cityPage(city) {
   const slug = slugify(city);
   const region = REGION[city] || "Danmark";
   const url = `${SITE}/byer/${slug}.html`;
-  const title = `Gardiner i ${city} | Gratis hjemmebesøg – Gardinbussen`;
-  const desc = `Gardiner i ${city}? Gardinbussen kører hele gardinbutikken hjem til dig i ${city} og ${region}. Gratis opmåling, rådgivning og montering af gardiner, rullegardiner, persienner og plisségardiner. Book et uforpligtende hjemmebesøg.`;
+  const title = `Gardiner i ${city} | Gratis hjemmebesøg – bookgardinbussen.online`;
+  const desc = `Gardiner i ${city}? bookgardinbussen.online kører hele gardinbutikken hjem til dig i ${city} og ${region}. Gratis opmåling, rådgivning og montering af gardiner, rullegardiner, persienner og plisségardiner. Book et uforpligtende hjemmebesøg.`;
   const faq = faqBlock([
-    { q: `Kører Gardinbussen til ${city}?`, a: `Ja. Vi dækker ${city} og resten af ${region}, og kommer gerne hjem til dig med prøver, uanset om du bor midt i ${city} eller i oplandet.` },
+    { q: `Kører bookgardinbussen.online til ${city}?`, a: `Ja. Vi dækker ${city} og resten af ${region}, og kommer gerne hjem til dig med prøver, uanset om du bor midt i ${city} eller i oplandet.` },
     { q: `Hvad koster et hjemmebesøg i ${city}?`, a: `Hjemmebesøget i ${city} er gratis og helt uforpligtende. Du får et fast tilbud på stedet og bestemmer selv, om du vil gå videre.` },
     { q: `Hvilke typer gardiner kan jeg få?`, a: `Vi har gardiner, rullegardiner, persienner, plisségardiner, lamelgardiner samt gardinstænger og skinner — i mange stoffer, farver og løsninger til alle vinduer.` },
     { q: `Hvor hurtigt kan I komme til ${city}?`, a: `Vi ringer til dig inden for én hverdag og aftaler en tid i ${city}, der passer dig — også om aftenen eller i weekenden.` },
@@ -107,7 +133,7 @@ function cityPage(city) {
   ]);
   const business = {
     "@context": "https://schema.org", "@type": "HomeAndConstructionBusiness",
-    name: `Gardinbussen – ${city}`,
+    name: `bookgardinbussen.online – ${city}`,
     description: `Mobil gardinservice i ${city} og ${region}.`,
     url, email: "mail@bookgardinbussen.online", image: `${SITE}/assets/og-image.svg`, priceRange: "$$",
     areaServed: { "@type": "City", name: city },
@@ -137,7 +163,7 @@ ${header("../")}
           <p class="eyebrow">Mobil gardinservice i ${esc(city)}</p>
           <h1>Gardiner i ${esc(city)} — vi kommer hjem til dig</h1>
           <p class="lead">
-            Bor du i ${esc(city)} eller i ${esc(region)}? Gardinbussen kører hele
+            Bor du i ${esc(city)} eller i ${esc(region)}? bookgardinbussen.online kører hele
             gardinbutikken hjem til dig med et bredt udvalg af stoffer og
             løsninger. Vi måler op, rådgiver og monterer — alt sammen på ét besøg.
           </p>
@@ -169,7 +195,7 @@ ${header("../")}
       <div class="container legal">
         <h2>Gardiner og gardinmontering i ${esc(city)}</h2>
         <p>
-          Med Gardinbussen slipper du for at slæbe tunge prøvebøger frem og
+          Med bookgardinbussen.online slipper du for at slæbe tunge prøvebøger frem og
           tilbage. Vi kommer hjem til dig i ${esc(city)}, hvor du kan se
           stofferne i dit eget lys — præcis der, hvor gardinerne skal hænge.
         </p>
@@ -222,6 +248,106 @@ ${ctaCard(`Book gardinbesøg i ${city}`, `Vælg en ledig tid i ${city} — det t
 ${footer("../")}`;
 }
 
+// ---------- nyheder ----------
+function newsArt(item) {
+  const [a, b] = item.accent;
+  return `<svg class="news-art" viewBox="0 0 600 400" role="img" aria-label="${attr(item.title)}">
+        <rect width="600" height="400" fill="${a}"/>
+        <rect x="70" y="50" width="460" height="300" rx="12" fill="#ffffff" opacity="0.35"/>
+        <g fill="${b}">
+          <rect x="90" y="66" width="26" height="270" rx="6"/>
+          <rect x="126" y="66" width="26" height="270" rx="6"/>
+          <rect x="162" y="66" width="26" height="270" rx="6"/>
+          <rect x="198" y="66" width="26" height="270" rx="6"/>
+          <rect x="234" y="66" width="26" height="270" rx="6"/>
+          <rect x="270" y="66" width="26" height="270" rx="6"/>
+          <rect x="306" y="66" width="26" height="270" rx="6"/>
+          <rect x="342" y="66" width="26" height="270" rx="6"/>
+          <rect x="378" y="66" width="26" height="270" rx="6"/>
+          <rect x="414" y="66" width="26" height="270" rx="6"/>
+          <rect x="450" y="66" width="26" height="270" rx="6"/>
+          <rect x="486" y="66" width="26" height="270" rx="6"/>
+        </g>
+        <rect x="62" y="44" width="476" height="14" rx="7" fill="${b}"/>
+      </svg>`;
+}
+
+function newsPage() {
+  const url = `${SITE}/nyheder.html`;
+  const rows = NEWS.map((item) => {
+    const paras = item.body.map((p) => `          <p>${esc(p)}</p>`).join("\n");
+    const link = item.link.href === "book"
+      ? bookBtn(item.link.text, "btn-ghost")
+      : `<a class="btn btn-ghost" href="${item.link.href}">${esc(item.link.text)}</a>`;
+    return `      <article class="news-row" id="${item.slug}">
+        <div class="news-media">
+          ${newsArt(item)}
+        </div>
+        <div class="news-text">
+          <h2>${esc(item.title)}</h2>
+${paras}
+          <p class="news-actions">${link}</p>
+        </div>
+      </article>`;
+  }).join("\n");
+
+  const itemList = {
+    "@context": "https://schema.org", "@type": "ItemList",
+    itemListElement: NEWS.map((n, i) => ({ "@type": "ListItem", position: i + 1, name: n.title, url: `${url}#${n.slug}` })),
+  };
+  const breadcrumb = {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Forside", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Nyheder", item: url },
+    ],
+  };
+  return `${head({
+    title: "Nyheder & inspiration om gardiner | bookgardinbussen.online",
+    desc: "Nyheder og inspiration om gardiner: plisségardiner, lamelgardiner, motoriserede løsninger, mørklægning, insektnet og hyggelige gardinløsninger til hjemmet.",
+    url, relPrefix: "", jsonld: [itemList, breadcrumb],
+  })}
+<body>
+  <a class="skip-link" href="#nyheder">Gå til indhold</a>
+${header("")}
+  <main id="main">
+    <nav class="breadcrumb container" aria-label="Sti">
+      <a href="index.html">Forside</a> <span aria-hidden="true">›</span>
+      <span>Nyheder</span>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Nyheder & inspiration</p>
+          <h1>Nyt om gardiner, lys og indeklima</h1>
+          <p class="section-sub">Bliv inspireret af de nyeste trends og løsninger — og book et gratis hjemmebesøg, når du er klar.</p>
+        </header>
+        <div class="news-list" id="nyheder">
+${rows}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt booking" id="booking">
+      <div class="container booking-inner">
+        <div class="booking-copy">
+          <p class="eyebrow">Book hjemmebesøg</p>
+          <h2>Gratis og uforpligtende</h2>
+          <p>Vælg en tid der passer dig — så kommer vi hjem til dig med prøver, måler op og giver et fast tilbud. Ingen købepligt.</p>
+          <ul class="booking-points">
+            <li>Gratis og uforpligtende besøg</li>
+            <li>Prøver og rådgivning med hjemme</li>
+            <li>Fast tilbud på stedet</li>
+          </ul>
+        </div>
+${ctaCard("Book et gardinbesøg", "Det tager under et minut at vælge en ledig tid.")}
+      </div>
+    </section>
+  </main>
+${footer("")}`;
+}
+
 // ---------- blog ----------
 function blogPost(post) {
   const url = `${SITE}/blog/${post.slug}.html`;
@@ -234,8 +360,8 @@ function blogPost(post) {
     "@context": "https://schema.org", "@type": "Article",
     headline: post.h1, description: post.desc, image: `${SITE}/assets/og-image.svg`,
     mainEntityOfPage: url,
-    author: { "@type": "Organization", name: "Gardinbussen" },
-    publisher: { "@type": "Organization", name: "Gardinbussen", logo: { "@type": "ImageObject", url: `${SITE}/assets/og-image.svg` } },
+    author: { "@type": "Organization", name: "bookgardinbussen.online" },
+    publisher: { "@type": "Organization", name: "bookgardinbussen.online", logo: { "@type": "ImageObject", url: `${SITE}/assets/og-image.svg` } },
   };
   const breadcrumb = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -307,7 +433,7 @@ function blogIndex() {
     itemListElement: BLOG.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/blog/${p.slug}.html`, name: p.tag })),
   };
   return `${head({
-    title: "Blog: Guides til gardiner, rullegardiner og persienner | Gardinbussen",
+    title: "Blog: Guides til gardiner, rullegardiner og persienner | bookgardinbussen.online",
     desc: "Guides om gardiner, rullegardiner, persienner, plisségardiner, lamelgardiner og ophæng. Find den rigtige løsning til dine vinduer — og book en gratis opmåling.",
     url, relPrefix: "../", jsonld: [itemList],
   })}
@@ -361,10 +487,14 @@ for (const post of BLOG) {
 }
 fs.writeFileSync(path.join(BLOG_DIR, "index.html"), blogIndex());
 
+// nyheder
+fs.writeFileSync(path.join(ROOT, "nyheder.html"), newsPage());
+
 // sitemap
 const urls = [
   { loc: `${SITE}/`, freq: "weekly", pri: "1.0" },
   { loc: `${SITE}/om-os.html`, freq: "monthly", pri: "0.5" },
+  { loc: `${SITE}/nyheder.html`, freq: "weekly", pri: "0.6" },
   { loc: `${SITE}/blog/index.html`, freq: "weekly", pri: "0.6" },
   { loc: `${SITE}/privatlivspolitik.html`, freq: "yearly", pri: "0.3" },
 ]
