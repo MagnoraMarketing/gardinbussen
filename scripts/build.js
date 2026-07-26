@@ -9,7 +9,8 @@ const D = require("./site-data");
 const ROOT = path.join(__dirname, "..");
 const BYER_DIR = path.join(ROOT, "byer");
 const BLOG_DIR = path.join(ROOT, "blog");
-const { SITE, CITIES, REGION, BLOG, slugify, esc, attr, formSnippet } = D;
+const { SITE, CITIES, REGION, BLOG, slugify, esc, attr, bookBtn, ctaCard, AFFILIATE_BOOK_URL } = D;
+const BOOK = attr(AFFILIATE_BOOK_URL); // klar til href="" i skabeloner
 
 // ---------- fælles skabelon-dele ----------
 function head({ title, desc, url, relPrefix, jsonld }) {
@@ -51,7 +52,7 @@ function header(relPrefix) {
           <li><a href="${relPrefix}index.html#produkter">Produkter</a></li>
           <li><a href="${relPrefix}blog/index.html">Blog</a></li>
           <li><a href="${relPrefix}index.html#omraade">Byer</a></li>
-          <li><a class="nav-cta" href="#booking">Book hjemmebesøg</a></li>
+          <li><a class="nav-cta" href="${BOOK}" target="_blank" rel="noopener sponsored">Book hjemmebesøg</a></li>
         </ul>
       </nav>
     </div>
@@ -135,7 +136,7 @@ ${header("../")}
             løsninger. Vi måler op, rådgiver og monterer — alt sammen på ét besøg.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#booking">Book gratis hjemmebesøg</a>
+            ${bookBtn(`Book gratis hjemmebesøg i ${city}`, "btn-primary")}
             <a class="btn btn-ghost" href="../blog/index.html">Læs vores guides</a>
           </div>
           <ul class="hero-badges">
@@ -152,7 +153,7 @@ ${header("../")}
               <li><span>2</span> Vi kommer hjem med prøver</li>
               <li><span>3</span> Du får et fast tilbud på stedet</li>
             </ol>
-            <a class="btn btn-primary btn-block" href="#booking">Find en tid</a>
+            ${bookBtn("Find en ledig tid", "btn-primary btn-block")}
           </div>
         </div>
       </div>
@@ -197,9 +198,9 @@ ${faq.html}
         <div class="booking-copy">
           <p class="eyebrow">Book hjemmebesøg i ${esc(city)}</p>
           <h2>Gratis og uforpligtende</h2>
-          <p>Udfyld formularen, så ringer vi til dig og aftaler en tid i ${esc(city)}, der passer.</p>
+          <p>Book dit gardinbesøg i ${esc(city)} online. Vælg en tid der passer dig — så kommer vi hjem til dig med prøver, måler op og giver et fast tilbud.</p>
           <ul class="booking-points">
-            <li>Vi ringer inden for 1 hverdag</li>
+            <li>Gratis og uforpligtende besøg</li>
             <li>Prøver og rådgivning med hjemme</li>
             <li>Fast tilbud på stedet</li>
           </ul>
@@ -208,7 +209,7 @@ ${faq.html}
             <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>
           </p>
         </div>
-${formSnippet("../", { city })}
+${ctaCard(`Book gardinbesøg i ${city}`, `Vælg en ledig tid i ${city} — det tager under et minut.`)}
       </div>
     </section>
   </main>
@@ -270,9 +271,9 @@ ${faq.html}
         <div class="booking-copy">
           <p class="eyebrow">Book hjemmebesøg</p>
           <h2>Gratis og uforpligtende</h2>
-          <p>Udfyld formularen, så ringer vi til dig og aftaler en tid, der passer. Ingen købepligt.</p>
+          <p>Book dit gardinbesøg online. Vælg en tid der passer dig — så kommer vi hjem med prøver, måler op og giver et fast tilbud. Ingen købepligt.</p>
           <ul class="booking-points">
-            <li>Vi ringer inden for 1 hverdag</li>
+            <li>Gratis og uforpligtende besøg</li>
             <li>Prøver og rådgivning med hjemme</li>
             <li>Fast tilbud på stedet</li>
           </ul>
@@ -281,7 +282,7 @@ ${faq.html}
             <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>
           </p>
         </div>
-${formSnippet("../", { source: `blog: ${post.tag}` })}
+${ctaCard("Book et gardinbesøg", `Se ${post.tag.toLowerCase()} i dit eget hjem — book et gratis besøg.`)}
       </div>
     </section>
   </main>
@@ -370,4 +371,4 @@ fs.writeFileSync(
 );
 
 console.log(`Genererede ${CITIES.length} by-sider og ${BLOG.length} blogindlæg. Opdaterede index.html og sitemap.xml.`);
-console.log(`Formular-tilstand: ${D.AFFILIATE_FORM_URL ? "affiliate-iframe" : "indbygget booking-formular"}.`);
+console.log(`Alle book-CTA'er peger på: ${AFFILIATE_BOOK_URL}`);

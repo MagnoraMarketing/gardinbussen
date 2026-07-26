@@ -1,10 +1,9 @@
 // Fælles data + helpers til site-generatoren.
 // Rediger byer, blogindlæg og affiliate-formularens URL her.
 
-// Sæt denne til Gardinbus.nu's affiliate-formular-URL for at indlejre den
-// (iframe) i stedet for den indbyggede booking-formular på by- og blogsider.
-// Tom streng = brug den indbyggede formular (poster til /api/booking).
-const AFFILIATE_FORM_URL = "";
+// Affiliate-booking-link hos Gardinbus. Alle "book"-CTA'er på sitet peger
+// hertil. Skift kun denne linje for at opdatere linket overalt.
+const AFFILIATE_BOOK_URL = "https://gardinbus.nu/book-gardinbus/?paid=52168&pacid=6a657ff9efcc65.73307574&utm_source=partnerads&utm_medium=affiliate&utm_campaign=52168";
 
 const SITE = "https://bookgardinbussen.online";
 
@@ -241,52 +240,23 @@ function attr(s) {
   return esc(s).replace(/"/g, "&quot;");
 }
 
-// Formular-komponent: enten Gardinbus.nu-iframe (hvis AFFILIATE_FORM_URL er
-// sat) eller den indbyggede booking-formular. relPrefix er stien til roden
-// (f.eks. "../"). hidden er skjulte felter, f.eks. { city } eller { source }.
-function formSnippet(relPrefix, hidden) {
-  if (AFFILIATE_FORM_URL) {
-    return `        <div class="booking-form affiliate-embed">
-          <iframe src="${attr(AFFILIATE_FORM_URL)}" title="Book gardinbesøg" loading="lazy"></iframe>
+// Book-knap der peger på affiliate-linket (åbner i nyt vindue).
+function bookBtn(label, cls) {
+  return `<a class="btn ${cls}" href="${attr(AFFILIATE_BOOK_URL)}" target="_blank" rel="noopener sponsored">${esc(label)}</a>`;
+}
+
+// CTA-kort der erstatter booking-formularen. `label` varieres pr. side, så
+// call-to-actions ikke er ens overalt.
+function ctaCard(label, lead) {
+  return `        <div class="booking-form cta-card">
+          <p class="cta-card-tag">Book online</p>
+          <p class="cta-card-lead">${esc(lead)}</p>
+          ${bookBtn(label, "btn-primary btn-block")}
+          <p class="cta-card-note">Du sendes til Gardinbus' bookingside i et nyt vindue.</p>
         </div>`;
-  }
-  const hiddenInputs = Object.entries(hidden || {})
-    .map(([k, v]) => `          <input type="hidden" name="${attr(k)}" value="${attr(v)}" />`)
-    .join("\n");
-  return `        <form class="booking-form" id="booking-form" novalidate>
-${hiddenInputs ? hiddenInputs + "\n" : ""}          <div class="field field-hp" aria-hidden="true">
-            <label for="company">Firma (lad stå tomt)</label>
-            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
-          </div>
-          <div class="field">
-            <label for="name">Navn</label>
-            <input type="text" id="name" name="name" autocomplete="name" required />
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="phone">Telefon</label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" required />
-            </div>
-            <div class="field">
-              <label for="zip">Postnr.</label>
-              <input type="text" id="zip" name="zip" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="postal-code" required />
-            </div>
-          </div>
-          <div class="field">
-            <label for="email">E-mail <span class="optional">(valgfrit)</span></label>
-            <input type="email" id="email" name="email" autocomplete="email" />
-          </div>
-          <div class="field">
-            <label for="message">Hvad drømmer du om? <span class="optional">(valgfrit)</span></label>
-            <textarea id="message" name="message" rows="3" placeholder="F.eks. mørklægning i soveværelset og lette gardiner i stuen"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Send og bliv ringet op</button>
-          <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
-          <p class="form-fineprint">Vi bruger kun dine oplysninger til at kontakte dig om din henvendelse. Læs vores <a href="${relPrefix}privatlivspolitik.html">privatlivspolitik</a>.</p>
-        </form>`;
 }
 
 module.exports = {
-  AFFILIATE_FORM_URL, SITE, CITIES, REGION, BLOG,
-  slugify, esc, attr, formSnippet,
+  AFFILIATE_BOOK_URL, SITE, CITIES, REGION, BLOG,
+  slugify, esc, attr, bookBtn, ctaCard,
 };

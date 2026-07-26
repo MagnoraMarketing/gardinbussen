@@ -84,10 +84,13 @@ indhold, en FAQ og structured data — `HomeAndConstructionBusiness`,
 **Leads:** booking-formularen sender et skjult `city`- eller `source`-felt med,
 så du kan se om et lead kom fra en by-side eller en blogartikel.
 
-### Affiliate-formular (Gardinbus.nu)
+### Affiliate-booking (Gardinbus)
 
-Formularen på by- og blogsider er en delt komponent. Sæt
-`AFFILIATE_FORM_URL` i `scripts/site-data.js` til Gardinbus.nu's
-affiliate-formular-URL og kør `node scripts/build.js` igen — så indlejres
-deres formular (iframe) alle steder i stedet for den indbyggede. Tom streng =
-den indbyggede formular (poster til `/api/booking`).
+Kontaktformularen er indtil videre erstattet af "book"-CTA'er, der sender
+brugeren til Gardinbus' affiliate-bookingside. Linket ligger ét sted:
+`AFFILIATE_BOOK_URL` i `scripts/site-data.js`. Skift den linje og kør
+`node scripts/build.js` for at opdatere alle by- og blogsider; på `index.html`
+optræder samme link i menu, hero, produktkort, område og booking-sektionen.
+
+Vil du senere tilbage til den indbyggede formular, findes den stadig i git-
+historikken sammen med `api/booking.js` (serverless-endpoint), der er bevaret.

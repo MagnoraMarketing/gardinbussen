@@ -178,12 +178,15 @@ img, svg { max-width: 100%; }
 /* Products --------------------------------------------------------------- */
 .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
 .product-card {
+  display: flex; flex-direction: column; gap: 0.4rem;
   background: var(--white); border: 1px solid var(--sand-200); border-radius: var(--radius);
-  padding: 1.5rem; box-shadow: var(--shadow-sm); transition: transform .15s ease, box-shadow .2s ease;
+  padding: 1.5rem; box-shadow: var(--shadow-sm); color: var(--ink);
+  transition: transform .15s ease, box-shadow .2s ease;
 }
-.product-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.product-card h3 { color: var(--green-900); }
+.product-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); text-decoration: none; }
+.product-card h3 { color: var(--green-900); margin: 0; }
 .product-card p { color: var(--ink-soft); margin: 0; }
+.product-card-link { margin-top: auto; padding-top: 0.4rem; color: var(--green-700); font-weight: 700; }
 
 /* Gallery ---------------------------------------------------------------- */
 .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
@@ -241,9 +244,12 @@ img, svg { max-width: 100%; }
 .blog-cta-note { margin-top: 2rem; font-weight: 600; color: var(--green-900); }
 .article h2 { margin-top: 2rem; }
 
-/* Affiliate embed (iframe) ----------------------------------------------- */
-.affiliate-embed { padding: 0; overflow: hidden; }
-.affiliate-embed iframe { display: block; width: 100%; min-height: 640px; border: 0; }
+/* Booking CTA card ------------------------------------------------------- */
+.cta-card { display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 0.6rem; }
+.cta-card-tag { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.78rem; font-weight: 700; color: var(--green-600); margin: 0; }
+.cta-card-lead { color: var(--ink-soft); margin: 0 0 0.4rem; }
+.cta-card .btn { font-size: 1.08rem; padding: 1em 1.5em; }
+.cta-card-note { font-size: 0.82rem; color: var(--ink-soft); margin: 0.2rem 0 0; }
 
 /* Breadcrumb ------------------------------------------------------------- */
 .breadcrumb { padding-top: 1.2rem; font-size: 0.9rem; color: var(--ink-soft); }
