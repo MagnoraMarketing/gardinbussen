@@ -7,11 +7,9 @@
 import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { header, footer } from "../assets/site.mjs";
+import { SITE_URL, SITE_NAME, BRAND, header, footer } from "../assets/site.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
-const SITE_URL = "https://gardinbussen.dk"; // TODO: ret til dit rigtige domæne
-const BRAND = "Gardinbussen";
 const AFF = "https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&amp;bannerid=115355&amp;htmlurl=https://gardinbus.nu/gardinbus-book/";
 
 /* Stiliseret rum-scene tegnet i SVG — varierer efter vægfarve og gardinfarve */
@@ -110,7 +108,7 @@ const html = `<!doctype html>
 <link rel="canonical" href="${canonical}">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="da_DK">
-<meta property="og:site_name" content="${BRAND}">
+<meta property="og:site_name" content="${SITE_NAME}">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="${canonical}">

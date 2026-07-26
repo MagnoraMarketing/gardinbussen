@@ -4,10 +4,9 @@
 import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { BRAND, CITIES, REGIONS, AFF_BOOK, BOOK_URL, header, footer } from "../assets/site.mjs";
+import { SITE_URL, SITE_NAME, BRAND, CITIES, REGIONS, AFF_BOOK, BOOK_URL, header, footer } from "../assets/site.mjs";
 
 const __dir = dirname(fileURLToPath(import.meta.url));
-const SITE_URL = "https://gardinbussen.dk"; // TODO: ret til dit rigtige domæne
 const BASE = `${SITE_URL}/byer`;
 
 function headTag({ title, description, canonical, jsonld }) {
@@ -22,7 +21,7 @@ function headTag({ title, description, canonical, jsonld }) {
 <link rel="canonical" href="${canonical}">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="da_DK">
-<meta property="og:site_name" content="${BRAND}">
+<meta property="og:site_name" content="${SITE_NAME}">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="${canonical}">

@@ -1,7 +1,10 @@
 /* Fælles byggeklodser for hele sitet: header (med by-dropdown), footer,
  * affiliate-hjælpere og listen over byer. Importeres af generatorerne. */
 
-export const BRAND = "Gardinbussen";
+/* Centralt domæne — ret KUN her, hvis domænet skifter */
+export const SITE_URL = "https://bookgardinbussen.online";
+export const SITE_NAME = "Book Gardinbussen"; // til og:site_name og titler (SEO)
+export const BRAND = "Gardinbussen";           // synligt wordmark i header/footer
 export const PARTNER = "52168";
 export const BANNER = "115355";
 
