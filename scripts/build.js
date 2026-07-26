@@ -9,7 +9,7 @@ const D = require("./site-data");
 const ROOT = path.join(__dirname, "..");
 const BYER_DIR = path.join(ROOT, "byer");
 const BLOG_DIR = path.join(ROOT, "blog");
-const { SITE, CITIES, REGION, BLOG, NEWS, slugify, esc, attr, bookBtn, ctaCard, AFFILIATE_BOOK_URL } = D;
+const { SITE, CITIES, REGION, BLOG, NEWS, INSPIRATION, slugify, esc, attr, bookBtn, ctaCard, AFFILIATE_BOOK_URL } = D;
 const BOOK = attr(AFFILIATE_BOOK_URL); // klar til href="" i skabeloner
 
 // ---------- fælles skabelon-dele ----------
@@ -55,6 +55,7 @@ function header(relPrefix) {
         <ul class="nav-list" id="nav-list">
           <li><a href="${relPrefix}index.html">Forside</a></li>
           <li><a href="${relPrefix}index.html#produkter">Produkter</a></li>
+          <li><a href="${relPrefix}inspiration.html">Inspiration</a></li>
           <li><a href="${relPrefix}blog/index.html">Blog</a></li>
           <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
           <li><a href="${relPrefix}index.html#omraade">Byer</a></li>
@@ -78,6 +79,7 @@ function footer(relPrefix) {
         <ul>
           <li><a href="${relPrefix}index.html">Forside</a></li>
           <li><a href="${relPrefix}index.html#produkter">Produkter</a></li>
+          <li><a href="${relPrefix}inspiration.html">Inspiration</a></li>
           <li><a href="${relPrefix}blog/index.html">Blog</a></li>
           <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
           <li><a href="${relPrefix}index.html#omraade">Byer</a></li>
@@ -348,6 +350,83 @@ ${ctaCard("Book et gardinbesøg", "Det tager under et minut at vælge en ledig t
 ${footer("")}`;
 }
 
+// ---------- inspiration ----------
+function inspirationPage() {
+  const url = `${SITE}/inspiration.html`;
+  const rows = INSPIRATION.map((item) => {
+    const paras = item.body.map((p) => `          <p>${esc(p)}</p>`).join("\n");
+    const link = item.link.href === "book"
+      ? bookBtn(item.link.text, "btn-ghost")
+      : `<a class="btn btn-ghost" href="${item.link.href}">${esc(item.link.text)}</a>`;
+    return `      <article class="news-row" id="${item.slug}">
+        <div class="news-media">
+          ${newsArt(item)}
+        </div>
+        <div class="news-text">
+          <h2>${esc(item.title)}</h2>
+${paras}
+          <p class="news-actions">${link}</p>
+        </div>
+      </article>`;
+  }).join("\n");
+
+  const itemList = {
+    "@context": "https://schema.org", "@type": "ItemList",
+    itemListElement: INSPIRATION.map((n, i) => ({ "@type": "ListItem", position: i + 1, name: n.title, url: `${url}#${n.slug}` })),
+  };
+  const breadcrumb = {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Forside", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Inspiration", item: url },
+    ],
+  };
+  return `${head({
+    title: "Inspiration & forslag til gardiner rum for rum | bookgardinbussen.online",
+    desc: "Få inspiration og konkrete forslag til gardiner rum for rum — stue, soveværelse, køkken, børneværelse, badeværelse og hjemmekontor. Book et gratis hjemmebesøg.",
+    url, relPrefix: "", jsonld: [itemList, breadcrumb],
+  })}
+<body>
+  <a class="skip-link" href="#inspiration">Gå til indhold</a>
+${header("")}
+  <main id="main">
+    <nav class="breadcrumb container" aria-label="Sti">
+      <a href="index.html">Forside</a> <span aria-hidden="true">›</span>
+      <span>Inspiration</span>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Inspiration & forslag</p>
+          <h1>Find den rigtige gardinløsning til hvert rum</h1>
+          <p class="section-sub">Bliv inspireret rum for rum — og få vores konkrete forslag til, hvad der fungerer bedst. Er du i tvivl, kommer vi gerne hjem til dig med prøver og rådgivning.</p>
+        </header>
+        <div class="news-list" id="inspiration">
+${rows}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt booking" id="booking">
+      <div class="container booking-inner">
+        <div class="booking-copy">
+          <p class="eyebrow">Book hjemmebesøg</p>
+          <h2>Skal vi hjælpe dig i gang?</h2>
+          <p>Vælg en tid der passer dig — så kommer vi hjem til dig med prøver, måler op og giver et fast tilbud. Ingen købepligt.</p>
+          <ul class="booking-points">
+            <li>Gratis og uforpligtende besøg</li>
+            <li>Prøver og rådgivning med hjemme</li>
+            <li>Fast tilbud på stedet</li>
+          </ul>
+        </div>
+${ctaCard("Book et gardinbesøg", "Det tager under et minut at vælge en ledig tid.")}
+      </div>
+    </section>
+  </main>
+${footer("")}`;
+}
+
 // ---------- blog ----------
 function blogPost(post) {
   const url = `${SITE}/blog/${post.slug}.html`;
@@ -490,10 +569,14 @@ fs.writeFileSync(path.join(BLOG_DIR, "index.html"), blogIndex());
 // nyheder
 fs.writeFileSync(path.join(ROOT, "nyheder.html"), newsPage());
 
+// inspiration
+fs.writeFileSync(path.join(ROOT, "inspiration.html"), inspirationPage());
+
 // sitemap
 const urls = [
   { loc: `${SITE}/`, freq: "weekly", pri: "1.0" },
   { loc: `${SITE}/om-os.html`, freq: "monthly", pri: "0.5" },
+  { loc: `${SITE}/inspiration.html`, freq: "monthly", pri: "0.6" },
   { loc: `${SITE}/nyheder.html`, freq: "weekly", pri: "0.6" },
   { loc: `${SITE}/blog/index.html`, freq: "weekly", pri: "0.6" },
   { loc: `${SITE}/privatlivspolitik.html`, freq: "yearly", pri: "0.3" },
