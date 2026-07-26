@@ -58,19 +58,36 @@ kvitteres og logges i funktionens log, så intet går tabt inden e-mail kobles p
 - `tak.html` — kvitteringsside
 - `byer/<by>.html` — én lokal landingsside pr. by (de 50 største byer i DK)
 
-## By-sider (lokal SEO)
+## Generering af sider (by-sider + blog)
 
-De 50 by-sider genereres fra en skabelon, så de er ensartede og nemme at
-opdatere samlet. Rediger by-listen eller skabelonen i
-`scripts/build-cities.js` og kør:
+By-sider og blog genereres fra fælles data, så alt er ensartet og nemt at
+opdatere samlet. Data ligger i `scripts/site-data.js` (byer, blogindlæg og
+den delte formular-komponent), og `scripts/build.js` bygger det hele:
 
 ```bash
-node scripts/build-cities.js
+node scripts/build.js
 ```
 
-Scriptet gør tre ting: skriver alle `byer/<by>.html`, indsætter by-linkene på
-forsiden (mellem `<!-- CITIES:START -->` og `<!-- CITIES:END -->`) og
-regenererer `sitemap.xml`. Hver by-side har lokal titel/meta, unikt indhold pr.
-landsdel, en FAQ og structured data (`HomeAndConstructionBusiness`,
-`BreadcrumbList` og `FAQPage` til rich snippets i Google). Booking-formularen
-sender et skjult `city`-felt med, så leads viser hvilken by de kommer fra.
+Scriptet:
+
+- skriver alle `byer/<by>.html` (50 største byer i DK) og `blog/<type>.html`
+  (én guide pr. gardintype) samt `blog/index.html`
+- indsætter by-linkene på forsiden mellem `<!-- CITIES:START -->` og
+  `<!-- CITIES:END -->`
+- regenererer `sitemap.xml` med forside, blog, privatlivspolitik og alle
+  by-/blog-sider
+
+**SEO:** hver by-side og blogartikel har lokal/relevant titel + meta, unikt
+indhold, en FAQ og structured data — `HomeAndConstructionBusiness`,
+`Article`, `BreadcrumbList` og `FAQPage` (giver rich snippets i Google).
+
+**Leads:** booking-formularen sender et skjult `city`- eller `source`-felt med,
+så du kan se om et lead kom fra en by-side eller en blogartikel.
+
+### Affiliate-formular (Gardinbus.nu)
+
+Formularen på by- og blogsider er en delt komponent. Sæt
+`AFFILIATE_FORM_URL` i `scripts/site-data.js` til Gardinbus.nu's
+affiliate-formular-URL og kør `node scripts/build.js` igen — så indlejres
+deres formular (iframe) alle steder i stedet for den indbyggede. Tom streng =
+den indbyggede formular (poster til `/api/booking`).

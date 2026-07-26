@@ -47,6 +47,7 @@ async function sendEmail(booking) {
     ["By", booking.city || "—"],
     ["E-mail", booking.email || "—"],
     ["Besked", booking.message || "—"],
+    ["Kilde", booking.source || "—"],
   ]
     .map(function (r) {
       return "<tr><td style=\"padding:4px 12px 4px 0;font-weight:700\">" +
@@ -90,6 +91,7 @@ module.exports = async function handler(req, res) {
     email: clean(body.email, 160),
     message: clean(body.message, 2000),
     city: clean(body.city, 80),
+    source: clean(body.source, 120),
   };
 
   const errors = [];

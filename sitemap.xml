@@ -6,9 +6,44 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://bookgardinbussen.online/blog/index.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://bookgardinbussen.online/privatlivspolitik.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://bookgardinbussen.online/blog/gardiner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bookgardinbussen.online/blog/rullegardiner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bookgardinbussen.online/blog/persienner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bookgardinbussen.online/blog/plissegardiner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bookgardinbussen.online/blog/lamelgardiner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bookgardinbussen.online/blog/gardinstaenger-og-skinner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bookgardinbussen.online/byer/koebenhavn.html</loc>
