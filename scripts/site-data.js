@@ -46,6 +46,7 @@ const REGION = {
 const BLOG = [
   {
     slug: "gardiner",
+    category: "Gardintyper",
     metaTitle: "Gardiner: Den komplette guide til valg af gardiner | bookgardinbussen.online",
     h1: "Gardiner — den komplette guide",
     tag: "Gardiner",
@@ -76,6 +77,7 @@ const BLOG = [
   },
   {
     slug: "rullegardiner",
+    category: "Gardintyper",
     metaTitle: "Rullegardiner: Guide til valg, mørklægning og montering | bookgardinbussen.online",
     h1: "Rullegardiner — enkelt, funktionelt og lækkert",
     tag: "Rullegardiner",
@@ -106,6 +108,7 @@ const BLOG = [
   },
   {
     slug: "persienner",
+    category: "Gardintyper",
     metaTitle: "Persienner: Alu eller træ? Guide til lysstyring | bookgardinbussen.online",
     h1: "Persienner — præcis lysstyring",
     tag: "Persienner",
@@ -136,6 +139,7 @@ const BLOG = [
   },
   {
     slug: "plissegardiner",
+    category: "Gardintyper",
     metaTitle: "Plisségardiner: Fleksibel skærmning til alle vinduer | bookgardinbussen.online",
     h1: "Plisségardiner — fleksible og elegante",
     tag: "Plisségardiner",
@@ -166,6 +170,7 @@ const BLOG = [
   },
   {
     slug: "lamelgardiner",
+    category: "Gardintyper",
     metaTitle: "Lamelgardiner: Elegant løsning til store vinduer | bookgardinbussen.online",
     h1: "Lamelgardiner — til store partier og skydedøre",
     tag: "Lamelgardiner",
@@ -196,6 +201,7 @@ const BLOG = [
   },
   {
     slug: "gardinstaenger-og-skinner",
+    category: "Gardintyper",
     metaTitle: "Gardinstænger og skinner: Sådan vælger du ophæng | bookgardinbussen.online",
     h1: "Gardinstænger og skinner — det rigtige ophæng",
     tag: "Gardinstænger & skinner",
@@ -222,6 +228,346 @@ const BLOG = [
       { q: "Skal jeg vælge stang eller skinne?", a: "Vælg en gardinstang, hvis ophænget må ses og gerne må være en detalje. Vælg en skinne, hvis den skal være diskret, eller hvis du vil kunne føre gardinet rundt om hjørner." },
       { q: "Kan ophæng bøjes rundt om hjørner?", a: "Ja, gardinskinner kan bøjes og føres rundt om f.eks. karnapvinduer, så gardinet følger væggen." },
       { q: "Kan gardinstænger og skinner motoriseres?", a: "Ja, begge dele fås med motor, så du kan trække gardinerne med fjernbetjening eller app." },
+    ],
+  },
+  {
+    slug: "moerklaegningsgardiner-efteraar",
+    metaTitle: "Mørklægningsgardiner til de mørke efterårsaftener | bookgardinbussen.online",
+    h1: "Mørklægningsgardiner — ro og mørke i efterårets aftener",
+    tag: "Mørklægningsgardiner",
+    category: "Efterår – guides & fordele",
+    eyebrow: "Guide · Efterår",
+    desc: "Mørklægningsgardiner lukker gadelys og træk ude om efteråret. Læs om fordele, materialer og montering — og book en gratis opmåling hjemme hos dig.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Efteråret betyder tidligere mørke og skarpt gadelys, der trænger ind gennem ruden. Mørklægningsgardiner giver dig kontrol over lyset, så du kan skabe ro og fordybelse — uanset hvad klokken er udenfor.",
+      "Her ser vi på, hvornår mørklægning giver mest mening, hvilke fordele det giver i efterårs- og vintermånederne, og hvad du skal vide om stof og montering.",
+    ],
+    sections: [
+      { h: "Fordelene ved mørklægning om efteråret", p: [
+        "Når solen står lavt og går tidligt ned, bliver hjemmebiografen, sovehjørnet og læselampen for alvor taget i brug. Mørklægningsgardiner lukker forstyrrende lys ude, dæmper lyd og hjælper med at holde på varmen ved vinduet.",
+        "Resultatet er et roligt, lunt rum, hvor du selv bestemmer, hvornår mørket falder på — ideelt til biografaftener og lange, mørke morgener.",
+      ]},
+      { h: "Fuld eller delvis mørklægning?", p: [
+        "Fuld mørklægning bruger et tæt, lystæt stof, der lukker næsten alt lys ude — perfekt til soveværelse og medierum. Delvis mørklægning (dimout) dæmper lyset uden at gøre rummet helt bælgmørkt og bevarer en blødere stemning.",
+        "Valget afhænger af rummet: I soveværelset vinder fuld mørklægning ofte, mens stuen kan nøjes med dimout for at bevare hyggen.",
+      ]},
+      { h: "Montering tæt på vinduet", p: [
+        "For at få mest muligt ud af mørklægningen skal gardinet dække vinduet helt — gerne monteret så det går ud over karmen i både bredde og højde, så lyset ikke siver ind i siderne.",
+        "En præcis opmåling er afgørende. Vi måler op på stedet og monterer, så mørklægningen slutter tæt hele vejen rundt.",
+      ]},
+    ],
+    faq: [
+      { q: "Lukker mørklægningsgardiner alt lys ude?", a: "Fuldt mørklæggende stoffer lukker næsten alt lys ude, når gardinet dækker vinduet helt og er monteret ud over karmen. Ellers kan der sive lidt lys ind i siderne." },
+      { q: "Hjælper mørklægningsgardiner på varmen?", a: "Ja, tætte mørklægningsstoffer lægger et ekstra lag ved ruden, der dæmper træk og hjælper med at holde på varmen om efteråret og vinteren." },
+      { q: "Kan mørklægning fås som rullegardin og plissé?", a: "Ja. Mørklægning fås både som gardiner, rullegardiner og plisségardiner. Ved besøget finder vi den løsning, der passer bedst til dit vindue." },
+    ],
+  },
+  {
+    slug: "hold-paa-varmen-med-gardiner",
+    metaTitle: "Hold på varmen med gardiner om efteråret | bookgardinbussen.online",
+    h1: "Hold på varmen — gardiner der sparer på varmeregningen",
+    tag: "Hold på varmen",
+    category: "Efterår – guides & fordele",
+    eyebrow: "Guide · Efterår",
+    desc: "Gardiner kan mindske varmetab ved vinduerne om efteråret. Læs hvordan tætte stoffer og korrekt ophæng holder på varmen — og book en gratis opmåling.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "En stor del af varmen i boligen forsvinder gennem vinduerne. Når efterårskulden sætter ind, kan de rigtige gardiner gøre en mærkbar forskel — både for komforten og for varmeregningen.",
+      "I denne guide gennemgår vi, hvordan gardiner mindsker varmetab, hvilke stoffer der virker bedst, og hvordan ophænget afgør, om du reelt holder på varmen.",
+    ],
+    sections: [
+      { h: "Sådan mister vinduerne varme", p: [
+        "Ved et koldt vindue afkøles luften og synker ned langs ruden — det er den kuldenedfald, du mærker som træk ved fødderne. Et tæt gardin foran vinduet fanger den kolde luft og skaber et isolerende luftlag mellem stof og rude.",
+        "Effekten er størst, når gardinet slutter tæt foroven og går helt til gulv, så den kolde luft ikke kan cirkulere frit ud i rummet.",
+      ]},
+      { h: "Vælg tætte, fyldige stoffer", p: [
+        "Tunge, tætvævede stoffer isolerer bedre end lette. Et gardin med foer — eller decideret termofoer — lægger et ekstra lag, der bremser varmetabet uden at du behøver skifte hele gardinet.",
+        "Jo fyldigere faldet er, desto flere isolerende luftlommer, så vær ikke sparsom med stofmængden.",
+      ]},
+      { h: "Ophæng der lukker tæt", p: [
+        "For at holde på varmen skal gardinet dække vinduet helt og gerne overlappe karmen i siderne. En skinne med tæt afslutning foroven forhindrer, at den varme luft slipper op bag gardinet.",
+        "Vi rådgiver om ophæng og foer ved opmålingen, så løsningen både ser godt ud og faktisk isolerer.",
+      ]},
+    ],
+    faq: [
+      { q: "Kan gardiner virkelig spare på varmen?", a: "Ja. Tætte, gulvlange gardiner skaber et isolerende luftlag ved ruden, der mindsker kuldenedfald og varmetab — særligt ved ældre vinduer." },
+      { q: "Hjælper det at fore gardinerne?", a: "Et foer eller termofoer lægger et ekstra isolerende lag og forbedrer både varmeholdelse og mørklægning uden at ændre gardinets forside." },
+      { q: "Skal gardinet nå helt til gulv?", a: "For bedst isolering bør gardinet gå helt til gulv og slutte tæt foroven, så den kolde luft fra ruden ikke cirkulerer ud i rummet." },
+    ],
+  },
+  {
+    slug: "termogardiner-spar-paa-varmen",
+    metaTitle: "Termogardiner: spar på varmeregningen i efteråret | bookgardinbussen.online",
+    h1: "Termogardiner — komfort og besparelse i den kolde tid",
+    tag: "Termogardiner",
+    category: "Efterår – guides & fordele",
+    eyebrow: "Guide · Efterår",
+    desc: "Termogardiner isolerer vinduet og mindsker træk og varmetab om efteråret. Læs om fordele, materialer og montering — og book en gratis opmåling hjemme.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Termogardiner er gardiner med et særligt isolerende foer, der bremser varmetabet gennem vinduet. I efterårs- og vintermånederne betyder det både bedre komfort og lavere varmeforbrug.",
+      "Vi ser her på, hvordan termogardiner virker, hvilke fordele de giver, og hvornår de bedst kan betale sig.",
+    ],
+    sections: [
+      { h: "Sådan virker termogardiner", p: [
+        "Et termofoer består typisk af flere lag, der fanger luft og skaber en isolerende barriere mellem den kolde rude og rummet. Det mindsker kuldenedfald og hjælper radiatoren med at holde en jævn temperatur.",
+        "Mange termogardiner mørklægger samtidig, så du får både isolering og lyskontrol i ét produkt.",
+      ]},
+      { h: "Hvor gør de mest gavn?", p: [
+        "Termogardiner gør størst forskel ved ældre vinduer, store glaspartier og rum, der føles kolde eller trækkende. Soveværelser og stuer mod nord er oplagte steder at starte.",
+        "Ved nyere, velisolerede vinduer er gevinsten mindre, men komforten og den behagelige stemning er der stadig.",
+      ]},
+      { h: "Montering for maksimal effekt", p: [
+        "For at termogardinet virker, skal det slutte tæt hele vejen rundt om vinduet — gerne monteret ud over karmen og helt til gulv, så den varme luft ikke slipper ud i siderne eller foroven.",
+        "Vi vurderer dine vinduer ved besøget og anbefaler det ophæng, der giver den bedste isolerende effekt.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvad er forskellen på termogardiner og almindelige gardiner?", a: "Termogardiner har et isolerende foer i flere lag, der bremser varmetab og kuldenedfald ved ruden. Almindelige gardiner isolerer mindre og er mest til pynt og lyskontrol." },
+      { q: "Kan termogardiner betale sig?", a: "Ja, især ved ældre vinduer og kolde rum, hvor de mindsker varmetabet mærkbart. Ved nye vinduer er besparelsen mindre, men komforten stiger." },
+      { q: "Mørklægger termogardiner også?", a: "Mange termogardiner mørklægger samtidig, så du får både isolering og lyskontrol. Vi finder den rette kombination ved opmålingen." },
+    ],
+  },
+  {
+    slug: "gardiner-sovevaerelse-efteraar",
+    metaTitle: "Gardiner i soveværelset om efteråret — bedre søvn i mørketiden | bookgardinbussen.online",
+    h1: "Soveværelset om efteråret — gardiner til bedre søvn",
+    tag: "Soveværelse om efteråret",
+    category: "Efterår – guides & fordele",
+    eyebrow: "Guide · Efterår",
+    desc: "De rigtige gardiner giver ro, mørke og lunt soveværelse om efteråret. Læs om mørklægning, stof og montering — og book en gratis opmåling hjemme hos dig.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Om efteråret vågner vi i mørke og falder i søvn til gadelys og lave temperaturer. Soveværelset har brug for gardiner, der både lukker lyset ude og holder på varmen, så du sover trygt og godt.",
+      "Her får du guiden til soveværelsets gardiner — med fokus på mørklægning, et lunt indeklima og en rolig stemning i mørketiden.",
+    ],
+    sections: [
+      { h: "Mørke for en bedre nattesøvn", p: [
+        "Selv svagt lys fra gadelamper og tidlige morgener kan forstyrre søvnen. Mørklægningsgardiner skaber det mørke, kroppen har brug for, og hjælper dig med at sove længere, når morgenerne er sorte.",
+        "Vil du kunne vågne blidt, kan du kombinere mørklægning med et let gardin, så du selv styrer, hvor meget morgenlys der slipper ind.",
+      ]},
+      { h: "Et lunt og roligt indeklima", p: [
+        "Et tæt gardin ved ruden dæmper træk og hjælper med at holde en behagelig sovetemperatur i det køligere efterår. Samtidig dæmper det lyd fra vejen, så soveværelset bliver en rolig oase.",
+        "Bløde, fyldige stoffer bidrager til den lune, indpakkede fornemmelse, der gør det ekstra rart at krybe under dynen.",
+      ]},
+      { h: "Vælg stof og ophæng med omtanke", p: [
+        "Til soveværelset er tætte, mørklæggende stoffer i afdæmpede farver ofte det bedste valg. Sørg for, at gardinet dækker vinduet helt og går ud over karmen, så lyset ikke siver ind i siderne.",
+        "Vi måler op og rådgiver om stof, mørklægningsgrad og montering, så soveværelset bliver præcis så mørkt og lunt, du ønsker.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvilke gardiner er bedst i soveværelset om efteråret?", a: "Tætte, mørklæggende gardiner i afdæmpede farver giver ro og mørke, holder på varmen og dæmper lyd — ideelt til søvn i den mørke tid." },
+      { q: "Kan jeg stadig få morgenlys ind?", a: "Ja. Kombinér mørklægning med et let gardin, så du kan lukke blidt morgenlys ind uden at give afkald på fuld mørklægning om natten." },
+      { q: "Dæmper gardiner også lyd?", a: "Fyldige, tætte stoffer dæmper lyd fra gaden og gør soveværelset roligere — en fordel især i byen og ved trafikerede veje." },
+    ],
+  },
+  {
+    slug: "gardiner-mod-traek-og-kulde",
+    metaTitle: "Gardiner mod træk og kulde ved vinduerne | bookgardinbussen.online",
+    h1: "Gardiner mod træk — luk kulden ude i efteråret",
+    tag: "Træk og kulde",
+    category: "Efterår – guides & fordele",
+    eyebrow: "Guide · Efterår",
+    desc: "Mærker du træk fra vinduerne om efteråret? Sådan mindsker gardiner kuldenedfald og træk. Læs guiden — og book en gratis opmåling hjemme hos dig.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Kold luft, der siver ind langs vinduerne, er en klassisk efterårsgene — særligt i ældre boliger. Det rette gardin kan mindske trækken mærkbart og gøre rummet både lunere og mere behageligt at opholde sig i.",
+      "I denne guide ser vi på, hvorfor du mærker træk ved vinduet, og hvordan gardiner hjælper med at holde den kolde luft på plads.",
+    ],
+    sections: [
+      { h: "Hvorfor mærker du træk ved vinduet?", p: [
+        "Selv om vinduet er tæt, afkøles luften mod den kolde rude og synker ned mod gulvet. Det opleves som en kølig trækvind ved fødderne — også når der ikke reelt trænger luft ind udefra.",
+        "Et tæt, gulvlangt gardin bremser denne bevægelse ved at fange den kolde luft mellem stof og rude.",
+      ]},
+      { h: "Gardiner der bremser kuldenedfald", p: [
+        "Tætte, fyldige gardiner — gerne med foer — danner en isolerende barriere foran vinduet. Jo tættere gardinet slutter foroven og jo længere det når ned, desto mindre kold luft slipper ud i rummet.",
+        "Kombinerer du med et rullegardin eller en plissé helt inde ved ruden, får du et ekstra lag mod kulden.",
+      ]},
+      { h: "Tætning kræver rigtig montering", p: [
+        "Effekten mod træk afhænger af, at gardinet dækker vinduet helt og slutter tæt i toppen. En skinne med afslutning, der lukker luften inde, virker bedre end en åben stang, hvor varm luft kan stige op bagom.",
+        "Ved besøget vurderer vi dine vinduer og anbefaler den løsning, der bedst holder kulden ude.",
+      ]},
+    ],
+    faq: [
+      { q: "Kan gardiner fjerne træk fra vinduet?", a: "Gardiner fjerner ikke utætheder i selve vinduet, men tætte, gulvlange gardiner mindsker kuldenedfald og den træk, du mærker ved fødderne, mærkbart." },
+      { q: "Hjælper det med flere lag?", a: "Ja. Et rullegardin eller en plissé inde ved ruden kombineret med et tungt gardin udenpå giver flere isolerende lag mod kulden." },
+      { q: "Hvilket ophæng er bedst mod træk?", a: "En skinne, der slutter tæt foroven, holder bedre på varmen end en åben stang, fordi den varme luft ikke kan stige op bag gardinet." },
+    ],
+  },
+  {
+    slug: "gardiner-om-efteraaret-hygge",
+    metaTitle: "Gardiner om efteråret: sådan skaber du hygge og lune | bookgardinbussen.online",
+    h1: "Gardiner om efteråret — hygge, lune og bløde rammer",
+    tag: "Efterårshygge",
+    category: "Efterår – inspiration",
+    eyebrow: "Inspiration · Efterår",
+    desc: "Skab efterårshygge med de rigtige gardiner. Guide til bløde stoffer, varme farver og lune rammer, der gør hjemmet klar til den mørke tid.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Når mørket falder tidligere på, og regnen trommer mod ruden, bliver hjemmet vores fristed. Gardiner er en af de hurtigste og hyggeligste måder at gøre boligen efterårsklar på — de blødgør lyset, dæmper trækken og pakker rummet ind i lune rammer.",
+      "I denne guide får du inspiration til, hvordan du med stof, farve og fald skaber ægte efterårshygge — og gør stuen til et sted, du helst ikke vil forlade, når kulden sætter ind.",
+    ],
+    sections: [
+      { h: "Bløde stoffer giver et lunt udtryk", p: [
+        "Efteråret handler om tekstur. Vælg fyldige, matte stoffer som bomuld, hør eller et blødt velour, der fanger lyset og kaster bløde skygger. De giver rummet dybde og en fornemmelse af varme — også før du har tændt for radiatoren.",
+        "Et rigeligt stofforbrug er nøglen til det lækre fald. Som tommelfingerregel bruges 1,5–2,5 gange vinduets bredde, så gardinet folder sig fyldigt og indbydende.",
+      ]},
+      { h: "Hæng gardinerne højt for at ramme stemningen", p: [
+        "Hæng gardinstangen tæt på loftet og lad gardinet nå helt til gulv. Det trækker blikket opad, får rummet til at virke højere og giver den bløde, gulvlange effekt, der signalerer hjemlig ro.",
+        "Lader du gardinet netop kysse gulvet — eller ligge en anelse i overlængde — får du det afslappede, luksuriøse look, der passer perfekt til efterårets hyggestemning.",
+      ]},
+      { h: "Lag lys på flere niveauer", p: [
+        "Efterårshygge skabes af mange små lyskilder frem for ét skarpt loftslys. Lette, transparente gardiner lukker det svage dagslys blidt ind om dagen, mens et tungere lag kan trækkes for om aftenen og holde på varmen fra stearinlys og lamper.",
+        "Kombinationen af to lag giver dig fuld kontrol over stemningen — fra luftig morgen til lun aften.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvilke gardiner giver mest hygge om efteråret?", a: "Fyldige gardiner i bløde, matte stoffer som bomuld, hør eller velour i varme jordfarver giver den lune, indbydende stemning, de fleste forbinder med efterårshygge." },
+      { q: "Hvor højt skal gardinerne hænge?", a: "Hæng stangen eller skinnen tæt på loftet og lad gardinet nå gulvet. Det får rummet til at virke højere og giver et blødt, sammenhængende udtryk." },
+      { q: "Kan jeg få hjælp til at vælge stof og farve?", a: "Ja. Ved et gratis hjemmebesøg kommer vi med prøver, måler op og rådgiver om stof, farve og ophæng, så resultatet passer til netop dit rum." },
+    ],
+  },
+  {
+    slug: "efteraarsfarver-gardiner-inspiration",
+    metaTitle: "Efterårsfarver til gardiner — inspiration til paletten | bookgardinbussen.online",
+    h1: "Efterårsfarver til gardiner — sæt paletten sammen",
+    tag: "Efterårsfarver",
+    category: "Efterår – inspiration",
+    eyebrow: "Inspiration · Efterår",
+    desc: "Find efterårets smukkeste gardinfarver: rustrød, karrygul, oliven og varm sand. Inspiration til paletten, der gør hjemmet lunt — book en gratis opmåling.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Efterårets farver er lige uden for vinduet: rustrøde blade, karrygule marker, dybgrøn skov og varm, gylden eftermiddagssol. De samme toner klæder gardinerne og trækker naturens stemning med indenfor.",
+      "Her får du inspiration til at sammensætte en efterårspalette, der gør hjemmet lunt og indbydende — uden at det bliver mørkt eller tungt.",
+    ],
+    sections: [
+      { h: "Varme jordfarver som base", p: [
+        "Rustrød, terrakotta, karrygul og varm sand er efterårets kernefarver. De giver et lunt, favnende udtryk og fungerer smukt som en blød kontrast til lyse vægge.",
+        "Vil du holde det roligt, så vælg én varm jordfarve til gardinerne og lad resten af rummet være neutralt — så bliver gardinet det naturlige omdrejningspunkt.",
+      ]},
+      { h: "Grønne og dybe toner til ro", p: [
+        "Oliven, skovgrøn og støvet flaskegrøn bringer naturen indenfor og virker afdæmpede og elegante. De passer især godt i stuer og arbejdsværelser, hvor du ønsker ro og fordybelse.",
+        "Dybe toner som mørkeblå og bordeaux kan bruges som accent, hvis du tør give rummet lidt mere dramatik i den mørke tid.",
+      ]},
+      { h: "Sådan matcher du med rummet", p: [
+        "Tænk farven sammen med gulv, møbler og lysindfald. Et rum med meget dagslys kan bære mørkere gardiner, mens et mørkere rum ofte klæder de lysere, varme sandtoner bedst.",
+        "Farver ser forskellige ud i dit eget lys. Derfor tager vi prøver med ved hjemmebesøget, så du kan holde stofferne op mod netop dine vinduer.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvilke farver er efterårets favoritter?", a: "Varme jordfarver som rustrød, terrakotta, karrygul og sand samt dybe grønne toner som oliven og skovgrøn er klassiske efterårsfarver til gardiner." },
+      { q: "Gør mørke gardiner rummet mindre?", a: "Ikke nødvendigvis. Hænges de højt og bredt og kombineres med lyse vægge, kan mørkere gardiner tværtimod give rummet dybde og en lun stemning." },
+      { q: "Kan jeg se farveprøver hjemme?", a: "Ja. Vi tager stofprøver med ved det gratis hjemmebesøg, så du kan vurdere farverne i dit eget lys, før du beslutter dig." },
+    ],
+  },
+  {
+    slug: "efteraarsklar-stue-gardiner",
+    metaTitle: "Efterårsklar stue: gardiner der skaber stemning | bookgardinbussen.online",
+    h1: "Gør stuen efterårsklar med de rigtige gardiner",
+    tag: "Efterårsklar stue",
+    category: "Efterår – inspiration",
+    eyebrow: "Inspiration · Efterår",
+    desc: "Gør stuen efterårsklar med gardiner, der skaber stemning og lune rammer. Inspiration til stof, farve og lag — og book en gratis opmåling hjemme hos dig.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Stuen er efterårets samlingspunkt: her drikkes te, læses bøger og ses film, mens regnen står ned udenfor. Med de rigtige gardiner forvandler du rummet til en lun ramme om alt det gode ved årstiden.",
+      "Få inspiration til, hvordan du med stof, farve og et par lag gardiner giver stuen den rette efterårsstemning — uden en større ommøblering.",
+    ],
+    sections: [
+      { h: "Skab dybde med tekstur og fald", p: [
+        "Fyldige gardiner i taktile stoffer som hør, bomuld eller velour tilfører rummet dybde og en indbydende blødhed. Et generøst fald langs væggen får stuen til at føles færdig og gennemtænkt.",
+        "Hæng gardinet højt og bredt, så det rammer mere væg end selve vinduet — det løfter rummet og gør loftet til at virke højere.",
+      ]},
+      { h: "Farver der trækker efteråret indenfor", p: [
+        "Varme jordfarver, dæmpet grøn og bløde sandtoner spiller op mod efterårets lys og skaber en rolig, lun base. Hold farven i familie med puder og plaider, så stuen hænger sammen.",
+        "En enkelt dybere accentfarve — bordeaux eller mørkegrøn — kan give rummet karakter uden at det bliver tungt.",
+      ]},
+      { h: "Lag lys for hyggelige aftener", p: [
+        "Kombinér et let gardin, der filtrerer det svage dagslys, med et tungere lag til aftenen. Så kan du trække for, tænde lamperne og lukke den mørke aften ude, når hyggen skal frem.",
+        "Vi hjælper dig med at sammensætte lagene og finde det rette ophæng ved et gratis hjemmebesøg.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvordan gør jeg hurtigt stuen efterårsklar?", a: "Skift til fyldige gardiner i varme, taktile stoffer og hæng dem højt og bredt. Det ændrer stemningen markant uden at du behøver møblere om." },
+      { q: "Skal gardinerne matche puder og plaider?", a: "Hold farverne i samme familie, så rummet hænger sammen. Gardinet kan enten tone i tone med tekstilerne eller danne en blød kontrast til væggene." },
+      { q: "Kan jeg kombinere flere gardintyper i stuen?", a: "Ja. Et let gardin til dagslys plus et tungere lag til aften giver fuld kontrol over stemningen. Vi rådgiver om kombinationen ved opmålingen." },
+    ],
+  },
+  {
+    slug: "naturmaterialer-gardiner-efteraarstrends",
+    metaTitle: "Naturmaterialer og teksturer: efterårets gardintrends | bookgardinbussen.online",
+    h1: "Efterårets gardintrends — natur, tekstur og ro",
+    tag: "Efterårets gardintrends",
+    category: "Efterår – inspiration",
+    eyebrow: "Inspiration · Efterår",
+    desc: "Hør, bomuld og naturlige teksturer er efterårets gardintrends. Få inspiration til materialer og udtryk — og book en gratis opmåling hjemme hos dig.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Efterårets indretning trækker på naturen: rå teksturer, naturlige fibre og afdæmpede farver, der giver ro. De samme tendenser sætter tonen for årets gardiner.",
+      "Her får du overblik over efterårets gardintrends — fra hør og bomuld til de teksturer og toner, der gør hjemmet varmt og nærværende.",
+    ],
+    sections: [
+      { h: "Naturlige fibre i front", p: [
+        "Hør og bomuld er tilbage for fuld kraft. De matte, let uregelmæssige overflader giver et afslappet, autentisk udtryk, der passer perfekt til efterårets rolige stemning.",
+        "Hør falder tungt og elegant og patinerer smukt, mens bomuld er blødt, alsidigt og let at leve med i en travl hverdag.",
+      ]},
+      { h: "Tekstur frem for mønster", p: [
+        "I stedet for kraftige mønstre er det teksturen, der er i fokus: vævede strukturer, fine ribber og bløde overflader, der fanger lyset og skaber liv i det ensfarvede stof.",
+        "Tekstur giver rummet dybde uden at stjæle billedet — en rolig baggrund for efterårets øvrige indretning.",
+      ]},
+      { h: "Afdæmpede, naturnære farver", p: [
+        "Paletten er hentet direkte fra landskabet: sand, ler, sten, oliven og støvet grøn. Farverne er dæmpede og varme og skaber en sammenhængende, lun helhed.",
+        "Vil du følge tendensen, så vælg ét naturmateriale og lad farven tone diskret i tråd med gulv og møbler. Vi tager prøver med, så du kan mærke stofferne selv.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvilke materialer er trend i efterårets gardiner?", a: "Naturlige fibre som hør og bomuld står stærkt, ofte i vævede teksturer og afdæmpede, naturnære farver som sand, ler og oliven." },
+      { q: "Er mønstrede gardiner ude?", a: "Ikke helt, men tendensen går mod tekstur og struktur frem for kraftige mønstre. Det giver et roligt, tidløst udtryk, der er let at leve med." },
+      { q: "Hvordan mærker jeg forskel på stofferne?", a: "Ved det gratis hjemmebesøg tager vi prøver med, så du kan føle teksturen og se materialerne i dit eget lys, før du vælger." },
+    ],
+  },
+  {
+    slug: "lagdelte-gardiner-efteraar",
+    metaTitle: "Lagdelte gardiner: kombinér lys og mørklægning til efteråret | bookgardinbussen.online",
+    h1: "Lagdelte gardiner — fuld kontrol over efterårets lys",
+    tag: "Lagdelte gardiner",
+    category: "Efterår – inspiration",
+    eyebrow: "Inspiration · Efterår",
+    desc: "Lagdelte gardiner kombinerer let lysfiltrering med mørklægning — perfekt til efterårets skiftende lys. Få inspiration, og book en gratis opmåling hjemme.",
+    ctaLead: "Gør vinduerne efterårsklar — book et gratis besøg.",
+    ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Efterårets lys skifter hurtigt: fra blødt formiddagslys til tidligt mørke og skarpt gadelys om aftenen. Lagdelte gardiner — layering — giver dig mulighed for at tilpasse lyset time for time.",
+      "Her får du inspiration til at kombinere flere gardintyper, så du opnår både luftig dagsstemning og lun, mørklagt aften i samme vindue.",
+    ],
+    sections: [
+      { h: "Hvad er lagdelte gardiner?", p: [
+        "Layering betyder, at du kombinerer to eller flere lag ved samme vindue — for eksempel et let, transparent gardin inderst og et tungere, mørklæggende lag yderst. Hvert lag har sin egen funktion.",
+        "Om dagen bruger du det lette lag til at filtrere dagslyset blidt, og om aftenen trækker du det tunge lag for og lukker mørket ude.",
+      ]},
+      { h: "Kombinationer der virker om efteråret", p: [
+        "Et populært valg er et transparent hørgardin sammen med et tæt mørklægningsgardin. Alternativt kan et plissé- eller rullegardin inde ved ruden kombineres med et blødt gardin udenpå for både funktion og hygge.",
+        "Kombinationen giver også en isolerende effekt, fordi de flere lag holder bedre på varmen ved ruden.",
+      ]},
+      { h: "Sådan sætter du lagene sammen", p: [
+        "Vælg et roligt, lyst inderlag og et fyldigere yderlag i en varm efterårsfarve, så lagene spiller sammen. Et dobbelt ophæng — skinne eller stang med to spor — gør det nemt at trække lagene uafhængigt.",
+        "Vi hjælper med at planlægge lagene og ophænget ved et gratis hjemmebesøg, så løsningen både ser flot ud og fungerer i praksis.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvad er fordelen ved lagdelte gardiner?", a: "Du får fuld kontrol over lyset: et let lag filtrerer dagslyset, og et tungere lag mørklægger om aftenen. Samtidig isolerer de flere lag bedre mod kulde." },
+      { q: "Hvilke lag passer sammen?", a: "Et transparent hørgardin med et mørklægningsgardin er en klassiker. Et plissé eller rullegardin ved ruden plus et blødt gardin udenpå fungerer også godt." },
+      { q: "Kræver det særligt ophæng?", a: "Et dobbelt spor i skinne eller stang gør det muligt at trække lagene uafhængigt. Vi rådgiver om det rette ophæng ved opmålingen." },
     ],
   },
 ];
