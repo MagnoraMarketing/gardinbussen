@@ -1,4 +1,46 @@
+# bookgardinbussen.online — alle crawlere er velkomne, inkl. AI-søgemaskiner.
+
 User-agent: *
+Allow: /
+
+# --- AI- og svar-maskiner (eksplicit tilladt) ---
+# OpenAI (ChatGPT-søgning, SearchGPT, browsing og træning)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Google (Gemini / AI Overviews) og Apple Intelligence
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft Copilot / Bing
+User-agent: bingbot
+Allow: /
+
+# Common Crawl (datagrundlag for mange sprogmodeller)
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://www.bookgardinbussen.online/sitemap.xml

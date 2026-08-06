@@ -32,6 +32,7 @@ function head({ title, desc, url, relPrefix, jsonld }) {
   <title>${esc(title)}</title>
   <meta name="description" content="${attr(desc)}" />
   <meta name="theme-color" content="#2f5d50" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="${url}" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="bookgardinbussen.online" />
@@ -505,6 +506,36 @@ ${sections}
 ${footer("../")}`;
 }
 
+// ---------- llms.txt (til AI-søgemaskiner: llmstxt.org) ----------
+function llmsTxt() {
+  const lines = [];
+  lines.push("# bookgardinbussen.online");
+  lines.push("");
+  lines.push("> Mobil gardinservice i Danmark. bookgardinbussen.online kører hele gardinbutikken hjem til kunden med gratis og uforpligtende hjemmebesøg: prøver, opmåling, rådgivning og montering af gardiner, rullegardiner, persienner, plisségardiner og lamelgardiner — i hele landet.");
+  lines.push("");
+  lines.push("## Om");
+  lines.push("- Gratis og uforpligtende hjemmebesøg i hele Danmark");
+  lines.push("- Opmåling, rådgivning og montering på stedet");
+  lines.push("- Fast tilbud uden købepligt");
+  lines.push(`- Forside: ${SITE}/`);
+  lines.push(`- Om os: ${SITE}/om-os.html`);
+  lines.push("- Kontakt: mail@bookgardinbussen.online");
+  lines.push("");
+  for (const cat of BLOG_CATEGORIES) {
+    const posts = BLOG.filter((p) => (p.category || "Andet") === cat.name);
+    if (!posts.length) continue;
+    lines.push(`## ${cat.name}`);
+    for (const p of posts) {
+      lines.push(`- [${p.tag}](${SITE}/blog/${p.slug}.html): ${p.desc}`);
+    }
+    lines.push("");
+  }
+  lines.push("## Byer vi dækker");
+  lines.push(CITIES.map((c) => `- [${c}](${SITE}/byer/${slugify(c)}.html)`).join("\n"));
+  lines.push("");
+  return lines.join("\n");
+}
+
 // ---------- kør ----------
 if (!fs.existsSync(BYER_DIR)) fs.mkdirSync(BYER_DIR, { recursive: true });
 if (!fs.existsSync(BLOG_DIR)) fs.mkdirSync(BLOG_DIR, { recursive: true });
@@ -532,6 +563,9 @@ fs.writeFileSync(path.join(BLOG_DIR, "index.html"), blogIndex());
 
 // nyheder
 fs.writeFileSync(path.join(ROOT, "nyheder.html"), newsPage());
+
+// llms.txt (AI-søgemaskiner)
+fs.writeFileSync(path.join(ROOT, "llms.txt"), llmsTxt());
 
 // sitemap
 const urls = [
