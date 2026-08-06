@@ -393,7 +393,7 @@ ${header("../")}
 
     <article class="section">
       <div class="container legal">
-        <p class="eyebrow">Guide · ${esc(post.tag)}</p>
+        <p class="eyebrow">${esc(post.eyebrow || `Guide · ${post.tag}`)}</p>
         <h1>${esc(post.h1)}</h1>
 ${introHtml}
 ${sectionsHtml}
@@ -403,7 +403,7 @@ ${sectionsHtml}
 ${faq.html}
         </div>
 
-        <p class="blog-cta-note">Vil du se ${esc(post.tag.toLowerCase())} i dit eget hjem? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.</p>
+        <p class="blog-cta-note">${esc(post.ctaNote || `Vil du se ${post.tag.toLowerCase()} i dit eget hjem? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.`)}</p>
       </div>
     </article>
 
@@ -423,27 +423,62 @@ ${faq.html}
             <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>
           </p>
         </div>
-${ctaCard("Book et gardinbesøg", `Se ${post.tag.toLowerCase()} i dit eget hjem — book et gratis besøg.`)}
+${ctaCard("Book et gardinbesøg", post.ctaLead || `Se ${post.tag.toLowerCase()} i dit eget hjem — book et gratis besøg.`)}
       </div>
     </section>
   </main>
 ${footer("../")}`;
 }
 
+// Kategorier vises i denne rækkefølge på blog-oversigten, hver med sin egen
+// overskrift og undertekst. Nye kategorier tilføjes blot her.
+const BLOG_CATEGORIES = [
+  { name: "Gardintyper", sub: "Produktguides til hver type gardin — find den løsning der passer til dine vinduer." },
+  { name: "Efterår – guides & fordele", sub: "Praktiske guider til gardiner om efteråret: mørklægning, varme og et lunt indeklima." },
+  { name: "Efterår – inspiration", sub: "Inspiration til efterårets stemning, farver og trends i hjemmet." },
+];
+
 function blogIndex() {
   const url = `${SITE}/blog/index.html`;
-  const cards = BLOG.map((p) => `          <a class="blog-card" href="${p.slug}.html">
+  const card = (p) => `          <a class="blog-card" href="${p.slug}.html">
             <h3>${esc(p.tag)}</h3>
             <p>${esc(p.desc)}</p>
-            <span class="blog-card-link">Læs guide →</span>
-          </a>`).join("\n");
+            <span class="blog-card-link">Læs mere →</span>
+          </a>`;
+
+  // Grupper indlæg efter kategori. Ukendte/ukategoriserede lander til sidst.
+  const seen = new Set(BLOG_CATEGORIES.map((c) => c.name));
+  const cats = [...BLOG_CATEGORIES];
+  for (const p of BLOG) {
+    const c = p.category || "Andet";
+    if (!seen.has(c)) { seen.add(c); cats.push({ name: c, sub: "" }); }
+  }
+
+  const sections = cats.map((cat, idx) => {
+    const posts = BLOG.filter((p) => (p.category || "Andet") === cat.name);
+    if (!posts.length) return "";
+    const gridId = idx === 0 ? ' id="blog-list"' : "";
+    const sub = cat.sub ? `\n          <p class="section-sub">${esc(cat.sub)}</p>` : "";
+    return `    <section class="section${idx % 2 ? " section-alt" : ""}">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Kategori</p>
+          <h2>${esc(cat.name)}</h2>${sub}
+        </header>
+        <div class="blog-grid"${gridId}>
+${posts.map(card).join("\n")}
+        </div>
+      </div>
+    </section>`;
+  }).filter(Boolean).join("\n\n");
+
   const itemList = {
     "@context": "https://schema.org", "@type": "ItemList",
     itemListElement: BLOG.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/blog/${p.slug}.html`, name: p.tag })),
   };
   return `${head({
-    title: "Blog: Guides til gardiner, rullegardiner og persienner | bookgardinbussen.online",
-    desc: "Guides om gardiner, rullegardiner, persienner, plisségardiner, lamelgardiner og ophæng. Find den rigtige løsning til dine vinduer — og book en gratis opmåling.",
+    title: "Blog: Guides og inspiration om gardiner | bookgardinbussen.online",
+    desc: "Guides og inspiration om gardiner — samlet efter kategori: gardintyper, efterårsguides og inspiration. Find den rigtige løsning, og book en gratis opmåling.",
     url, relPrefix: "../", jsonld: [itemList],
   })}
 <body>
@@ -459,14 +494,13 @@ ${header("../")}
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">Blog</p>
-          <h1>Guides til hver type gardin</h1>
-          <p class="section-sub">Bliv klogere på de forskellige gardintyper, og find den løsning der passer til dine vinduer.</p>
+          <h1>Guides og inspiration om gardiner</h1>
+          <p class="section-sub">Alle vores artikler samlet efter kategori — så du hurtigt finder det, du leder efter.</p>
         </header>
-        <div class="blog-grid" id="blog-list">
-${cards}
-        </div>
       </div>
     </section>
+
+${sections}
   </main>
 ${footer("../")}`;
 }
