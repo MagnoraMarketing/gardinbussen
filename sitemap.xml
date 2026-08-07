@@ -56,6 +56,26 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bookgardinbussen.online/blog/foldegardiner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bookgardinbussen.online/blog/traepersienner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bookgardinbussen.online/blog/insektnet-til-vinduer-og-doere.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bookgardinbussen.online/blog/luxaflex.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bookgardinbussen.online/blog/moerklaegningsgardiner-efteraar.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

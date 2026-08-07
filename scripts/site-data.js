@@ -231,6 +231,130 @@ const BLOG = [
     ],
   },
   {
+    slug: "foldegardiner",
+    category: "Gardintyper",
+    metaTitle: "Foldegardiner: Bløde folder og elegant fald | bookgardinbussen.online",
+    h1: "Foldegardiner — bløde folder og et elegant fald",
+    tag: "Foldegardiner",
+    desc: "Foldegardiner samler stoffet i bløde, vandrette folder, når de hæves — et roligt og elegant udtryk. Læs guiden til stof, montering og valg, og book en gratis opmåling hjemme.",
+    intro: [
+      "Foldegardiner (også kaldet romangardiner) forener stofgardinets blødhed med rullegardinets funktion. Når du hæver gardinet, samler stoffet sig i pæne, vandrette folder, og trukket ned danner det en glat, rolig flade for vinduet.",
+      "Her får du overblik over, hvornår foldegardiner er det rigtige valg, hvilke stoffer der passer bedst, og hvad du skal vide om montering.",
+    ],
+    sections: [
+      { h: "Hvad er foldegardiner?", p: [
+        "Foldegardiner er stofgardiner, der hæves og sænkes med et snoretræk eller en motor. Stoffet er syet med skjulte stivere, så det folder sig ensartet sammen foroven — et mere afdæmpet og struktureret udtryk end løse gardiner, der hænger frit.",
+        "De giver den lune tekstilfornemmelse i et format, der fylder lidt og virker ryddeligt — oplagt til både stue, køkken og soveværelse.",
+      ]},
+      { h: "Stof, lys og mørklægning", p: [
+        "Lette, lysfiltrerende stoffer giver et blødt dagslys, mens tætte stoffer og foer skærmer mere for lys og indblik. Til soveværelset kan foldegardiner leveres med mørklæggende foer, så du får ro og mørke.",
+        "Stof, farve og struktur vælges, så gardinet spiller sammen med resten af indretningen — fra diskret ensfarvet til et markant mønster som blikfang.",
+      ]},
+      { h: "Montering og opmåling", p: [
+        "Foldegardiner kan monteres i loftet, på væggen eller direkte i vinduesrammen, afhængigt af vinduet og det ønskede fald. En præcis opmåling er afgørende for, at folderne lægger sig jævnt.",
+        "Vi måler op og monterer, så gardinet hænger lige, folder sig pænt og betjenes let — også hvis du vælger en motoriseret løsning.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvad er forskellen på foldegardiner og rullegardiner?", a: "Begge hæves og sænkes, men foldegardiner er af blødt stof, der samler sig i vandrette folder, mens rullegardiner ruller op om en stang og har et mere stramt, minimalistisk udtryk." },
+      { q: "Kan foldegardiner mørklægge?", a: "Ja. Med et tæt stof eller et mørklæggende foer skærmer foldegardiner effektivt for lys — velegnet til soveværelser og medierum." },
+      { q: "Kan foldegardiner motoriseres?", a: "Ja, foldegardiner fås med motor og kan styres med fjernbetjening eller app — praktisk til høje eller svært tilgængelige vinduer." },
+    ],
+  },
+  {
+    slug: "traepersienner",
+    category: "Gardintyper",
+    metaTitle: "Træpersienner: Varme lameller og naturligt look | bookgardinbussen.online",
+    h1: "Træpersienner — varmt, naturligt look med bred lamel",
+    tag: "Træpersienner",
+    desc: "Træpersienner giver et varmt, hyggeligt udtryk med brede lameller og præcis lysstyring. Læs om farver, lamelbredde og montering, og book en gratis opmåling hjemme hos dig.",
+    intro: [
+      "Træpersienner tilføjer varme og naturlig karakter til vinduet. De brede lameller i træ eller trælook giver et hyggeligt, indbydende udtryk og et frit udsyn, når de er åbne — samtidig med at du styrer lys og indblik helt præcist.",
+      "Her ser vi på fordelene ved træpersienner, hvilken lamelbredde og farve du skal vælge, og hvor de passer bedst ind.",
+    ],
+    sections: [
+      { h: "Derfor vælger mange træpersienner", p: [
+        "Træ har en lun, naturlig overflade, der bløder rummet op på en anden måde end slanke alupersienner. De brede lameller giver et roligt, eksklusivt look og et generøst udsyn, når de vippes åbne.",
+        "Ved at dreje lamellerne styrer du trinløst, hvor meget lys og indblik du vil have — fra fuldt dagslys til næsten helt lukket.",
+      ]},
+      { h: "Farver, lamelbredde og trælook", p: [
+        "Træpersienner fås i alt fra lyse, naturlige trætoner til mørke og malede farver, så de kan matche gulv, møbler eller vinduesrammen. Bredere lameller understreger det markante, rolige udtryk.",
+        "Ægte træ passer bedst i tørre rum som stue, soveværelse og kontor. Til køkken og bad — hvor der er fugt — anbefaler vi fugtbestandigt trælook, der ligner træ, men tåler damp.",
+      ]},
+      { h: "Montering og opmåling", p: [
+        "Træpersienner kan monteres i loft, på væg eller i vinduesrammen. Den rette montering afhænger af vinduet, og om persiennen skal kunne følge et vindue, der åbnes.",
+        "Vi måler op og monterer, så lamellerne sidder lige, vipper let og kører jævnt op og ned.",
+      ]},
+    ],
+    faq: [
+      { q: "Kan træpersienner tåle fugt?", a: "Ægte træ bør undgås i meget fugtige rum. Vil du have trælook i køkken eller bad, findes fugtbestandige varianter, der ligner træ, men tåler damp." },
+      { q: "Hvilken lamelbredde skal jeg vælge til træpersienner?", a: "Bredere lameller giver et markant, roligt udtryk og mere frit udsyn, når de er åbne. Vi rådgiver om den bredde, der passer til dit vindue og din stil." },
+      { q: "Hvad er forskellen på træ- og alupersienner?", a: "Træpersienner giver et varmt, naturligt look med brede lameller, mens alupersienner er slanke, fugtbestandige og mere diskrete. Valget afhænger af rum, stil og fugt." },
+    ],
+  },
+  {
+    slug: "insektnet-til-vinduer-og-doere",
+    category: "Gardintyper",
+    metaTitle: "Insektnet til vinduer og døre: Frisk luft uden insekter | bookgardinbussen.online",
+    h1: "Insektnet til vinduer og døre — luft ud uden insekter",
+    tag: "Insektnet",
+    desc: "Insektnet til vinduer og døre holder myg, fluer og hvepse ude, mens du lufter ud. Læs om rullenet, faste rammer og plisségittre — og book en gratis opmåling hjemme hos dig.",
+    intro: [
+      "Frisk luft er en af de bedste veje til et godt indeklima — men åbne vinduer og døre inviterer også insekter indenfor. Insektnet lader dig lufte ud hele sommeren uden myg, fluer og hvepse i hjemmet.",
+      "Her får du overblik over de forskellige typer insektnet til vinduer og døre, og hvad du skal vælge imellem.",
+    ],
+    sections: [
+      { h: "Typer af insektnet", p: [
+        "Til vinduer er diskrete rullenet og faste rammer et populært valg — nettet er næsten usynligt og skærmer effektivt for insekter, uden at tage lys eller udsyn. Rullenet trækkes for, når du har brug for det, og pakkes væk i en kassette resten af tiden.",
+        "Til døre og terrassedøre findes rullenet og plisségittre, der glider til side, så du nemt kan gå ud og ind. Løsningerne fås i farver, der matcher karm og ramme.",
+      ]},
+      { h: "Bedre indeklima og komfort", p: [
+        "Med insektnet kan du holde vinduerne åbne længere og lufte grundigt ud — det sænker fugt og forbedrer luftkvaliteten indenfor, uden at du behøver bekymre dig om insekter.",
+        "Det er en lille, diskret løsning, der gør en stor forskel i hverdagen — særligt i soveværelset, køkkenet og ved terrassedøren.",
+      ]},
+      { h: "Montering og opmåling", p: [
+        "Insektnet tilpasses det enkelte vindue eller den enkelte dør, så det slutter tæt og holder insekterne ude. Den rette løsning afhænger af, om åbningen bruges ofte, og om den skal kunne pakkes væk.",
+        "Vi måler op og monterer, så nettet sidder præcist og er nemt at betjene i dagligdagen.",
+      ]},
+    ],
+    faq: [
+      { q: "Kan man se insektnettet, når det sidder på?", a: "Moderne insektnet er lavet af et fint, næsten usynligt net, der kun tager minimalt lys og udsyn. Rullenet kan desuden pakkes helt væk i en kassette, når du ikke bruger det." },
+      { q: "Findes der insektnet til terrassedøre?", a: "Ja. Til døre og terrassedøre findes rullenet og plisségittre, der glider til side, så du let kan gå ud og ind, mens insekterne holdes ude." },
+      { q: "Kan insektnet tilpasses alle vinduer?", a: "Ja, insektnet laves efter mål til det enkelte vindue eller den enkelte dør. Vi måler op, så løsningen passer og slutter tæt." },
+    ],
+  },
+  {
+    slug: "luxaflex",
+    category: "Gardintyper",
+    metaTitle: "Luxaflex: Premium gardiner og PowerView smart-styring | bookgardinbussen.online",
+    h1: "Luxaflex — premium gardiner og smart styring",
+    tag: "Luxaflex",
+    desc: "Luxaflex er et af markedets førende gardinmærker med høj kvalitet, unikke produkter og PowerView-motorstyring. Læs om fordele og løsninger — og book en gratis opmåling hjemme.",
+    intro: [
+      "Luxaflex er blandt de mest anerkendte gardinmærker i verden og står for høj kvalitet, gennemtænkt design og holdbare materialer. Mange af vores kunder efterspørger netop Luxaflex, når de vil have en løsning i den bedste ende.",
+      "Her ser vi på, hvad der kendetegner Luxaflex, og hvorfor mærket er et populært valg til både lysstyring, isolering og smart home.",
+    ],
+    sections: [
+      { h: "Kvalitet og unikke produkter", p: [
+        "Luxaflex tilbyder et bredt program — fra plissé og persienner til rullegardiner og de kendte Duette-honeycomb-gardiner, der isolerer vinduet og hjælper med at holde på varmen. Materialer og mekanik er i den høje ende og bygget til at holde.",
+        "Programmet dækker stort set alle vinduestyper, så du kan få et ensartet, gennemført udtryk i hele boligen med produkter fra samme mærke.",
+      ]},
+      { h: "PowerView — smart styring", p: [
+        "Med Luxaflex PowerView bliver gardinerne motoriserede og kan styres med fjernbetjening, app eller tidsplaner. Du kan lade gardinerne åbne blidt om morgenen og lukke ved solnedgang — helt automatisk.",
+        "Den automatiske styring giver komfort, hjælper med at holde varmen ude på de varmeste timer og får hjemmet til at se beboet ud, når du er væk.",
+      ]},
+      { h: "Rådgivning, opmåling og montering", p: [
+        "Luxaflex-løsninger vælges ud fra vinduet, lysforholdene og dine ønsker til komfort og isolering. Vi rådgiver om, hvilke produkter og hvilken styring der passer bedst til dit hjem.",
+        "Vi måler professionelt op og står for hele monteringen, så du får et færdigt resultat, der både ser flot ud og fungerer i hverdagen.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvad er Luxaflex?", a: "Luxaflex er et af verdens førende gardinmærker, kendt for høj kvalitet og et bredt program af plissé, persienner, rullegardiner og isolerende Duette-honeycomb-gardiner samt PowerView-motorstyring." },
+      { q: "Hvad er Luxaflex PowerView?", a: "PowerView er Luxaflex' system til motoriserede gardiner. Du styrer gardinerne med fjernbetjening, app eller tidsplaner, så de kan åbne og lukke automatisk." },
+      { q: "Er Luxaflex dyrere end almindelige gardiner?", a: "Luxaflex ligger i den højere ende på kvalitet og pris, men mange vælger mærket for holdbarheden, de unikke produkter og de smarte løsninger. Du får et fast, uforpligtende tilbud ved vores hjemmebesøg." },
+    ],
+  },
+  {
     slug: "moerklaegningsgardiner-efteraar",
     metaTitle: "Mørklægningsgardiner til de mørke efterårsaftener | bookgardinbussen.online",
     h1: "Mørklægningsgardiner — ro og mørke i efterårets aftener",
