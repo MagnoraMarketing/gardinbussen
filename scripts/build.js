@@ -435,6 +435,8 @@ ${footer("../")}`;
 // overskrift og undertekst. Nye kategorier tilføjes blot her.
 const BLOG_CATEGORIES = [
   { name: "Gardintyper", sub: "Produktguides til hver type gardin — find den løsning der passer til dine vinduer." },
+  { name: "Solfilm & solafskærmning", sub: "Hold varmen og solen ude: guider til solfilm, privatlivsfilm og solafskærmning til dine vinduer." },
+  { name: "Trends & smart home", sub: "De nyeste trends i hjemmet — fra motoriserede gardiner til smarte løsninger for lys og varme." },
   { name: "Efterår – guides & fordele", sub: "Praktiske guider til gardiner om efteråret: mørklægning, varme og et lunt indeklima." },
   { name: "Efterår – inspiration", sub: "Inspiration til efterårets stemning, farver og trends i hjemmet." },
 ];
