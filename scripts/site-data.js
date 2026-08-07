@@ -570,6 +570,176 @@ const BLOG = [
       { q: "Kræver det særligt ophæng?", a: "Et dobbelt spor i skinne eller stang gør det muligt at trække lagene uafhængigt. Vi rådgiver om det rette ophæng ved opmålingen." },
     ],
   },
+  {
+    slug: "solfilm-til-vinduer",
+    metaTitle: "Solfilm til vinduer: Hold varmen ude og spar på energien | bookgardinbussen.online",
+    h1: "Solfilm til vinduer — hold varmen ude og spar på energien",
+    tag: "Solfilm til vinduer",
+    category: "Solfilm & solafskærmning",
+    eyebrow: "Guide · Solfilm",
+    desc: "Solfilm til vinduer kan reducere varmen med op til 85 % og blokere 99 % UV. Læs guiden til varmeafvisning, energibesparelse og valg af solfilm — og book gratis rådgivning hjemme.",
+    ctaLead: "Få styr på solafskærmningen — book et gratis besøg.",
+    ctaNote: "Vil du dæmpe varmen og skærme for solen? Book et gratis hjemmebesøg nedenfor — vi rådgiver om solfilm, solgardiner og den bedste løsning til dine vinduer.",
+    intro: [
+      "Store vinduespartier giver lys og udsigt, men om sommeren kan de også gøre boligen ubehageligt varm. Solfilm til vinduer er blevet et af de mest efterspurgte tiltag mod overophedning — en tynd, næsten usynlig folie, der reflekterer solens varme, før den trænger ind i rummet.",
+      "I denne guide ser vi på, hvordan solfilm virker, hvor meget varme og UV den kan holde ude, og hvornår solfilm er det rigtige valg frem for — eller sammen med — gardiner.",
+    ],
+    sections: [
+      { h: "Sådan reducerer solfilm varmen", p: [
+        "Solfilm er belagt med et tyndt, reflekterende lag, der kaster en stor del af solens infrarøde varmestråling tilbage. Professionelt monteret solfilm kan reducere varmeindfaldet med op til 85 %, så rummet holdes markant køligere på solrige dage.",
+        "Det mærkes tydeligst i rum mod syd og vest og bag store glasfacader, hvor solen ellers hurtigt hæver temperaturen. Med solfilm undgår du de værste varmetoppe — helt uden at trække for.",
+      ]},
+      { h: "Energibesparelse og UV-beskyttelse", p: [
+        "Når solfilmen holder varmen ude om sommeren, falder behovet for aircondition og køling — og det sænker energiregningen. Mange film isolerer også en smule om vinteren, så varmen bliver bedre inde. Solafskærmning er derfor både et komfort- og et energispørgsmål.",
+        "Solfilm blokerer samtidig op til 99 % af solens skadelige UV-stråler. Det beskytter møbler, gulve, gardiner og kunst mod at falme, så indretningen holder farven i mange år.",
+      ]},
+      { h: "Indvendig eller udvendig — og sammen med gardiner", p: [
+        "Solfilm kan monteres på rudens inder- eller yderside. Udvendig montering giver som regel den bedste varmeafvisning, fordi solen reflekteres, før den overhovedet varmer glasset op, mens indvendig film er mere beskyttet og nem at vedligeholde.",
+        "Solfilm og gardiner udelukker ikke hinanden — tværtimod. Filmen tager varmen og UV om dagen, mens gardiner, plissé eller rullegardiner giver mørklægning, lyddæmpning og hygge. Ved et gratis hjemmebesøg rådgiver vi om den kombination, der passer til dine vinduer.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvor meget varme kan solfilm holde ude?", a: "Professionelt monteret solfilm kan reducere varmeindfaldet med op til omkring 85 %. Effekten afhænger af filmtype, vinduets orientering og om filmen sidder ind- eller udvendigt." },
+      { q: "Blokerer solfilm også UV-stråler?", a: "Ja. De fleste kvalitetsfilm blokerer op til 99 % af solens UV-stråler, hvilket beskytter møbler, gulve og gardiner mod at falme." },
+      { q: "Skal jeg vælge solfilm eller gardiner?", a: "Det er ikke enten-eller. Solfilm tager varmen og UV, mens gardiner giver mørklægning, lyd­dæmpning og stemning. Ofte er den bedste løsning en kombination — det rådgiver vi om ved et gratis besøg." },
+    ],
+  },
+  {
+    slug: "solfilm-eller-gardiner",
+    metaTitle: "Solfilm eller gardiner? Sådan vælger du den rette solafskærmning | bookgardinbussen.online",
+    h1: "Solfilm eller gardiner? Sådan vælger du den rette solafskærmning",
+    tag: "Solfilm eller gardiner",
+    category: "Solfilm & solafskærmning",
+    eyebrow: "Guide · Solafskærmning",
+    desc: "Solfilm eller gardiner mod varme og sol? Sammenlign varmeafvisning, lys, privatliv og pris — og find den rette solafskærmning. Book gratis rådgivning hjemme hos dig.",
+    ctaLead: "Usikker på valget? Book et gratis besøg og få rådgivning.",
+    ctaNote: "I tvivl om solfilm eller gardiner? Book et gratis hjemmebesøg nedenfor — vi ser på dine vinduer og anbefaler den bedste solafskærmning.",
+    intro: [
+      "Når solen bager, er det store spørgsmål ofte: skal jeg vælge solfilm eller gardiner? Begge dele skærmer for solen, men de løser opgaven på hver sin måde — og den bedste løsning afhænger af, hvad der generer dig mest: varme, lys, indblik eller blænding.",
+      "Her sammenligner vi solfilm og gardiner på de punkter, der betyder mest, så du nemmere kan vælge den rette solafskærmning til dit hjem.",
+    ],
+    sections: [
+      { h: "Varmeafvisning: hvor stopper varmen bedst?", p: [
+        "Solfilm er svær at slå på ren varmeafvisning. Den reflekterer solens varmestråler ved selve ruden og kan holde op til 85 % af varmen ude, uden at du behøver trække noget for — udsigten og dagslyset bevares.",
+        "Gardiner skærmer også for solen, men et stofgardin, der har absorberet varmen, kan selv blive varmt og afgive den til rummet. Vil du primært bekæmpe overophedning bag store ruder, står solfilm stærkest.",
+      ]},
+      { h: "Lys, mørklægning og stemning", p: [
+        "Her vinder gardinerne. Med gardiner, plissé eller rullegardiner styrer du lyset trinløst — fra luftig dagslysfiltrering til fuld mørklægning i soveværelset. Solfilm sidder derimod fast og giver samme dæmpning hele døgnet.",
+        "Gardiner tilføjer også blødhed, farve og lyddæmpning til rummet. Skal vinduet både skærme for sol og bidrage til indretning og hygge, er tekstil det oplagte valg.",
+      ]},
+      { h: "Privatliv, pris og den kombinerede løsning", p: [
+        "Både solfilm og gardiner kan skærme for indblik: spejlende eller mat solfilm gør det svært at kigge ind om dagen, mens gardiner dækker, når de er trukket for. Solfilm er typisk en engangsudgift pr. rude, mens gardiner er en løbende del af indretningen.",
+        "For mange er svaret begge dele: solfilm mod varme og UV kombineret med gardiner til lys, mørklægning og stemning. Ved et gratis hjemmebesøg ser vi på lysindfald og vinduer og anbefaler den løsning, der passer bedst.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvad skærmer bedst mod varme — solfilm eller gardiner?", a: "Solfilm skærmer bedst mod ren varme, fordi den reflekterer solens stråler ved ruden, før de varmer rummet op. Gardiner skygger, men et opvarmet stof kan selv afgive varme til rummet." },
+      { q: "Kan jeg både få solfilm og gardiner?", a: "Ja, og det er ofte den bedste løsning. Solfilm tager varme og UV, mens gardiner giver mørklægning, lyddæmpning og stemning. De to supplerer hinanden fint." },
+      { q: "Hvad er billigst i længden?", a: "Solfilm er typisk en engangsudgift pr. rude, mens gardiner både er en del af indretningen og kan skiftes over tid. Vi giver et fast, uforpligtende tilbud på gardinløsningen ved besøget." },
+    ],
+  },
+  {
+    slug: "privatlivsfilm-til-vinduer",
+    metaTitle: "Privatlivsfilm til vinduer: Skærm for indblik uden at miste lyset | bookgardinbussen.online",
+    h1: "Privatlivsfilm til vinduer — skærm for indblik uden at miste lyset",
+    tag: "Privatlivsfilm",
+    category: "Solfilm & solafskærmning",
+    eyebrow: "Guide · Solfilm",
+    desc: "Privatlivsfilm til vinduer skærmer for indblik, men lader lyset ind. Læs om spejlfilm, mat film og frostfilm — og book gratis rådgivning om solafskærmning hjemme hos dig.",
+    ctaLead: "Skab privatliv ved vinduerne — book et gratis besøg.",
+    ctaNote: "Vil du skærme for indblik uden at lukke lyset ude? Book et gratis hjemmebesøg nedenfor — vi rådgiver om privatlivsfilm, gardiner og solafskærmning.",
+    intro: [
+      "Bor du ud til en travl vej, tæt på naboen eller i stueetagen, kan følelsen af at være på udstilling gå ud over roen i hjemmet. Privatlivsfilm til vinduer er blevet et populært svar: en folie, der gør det svært at kigge ind, mens du stadig kan nyde lyset og udsigten indefra.",
+      "Her ser vi på de forskellige typer privatlivsfilm, hvordan de virker om dagen og aftenen, og hvornår film eller gardiner giver den bedste skærmning.",
+    ],
+    sections: [
+      { h: "Sådan virker privatlivsfilm", p: [
+        "Privatlivsfilm arbejder med lys. Spejlfilm reflekterer dagslyset, så ruden virker som et spejl udefra, mens du kan se ud — praktisk mod indblik på solrige dage. Mat film og frostfilm slører ruden som frostet glas og skærmer hele døgnet, uden at tage alt lyset.",
+        "Filmen lader dagslyset trænge ind, så rummet ikke bliver mørkt, som det kan blive bag et trukket gardin. Du får altså både privatliv og et lyst hjem på samme tid.",
+      ]},
+      { h: "Dag og aften — vær opmærksom på lyset", p: [
+        "Spejlfilm virker, når der er mest lys udenfor. Om aftenen, når du tænder lyset indenfor og det er mørkt ude, vendes effekten, og man kan lettere se ind. Derfor kombinerer mange spejlfilm med et gardin, der trækkes for om aftenen.",
+        "Mat film og frostfilm skærmer derimod stabilt både dag og nat og er et godt valg til badeværelse, entré og vinduer helt nede ved gaden, hvor du ønsker fast sløring.",
+      ]},
+      { h: "Film, gardiner — eller begge dele", p: [
+        "Privatlivsfilm er en diskret, permanent løsning, der ikke fylder ved vinduet. Gardiner, plissé og lamelgardiner giver til gengæld fleksibilitet: du vælger selv, hvornår du skærmer for indblik, og hvornår du åbner helt op.",
+        "Ofte er kombinationen stærkest — film til den daglige sløring og gardiner til aften og mørklægning. Ved et gratis hjemmebesøg ser vi på dine vinduer og anbefaler den løsning, der giver mest privatliv med mindst muligt tab af lys.",
+      ]},
+    ],
+    faq: [
+      { q: "Kan man se ind gennem privatlivsfilm om aftenen?", a: "Spejlfilm skærmer bedst om dagen. Når det er mørkt ude og du har lys tændt inde, vendes effekten, så man lettere kan se ind — derfor kombineres spejlfilm ofte med et gardin. Mat film og frostfilm skærmer stabilt hele døgnet." },
+      { q: "Lukker privatlivsfilm lyset ude?", a: "Nej, det er netop fordelen. Privatlivsfilm lader dagslyset trænge ind, så rummet forbliver lyst, samtidig med at den skærmer for indblik." },
+      { q: "Er film eller gardiner bedst til privatliv?", a: "Film giver en permanent, diskret sløring, mens gardiner giver fleksibel skærmning, du selv styrer. Mange vælger begge dele — vi rådgiver om den rette kombination ved et gratis besøg." },
+    ],
+  },
+  {
+    slug: "solfilmsrullegardiner",
+    metaTitle: "Solfilmsrullegardiner: Reflekterer varmen og skærmer for solen | bookgardinbussen.online",
+    h1: "Solfilmsrullegardiner — reflekterer varmen og skærmer for solen",
+    tag: "Solfilmsrullegardiner",
+    category: "Solfilm & solafskærmning",
+    eyebrow: "Guide · Solafskærmning",
+    desc: "Solfilmsrullegardiner har et reflekterende stof, der kaster solens varme tilbage og dæmper blænding — uden at lukke udsigten helt. Læs guiden, og book en gratis opmåling hjemme.",
+    ctaLead: "Dæmp varme og blænding — book et gratis besøg.",
+    ctaNote: "Vil du have solfilmens varmeafvisning i et gardin, du selv styrer? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
+    intro: [
+      "Vil du have solfilmens varmeafvisning kombineret med et gardin, du selv kan trække op og ned? Så er solfilmsrullegardiner det oplagte valg. Stoffet er belagt med et reflekterende lag, der kaster solens varme tilbage — ligesom solfilm — men i et fleksibelt rullegardin.",
+      "Her får du overblik over, hvordan solfilmsrullegardiner virker, hvor de gør størst nytte, og hvad du skal vælge imellem.",
+    ],
+    sections: [
+      { h: "Det bedste fra to verdener", p: [
+        "Solfilmsrullegardiner forener solfilmens varmeafvisning med rullegardinets fleksibilitet. Den reflekterende bagside kaster en stor del af solens varme og blænding tilbage, så rummet holdes køligere — og du kan trække gardinet op, når solen er væk.",
+        "Modsat en fast solfilm bestemmer du selv, hvornår afskærmningen er nede. Det gør solfilmsrullegardiner ideelle til rum, hvor solen kun generer på bestemte tidspunkter af dagen.",
+      ]},
+      { h: "Skærmvej og screen-stof", p: [
+        "Mange solfilmsrullegardiner laves i et screen-stof med en åben vævning. Det dæmper blænding og varme, men bevarer et sløret udsyn, så du stadig kan ane haven eller gaden udenfor — praktisk ved skærmarbejde og i stuer med udsigt.",
+        "Til soveværelset findes tættere varianter og mørklæggende versioner, hvis du både vil holde varmen ude om dagen og mørket inde om natten.",
+      ]},
+      { h: "Hvor gør de størst nytte?", p: [
+        "Solfilmsrullegardiner er oplagte til hjemmekontoret, hvor sol i skærmen generer, og til store ruder mod syd og vest, hvor varmen hurtigt bygger op. De er også et fint valg til vinterhaver og udestuer.",
+        "Vi måler op og monterer, så gardinet slutter tæt til kanterne og reflekterer bedst muligt. Ved et gratis hjemmebesøg finder vi det rette stof og den rette tæthed til netop dine vinduer.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvad er forskellen på solfilm og solfilmsrullegardiner?", a: "Solfilm sidder fast på ruden hele tiden, mens solfilmsrullegardiner har et reflekterende stof i et rullegardin, du selv kan trække op og ned. Du får varmeafvisning kombineret med fleksibilitet." },
+      { q: "Kan man se ud gennem et solfilmsrullegardin?", a: "Med et screen-stof bevares et sløret udsyn, så du kan ane omgivelserne, mens blænding og varme dæmpes. Vil du have fuld skærmning, findes tættere og mørklæggende varianter." },
+      { q: "Hvor egner solfilmsrullegardiner sig bedst?", a: "De er ideelle til hjemmekontor, store sydvendte ruder, vinterhaver og udestuer, hvor solen giver varme og blænding på bestemte tidspunkter." },
+    ],
+  },
+  {
+    slug: "motoriserede-gardiner-smart-home",
+    metaTitle: "Motoriserede gardiner: Smart home-styring af lys og varme | bookgardinbussen.online",
+    h1: "Motoriserede gardiner — smart home-styring af lys og varme",
+    tag: "Motoriserede gardiner",
+    category: "Trends & smart home",
+    eyebrow: "Trend · Smart home",
+    desc: "Motoriserede gardiner er en af de største gardintrends i 2026: styr lys, varme og privatliv med app, tidsplan eller stemme. Læs guiden, og book en gratis opmåling hjemme.",
+    ctaLead: "Gør dine gardiner smarte — book et gratis besøg.",
+    ctaNote: "Vil du styre gardinerne med app og tidsplaner? Book et gratis hjemmebesøg nedenfor — vi rådgiver om motoriserede løsninger og måler op.",
+    intro: [
+      "Motoriserede gardiner er blandt de mest efterspurgte trends i danske hjem i 2026. Med et enkelt tryk — eller helt automatisk — styrer du lys, varme og privatliv, og de høje eller svært tilgængelige vinduer bliver pludselig nemme at betjene.",
+      "Her ser vi på, hvordan motoriserede gardiner virker, hvad de kan i et smart home, og hvornår de er investeringen værd.",
+    ],
+    sections: [
+      { h: "App, tidsplan og stemmestyring", p: [
+        "Motoriserede gardiner betjenes med fjernbetjening, app eller stemme og kan lægges på tidsplaner. Du kan lade gardinerne åbne blidt om morgenen og lukke ved solnedgang — helt automatisk, hver dag.",
+        "Systemer som Luxaflex PowerView og lignende løsninger kobler sig på det smarte hjem og kan styre flere gardiner på én gang, så hele boligen følger samme rytme.",
+      ]},
+      { h: "Lys, varme og energi på autopilot", p: [
+        "Med sensorer og tidsstyring kan gardinerne lukke, når solen står højest, og holde varmen ude på de varmeste timer — et fint supplement til solfilm og anden solafskærmning. Om vinteren kan de omvendt lukke om aftenen og holde bedre på varmen.",
+        "Den automatiske styring sparer energi og gør indeklimaet mere stabilt, fordi gardinerne reagerer på dagen uden, at du behøver tænke over det.",
+      ]},
+      { h: "Komfort, tryghed og montering", p: [
+        "Motoriserede gardiner er oplagte til høje vinduer, ovenlys og store partier, hvor manuel betjening er besværlig. De giver også tryghed: når gardinerne bevæger sig efter en tidsplan, ser hjemmet beboet ud, selv når du er væk.",
+        "Løsningerne fås både med ledning og genopladeligt batteri, så montering er mulig i de fleste hjem. Ved et gratis hjemmebesøg rådgiver vi om motor, styring og opmåling, så alt spiller sammen.",
+      ]},
+    ],
+    faq: [
+      { q: "Hvordan styrer man motoriserede gardiner?", a: "De styres med fjernbetjening, app eller stemme og kan lægges på tidsplaner, så de åbner og lukker automatisk. Flere gardiner kan styres samtidig." },
+      { q: "Kræver motoriserede gardiner ledning?", a: "Ikke nødvendigvis. Mange løsninger fås med genopladeligt batteri, så du undgår at trække strøm frem. Vi rådgiver om den rette løsning ved opmålingen." },
+      { q: "Kan motoriserede gardiner spare energi?", a: "Ja. Med tidsplaner og sensorer lukker de for solen på de varmeste timer og holder på varmen om aftenen, hvilket giver et mere stabilt indeklima og kan sænke energiforbruget." },
+    ],
+  },
 ];
 
 // Nyheder / inspiration (info fra gardinbus.nu/nyheder). Billeder er
