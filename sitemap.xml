@@ -26,11 +26,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.bookgardinbussen.online/blog/billige-gardiner-eller-god-kvalitet.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.bookgardinbussen.online/blog/gardiner.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -154,6 +149,21 @@
     <loc>https://www.bookgardinbussen.online/blog/motoriserede-gardiner-smart-home.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bookgardinbussen.online/blog/billige-gardiner-eller-god-kvalitet.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bookgardinbussen.online/blog/hvad-koster-gardiner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bookgardinbussen.online/blog/tegn-paa-god-kvalitet-gardiner.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.bookgardinbussen.online/byer/koebenhavn.html</loc>
