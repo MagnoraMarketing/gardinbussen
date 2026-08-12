@@ -329,13 +329,6 @@ img, svg { max-width: 100%; }
   .news-row:nth-child(even) .news-media { order: 0; }
 }
 
-/* Video ------------------------------------------------------------------ */
-.video-wrap { max-width: 520px; margin: 0 auto; }
-.founder-video {
-  display: block; width: 100%; height: auto; border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg); background: var(--green-900);
-}
-
 /* Footer ----------------------------------------------------------------- */
 .site-footer { background: var(--green-900); color: #c9d8d1; padding: 3rem 0 1.5rem; }
 .footer-inner { display: flex; flex-wrap: wrap; gap: 2rem 2.5rem; }
