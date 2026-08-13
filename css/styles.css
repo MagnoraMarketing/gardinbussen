@@ -395,6 +395,75 @@ img, svg { max-width: 100%; }
 .footer-credit a { color: #c9d8d1; text-decoration: underline; }
 .footer-credit a:hover { color: #fff; }
 
+/* Bus widget --------------------------------------------------------------
+   Slides in from the left edge ~20s after page load (see js/main.js). */
+.bus-widget {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 90;
+  width: min(340px, calc(100vw - 36px));
+  max-height: calc(100vh - 36px);
+  overflow-y: auto;
+  background: var(--white);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 1.4rem 1.4rem 1.2rem;
+  transform: translateX(-140%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+}
+.bus-widget.is-visible { transform: translateX(0); opacity: 1; visibility: visible; }
+.bus-widget-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: var(--sand-100);
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bus-widget-close:hover { background: var(--sand-200); }
+.bus-widget-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 0.8rem;
+}
+.bus-widget-icon svg { display: block; width: 100%; height: 100%; }
+.bus-widget .eyebrow { font-size: 0.7rem; margin-bottom: 0.4rem; }
+.bus-widget h3 { font-size: 1.15rem; margin: 0 0 0.5rem; color: var(--green-900); }
+.bus-widget p { font-size: 0.88rem; color: var(--ink-soft); margin: 0 0 0.9rem; }
+.bus-widget-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
+.bus-widget-actions .btn { flex: 1 1 auto; font-size: 0.88rem; padding: 0.7em 1em; white-space: nowrap; }
+.bus-widget-badges {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.bus-widget-badges li::before { content: "✓ "; color: var(--green-700); font-weight: 700; }
+
+@media (max-width: 520px) {
+  .bus-widget { left: 10px; right: 10px; bottom: 10px; width: auto; }
+}
+
 /* Responsive ------------------------------------------------------------- */
 /* Menu: klap sammen til hamburger tidligt, så lange menuer ikke overflyder. */
 @media (max-width: 1024px) {
