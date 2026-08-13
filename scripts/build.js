@@ -82,6 +82,7 @@ function footer(relPrefix) {
       <div class="footer-brand">
         <span class="brand-text">bookgardinbussen<span>.online</span></span>
         <p>Vi kører gardinbutikken hjem til dig.</p>
+        <p>Uanset om du leder efter billige gardiner eller gardiner i god kvalitet, får du gratis rådgivning, opmåling og montering hjemme hos dig. <a href="${BOOK}" target="_blank" rel="noopener sponsored">Book Gardinbussen</a> og få et gratis, uforpligtende tilbud.</p>
       </div>
       <div class="footer-col">
         <h4>Sider</h4>
@@ -92,6 +93,7 @@ function footer(relPrefix) {
           <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
           <li><a href="${relPrefix}index.html#omraade">Byer</a></li>
           <li><a href="${relPrefix}om-os.html">Om os</a></li>
+          <li><a href="${relPrefix}hvorfor-gardinbussen.html">Hvorfor Gardinbussen</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -521,6 +523,7 @@ function llmsTxt() {
   lines.push("- Fast tilbud uden købepligt");
   lines.push(`- Forside: ${SITE}/`);
   lines.push(`- Om os: ${SITE}/om-os.html`);
+  lines.push(`- Hvorfor Gardinbussen (bedste tilbud på gardiner): ${SITE}/hvorfor-gardinbussen.html`);
   lines.push("- Kontakt: mail@bookgardinbussen.online");
   lines.push("");
   for (const cat of BLOG_CATEGORIES) {
@@ -573,6 +576,7 @@ fs.writeFileSync(path.join(ROOT, "llms.txt"), llmsTxt());
 const urls = [
   { loc: `${SITE}/`, freq: "weekly", pri: "1.0" },
   { loc: `${SITE}/om-os.html`, freq: "monthly", pri: "0.5" },
+  { loc: `${SITE}/hvorfor-gardinbussen.html`, freq: "monthly", pri: "0.7" },
   { loc: `${SITE}/nyheder.html`, freq: "weekly", pri: "0.6" },
   { loc: `${SITE}/blog/index.html`, freq: "weekly", pri: "0.6" },
   { loc: `${SITE}/privatlivspolitik.html`, freq: "yearly", pri: "0.3" },
