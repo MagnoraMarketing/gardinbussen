@@ -313,6 +313,39 @@ img, svg { max-width: 100%; }
 .legal h1 { margin-bottom: 0.3rem; }
 .legal h2 { font-size: 1.25rem; margin-top: 2rem; }
 .legal > p:first-of-type + p { color: var(--ink-soft); }
+.legal .lead { font-size: 1.1rem; color: var(--ink-soft); }
+
+/* Article hero illustration ----------------------------------------------- */
+.article-hero {
+  display: block; width: 100%; height: auto; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md); margin: 1.4rem 0 1.8rem;
+}
+
+/* Pull-quote --------------------------------------------------------------- */
+.pull-quote {
+  margin: 1.8rem 0; padding: 1.1rem 1.5rem; border-left: 4px solid var(--amber);
+  background: var(--sand-100); border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 1.15rem; font-weight: 700; font-style: italic; color: var(--green-900);
+}
+.pull-quote p { margin: 0; }
+
+/* Related articles ---------------------------------------------------------- */
+.related-reads { margin-top: 2.4rem; padding-top: 1.8rem; border-top: 1px solid var(--sand-200); }
+.related-reads h2 { font-size: 1.1rem; margin: 0 0 0.6rem; }
+.related-reads > p { color: var(--ink-soft); }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+.related-card {
+  display: block; background: var(--white); border: 1px solid var(--sand-200);
+  border-radius: var(--radius); padding: 1rem 1.1rem; color: var(--ink);
+  box-shadow: var(--shadow-sm); transition: transform .15s ease, box-shadow .2s ease;
+}
+.related-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); text-decoration: none; }
+.related-card span { display: block; font-weight: 700; color: var(--green-900); font-size: 0.98rem; }
+.related-card em { display: block; font-style: normal; color: var(--green-700); font-size: 0.85rem; margin-top: 0.3rem; }
+
+@media (max-width: 780px) {
+  .related-grid { grid-template-columns: 1fr; }
+}
 
 /* Nyheder ---------------------------------------------------------------- */
 .news-list { display: grid; gap: 3rem; }
@@ -323,6 +356,11 @@ img, svg { max-width: 100%; }
 .news-text h2 { color: var(--green-900); }
 .news-text p { color: var(--ink-soft); }
 .news-actions { margin-top: 1.2rem; }
+.news-related { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--sand-200); }
+.news-related p { margin: 0 0 0.5rem; font-weight: 700; color: var(--green-900); font-size: 0.9rem; }
+.news-related-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.news-related-links a { font-size: 0.9rem; padding: 0.35em 0.8em; border-radius: 999px; background: var(--sand-100); color: var(--green-900); font-weight: 600; }
+.news-related-links a:hover { background: var(--green-100); text-decoration: none; }
 
 @media (max-width: 780px) {
   .news-row { grid-template-columns: 1fr; gap: 1.2rem; }
