@@ -493,12 +493,23 @@ img, svg { max-width: 100%; }
   color: var(--green-600);
   margin: 0;
 }
+.stroem-widget-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
 .stroem-widget-lead {
   margin: 0 0 0.9rem;
-  color: var(--ink);
-  font-size: 0.95rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
 }
 .stroem-widget .btn { width: 100%; font-size: 0.95rem; padding: 0.75em 1.2em; }
+
+.stroem-widget-cta {
+  transform: translateX(46px);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.4s, opacity 0.4s ease 0.4s;
+}
+.stroem-widget.is-visible .stroem-widget-cta { transform: translateX(0); opacity: 1; }
 
 @media (max-width: 520px) {
   .stroem-widget { right: 10px; left: 10px; width: auto; }

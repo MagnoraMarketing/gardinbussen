@@ -99,12 +99,13 @@
         '<button type="button" class="stroem-widget-close" aria-label="Luk">&times;</button>' +
         '<div class="stroem-widget-head">' +
           '<span class="stroem-widget-icon" aria-hidden="true">' +
-            '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z"/></svg>' +
+            '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.4 1 1.2 1 2.3h6c0-1.1.4-1.9 1-2.3A7 7 0 0 0 12 2Z"/></svg>' +
           '</span>' +
-          '<p class="stroem-widget-tag">Strøm-tip</p>' +
+          '<p class="stroem-widget-tag">Billig strøm</p>' +
         '</div>' +
-        '<p class="stroem-widget-lead">Vidste du, at du muligvis kan spare penge på din strøm? Se om du kan finde et billigere elselskab.</p>' +
-        '<a class="btn btn-primary" href="https://bedst-stroem-tilbud.vercel.app/" target="_blank" rel="noopener">Tjek din elpris</a>';
+        '<h3 class="stroem-widget-title">Betaler du måske for meget i strøm?</h3>' +
+        '<p class="stroem-widget-lead">Se om du kan finde et billigere elselskab og spare penge hver måned.</p>' +
+        '<a class="btn btn-primary stroem-widget-cta" href="https://bedst-stroem-tilbud.vercel.app/" target="_blank" rel="noopener">Tjek din elpris</a>';
 
       document.body.appendChild(widget);
 
