@@ -395,6 +395,61 @@ img, svg { max-width: 100%; }
 .footer-credit a { color: #c9d8d1; text-decoration: underline; }
 .footer-credit a:hover { color: #fff; }
 
+/* Bus widget --------------------------------------------------------------
+   Slides in from the left edge ~20s after page load (see js/main.js). A
+   literal bus graphic with the slogan painted on its side, not a card. */
+.bus-widget {
+  position: fixed;
+  left: 16px;
+  bottom: 28px;
+  z-index: 90;
+  width: min(280px, calc(100vw - 32px));
+  transform: translateX(-140%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+}
+.bus-widget.is-visible { transform: translateX(0); opacity: 1; visibility: visible; }
+.bus-widget-close {
+  position: absolute;
+  top: -12px;
+  right: 4px;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--sand-200);
+  background: var(--white);
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bus-widget-close:hover { background: var(--sand-100); }
+.bus-widget-link {
+  display: block;
+  filter: drop-shadow(0 16px 28px rgba(31, 61, 52, 0.28));
+  transition: transform 0.15s ease;
+}
+.bus-widget-link:hover { transform: translateY(-3px); text-decoration: none; }
+.bus-widget-link svg { display: block; width: 100%; height: auto; }
+.bus-widget-caption {
+  display: block;
+  margin-top: 0.3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--green-900);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bus-widget, .bus-widget.is-visible { transform: none; transition: opacity 0.3s ease; }
+}
+
 /* Responsive ------------------------------------------------------------- */
 /* Menu: klap sammen til hamburger tidligt, så lange menuer ikke overflyder. */
 @media (max-width: 1024px) {
