@@ -435,8 +435,8 @@ img, svg { max-width: 100%; }
 /* Strøm-widget (slide-in) ------------------------------------------------- */
 .stroem-widget {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
+  left: 18px;
+  top: 50%;
   z-index: 90;
   width: min(320px, calc(100vw - 36px));
   background: var(--white);
@@ -444,10 +444,10 @@ img, svg { max-width: 100%; }
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--sand-200);
   padding: 18px 18px 16px;
-  transform: translateX(calc(100% + 30px));
+  transform: translate(calc(-100% - 30px), -50%);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.stroem-widget.is-visible { transform: translateX(0); }
+.stroem-widget.is-visible { transform: translate(0, -50%); }
 
 .stroem-widget-close {
   position: absolute;
@@ -501,5 +501,5 @@ img, svg { max-width: 100%; }
 .stroem-widget .btn { width: 100%; font-size: 0.95rem; padding: 0.75em 1.2em; }
 
 @media (max-width: 520px) {
-  .stroem-widget { right: 10px; bottom: 10px; left: 10px; width: auto; }
+  .stroem-widget { right: 10px; left: 10px; width: auto; }
 }
