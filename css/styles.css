@@ -396,20 +396,20 @@ img, svg { max-width: 100%; }
 .footer-credit a:hover { color: #fff; }
 
 /* Bus widget --------------------------------------------------------------
-   Slides in from the left edge ~20s after page load (see js/main.js). A
-   literal bus graphic with the slogan painted on its side, not a card. */
+   Drives in from fully off-screen, all the way across, ~20s after page
+   load (see js/main.js). A literal bus graphic with the slogan painted on
+   its side, not a card, topped with a "Book Gardinbussen" heading. */
 .bus-widget {
   position: fixed;
   left: 16px;
-  bottom: 28px;
+  bottom: 24px;
   z-index: 90;
-  width: min(280px, calc(100vw - 32px));
-  transform: translateX(-140%);
-  opacity: 0;
-  visibility: hidden;
-  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+  width: min(320px, calc(100vw - 32px));
+  text-align: center;
+  transform: translateX(-100vw);
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.bus-widget.is-visible { transform: translateX(0); opacity: 1; visibility: visible; }
+.bus-widget.is-visible { transform: translateX(0); }
 .bus-widget-close {
   position: absolute;
   top: -12px;
@@ -430,21 +430,42 @@ img, svg { max-width: 100%; }
   justify-content: center;
 }
 .bus-widget-close:hover { background: var(--sand-100); }
-.bus-widget-link {
+.bus-widget-link { display: block; text-decoration: none; }
+.bus-widget-link:hover { text-decoration: none; }
+.bus-widget-text {
+  display: inline-block;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow-md);
+}
+.bus-widget-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--green-700);
+}
+.bus-widget-link:hover .bus-widget-heading-arrow { transform: translateX(3px); }
+.bus-widget-heading-arrow { display: inline-block; transition: transform 0.15s ease; }
+.bus-widget-sub {
   display: block;
+  margin-top: 0.1rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.bus-widget-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 0.5rem;
   filter: drop-shadow(0 16px 28px rgba(31, 61, 52, 0.28));
   transition: transform 0.15s ease;
 }
-.bus-widget-link:hover { transform: translateY(-3px); text-decoration: none; }
-.bus-widget-link svg { display: block; width: 100%; height: auto; }
-.bus-widget-caption {
-  display: block;
-  margin-top: 0.3rem;
-  text-align: center;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--green-900);
-}
+.bus-widget-link:hover .bus-widget-svg { transform: translateY(-3px); }
 
 @media (prefers-reduced-motion: reduce) {
   .bus-widget, .bus-widget.is-visible { transform: none; transition: opacity 0.3s ease; }
