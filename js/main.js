@@ -23,6 +23,19 @@
     });
   }
 
+  // Left-side widgets share one fixed container so multiple slide-ins stack
+  // above each other instead of overlapping, regardless of timing.
+  function getLeftWidgetsStack() {
+    var stack = document.getElementById("gb-left-widgets");
+    if (!stack) {
+      stack = document.createElement("div");
+      stack.id = "gb-left-widgets";
+      stack.className = "left-widgets-stack";
+      document.body.appendChild(stack);
+    }
+    return stack;
+  }
+
   // Bus widget — slides in from the left edge ~20s after landing, once per
   // browser session. A literal bus graphic with the slogan on its side,
   // linking to the site's own homepage. Purely JS-driven so it works on
@@ -65,7 +78,7 @@
       '<span class="bus-widget-caption">bookgardinbussen.online →</span>' +
       "</a>";
 
-    document.body.appendChild(widget);
+    getLeftWidgetsStack().appendChild(widget);
 
     function close() {
       widget.classList.remove("is-visible");
@@ -85,6 +98,77 @@
   }
 
   initBusWidget();
+
+  // Power widget — slides in from the left edge ~35s after landing, once
+  // per browser session. A lightbulb-shaped card promoting the electricity
+  // price comparison partner site. Stacks above the bus widget via the
+  // shared left-widgets container instead of overlapping it.
+  var POWER_WIDGET_STORAGE_KEY = "gb-power-widget-shown";
+  var POWER_WIDGET_DELAY_MS = 35000;
+  var POWER_WIDGET_URL = "https://bedst-stroem-tilbud.vercel.app/";
+
+  function initPowerWidget() {
+    if (sessionStorage.getItem(POWER_WIDGET_STORAGE_KEY)) return;
+
+    window.setTimeout(function () {
+      if (sessionStorage.getItem(POWER_WIDGET_STORAGE_KEY)) return;
+      sessionStorage.setItem(POWER_WIDGET_STORAGE_KEY, "1");
+      showPowerWidget();
+    }, POWER_WIDGET_DELAY_MS);
+  }
+
+  function showPowerWidget() {
+    var widget = document.createElement("div");
+    widget.className = "power-widget";
+    widget.innerHTML =
+      '<button type="button" class="power-widget-close" aria-label="Luk">&times;</button>' +
+      '<a class="power-widget-link" href="' + POWER_WIDGET_URL + '" target="_blank" rel="noopener" ' +
+      'aria-label="Sammenlign elpriser og find dit billigste elselskab – åbner bedst-stroem-tilbud.vercel.app">' +
+      '<span class="power-widget-icon" aria-hidden="true">' +
+      '<svg viewBox="0 0 64 64">' +
+      '<g stroke="#d98a3d" stroke-width="2.5" stroke-linecap="round">' +
+      '<line x1="32" y1="2" x2="32" y2="9"/>' +
+      '<line x1="13" y1="10" x2="18" y2="15"/>' +
+      '<line x1="51" y1="10" x2="46" y2="15"/>' +
+      '<line x1="4" y1="27" x2="11" y2="27"/>' +
+      '<line x1="60" y1="27" x2="53" y2="27"/>' +
+      "</g>" +
+      '<circle cx="32" cy="27" r="18" fill="#d98a3d"/>' +
+      '<path d="M24 41h16v5a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4v-5z" fill="#1f3d34"/>' +
+      '<rect x="25" y="47" width="14" height="3.5" rx="1" fill="#1f3d34"/>' +
+      '<rect x="25" y="52" width="14" height="3.5" rx="1" fill="#1f3d34"/>' +
+      '<circle cx="32" cy="27" r="11" fill="#faf7f2"/>' +
+      '<text x="32" y="31.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="11" fill="#bf7526">kr</text>' +
+      "</svg>" +
+      "</span>" +
+      '<span class="power-widget-body">' +
+      '<strong class="power-widget-kicker">Er du sikker på du har den billigste elaftale?</strong>' +
+      '<span class="power-widget-title">Betaler du måske for meget i strøm?</span>' +
+      '<span class="power-widget-text">Sammenlign elpriser og find dit billigste elselskab. Du kan muligvis spare over 2.000 kr. årligt!</span>' +
+      '<span class="power-widget-cta">Sammenlign elpriser →</span>' +
+      '<span class="power-widget-note">Det koster dig intet at prøve, men kan muligvis spare mange penge – hvert år.</span>' +
+      "</span>" +
+      "</a>";
+
+    getLeftWidgetsStack().appendChild(widget);
+
+    function close() {
+      widget.classList.remove("is-visible");
+      window.setTimeout(function () {
+        if (widget.parentNode) widget.parentNode.removeChild(widget);
+      }, 600);
+    }
+
+    widget.querySelector(".power-widget-close").addEventListener("click", close);
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        widget.classList.add("is-visible");
+      });
+    });
+  }
+
+  initPowerWidget();
 
   // Booking form — posts to /api/booking, falls back gracefully.
   var form = document.getElementById("booking-form");
