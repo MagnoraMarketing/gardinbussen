@@ -337,6 +337,8 @@ img, svg { max-width: 100%; }
 .footer-brand .brand-text { color: #fff; font-size: 1.3rem; font-weight: 800; }
 .footer-brand .brand-text span { color: var(--amber); }
 .footer-brand p { margin: 0.6rem 0 0; color: #a9c7bd; }
+.footer-brand a { color: #fff; font-weight: 600; text-decoration: underline; }
+.footer-brand a:hover { color: var(--amber); }
 .footer-col h4 { color: #fff; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; }
 .footer-col li { margin-bottom: 0.4rem; }

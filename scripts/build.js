@@ -82,6 +82,7 @@ function footer(relPrefix) {
       <div class="footer-brand">
         <span class="brand-text">bookgardinbussen<span>.online</span></span>
         <p>Vi kører gardinbutikken hjem til dig.</p>
+        <p>Uanset om du leder efter billige gardiner eller gardiner i god kvalitet, får du gratis rådgivning, opmåling og montering hjemme hos dig. <a href="${BOOK}" target="_blank" rel="noopener sponsored">Book Gardinbussen</a> og få et gratis, uforpligtende tilbud.</p>
       </div>
       <div class="footer-col">
         <h4>Sider</h4>
