@@ -85,4 +85,41 @@
       }
     });
   }
+
+  // Strøm-widget — slides in from the side after 15s, once per session.
+  if (!sessionStorage.getItem("stroemWidgetDismissed")) {
+    window.setTimeout(function () {
+      if (sessionStorage.getItem("stroemWidgetDismissed")) return;
+
+      var widget = document.createElement("aside");
+      widget.className = "stroem-widget";
+      widget.setAttribute("role", "complementary");
+      widget.setAttribute("aria-label", "Strøm-tilbud");
+      widget.innerHTML =
+        '<button type="button" class="stroem-widget-close" aria-label="Luk">&times;</button>' +
+        '<div class="stroem-widget-head">' +
+          '<span class="stroem-widget-icon" aria-hidden="true">' +
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z"/></svg>' +
+          '</span>' +
+          '<p class="stroem-widget-tag">Strøm-tip</p>' +
+        '</div>' +
+        '<p class="stroem-widget-lead">Vidste du, at du muligvis kan spare penge på din strøm? Se om du kan finde et billigere elselskab.</p>' +
+        '<a class="btn btn-primary" href="https://bedst-stroem-tilbud.vercel.app/" target="_blank" rel="noopener">Tjek din elpris</a>';
+
+      document.body.appendChild(widget);
+
+      function dismiss() {
+        widget.classList.remove("is-visible");
+        sessionStorage.setItem("stroemWidgetDismissed", "1");
+        window.setTimeout(function () { widget.remove(); }, 500);
+      }
+      widget.querySelector(".stroem-widget-close").addEventListener("click", dismiss);
+
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          widget.classList.add("is-visible");
+        });
+      });
+    }, 15000);
+  }
 })();
