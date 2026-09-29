@@ -355,6 +355,14 @@ img, svg { max-width: 100%; }
   .related-grid { grid-template-columns: 1fr; }
 }
 
+/* SEO-sektion: gratis besøg af Gardinbussen ------------------------------ */
+.seo-book h3 { font-size: 1.05rem; margin: 1.8rem 0 0.6rem; color: var(--green-900); }
+.seo-book-steps { padding-left: 1.3rem; margin: 0 0 1.2rem; }
+.seo-book-steps li { margin-bottom: 0.5rem; color: var(--ink-soft); }
+.seo-book-steps strong { color: var(--ink); }
+.seo-book-cta { margin: 1.4rem 0 0.4rem; }
+.section-alt .seo-book .news-related-links a { background: var(--white); }
+
 /* Nyheder ---------------------------------------------------------------- */
 .news-list { display: grid; gap: 3rem; }
 .news-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem; align-items: center; }
