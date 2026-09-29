@@ -133,8 +133,8 @@ function cityPage(city) {
   const slug = slugify(city);
   const region = REGION[city] || "Danmark";
   const url = `${SITE}/byer/${slug}.html`;
-  const title = `Gardiner i ${city} | Gratis hjemmebesøg – bookgardinbussen.online`;
-  const desc = `Gardiner i ${city}? bookgardinbussen.online kører hele gardinbutikken hjem til dig i ${city} og ${region}. Gratis opmåling, rådgivning og montering af gardiner, rullegardiner, persienner og plisségardiner. Book et uforpligtende hjemmebesøg.`;
+  const title = `Gardiner i ${city} – gratis hjemmebesøg | Gardinbussen`;
+  const desc = `Nye gardiner i ${city}? Vi kører gardinbutikken hjem til dig med prøver, gratis opmåling og montering. Book et uforpligtende hjemmebesøg.`;
   const faq = faqBlock([
     { q: `Kører bookgardinbussen.online til ${city}?`, a: `Ja. Vi dækker ${city} og resten af ${region}, og kommer gerne hjem til dig med prøver, uanset om du bor midt i ${city} eller i oplandet.` },
     { q: `Hvad koster et hjemmebesøg i ${city}?`, a: `Hjemmebesøget i ${city} er gratis og helt uforpligtende. Du får et fast tilbud på stedet og bestemmer selv, om du vil gå videre.` },
@@ -149,7 +149,6 @@ function cityPage(city) {
     description: `Mobil gardinservice i ${city} og ${region}.`,
     url, email: "mail@bookgardinbussen.online", image: `${SITE}/assets/og-image.svg`, priceRange: "$$",
     areaServed: { "@type": "City", name: city },
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "127" },
   };
   const breadcrumb = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",

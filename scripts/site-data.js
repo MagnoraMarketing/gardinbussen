@@ -7,6 +7,11 @@ const AFFILIATE_BOOK_URL = "https://www.partner-ads.com/dk/klikbanner.php?partne
 
 const SITE = "https://www.bookgardinbussen.online";
 
+// Google Search Console: indsæt koden fra "HTML-tag"-metoden her (kun
+// værdien i content="..."), og kør node scripts/seo-technical.js. Tom = intet
+// tag (fx når domænet er verificeret via DNS eller Google Analytics).
+const GOOGLE_SITE_VERIFICATION = "";
+
 const CITIES = [
   "København", "Aarhus", "Odense", "Aalborg", "Esbjerg",
   "Randers", "Kolding", "Horsens", "Vejle", "Roskilde",
@@ -962,6 +967,6 @@ function ctaCard(label, lead) {
 }
 
 module.exports = {
-  AFFILIATE_BOOK_URL, SITE, CITIES, REGION, BLOG, NEWS,
+  AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, CITIES, REGION, BLOG, NEWS,
   slugify, esc, attr, bookBtn, ctaCard,
 };

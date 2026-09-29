@@ -2,6 +2,8 @@
 
 User-agent: *
 Allow: /
+# Serverless-endpoints (booking-API) skal ikke crawles
+Disallow: /api/
 
 # --- AI- og svar-maskiner (eksplicit tilladt) ---
 # OpenAI (ChatGPT-søgning, SearchGPT, browsing og træning)

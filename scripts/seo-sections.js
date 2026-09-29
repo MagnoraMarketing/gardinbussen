@@ -5,7 +5,7 @@
 // Scriptet retter direkte i de færdige HTML-filer (de er redigeret i hånden
 // efter build.js), og det kan køres igen og igen: sektionen ligger mellem
 // <!-- SEO-BOOK:START --> og <!-- SEO-BOOK:END --> og udskiftes ved hver kørsel.
-// Kør: node scripts/seo-sections.js
+// Kør: node scripts/seo-sections.js && node scripts/seo-technical.js
 
 const fs = require("fs");
 const path = require("path");
@@ -297,24 +297,6 @@ for (const f of allPages) {
   write(f, html);
 }
 
-// ---------- sitemap med lastmod (kun sider der må indekseres) ----------
-const sitemapPages = [
-  { file: "index.html", loc: `${SITE}/`, freq: "weekly", pri: "1.0" },
-  { file: "hvorfor-gardinbussen.html", freq: "monthly", pri: "0.8" },
-  { file: "om-os.html", freq: "monthly", pri: "0.5" },
-  { file: "nyheder.html", freq: "weekly", pri: "0.6" },
-  { file: "blog/index.html", freq: "weekly", pri: "0.6" },
-]
-  .concat(listHtml("blog").filter((f) => f !== "index.html").map((f) => ({ file: `blog/${f}`, freq: "monthly", pri: "0.7" })))
-  .concat(listHtml("byer").map((f) => ({ file: `byer/${f}`, freq: "monthly", pri: "0.7" })))
-  .filter((p) => !/name="robots" content="noindex/.test(read(p.file)));
-const urls = sitemapPages.map((p) => `  <url>
-    <loc>${p.loc || `${SITE}/${p.file}`}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>${p.freq}</changefreq>
-    <priority>${p.pri}</priority>
-  </url>`).join("\n");
-write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+// sitemap.xml genereres af scripts/seo-technical.js (kør den bagefter).
 
 console.log(`SEO-sektion på ${cities.length} bysider, ${Object.keys(BLOG_TOPICS).length} blogindlæg og ${OTHER.length} øvrige sider.`);
-console.log(`sitemap.xml: ${sitemapPages.length} URL'er med lastmod ${today}.`);
