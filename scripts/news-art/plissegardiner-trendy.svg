@@ -1,0 +1,31 @@
+        <defs>
+          <linearGradient id="plisse-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#bfe1ef"/>
+            <stop offset="1" stop-color="#eef6ea"/>
+          </linearGradient>
+          <linearGradient id="plisse-wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f6f3e8"/>
+            <stop offset="1" stop-color="#e2ecd9"/>
+          </linearGradient>
+          <pattern id="plisse-fabric" width="10" height="10" patternUnits="userSpaceOnUse">
+            <rect width="10" height="10" fill="#f2efe2"/>
+            <rect width="5" height="10" fill="#e6e2d0"/>
+          </pattern>
+          <clipPath id="plisse-clip"><rect x="74" y="54" width="452" height="272" rx="4"/></clipPath>
+        </defs>
+        <rect width="600" height="400" fill="url(#plisse-wall)"/>
+        <rect x="60" y="40" width="480" height="300" rx="10" fill="#ffffff"/>
+        <g clip-path="url(#plisse-clip)">
+          <rect x="74" y="54" width="452" height="272" fill="url(#plisse-sky)"/>
+          <circle cx="440" cy="108" r="30" fill="#ffe4a8"/>
+          <rect x="74" y="54" width="452" height="34" fill="url(#plisse-fabric)"/>
+          <rect x="74" y="228" width="452" height="98" fill="url(#plisse-fabric)"/>
+          <rect x="74" y="86" width="452" height="4" fill="#d9d2b9"/>
+          <rect x="74" y="224" width="452" height="4" fill="#d9d2b9"/>
+        </g>
+        <rect x="296" y="54" width="6" height="272" fill="#ffffff"/>
+        <rect x="60" y="336" width="480" height="16" fill="#ffffff"/>
+        <g transform="translate(96,300)">
+          <path d="M0 46 C -4 20 6 6 20 6 C 34 6 44 20 40 46 Z" fill="#6f9a72"/>
+          <rect x="6" y="44" width="28" height="18" rx="3" fill="#c98a4b"/>
+        </g>

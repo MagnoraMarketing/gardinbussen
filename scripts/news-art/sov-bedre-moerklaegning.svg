@@ -1,0 +1,50 @@
+        <defs>
+          <linearGradient id="dark-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1b2440"/>
+            <stop offset="1" stop-color="#3a3f66"/>
+          </linearGradient>
+          <linearGradient id="dark-wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2a2f4a"/>
+            <stop offset="1" stop-color="#12162a"/>
+          </linearGradient>
+          <linearGradient id="dark-curtain" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#3c4568"/>
+            <stop offset="1" stop-color="#232a48"/>
+          </linearGradient>
+          <clipPath id="dark-clip"><rect x="70" y="46" width="460" height="290" rx="4"/></clipPath>
+        </defs>
+        <rect width="600" height="400" fill="url(#dark-wall)"/>
+        <rect x="56" y="32" width="488" height="308" rx="10" fill="#e8e6e0"/>
+        <g clip-path="url(#dark-clip)">
+          <rect x="70" y="46" width="460" height="290" fill="url(#dark-sky)"/>
+          <circle cx="440" cy="96" r="26" fill="#f4e9c9"/>
+          <g fill="#f4e9c9">
+            <circle cx="140" cy="80" r="2"/>
+            <circle cx="180" cy="110" r="1.6"/>
+            <circle cx="230" cy="70" r="1.8"/>
+            <circle cx="300" cy="120" r="1.4"/>
+            <circle cx="360" cy="90" r="2"/>
+            <circle cx="120" cy="150" r="1.5"/>
+          </g>
+          <rect x="70" y="46" width="180" height="290" fill="url(#dark-curtain)"/>
+          <rect x="330" y="46" width="200" height="290" fill="url(#dark-curtain)"/>
+          <g fill="#2b3153" opacity="0.6">
+            <rect x="80" y="46" width="10" height="290"/>
+            <rect x="110" y="46" width="10" height="290"/>
+            <rect x="140" y="46" width="10" height="290"/>
+            <rect x="170" y="46" width="10" height="290"/>
+            <rect x="200" y="46" width="10" height="290"/>
+            <rect x="230" y="46" width="10" height="290"/>
+            <rect x="340" y="46" width="10" height="290"/>
+            <rect x="370" y="46" width="10" height="290"/>
+            <rect x="400" y="46" width="10" height="290"/>
+            <rect x="430" y="46" width="10" height="290"/>
+            <rect x="460" y="46" width="10" height="290"/>
+            <rect x="490" y="46" width="10" height="290"/>
+          </g>
+        </g>
+        <rect x="56" y="326" width="488" height="14" fill="#e8e6e0"/>
+        <g transform="translate(70,346)">
+          <rect x="0" y="0" width="150" height="40" rx="6" fill="#3a4066"/>
+          <rect x="14" y="-14" width="28" height="16" rx="4" fill="#4a5080"/>
+        </g>

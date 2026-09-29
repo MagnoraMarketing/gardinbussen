@@ -1,0 +1,35 @@
+        <defs>
+          <linearGradient id="lamel-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#cfe6c9"/>
+            <stop offset="1" stop-color="#f1ecd8"/>
+          </linearGradient>
+          <linearGradient id="lamel-wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f3ead9"/>
+            <stop offset="1" stop-color="#e6d6b8"/>
+          </linearGradient>
+          <clipPath id="lamel-clip"><rect x="70" y="46" width="460" height="290" rx="4"/></clipPath>
+        </defs>
+        <rect width="600" height="400" fill="url(#lamel-wall)"/>
+        <rect x="56" y="32" width="488" height="308" rx="10" fill="#ffffff"/>
+        <g clip-path="url(#lamel-clip)">
+          <rect x="70" y="46" width="460" height="290" fill="url(#lamel-sky)"/>
+          <circle cx="150" cy="90" r="20" fill="#ffffff" opacity="0.8"/>
+          <circle cx="185" cy="95" r="26" fill="#ffffff" opacity="0.8"/>
+          <path d="M70 336 C 160 300 260 300 320 336 Z" fill="#8fbf7a" opacity="0.6"/>
+          <g fill="#cbb595" stroke="#a98f68" stroke-width="1">
+            <polygon points="90,46 104,46 96,336 82,336"/>
+            <polygon points="128,46 142,46 134,336 120,336"/>
+            <polygon points="166,46 180,46 172,336 158,336"/>
+            <polygon points="204,46 218,46 210,336 196,336"/>
+            <polygon points="242,46 256,46 248,336 234,336"/>
+            <polygon points="280,46 294,46 286,336 272,336"/>
+            <polygon points="318,46 332,46 324,336 310,336"/>
+            <polygon points="356,46 370,46 362,336 348,336"/>
+            <polygon points="394,46 408,46 400,336 386,336"/>
+            <polygon points="432,46 446,46 438,336 424,336"/>
+            <polygon points="470,46 484,46 476,336 462,336"/>
+            <polygon points="508,46 522,46 514,336 500,336"/>
+          </g>
+        </g>
+        <rect x="56" y="326" width="488" height="14" fill="#ffffff"/>
+        <circle cx="500" cy="200" r="5" fill="#8a765a"/>

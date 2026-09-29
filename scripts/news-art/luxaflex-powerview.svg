@@ -1,0 +1,40 @@
+        <defs>
+          <linearGradient id="pv-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#a9c3dd"/>
+            <stop offset="1" stop-color="#e4ecf3"/>
+          </linearGradient>
+          <linearGradient id="pv-wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#eef2f6"/>
+            <stop offset="1" stop-color="#d7e0e9"/>
+          </linearGradient>
+          <clipPath id="pv-clip"><rect x="70" y="46" width="460" height="290" rx="4"/></clipPath>
+        </defs>
+        <rect width="600" height="400" fill="url(#pv-wall)"/>
+        <rect x="56" y="32" width="488" height="308" rx="10" fill="#ffffff"/>
+        <g clip-path="url(#pv-clip)">
+          <rect x="70" y="46" width="460" height="290" fill="url(#pv-sky)"/>
+          <rect x="70" y="46" width="460" height="150" fill="#5a6f89"/>
+          <g stroke="#4a5c73" stroke-width="1" opacity="0.5">
+            <line x1="70" y1="70" x2="530" y2="70"/>
+            <line x1="70" y1="94" x2="530" y2="94"/>
+            <line x1="70" y1="118" x2="530" y2="118"/>
+            <line x1="70" y1="142" x2="530" y2="142"/>
+            <line x1="70" y1="166" x2="530" y2="166"/>
+            <line x1="70" y1="190" x2="530" y2="190"/>
+          </g>
+          <rect x="70" y="192" width="460" height="6" fill="#3d4d61"/>
+        </g>
+        <rect x="56" y="326" width="488" height="14" fill="#ffffff"/>
+        <g transform="translate(430,250)">
+          <rect x="0" y="0" width="90" height="140" rx="16" fill="#20242b"/>
+          <rect x="7" y="12" width="76" height="108" rx="4" fill="#eef3f8"/>
+          <rect x="16" y="24" width="58" height="8" rx="4" fill="#5a6f89"/>
+          <rect x="16" y="40" width="58" height="26" rx="6" fill="#d98a3d"/>
+          <rect x="16" y="72" width="58" height="8" rx="4" fill="#c7d3de"/>
+          <rect x="16" y="86" width="40" height="8" rx="4" fill="#c7d3de"/>
+          <circle cx="45" cy="132" r="6" fill="#5a6f89"/>
+        </g>
+        <g fill="none" stroke="#d98a3d" stroke-width="3" opacity="0.8">
+          <path d="M380 230 a40 40 0 0 1 40 -20"/>
+          <path d="M392 244 a24 24 0 0 1 24 -14"/>
+        </g>
