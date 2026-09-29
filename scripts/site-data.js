@@ -3,7 +3,7 @@
 
 // Affiliate-booking-link hos Gardinbus. Alle "book"-CTA'er på sitet peger
 // hertil. Skift kun denne linje for at opdatere linket overalt.
-const AFFILIATE_BOOK_URL = "https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&bannerid=113375&htmlurl=https://gardinbus.nu/book-gardinbus/";
+const AFFILIATE_BOOK_URL = "https://www.partner-ads.com/dk/klikbanner.php?partnerid=52168&bannerid=113375&uid=Hjemmeside&htmlurl=https://gardinbus.nu/gardinbus-book/";
 
 const SITE = "https://www.bookgardinbussen.online";
 
