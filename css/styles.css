@@ -361,7 +361,7 @@ img, svg { max-width: 100%; }
 .seo-book-steps li { margin-bottom: 0.5rem; color: var(--ink-soft); }
 .seo-book-steps strong { color: var(--ink); }
 .seo-book-cta { margin: 1.4rem 0 0.4rem; }
-.section-alt .seo-book .news-related-links a { background: var(--white); }
+.seo-book.section-alt .news-related-links a { background: var(--white); }
 
 /* Nyheder ---------------------------------------------------------------- */
 .news-list { display: grid; gap: 3rem; }
