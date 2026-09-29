@@ -47,18 +47,7 @@ function setDesc(html, desc) {
 }
 const getTitle = (html) => decode((html.match(/<title>([^<]*)<\/title>/) || [])[1] || "");
 
-// ---------- by-sider: kort titel + beskrivelse under ~155 tegn ----------
-for (const f of listHtml("byer")) {
-  const rel = `byer/${f}`;
-  let html = read(rel);
-  const city = decode((html.match(/<h1>Gardiner i (.+?) — /) || [])[1] || "");
-  if (!city) continue;
-  html = setTitle(html, `Gardiner i ${city} – gratis hjemmebesøg | Gardinbussen`);
-  html = setDesc(html, `Nye gardiner i ${city}? Vi kører gardinbutikken hjem til dig med prøver, gratis opmåling og montering. Book et uforpligtende hjemmebesøg.`);
-  write(rel, html);
-}
-
-// ---------- særlige sider ----------
+// ---------- håndskrevne sider ----------
 const PAGE_META = {
   "index.html": {
     desc: "Book Gardinbussen: gratis og uforpligtende hjemmebesøg med prøver, opmåling og montering af gardiner, rullegardiner, persienner og plisségardiner.",
@@ -69,6 +58,7 @@ const PAGE_META = {
   },
   "hvorfor-gardinbussen.html": {
     title: "Hvorfor Gardinbussen? Bedste tilbud på gardiner",
+    desc: "Hvorfor vælge Gardinbussen? Få det bedste tilbud på gardiner — billige eller i god kvalitet, valgt hjemme hos dig. Gratis og uforpligtende besøg.",
   },
 };
 for (const [rel, m] of Object.entries(PAGE_META)) {

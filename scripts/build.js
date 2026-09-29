@@ -51,11 +51,14 @@ function head({ title, desc, url, relPrefix, jsonld }) {
   <meta property="og:title" content="${attr(title)}" />
   <meta property="og:description" content="${attr(desc)}" />
   <meta property="og:url" content="${url}" />
-  <meta property="og:image" content="${SITE}/assets/og-image.svg" />
+  <meta property="og:image" content="${SITE}/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Gardinbussen – vi kører gardinbutikken hjem til dig" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${attr(title)}" />
   <meta name="twitter:description" content="${attr(desc)}" />
-  <meta name="twitter:image" content="${SITE}/assets/og-image.svg" />
+  <meta name="twitter:image" content="${SITE}/assets/og-image.png" />
   <link rel="icon" href="${relPrefix}assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="${relPrefix}css/styles.css" />
 ${ld}
@@ -175,7 +178,8 @@ function cityPage(city) {
   const region = REGION[city] || "Danmark";
   const url = `${SITE}/byer/${slug}.html`;
   const local = cityLocal(city);
-  const title = `Gardiner i ${city} – gratis hjemmebesøg | Gardinbussen`;
+  const fullTitle = `Gardiner i ${city} – gratis hjemmebesøg | Gardinbussen`;
+  const title = fullTitle.length > 60 ? `Gardiner i ${city} – gratis hjemmebesøg` : fullTitle;
   const desc = `Nye gardiner i ${city}? Vi kører gardinbutikken hjem til dig med prøver, gratis opmåling og montering. Book et uforpligtende hjemmebesøg.`;
   const faq = faqBlock([
     { q: `Kører bookgardinbussen.online til ${city}?`, a: `Ja. Vi dækker ${city} og resten af ${region}, og kommer gerne hjem til dig med prøver, uanset om du bor midt i ${city} eller i oplandet.` },
@@ -185,11 +189,15 @@ function cityPage(city) {
     { q: `Måler og monterer I også gardinerne?`, a: `Ja. Vi måler professionelt op, syr gardinerne efter mål og står for hele monteringen, så du får et færdigt resultat uden besvær.` },
     { q: `Er jeg bundet til at købe noget?`, a: `Nej. Både besøg, rådgivning og tilbud er uforpligtende.` },
   ]);
+  // Service (ikke LocalBusiness): sitet har ingen fysisk adresse, og Google
+  // kræver address på LocalBusiness.
   const business = {
-    "@context": "https://schema.org", "@type": "HomeAndConstructionBusiness",
-    name: `bookgardinbussen.online – ${city}`,
-    description: `Mobil gardinservice i ${city} og ${region}.`,
-    url, email: "mail@bookgardinbussen.online", image: `${SITE}/assets/og-image.svg`, priceRange: "$$",
+    "@context": "https://schema.org", "@type": "Service",
+    name: `Mobil gardinservice i ${city}`,
+    serviceType: "Gardiner, opmåling og montering",
+    description: `Mobil gardinservice i ${city} og ${region}: gratis hjemmebesøg med prøver, opmåling, rådgivning og montering.`,
+    url, image: `${SITE}/assets/og-image.png`,
+    provider: { "@type": "Organization", name: "bookgardinbussen.online", url: `${SITE}/`, email: "mail@bookgardinbussen.online" },
     areaServed: { "@type": "City", name: city },
   };
   const breadcrumb = {
@@ -397,7 +405,7 @@ ${paras}${offer}
     ],
   };
   return `${head({
-    title: "Nyheder & inspiration om gardiner | bookgardinbussen.online",
+    title: "Nyheder & inspiration om gardiner | Gardinbussen",
     desc: "Nyheder og inspiration om gardiner: plisségardiner, lamelgardiner, motoriserede løsninger, mørklægning, insektnet og hyggelige gardinløsninger til hjemmet.",
     url, relPrefix: "", jsonld: [itemList, breadcrumb],
   })}
@@ -457,7 +465,7 @@ function blogPost(post) {
   ).join("\n");
   const cat = BLOG_CATEGORIES.find((c) => c.name === post.category);
   const hero = cat && cat.img
-    ? `    <div class="container">\n      <img class="article-hero" src="../assets/blog/${cat.img}" alt="${attr(cat.alt)}" loading="lazy" width="1200" height="400" />\n    </div>\n\n`
+    ? `    <div class="container">\n      <img class="article-hero" src="../assets/blog/${cat.img}" alt="${attr(`${cat.alt} – ${post.tag}`)}" fetchpriority="high" decoding="async" width="1200" height="400" />\n    </div>\n\n`
     : "";
   const related = post.related ? `        <div class="related-reads">
           <h2>Læs også</h2>
@@ -471,10 +479,10 @@ ${post.related.links.map((l) => `          <a class="related-card" href="${l.slu
   const introHtml = post.intro.map((p) => `        <p class="lead">${esc(p)}</p>`).join("\n");
   const article = {
     "@context": "https://schema.org", "@type": "Article",
-    headline: post.h1, description: post.desc, image: `${SITE}/assets/og-image.svg`,
+    headline: post.h1, description: post.desc, image: `${SITE}/assets/og-image.png`,
     mainEntityOfPage: url,
     author: { "@type": "Organization", name: "bookgardinbussen.online" },
-    publisher: { "@type": "Organization", name: "bookgardinbussen.online", logo: { "@type": "ImageObject", url: `${SITE}/assets/og-image.svg` } },
+    publisher: { "@type": "Organization", name: "bookgardinbussen.online", logo: { "@type": "ImageObject", url: `${SITE}/assets/og-image.png` } },
   };
   const breadcrumb = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",

@@ -416,7 +416,7 @@ const BLOG = [
     metaTitle: "Foldegardiner: Bløde folder og elegant fald | bookgardinbussen.online",
     h1: "Foldegardiner — bløde folder og et elegant fald",
     tag: "Foldegardiner",
-    desc: "Foldegardiner samler stoffet i bløde, vandrette folder, når de hæves — et roligt og elegant udtryk. Læs guiden til stof, montering og valg, og book en gratis opmåling hjemme.",
+    desc: "Foldegardiner samler stoffet i bløde, vandrette folder — et roligt og elegant udtryk. Læs om stof, montering og valg, og book en gratis opmåling hjemme.",
     intro: [
       "Foldegardiner (også kaldet romangardiner) forener stofgardinets blødhed med rullegardinets funktion. Når du hæver gardinet, samler stoffet sig i pæne, vandrette folder, og trukket ned danner det en glat, rolig flade for vinduet.",
       "Her får du overblik over, hvornår foldegardiner er det rigtige valg, hvilke stoffer der passer bedst, og hvad du skal vide om montering.",
@@ -456,7 +456,7 @@ const BLOG = [
     metaTitle: "Træpersienner: Varme lameller og naturligt look | bookgardinbussen.online",
     h1: "Træpersienner — varmt, naturligt look med bred lamel",
     tag: "Træpersienner",
-    desc: "Træpersienner giver et varmt, hyggeligt udtryk med brede lameller og præcis lysstyring. Læs om farver, lamelbredde og montering, og book en gratis opmåling hjemme hos dig.",
+    desc: "Træpersienner giver et varmt udtryk med brede lameller og præcis lysstyring. Læs om farver, lamelbredde og montering — book en gratis opmåling hjemme.",
     intro: [
       "Træpersienner tilføjer varme og naturlig karakter til vinduet. De brede lameller i træ eller trælook giver et hyggeligt, indbydende udtryk og et frit udsyn, når de er åbne — samtidig med at du styrer lys og indblik helt præcist.",
       "Her ser vi på fordelene ved træpersienner, hvilken lamelbredde og farve du skal vælge, og hvor de passer bedst ind.",
@@ -496,7 +496,7 @@ const BLOG = [
     metaTitle: "Insektnet til vinduer og døre: Frisk luft uden insekter | bookgardinbussen.online",
     h1: "Insektnet til vinduer og døre — luft ud uden insekter",
     tag: "Insektnet",
-    desc: "Insektnet til vinduer og døre holder myg, fluer og hvepse ude, mens du lufter ud. Læs om rullenet, faste rammer og plisségittre — og book en gratis opmåling hjemme hos dig.",
+    desc: "Insektnet til vinduer og døre holder myg, fluer og hvepse ude. Læs om rullenet, faste rammer og plisségittre — og book en gratis opmåling hjemme.",
     intro: [
       "Frisk luft er en af de bedste veje til et godt indeklima — men åbne vinduer og døre inviterer også insekter indenfor. Insektnet lader dig lufte ud hele sommeren uden myg, fluer og hvepse i hjemmet.",
       "Her får du overblik over de forskellige typer insektnet til vinduer og døre, og hvad du skal vælge imellem.",
@@ -536,7 +536,7 @@ const BLOG = [
     metaTitle: "Luxaflex: Premium gardiner og PowerView smart-styring | bookgardinbussen.online",
     h1: "Luxaflex — premium gardiner og smart styring",
     tag: "Luxaflex",
-    desc: "Luxaflex er et af markedets førende gardinmærker med høj kvalitet, unikke produkter og PowerView-motorstyring. Læs om fordele og løsninger — og book en gratis opmåling hjemme.",
+    desc: "Luxaflex er et førende gardinmærke med høj kvalitet og PowerView-motorstyring. Læs om fordele og løsninger — og book en gratis opmåling hjemme.",
     intro: [
       "Luxaflex er blandt de mest anerkendte gardinmærker i verden og står for høj kvalitet, gennemtænkt design og holdbare materialer. Mange af vores kunder efterspørger netop Luxaflex, når de vil have en løsning i den bedste ende.",
       "Her ser vi på, hvad der kendetegner Luxaflex, og hvorfor mærket er et populært valg til både lysstyring, isolering og smart home.",
@@ -576,7 +576,7 @@ const BLOG = [
     metaTitle: "Panelgardiner: enkel afskærmning til store vinduer",
     h1: "Panelgardiner — enkel afskærmning til store vinduer",
     tag: "Panelgardiner",
-    desc: "Panelgardiner er en enkel og fleksibel løsning til store vinduespartier og skydedøre. Læs om funktion, stof og montering — og book en gratis opmåling hjemme hos dig.",
+    desc: "Panelgardiner er en enkel og fleksibel løsning til store vinduespartier og skydedøre. Læs om stof og montering — og book en gratis opmåling hjemme.",
     intro: [
       "Har du et bredt vinduesparti, en altandør eller en skydedør, kan panelgardiner være den enkleste løsning. De lige stofbaner glider til side på en skinne og giver et roligt, minimalistisk udtryk.",
       "Her ser vi på, hvad panelgardiner er, hvornår de er det rigtige valg, og hvordan de monteres.",
@@ -621,7 +621,7 @@ const BLOG = [
     metaTitle: "Screengardiner: solafskærmning der bevarer udsigten",
     h1: "Screengardiner — solafskærmning der bevarer udsigten",
     tag: "Screengardiner",
-    desc: "Screengardiner filtrerer sollys og holder varmen ude, uden at du mister udsigten. Læs om vævninger, åbenhedsgrad og montering — og book en gratis opmåling hjemme.",
+    desc: "Screengardiner filtrerer sollys og holder varmen ude, uden at du mister udsigten. Læs om vævning og montering — og book en gratis opmåling hjemme.",
     intro: [
       "Vil du dæmpe sol og varme uden at lukke helt for udsigten, er screengardiner et godt bud. Det gennemsigtige, vævede stof filtrerer lyset i stedet for at blokere det helt.",
       "Her ser vi på, hvordan screengardiner fungerer, og hvordan du vælger den rigtige vævning til dine vinduer.",
@@ -666,7 +666,7 @@ const BLOG = [
     h1: "Solfilm til vinduer — hold varmen ude og spar på energien",
     tag: "Solfilm til vinduer",
     eyebrow: "Guide · Solfilm",
-    desc: "Solfilm til vinduer kan reducere varmen med op til 85 % og blokere 99 % UV. Læs guiden til varmeafvisning, energibesparelse og valg af solfilm — og book gratis rådgivning hjemme.",
+    desc: "Solfilm kan reducere varmen med op til 85 % og blokere 99 % UV. Læs om varmeafvisning og valg af solfilm — og book gratis rådgivning hjemme.",
     intro: [
       "Store vinduespartier giver lys og udsigt, men om sommeren kan de også gøre boligen ubehageligt varm. Solfilm til vinduer er blevet et af de mest efterspurgte tiltag mod overophedning — en tynd, næsten usynlig folie, der reflekterer solens varme, før den trænger ind i rummet.",
       "I denne guide ser vi på, hvordan solfilm virker, hvor meget varme og UV den kan holde ude, og hvornår solfilm er det rigtige valg frem for — eller sammen med — gardiner.",
@@ -705,11 +705,11 @@ const BLOG = [
   {
     slug: "solfilm-eller-gardiner",
     category: "Solfilm & solafskærmning",
-    metaTitle: "Solfilm eller gardiner? Sådan vælger du den rette solafskærmning | bookgardinbussen.online",
+    metaTitle: "Solfilm eller gardiner? Vælg den rette solafskærmning",
     h1: "Solfilm eller gardiner? Sådan vælger du den rette solafskærmning",
     tag: "Solfilm eller gardiner",
     eyebrow: "Guide · Solafskærmning",
-    desc: "Solfilm eller gardiner mod varme og sol? Sammenlign varmeafvisning, lys, privatliv og pris — og find den rette solafskærmning. Book gratis rådgivning hjemme hos dig.",
+    desc: "Solfilm eller gardiner mod varme og sol? Sammenlign varmeafvisning, lys, privatliv og pris — og book gratis rådgivning om solafskærmning hjemme.",
     intro: [
       "Når solen bager, er det store spørgsmål ofte: skal jeg vælge solfilm eller gardiner? Begge dele skærmer for solen, men de løser opgaven på hver sin måde — og den bedste løsning afhænger af, hvad der generer dig mest: varme, lys, indblik eller blænding.",
       "Her sammenligner vi solfilm og gardiner på de punkter, der betyder mest, så du nemmere kan vælge den rette solafskærmning til dit hjem.",
@@ -748,11 +748,11 @@ const BLOG = [
   {
     slug: "privatlivsfilm-til-vinduer",
     category: "Solfilm & solafskærmning",
-    metaTitle: "Privatlivsfilm til vinduer: Skærm for indblik uden at miste lyset | bookgardinbussen.online",
+    metaTitle: "Privatlivsfilm til vinduer: Skærm for indblik, bevar lyset",
     h1: "Privatlivsfilm til vinduer — skærm for indblik uden at miste lyset",
     tag: "Privatlivsfilm",
     eyebrow: "Guide · Solfilm",
-    desc: "Privatlivsfilm til vinduer skærmer for indblik, men lader lyset ind. Læs om spejlfilm, mat film og frostfilm — og book gratis rådgivning om solafskærmning hjemme hos dig.",
+    desc: "Privatlivsfilm skærmer for indblik, men lader lyset ind. Læs om spejlfilm, mat film og frostfilm — og book gratis rådgivning hjemme hos dig.",
     intro: [
       "Bor du ud til en travl vej, tæt på naboen eller i stueetagen, kan følelsen af at være på udstilling gå ud over roen i hjemmet. Privatlivsfilm til vinduer er blevet et populært svar: en folie, der gør det svært at kigge ind, mens du stadig kan nyde lyset og udsigten indefra.",
       "Her ser vi på de forskellige typer privatlivsfilm, hvordan de virker om dagen og aftenen, og hvornår film eller gardiner giver den bedste skærmning.",
@@ -791,11 +791,11 @@ const BLOG = [
   {
     slug: "solfilmsrullegardiner",
     category: "Solfilm & solafskærmning",
-    metaTitle: "Solfilmsrullegardiner: Reflekterer varmen og skærmer for solen | bookgardinbussen.online",
+    metaTitle: "Solfilmsrullegardiner: Reflekterer varmen, skærmer for sol",
     h1: "Solfilmsrullegardiner — reflekterer varmen og skærmer for solen",
     tag: "Solfilmsrullegardiner",
     eyebrow: "Guide · Solafskærmning",
-    desc: "Solfilmsrullegardiner har et reflekterende stof, der kaster solens varme tilbage og dæmper blænding — uden at lukke udsigten helt. Læs guiden, og book en gratis opmåling hjemme.",
+    desc: "Solfilmsrullegardiner kaster solens varme tilbage og dæmper blænding uden at lukke udsigten helt. Læs guiden, og book en gratis opmåling hjemme.",
     intro: [
       "Vil du have solfilmens varmeafvisning kombineret med et gardin, du selv kan trække op og ned? Så er solfilmsrullegardiner det oplagte valg. Stoffet er belagt med et reflekterende lag, der kaster solens varme tilbage — ligesom solfilm — men i et fleksibelt rullegardin.",
       "Her får du overblik over, hvordan solfilmsrullegardiner virker, hvor de gør størst nytte, og hvad du skal vælge imellem.",
@@ -928,7 +928,7 @@ const BLOG = [
     h1: "Motoriserede gardiner — smart home-styring af lys og varme",
     tag: "Motoriserede gardiner",
     eyebrow: "Trend · Smart home",
-    desc: "Motoriserede gardiner er en af de største gardintrends i 2026: styr lys, varme og privatliv med app, tidsplan eller stemme. Læs guiden, og book en gratis opmåling hjemme.",
+    desc: "Motoriserede gardiner er en af årets største trends: styr lys, varme og privatliv med app, tidsplan eller stemme. Book en gratis opmåling hjemme.",
     intro: [
       "Motoriserede gardiner er blandt de mest efterspurgte trends i danske hjem i 2026. Med et enkelt tryk — eller helt automatisk — styrer du lys, varme og privatliv, og de høje eller svært tilgængelige vinduer bliver pludselig nemme at betjene.",
       "Her ser vi på, hvordan motoriserede gardiner virker, hvad de kan i et smart home, og hvornår de er investeringen værd.",
@@ -970,7 +970,7 @@ const BLOG = [
     h1: "Solcelledrevne gardiner — motorisering uden stikkontakt",
     tag: "Solcelledrevne gardiner",
     eyebrow: "Guide · Smart home",
-    desc: "Solcelledrevne gardiner oplader sig selv med dagslys og kræver ingen stikkontakt. Læs om fordele, opsætning og drift — og book en gratis opmåling hjemme hos dig.",
+    desc: "Solcelledrevne gardiner oplader sig selv med dagslys og kræver ingen stikkontakt. Læs om fordele og drift — og book en gratis opmåling hjemme.",
     intro: [
       "Vil du have motoriserede gardiner uden at trække kabler eller være afhængig af en stikkontakt tæt på vinduet? Solcelledrevne gardiner løser problemet ved at oplade sig selv med dagslys.",
       "Her ser vi på, hvordan teknologien fungerer, og hvornår den er et godt alternativ til kabelforbundne løsninger.",
@@ -1015,7 +1015,7 @@ const BLOG = [
     h1: "Gardiner med stemmestyring",
     tag: "Gardiner med stemmestyring",
     eyebrow: "Guide · Smart home",
-    desc: "Styr dine gardiner med stemmen via Alexa eller Google Home. Læs hvordan stemmestyrede gardiner fungerer, og hvad du skal bruge — og book en gratis opmåling hjemme.",
+    desc: "Styr dine gardiner med stemmen via Alexa eller Google Home. Læs hvordan stemmestyrede gardiner fungerer — og book en gratis opmåling hjemme.",
     intro: [
       "Har du travlt med hænderne fulde af madlavning eller børn, kan det være praktisk bare at sige \"luk gardinerne i stuen\" i stedet for at finde en fjernbetjening. Stemmestyrede gardiner gør netop det muligt.",
       "Her ser vi på, hvordan stemmestyring fungerer, og hvad du skal bruge for at komme i gang.",
@@ -1182,7 +1182,7 @@ const BLOG = [
   {
     slug: "gardiner-sovevaerelse-efteraar",
     category: "Efterår – guides & fordele",
-    metaTitle: "Gardiner i soveværelset om efteråret — bedre søvn i mørketiden | bookgardinbussen.online",
+    metaTitle: "Gardiner i soveværelset om efteråret – bedre søvn",
     h1: "Soveværelset om efteråret — gardiner til bedre søvn",
     tag: "Soveværelse om efteråret",
     eyebrow: "Guide · Efterår",
@@ -1272,7 +1272,7 @@ const BLOG = [
     h1: "Gardiner og fugt om efteråret",
     tag: "Gardiner og fugt om efteråret",
     eyebrow: "Guide · Efterår",
-    desc: "Kolde vinduer og høj luftfugtighed kan give kondens og skimmel om efteråret. Læs hvordan du vælger og bruger gardiner rigtigt — og book en gratis opmåling hjemme.",
+    desc: "Kolde vinduer og høj luftfugtighed giver kondens og skimmel om efteråret. Sådan vælger og bruger du gardiner rigtigt — book en gratis opmåling.",
     intro: [
       "Dugget rude om morgenen eller en anelse skimmellugt fra vindueskarmen? Det er et klassisk efterårsproblem, når varm indeluft møder kolde ruder. Med den rigtige brug af gardiner kan du mindske problemet.",
       "Her ser vi på, hvorfor kondens opstår, og hvordan du undgår, at gardinerne forværrer fugtproblemer.",
@@ -1534,7 +1534,7 @@ const BLOG = [
     h1: "Billige gardiner eller gardiner i god kvalitet? Sådan vælger du rigtigt",
     tag: "Billige gardiner eller god kvalitet",
     eyebrow: "Guide · Pris & kvalitet",
-    desc: "Skal du vælge billige gardiner eller gardiner i god kvalitet? Få et ærligt overblik over pris, materialer og holdbarhed — og et gratis, uforpligtende tilbud hjemme hos dig.",
+    desc: "Billige gardiner eller gardiner i god kvalitet? Få et ærligt overblik over pris, materialer og holdbarhed — og et gratis tilbud hjemme hos dig.",
     card: { title: "Billige gardiner eller god kvalitet?", desc: "Skal du vælge billige gardiner eller gardiner i god kvalitet? Få et ærligt overblik over pris, materialer og holdbarhed — og book en gratis opmåling hjemme." },
     llmsDesc: "Ærligt overblik over billige gardiner vs. gardiner i god kvalitet — hvad koster de, hvad kendetegner god kvalitet, og hvordan får du det bedste forhold mellem pris og kvalitet. Gratis opmåling hjemme.",
     intro: [
@@ -1639,7 +1639,7 @@ const BLOG = [
     h1: "7 tegn på gardiner i god kvalitet",
     tag: "7 tegn på gardiner i god kvalitet",
     eyebrow: "Guide · Pris & kvalitet",
-    desc: "Sådan kender du gardiner i god kvalitet fra dårlige. 7 konkrete tegn at kigge efter i stof, syning og ophæng — og en gratis, uforpligtende opmåling hjemme hos dig.",
+    desc: "Sådan kender du gardiner i god kvalitet: 7 konkrete tegn at kigge efter i stof, syning og ophæng — og en gratis, uforpligtende opmåling hjemme.",
     card: { title: "7 tegn på god kvalitet", desc: "Sådan kender du gardiner i god kvalitet fra dårlige. 7 konkrete tegn at kigge efter i stof, syning og ophæng — og en gratis opmåling hjemme hos dig." },
     llmsDesc: "7 konkrete tegn på gardiner i god kvalitet — stof, syning, ophæng og mekanik. Gratis opmåling hjemme, så du kan tjekke tegnene selv.",
     intro: [

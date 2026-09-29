@@ -9,40 +9,51 @@ Disallow: /api/
 # OpenAI (ChatGPT-søgning, SearchGPT, browsing og træning)
 User-agent: GPTBot
 Allow: /
+Disallow: /api/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/
 
 # Perplexity
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
 
 # Anthropic (Claude)
 User-agent: ClaudeBot
 Allow: /
+Disallow: /api/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /api/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /api/
 
 # Google (Gemini / AI Overviews) og Apple Intelligence
 User-agent: Google-Extended
 Allow: /
+Disallow: /api/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /api/
 
 # Microsoft Copilot / Bing
 User-agent: bingbot
 Allow: /
+Disallow: /api/
 
 # Common Crawl (datagrundlag for mange sprogmodeller)
 User-agent: CCBot
 Allow: /
+Disallow: /api/
 
 Sitemap: https://www.bookgardinbussen.online/sitemap.xml
