@@ -1,0 +1,31 @@
+        <defs>
+          <linearGradient id="net-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#cdeab0"/>
+            <stop offset="1" stop-color="#f2f8e8"/>
+          </linearGradient>
+          <linearGradient id="net-wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#eef5e2"/>
+            <stop offset="1" stop-color="#d7e7bd"/>
+          </linearGradient>
+          <pattern id="net-mesh" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M0 0 L10 10 M10 0 L0 10" stroke="#7a9a5c" stroke-width="0.6" opacity="0.5"/>
+          </pattern>
+          <clipPath id="net-clip"><rect x="70" y="46" width="460" height="290" rx="4"/></clipPath>
+        </defs>
+        <rect width="600" height="400" fill="url(#net-wall)"/>
+        <rect x="56" y="32" width="488" height="308" rx="10" fill="#ffffff"/>
+        <g clip-path="url(#net-clip)">
+          <rect x="70" y="46" width="460" height="290" fill="url(#net-sky)"/>
+          <circle cx="150" cy="90" r="40" fill="#ffffff" opacity="0.7"/>
+          <circle cx="200" cy="100" r="28" fill="#ffffff" opacity="0.7"/>
+          <rect x="70" y="46" width="460" height="290" fill="url(#net-mesh)"/>
+          <path d="M320 260 q10 -18 26 -10 q-4 20 -26 10" fill="#3f7d3f"/>
+          <circle cx="380" cy="150" r="5" fill="#2b2b2b"/>
+          <line x1="380" y1="150" x2="392" y2="140" stroke="#2b2b2b" stroke-width="1.5"/>
+          <line x1="380" y1="150" x2="392" y2="160" stroke="#2b2b2b" stroke-width="1.5"/>
+        </g>
+        <rect x="56" y="326" width="488" height="14" fill="#ffffff"/>
+        <g transform="translate(90,300)">
+          <path d="M0 46 C -5 16 8 0 24 0 C 40 0 52 16 46 46 Z" fill="#5f9a55"/>
+          <rect x="8" y="44" width="30" height="18" rx="3" fill="#c98a4b"/>
+        </g>

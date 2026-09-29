@@ -1,5 +1,5 @@
-// Teknisk SEO på alle færdige HTML-filer + sitemap.xml. Kør efter
-// seo-sections.js:  node scripts/seo-sections.js && node scripts/seo-technical.js
+// Teknisk SEO på alle færdige HTML-filer + sitemap.xml. Køres automatisk som
+// sidste trin af build.js (efter seo-sections.js).
 //
 // Scriptet kan køres igen og igen og gør følgende:
 // - Google Search Console: indsætter <meta name="google-site-verification">
@@ -9,7 +9,8 @@
 //   viser for LocalBusiness og kan give en manuel handling
 // - Interne links til forsiden peger på den kanoniske URL "/" i stedet for
 //   /index.html (samme side under to URL'er)
-// - sitemap.xml med rigtig lastmod pr. side (seneste git-ændring)
+// - Article dateModified og sitemap lastmod ændres kun, når siden reelt er
+//   ændret (ellers bruges datoen fra seneste commit)
 
 const fs = require("fs");
 const path = require("path");
@@ -105,10 +106,25 @@ for (const rel of allPages) {
   write(rel, html);
 }
 
+// ---------- Article dateModified: kun ny dato ved reelle ændringer ----------
+// Er indholdet uændret i forhold til seneste commit (bortset fra
+// dateModified), beholdes den committede dato. Så ændrer en ny build ikke
+// datoen på alle indlæg, og filen forbliver uændret i git.
+const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
+const DATE_MOD = /"dateModified":"[^"]*"/;
+for (const f of listHtml("blog")) {
+  const rel = `blog/${f}`;
+  const html = read(rel);
+  const committed = git(`show HEAD:"${rel}"`);
+  const m = committed && committed.match(DATE_MOD);
+  if (!m || !DATE_MOD.test(html)) continue;
+  const same = html.replace(DATE_MOD, "").trim() === committed.replace(DATE_MOD, "").trim();
+  write(rel, html.replace(DATE_MOD, same ? m[0] : `"dateModified":"${today}"`));
+}
+
 // ---------- sitemap.xml med rigtig lastmod ----------
 // lastmod = dato for seneste commit af filen; har filen ikke-committede
 // ændringer (fx fra denne kørsel), bruges dags dato.
-const today = new Date().toISOString().slice(0, 10);
 function lastmod(file) {
   const dirty = git(`status --porcelain -- "${file}"`);
   return (!dirty && git(`log -1 --format=%cs -- "${file}"`)) || today;

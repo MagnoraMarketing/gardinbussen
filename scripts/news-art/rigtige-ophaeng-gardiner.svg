@@ -1,0 +1,30 @@
+        <defs>
+          <linearGradient id="rod-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e7ddcf"/>
+            <stop offset="1" stop-color="#f6f0e6"/>
+          </linearGradient>
+          <linearGradient id="rod-wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f3ede2"/>
+            <stop offset="1" stop-color="#e1d3bd"/>
+          </linearGradient>
+          <linearGradient id="rod-curtain" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#7a8a6f"/>
+            <stop offset="1" stop-color="#5c6b53"/>
+          </linearGradient>
+          <clipPath id="rod-clip"><rect x="70" y="46" width="460" height="290" rx="4"/></clipPath>
+        </defs>
+        <rect width="600" height="400" fill="url(#rod-wall)"/>
+        <rect x="56" y="32" width="488" height="308" rx="10" fill="#ffffff"/>
+        <g clip-path="url(#rod-clip)">
+          <rect x="70" y="46" width="460" height="290" fill="url(#rod-sky)"/>
+          <path d="M70 60 C 110 140 90 260 130 336 L70 336 Z" fill="url(#rod-curtain)"/>
+        </g>
+        <rect x="60" y="50" width="480" height="10" rx="5" fill="#b8935a"/>
+        <circle cx="86" cy="55" r="10" fill="#8a6a3c"/>
+        <g fill="#8a6a3c">
+          <circle cx="120" cy="55" r="7"/>
+          <circle cx="156" cy="55" r="7"/>
+          <circle cx="192" cy="55" r="7"/>
+          <circle cx="228" cy="55" r="7"/>
+        </g>
+        <rect x="56" y="326" width="488" height="14" fill="#ffffff"/>

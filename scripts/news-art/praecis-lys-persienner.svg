@@ -1,0 +1,33 @@
+        <defs>
+          <linearGradient id="pers-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#cdd8e3"/>
+            <stop offset="1" stop-color="#eef2f6"/>
+          </linearGradient>
+          <linearGradient id="pers-wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#eef1f4"/>
+            <stop offset="1" stop-color="#d7dee5"/>
+          </linearGradient>
+          <clipPath id="pers-clip"><rect x="70" y="46" width="460" height="290" rx="4"/></clipPath>
+        </defs>
+        <rect width="600" height="400" fill="url(#pers-wall)"/>
+        <rect x="56" y="32" width="488" height="308" rx="10" fill="#ffffff"/>
+        <g clip-path="url(#pers-clip)">
+          <rect x="70" y="46" width="460" height="290" fill="url(#pers-sky)"/>
+          <circle cx="150" cy="90" r="24" fill="#ffffff" opacity="0.6"/>
+          <g fill="#8fa0b3">
+            <rect x="70" y="60" width="460" height="10"/>
+            <rect x="70" y="82" width="460" height="10"/>
+            <rect x="70" y="104" width="460" height="10"/>
+            <rect x="70" y="126" width="460" height="10"/>
+            <rect x="70" y="148" width="460" height="10"/>
+            <rect x="70" y="170" width="460" height="10"/>
+            <rect x="70" y="192" width="460" height="10"/>
+            <rect x="70" y="214" width="460" height="10"/>
+            <rect x="70" y="236" width="460" height="10"/>
+          </g>
+        </g>
+        <rect x="56" y="326" width="488" height="14" fill="#ffffff"/>
+        <g transform="translate(440,270)">
+          <rect x="0" y="0" width="8" height="70" fill="#8fa0b3"/>
+          <circle cx="4" cy="70" r="6" fill="#5a6b7c"/>
+        </g>

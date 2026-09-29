@@ -2,10 +2,9 @@
 // sider + tekniske SEO-opdateringer (sitemap med lastmod, datoer i
 // Article-schema, PNG-delingsbillede).
 //
-// Scriptet retter direkte i de færdige HTML-filer (de er redigeret i hånden
-// efter build.js), og det kan køres igen og igen: sektionen ligger mellem
-// <!-- SEO-BOOK:START --> og <!-- SEO-BOOK:END --> og udskiftes ved hver kørsel.
-// Kør: node scripts/seo-sections.js && node scripts/seo-technical.js
+// Scriptet retter direkte i de færdige HTML-filer og kan køres igen og igen:
+// sektionen ligger mellem <!-- SEO-BOOK:START --> og <!-- SEO-BOOK:END --> og
+// udskiftes ved hver kørsel. Køres automatisk af build.js.
 
 const fs = require("fs");
 const path = require("path");
@@ -264,7 +263,7 @@ function gitDate(file, first) {
     return first ? out[out.length - 1] : out[0];
   } catch { return ""; }
 }
-const today = new Date().toISOString().slice(0, 10);
+const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 
 // ---------- Article-schema: datoer + PNG-billede ----------
 for (const f of listHtml("blog")) {
@@ -276,7 +275,7 @@ for (const f of listHtml("blog")) {
     const o = JSON.parse(json);
     o.image = `${SITE}/assets/og-image.png`;
     o.datePublished = o.datePublished || published;
-    o.dateModified = today;
+    o.dateModified = today; // rettes af seo-technical.js, hvis indholdet er uændret
     o.inLanguage = "da-DK";
     return `<script type="application/ld+json">${JSON.stringify(o)}</script>`;
   });

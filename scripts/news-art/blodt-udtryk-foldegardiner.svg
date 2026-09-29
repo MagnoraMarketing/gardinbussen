@@ -1,0 +1,28 @@
+        <defs>
+          <linearGradient id="fold-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f3d4c8"/>
+            <stop offset="1" stop-color="#fbeee7"/>
+          </linearGradient>
+          <linearGradient id="fold-wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f7ece4"/>
+            <stop offset="1" stop-color="#e9d3c4"/>
+          </linearGradient>
+          <clipPath id="fold-clip"><rect x="70" y="46" width="460" height="290" rx="4"/></clipPath>
+        </defs>
+        <rect width="600" height="400" fill="url(#fold-wall)"/>
+        <rect x="56" y="32" width="488" height="308" rx="10" fill="#ffffff"/>
+        <g clip-path="url(#fold-clip)">
+          <rect x="70" y="46" width="460" height="290" fill="url(#fold-sky)"/>
+          <circle cx="440" cy="100" r="26" fill="#ffe6d2"/>
+          <g fill="#d98a6f">
+            <path d="M70 60 q230 -18 460 0 v34 q-230 20 -460 0 z"/>
+            <path d="M70 100 q230 -16 460 0 v30 q-230 18 -460 0 z" opacity="0.9"/>
+            <path d="M70 136 q230 -14 460 0 v26 q-230 16 -460 0 z" opacity="0.8"/>
+            <path d="M70 168 q230 -12 460 0 v22 q-230 14 -460 0 z" opacity="0.7"/>
+          </g>
+        </g>
+        <rect x="56" y="326" width="488" height="14" fill="#ffffff"/>
+        <g transform="translate(96,300)">
+          <path d="M0 46 C -4 20 6 6 20 6 C 34 6 44 20 40 46 Z" fill="#8a9a6f"/>
+          <rect x="6" y="44" width="28" height="18" rx="3" fill="#c98a4b"/>
+        </g>
