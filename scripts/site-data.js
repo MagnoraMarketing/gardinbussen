@@ -12,6 +12,12 @@ const SITE = "https://www.bookgardinbussen.online";
 // tag (fx når domænet er verificeret via DNS eller Google Analytics).
 const GOOGLE_SITE_VERIFICATION = "";
 
+// Bing Webmaster Tools: indsæt koden fra "HTML Meta Tag"-metoden her (kun
+// værdien i <meta name="msvalidate.01" content="...">), og kør
+// node scripts/seo-technical.js. Tom = intet tag (fx ved import fra Google
+// Search Console, som ikke kræver et tag).
+const BING_SITE_VERIFICATION = "";
+
 const CITIES = [
   "København", "Aarhus", "Odense", "Aalborg", "Esbjerg",
   "Randers", "Kolding", "Horsens", "Vejle", "Roskilde",
@@ -1920,6 +1926,6 @@ function ctaCard(label, lead) {
 }
 
 module.exports = {
-  AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, CITIES, REGION, CITY_LOCAL, BLOG, NEWS,
+  AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, CITIES, REGION, CITY_LOCAL, BLOG, NEWS,
   slugify, esc, attr, bookBtn, ctaCard,
 };

@@ -4,6 +4,12 @@
 // Scriptet kan køres igen og igen og gør følgende:
 // - Google Search Console: indsætter <meta name="google-site-verification">
 //   på alle sider, når GOOGLE_SITE_VERIFICATION er udfyldt i site-data.js
+// - Bing Webmaster Tools: indsætter <meta name="msvalidate.01">, når
+//   BING_SITE_VERIFICATION er udfyldt i site-data.js
+// - Sprogsignal til Bing (content-language da-DK) og PNG-favicons/
+//   apple-touch-icon/manifest på alle sider (Bing og Google viser favicon i
+//   søgeresultaterne og foretrækker et rasterikon på mindst 48x48)
+// - Kvadratisk logo (assets/logo.png) i JSON-LD i stedet for OG-billedet
 // - Kortere titler og meta-beskrivelser, så Google ikke klipper dem af
 // - Fjerner egen-anmeldelser (aggregateRating) fra JSON-LD, som Google ikke
 //   viser for LocalBusiness og kan give en manuel handling
@@ -15,7 +21,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
-const { SITE, GOOGLE_SITE_VERIFICATION, attr } = require("./site-data");
+const { SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, attr } = require("./site-data");
 
 const ROOT = path.join(__dirname, "..");
 const read = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
@@ -84,6 +90,32 @@ for (const rel of allPages) {
       `$1\n$2<meta name="google-site-verification" content="${attr(GOOGLE_SITE_VERIFICATION)}" />`);
   }
 
+  // Bing Webmaster Tools-verifikation.
+  html = html.replace(/\n[ \t]*<meta name="msvalidate\.01" content="[^"]*" \/>/, "");
+  if (BING_SITE_VERIFICATION) {
+    html = html.replace(/(\n([ \t]*)<meta name="viewport"[^>]*\/>)/,
+      `$1\n$2<meta name="msvalidate.01" content="${attr(BING_SITE_VERIFICATION)}" />`);
+  }
+
+  // Sprogsignal: Bing bruger content-language (og ikke kun <html lang>).
+  if (!/http-equiv="content-language"/.test(html)) {
+    html = html.replace(/(\n([ \t]*)<meta name="viewport"[^>]*\/>)/,
+      `$1\n$2<meta http-equiv="content-language" content="da-DK" />`);
+  }
+
+  // Favicons i PNG + apple-touch-icon + manifest efter SVG-ikonet.
+  const pre = inSub ? "../" : "";
+  html = html.replace(/\n[ \t]*<link rel="(?:icon" type="image\/png"|apple-touch-icon|manifest)[^>]*\/>/g, "");
+  html = html.replace(/(\n([ \t]*)<link rel="icon" href="[^"]*favicon\.svg"[^>]*\/>)/, (m, line, ind) => line +
+    `\n${ind}<link rel="icon" type="image/png" sizes="48x48" href="${pre}assets/favicon-48.png" />` +
+    `\n${ind}<link rel="apple-touch-icon" href="${pre}assets/apple-touch-icon.png" />` +
+    `\n${ind}<link rel="manifest" href="${pre}site.webmanifest" />`);
+
+  // Kvadratisk logo i JSON-LD (Google kræver mindst 112x112, helst kvadratisk).
+  html = html.split(`"logo":{"@type":"ImageObject","url":"${SITE}/assets/og-image.png"}`)
+    .join(`"logo":{"@type":"ImageObject","url":"${SITE}/assets/logo.png","width":512,"height":512}`);
+  html = html.split(`"logo": "${SITE}/assets/og-image.png"`).join(`"logo": "${SITE}/assets/logo.png"`);
+
   // Fjern aggregateRating fra JSON-LD (egen-anmeldelser).
   html = html.replace(/,"aggregateRating":\{"@type":"AggregateRating"[^}]*\}/g, "");
   html = html.replace(/,\s*"aggregateRating":\s*\{\s*"@type":\s*"AggregateRating"[^}]*\}/g, "");
@@ -138,6 +170,9 @@ const urls = sitemapPages.map((p) => `  <url>
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
 
 console.log(`Teknisk SEO opdateret på ${allPages.length} sider. sitemap.xml: ${sitemapPages.length} URL'er.`);
+console.log(BING_SITE_VERIFICATION
+  ? "Bing Webmaster Tools-verifikation indsat på alle sider."
+  : "BING_SITE_VERIFICATION er tom i site-data.js — ingen msvalidate.01-tag indsat.");
 console.log(GOOGLE_SITE_VERIFICATION
   ? "Google Search Console-verifikation indsat på alle sider."
   : "GOOGLE_SITE_VERIFICATION er tom i site-data.js — ingen verifikations-tag indsat.");
