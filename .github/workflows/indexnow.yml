@@ -1,0 +1,31 @@
+# Giver Bing (og andre IndexNow-søgemaskiner) besked om ændrede sider, når
+# der pushes til main. Venter lidt, så Vercel har udrullet den nye version.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths: ["*.html", "**/*.html", "sitemap.xml"]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Vent på Vercel-udrulning
+        run: sleep 120
+      - name: Send ændrede sider til IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then
+            node scripts/indexnow.js
+          else
+            node scripts/indexnow.js $(git diff --name-only "$BEFORE" HEAD -- '*.html')
+          fi

@@ -482,7 +482,7 @@ ${post.related.links.map((l) => `          <a class="related-card" href="${l.slu
     headline: post.h1, description: post.desc, image: `${SITE}/assets/og-image.png`,
     mainEntityOfPage: url,
     author: { "@type": "Organization", name: "bookgardinbussen.online" },
-    publisher: { "@type": "Organization", name: "bookgardinbussen.online", logo: { "@type": "ImageObject", url: `${SITE}/assets/og-image.png` } },
+    publisher: { "@type": "Organization", name: "bookgardinbussen.online", logo: { "@type": "ImageObject", url: `${SITE}/assets/logo.png`, width: 512, height: 512 } },
   };
   const breadcrumb = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",

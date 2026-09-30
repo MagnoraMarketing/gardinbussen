@@ -479,6 +479,39 @@ img, svg { max-width: 100%; }
   .bus-widget, .bus-widget.is-visible { transform: none; transition: opacity 0.3s ease; }
 }
 
+/* Mobil bundmenu --------------------------------------------------------
+   Kun på mobil: fire genveje med en fremhævet "Book nu"-bus i midten
+   (indsættes af js/main.js). */
+.bottom-nav { display: none; }
+@media (max-width: 780px) {
+  .bottom-nav {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 80;
+    display: grid; grid-template-columns: repeat(5, 1fr); align-items: end;
+    background: var(--white); border-top: 1px solid var(--sand-200);
+    box-shadow: 0 -6px 20px rgba(31, 61, 52, 0.10);
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+  }
+  .bottom-nav a {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 4px 0; color: var(--ink-soft); font-size: 0.72rem; font-weight: 600;
+    text-decoration: none; -webkit-tap-highlight-color: transparent;
+  }
+  .bottom-nav a:hover { text-decoration: none; color: var(--green-700); }
+  .bottom-nav a[aria-current="page"] { color: var(--green-700); }
+  .bottom-nav-label { line-height: 1.2; white-space: nowrap; }
+  .bottom-nav .bottom-nav-book { color: var(--green-900); font-weight: 800; }
+  .bottom-nav-book-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 58px; height: 58px; margin-top: -30px; border-radius: 50%;
+    background: var(--amber); color: var(--white);
+    border: 4px solid var(--white); box-shadow: 0 8px 20px rgba(217, 138, 61, 0.45);
+    transition: transform 0.15s ease;
+  }
+  .bottom-nav-book:active .bottom-nav-book-btn { transform: scale(0.95); }
+  body.has-bottom-nav { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+  body.has-bottom-nav .bus-widget { bottom: calc(92px + env(safe-area-inset-bottom)); }
+}
+
 /* Responsive ------------------------------------------------------------- */
 /* Menu: klap sammen til hamburger tidligt, så lange menuer ikke overflyder. */
 @media (max-width: 1024px) {
