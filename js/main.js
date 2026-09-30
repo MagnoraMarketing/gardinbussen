@@ -23,6 +23,55 @@
     });
   }
 
+  // Mobil bundmenu — to punkter på hver side af en fremhævet "Book nu"-knap
+  // i midten. Indsættes med JS, så den kommer på alle sider uden at røre de
+  // genererede skabeloner. Book-linket hentes fra menuens "Book
+  // hjemmebesøg"-knap, så det altid er det samme affiliate-link.
+  function initBottomNav() {
+    var cta = document.querySelector(".nav-cta");
+    var bookUrl = cta ? cta.getAttribute("href") : "/#booking";
+    var path = location.pathname;
+    var icon = function (d) {
+      return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" ' +
+        'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + "</svg>";
+    };
+    var items = [
+      { href: "/", label: "Forside", active: path === "/" || path === "/index.html",
+        icon: icon('<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>') },
+      { href: "/#produkter", label: "Produkter", active: false,
+        icon: icon('<rect x="4" y="3" width="16" height="4" rx="1"/><path d="M6 7v11M10 7v11M14 7v11M18 7v11"/><path d="M4 21h16"/>') },
+      null,
+      { href: "/#omraade", label: "Byer", active: path.indexOf("/byer/") === 0,
+        icon: icon('<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>') },
+      { href: "/blog/index.html", label: "Guides", active: path.indexOf("/blog/") === 0,
+        icon: icon('<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M8 7h7M8 11h7"/>') },
+    ];
+    var html = items.map(function (it) {
+      if (!it) {
+        return '<a class="bottom-nav-book" href="' + bookUrl + '" target="_blank" rel="noopener sponsored">' +
+          '<span class="bottom-nav-book-btn" aria-hidden="true">' +
+          '<svg viewBox="0 0 32 32" width="30" height="30" fill="none">' +
+          '<rect x="2" y="10" width="24" height="12" rx="2.5" fill="currentColor"/>' +
+          '<rect x="5" y="13" width="6" height="5" rx="1" fill="#d98a3d"/>' +
+          '<rect x="13" y="13" width="6" height="5" rx="1" fill="#d98a3d"/>' +
+          '<rect x="21" y="12" width="7" height="7" rx="1.5" fill="currentColor"/>' +
+          '<circle cx="9" cy="24" r="3" fill="#1f3d34"/><circle cx="22" cy="24" r="3" fill="#1f3d34"/>' +
+          "</svg></span>" +
+          '<span class="bottom-nav-label">Book nu</span></a>';
+      }
+      return '<a href="' + it.href + '"' + (it.active ? ' aria-current="page"' : "") + ">" +
+        it.icon + '<span class="bottom-nav-label">' + it.label + "</span></a>";
+    }).join("");
+    var nav = document.createElement("nav");
+    nav.className = "bottom-nav";
+    nav.setAttribute("aria-label", "Genveje");
+    nav.innerHTML = html;
+    document.body.appendChild(nav);
+    document.body.classList.add("has-bottom-nav");
+  }
+
+  initBottomNav();
+
   // Bus widget — drives in from fully off-screen, all the way across, ~20s
   // after landing, once per browser session. A literal bus graphic with
   // the slogan on its side, topped with a "Book Gardinbussen" heading,
