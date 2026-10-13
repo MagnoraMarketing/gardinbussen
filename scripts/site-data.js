@@ -18,6 +18,10 @@ const GOOGLE_SITE_VERIFICATION = "";
 // Search Console, som ikke kræver et tag).
 const BING_SITE_VERIFICATION = "";
 
+// Google Tag Manager: container-ID (GTM-XXXXXXX). Indsættes øverst i <head>
+// og lige efter <body> på alle sider af seo-technical.js. Tom = ingen GTM.
+const GTM_ID = "GTM-WPMBZL4K";
+
 const CITIES = [
   "København", "Aarhus", "Odense", "Aalborg", "Esbjerg",
   "Randers", "Kolding", "Horsens", "Vejle", "Roskilde",
@@ -60,112 +64,6 @@ const REGION = {
   "Nørresundby": "Nordjylland", "Thisted": "Nordjylland", "Brønderslev": "Nordjylland",
   "Hobro": "Nordjylland", "Aars": "Nordjylland", "Skagen": "Nordjylland",
   "Hirtshals": "Nordjylland",
-};
-
-// Lokal sektion "Gardinløsninger til hjem i <by> og omegn" (valgfri pr. by):
-// character: hvad byen er kendetegnet ved, nearby: tre nabobyer,
-// popular: blogindlæg der linkes til som populært valg.
-const CITY_LOCAL = {
-  "Frederiksberg": {
-    character: "med sine markante boligkarréer, høje vinduespartier og hyggelige gårdmiljøer",
-    nearby: ["København", "Vanløse", "Valby"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Gentofte": {
-    character: "med store villaer og klassiske vinduer i flere fag",
-    nearby: ["Charlottenlund", "Hellerup", "Lyngby"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Lyngby": {
-    character: "fra de grønne villakvarterer til lejlighederne tæt på bymidten",
-    nearby: ["Gentofte", "Virum", "Sorgenfri"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Hørsholm": {
-    character: "med rækkehuse og villaer tæt på kysten",
-    nearby: ["Rungsted", "Kokkedal", "Birkerød"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
-  "Ishøj": {
-    character: "med både etagebyggeri og parcelhuskvarterer",
-    nearby: ["Greve", "Vallensbæk", "Hvidovre"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Glostrup": {
-    character: "med parcelhuse og lejligheder tæt på indfaldsvejene",
-    nearby: ["Albertslund", "Brøndby", "Rødovre"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Herlev": {
-    character: "med rækkehuse, villaer og etagebyggeri side om side",
-    nearby: ["Ballerup", "Gladsaxe", "Værløse"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Ribe": {
-    character: "med Danmarks ældste bykerne og mange bevaringsværdige huse",
-    nearby: ["Esbjerg", "Bramming", "Gram"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
-  "Varde": {
-    character: "med hyggelige villakvarterer tæt på Vesterhavet",
-    nearby: ["Esbjerg", "Grindsted", "Ølgod"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Tønder": {
-    character: "med den historiske bykerne og de omkringliggende landsbyer",
-    nearby: ["Højer", "Løgumkloster", "Skærbæk"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Aars": {
-    character: "med parcelhuskvarterer i det midtjyske Himmerland",
-    nearby: ["Løgstør", "Hobro", "Nibe"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Skagen": {
-    character: "med sommerhuse og byhuse helt ud til Danmarks nordligste spids",
-    nearby: ["Frederikshavn", "Hirtshals", "Aalbæk"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
-  "Hirtshals": {
-    character: "med havnenære boliger og sommerhuse langs kysten",
-    nearby: ["Hjørring", "Skagen", "Løkken"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Ebeltoft": {
-    character: "med den hyggelige bykerne og sommerhusområderne på Mols",
-    nearby: ["Rønde", "Grenaa", "Aarhus"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Struer": {
-    character: "med villakvarterer der løber ned mod Limfjorden",
-    nearby: ["Holstebro", "Lemvig", "Skive"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Lemvig": {
-    character: "med boliger langs fjorden og det åbne vestjyske landskab",
-    nearby: ["Struer", "Thyborøn", "Holstebro"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
-  "Faaborg": {
-    character: "med den bevaringsværdige bykerne og udsigt til det sydfynske øhav",
-    nearby: ["Svendborg", "Assens", "Odense"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Kerteminde": {
-    character: "med havnenære boliger og sommerhuse langs kysten",
-    nearby: ["Odense", "Nyborg", "Munkebo"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Sorø": {
-    character: "med villakvarterer omkring søerne og den grønne bymidte",
-    nearby: ["Ringsted", "Slagelse", "Holbæk"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Maribo": {
-    character: "med boliger tæt på Maribosøerne på Lolland",
-    nearby: ["Nakskov", "Sakskøbing", "Nykøbing Falster"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
 };
 
 // Blogindlæg. Rækkefølgen styrer blog-oversigten og llms.txt.
@@ -1355,7 +1253,7 @@ const BLOG = [
       links: [
         { slug: "efteraarsfarver-gardiner-inspiration", label: "Efterårsfarver" },
         { slug: "efteraarsklar-stue-gardiner", label: "Efterårsklar stue" },
-        { slug: "naturmaterialer-gardiner-efteraarstrends", label: "Efterårets gardintrends" },
+        { slug: "nye-gardiner-til-efteraaret", label: "Nye gardiner til efteråret" },
       ],
     },
     ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
@@ -1484,7 +1382,7 @@ const BLOG = [
       links: [
         { slug: "lagdelte-gardiner-efteraar", label: "Lagdelte gardiner" },
         { slug: "gardiner-om-efteraaret-hygge", label: "Efterårshygge" },
-        { slug: "efteraarsfarver-gardiner-inspiration", label: "Efterårsfarver" },
+        { slug: "gardinmode-trends-2026", label: "Gardinmode 2026" },
       ],
     },
     ctaNote: "Vil du gøre dine vinduer efterårsklar? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.",
@@ -1692,6 +1590,136 @@ const BLOG = [
     },
     ctaNote: "Vil du tjekke kvaliteten selv? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver, du kan se og føle.",
     ctaLead: "Se og mærk kvaliteten selv — book et gratis besøg.",
+  },
+  {
+    slug: "nye-gardiner-til-efteraaret",
+    category: "Efterår – guides & fordele",
+    metaTitle: "Nye gardiner til efteråret: sådan vælger du rigtigt",
+    h1: "Nye gardiner til efteråret — sådan vælger du rigtigt",
+    tag: "Nye gardiner til efteråret",
+    eyebrow: "Guide · Efterår",
+    card: { title: "Nye gardiner til efteråret", desc: "Hvornår skal du skifte, hvilke typer passer til den mørke tid, og hvordan undgår du de klassiske fejlkøb? Tjekliste og gratis opmåling." },
+    desc: "Skal du have nye gardiner til efteråret? Se hvilke gardiner der holder på varmen, mørklægger og skaber hygge — og book en gratis opmåling hjemme hos dig.",
+    llmsDesc: "Guide til at vælge nye gardiner til efteråret: hvornår man bør skifte, hvilke gardintyper der passer til den mørke tid (mørklægning, termo, lagdelte gardiner), tjekliste til opmåling og gratis hjemmebesøg.",
+    intro: [
+      "Når dagene bliver kortere, og kulden kryber ind ad vinduerne, opdager mange, at sommerens lette gardiner ikke længere slår til. Efteråret er derfor et af de mest oplagte tidspunkter at skifte til nye gardiner — og med god grund.",
+      "I denne guide får du et klart overblik over, hvilke gardiner der passer til den mørke tid, hvad du skal tænke over, før du køber, og hvordan du undgår de klassiske fejlkøb. Når du er klar, kommer Gardinbussen gratis hjem til dig med prøver og måler op.",
+    ],
+    sections: [
+      { h: "Hvorfor skifte til nye gardiner om efteråret?", p: [
+        "Efteråret stiller helt andre krav til dine vinduer end sommeren. Om sommeren handler det om at holde solen og varmen ude. Om efteråret handler det om at holde på varmen, lukke mørket ude om aftenen og skabe lune, rolige rammer indenfor.",
+        "Nye gardiner kan derfor gøre en mærkbar forskel på både komfort og stemning. Et tættere stof dæmper kulden fra ruden, et mørklægningsgardin giver bedre søvn, når gadelyset tændes tidligt, og et blødere stof ændrer hele rummets udtryk.",
+        { list: [
+          "Hold bedre på varmen og dæmp træk fra vinduerne",
+          "Mørklæg soveværelset, når aftenerne bliver lange",
+          "Skjul indkig, når lyset er tændt tidligt på aftenen",
+          "Giv stuen et lunt, hyggeligt udtryk til den mørke tid",
+        ]},
+      ]},
+      { h: "De bedste gardintyper til den mørke tid", p: [
+        "Der findes ikke én rigtig løsning til alle rum. De fleste får det bedste resultat ved at vælge gardintype efter, hvad rummet skal bruges til:",
+        { list: [
+          "Stuen: fyldige foldegardiner i bomuld, hør eller velour — gerne kombineret med et let lag til dagslyset",
+          "Soveværelset: mørklægningsgardiner eller mørklæggende rullegardiner, der slutter tæt om vinduet",
+          "Kolde vinduer: termogardiner eller plisségardiner med honeycomb-struktur, der danner en isolerende luftlomme",
+          "Køkken og bad: rullegardiner eller persienner, der tåler fugt og er nemme at holde rene",
+          "Store vinduespartier: lamelgardiner eller panelgardiner, der kan styre både lys og indkig",
+        ]},
+        "Mange vælger en lagdelt løsning, hvor et let gardin filtrerer det svage dagslys, mens et tungere gardin trækkes for om aftenen. Det giver fuld kontrol over både lys, varme og stemning.",
+      ]},
+      { h: "Tjekliste: det skal du tænke over, før du køber", p: [
+        "De fleste fejlkøb skyldes forkerte mål eller et stof, der så anderledes ud på skærmen end i virkeligheden. Gå denne tjekliste igennem, før du bestiller nye gardiner:",
+        { list: [
+          "Mål både bredde og højde — og beslut, om gardinet skal sidde i eller uden for vinduesrammen",
+          "Beregn stofforbrug: til foldegardiner bruges typisk 1,5–2,5 gange vinduets bredde",
+          "Vælg ophæng, der kan bære et tungere efterårsstof",
+          "Tjek stoffets lystæthed i dit eget lys — ikke kun på et foto",
+          "Overvej, om gardinet skal kunne vaskes, og hvor meget sol det skal tåle",
+          "Tænk farven sammen med gulv, vægge og møbler",
+        ]},
+        "Det er netop her, et hjemmebesøg gør en forskel. Gardinbussen måler alle vinduer op, viser prøverne i dit eget lys og giver dig en fast pris på stedet — så du undgår at gætte.",
+      ]},
+      { h: "Hvornår skal du bestille dine efterårsgardiner?", p: [
+        "Jo tidligere, jo bedre. Efteråret er højsæson for nye gardiner, og mange ønsker at have dem hængende, før de mørkeste måneder og julen sætter ind. Syede gardiner og løsninger i specialmål skal produceres, så der går typisk lidt tid fra opmåling til montering.",
+        "Booker du et gratis besøg nu, kan du nå at få dine nye gardiner op i god tid — og nyde de lange efterårsaftener bag lune, tætte gardiner.",
+      ]},
+    ],
+    pullQuote: "Om efteråret handler det om at holde på varmen, lukke mørket ude og skabe lune rammer indenfor.",
+    faq: [
+      { q: "Hvilke gardiner er bedst til efteråret?", a: "Det afhænger af rummet. Til stuen er fyldige foldegardiner i bløde stoffer populære, til soveværelset mørklægningsgardiner, og til kolde vinduer termogardiner eller plisségardiner med isolerende honeycomb-struktur. Mange vælger en kombination af et let og et tungere lag." },
+      { q: "Kan nye gardiner hjælpe på varmeregningen?", a: "Tætsluttende og tykkere gardiner kan dæmpe træk og kulde fra vinduerne, især om aftenen og natten, når de er trukket for. Hvor stor effekten er, afhænger af vinduerne, stoffet og hvor tæt gardinet slutter." },
+      { q: "Hvornår skal jeg bestille nye gardiner til efteråret og julen?", a: "Gerne så tidligt som muligt. Gardiner i specialmål skal produceres, så der går typisk noget tid fra opmåling til montering. Book et gratis hjemmebesøg i god tid, så du kan nå at få dem op før de mørkeste måneder." },
+      { q: "Hvad koster det at få nye gardiner målt op?", a: "Hos Gardinbussen er besøget, opmålingen og rådgivningen gratis og uforpligtende. Du får en fast pris på stedet og bestemmer selv, om du vil gå videre." },
+    ],
+    related: {
+      text: "Nye gardiner til efteråret handler om varme, mørke og hygge. Læs videre om de løsninger, der gør den største forskel i den mørke tid.",
+      links: [
+        { slug: "termogardiner-spar-paa-varmen", label: "Termogardiner" },
+        { slug: "moerklaegningsgardiner-efteraar", label: "Mørklægningsgardiner" },
+        { slug: "gardinmode-trends-2026", label: "Gardinmode 2026" },
+      ],
+    },
+    ctaNote: "Klar til nye gardiner før de mørke måneder? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver, måler op og giver en fast pris.",
+    ctaLead: "Få nye gardiner op før mørket — book et gratis besøg.",
+    bookingText: "Book dit gratis gardinbesøg online. Vælg en tid der passer dig — så kommer vi hjem med efterårets stoffer, måler op og giver et fast tilbud. Ingen købepligt.",
+  },
+  {
+    slug: "gardinmode-trends-2026",
+    category: "Efterår – inspiration",
+    metaTitle: "Gardinmode 2026: årets gardintrends til efterår og vinter",
+    h1: "Gardinmode 2026 — årets gardintrends til efterår og vinter",
+    tag: "Gardinmode 2026",
+    eyebrow: "Inspiration · Mode & trends",
+    card: { title: "Gardinmode 2026: efterår og vinter", desc: "Varme farver, taktile stoffer, gulvlange gardiner og lag på lag. Se årets gardintrends — og hvordan du får dem hjem." },
+    desc: "Gardinmode 2026: varme farver, taktile stoffer, gulvlange gardiner og lag på lag. Se årets gardintrends — og få dem vist gratis hjemme hos dig.",
+    llmsDesc: "Overblik over gardinmode og gardintrends i efteråret og vinteren 2026: varme jordfarver, taktile naturstoffer, gulvlange gardiner hængt højt, lagdelte løsninger og diskret smart home-styring — og hvordan man får trends vist hjemme.",
+    intro: [
+      "Gardiner er gået fra at være en praktisk detalje til at være en af de vigtigste brikker i indretningen. Ligesom tøjmoden skifter med sæsonen, gør gardinmoden det også — og efteråret og vinteren 2026 handler om varme, tekstur og ro.",
+      "Her får du et overblik over de tendenser, der præger gardinmoden i år, og gode råd til, hvordan du bruger dem i dit eget hjem — uden at det føles som en midlertidig dille.",
+    ],
+    sections: [
+      { h: "Trend 1: Varme farver afløser det kølige grå", p: [
+        "De kølige grå toner, der har domineret i mange år, viger for varmere nuancer. Karamel, terrakotta, rustrød, varm sand og støvede grønne toner som oliven og salvie går igen i både møbler, tekstiler og gardiner.",
+        "Vil du holde det tidløst, så vælg en varm, neutral base som sand eller havre til gardinerne, og lad puder og plaider bære de stærkere efterårsfarver. Så kan du nemt skifte udtryk fra sæson til sæson.",
+      ]},
+      { h: "Trend 2: Taktile stoffer og naturlige fibre", p: [
+        "Overfladen er lige så vigtig som farven. Hør, hørblandinger, bouclé-agtige strukturer, grov bomuld og blød velour giver gardinerne dybde og gør rummet mere indbydende at opholde sig i.",
+        "Naturlige fibre og stoffer med synlig struktur passer til tidens ønske om et roligt, jordnært hjem. Træpersienner og bambus-look er også med til at bringe naturen ind ad vinduet.",
+      ]},
+      { h: "Trend 3: Gulvlange gardiner hængt helt oppe ved loftet", p: [
+        "Det korte gardin, der stopper ved vindueskarmen, er på vej ud i stuer og soveværelser. Moden er gardiner, der hænges så højt som muligt og når helt ned til gulvet — gerne i bredden, så de dækker mere væg end selve vinduet.",
+        "Det får lofthøjden til at virke større, vinduerne til at virke bredere og giver rummet et roligt, hotel-lignende udtryk. Skinner monteret i eller tæt på loftet understøtter det rene look.",
+      ]},
+      { h: "Trend 4: Lag på lag", p: [
+        "Lagdeling er årets mest praktiske trend. Et let, lystransparent gardin kombineres med et tungere stof eller et plissé- eller rullegardin. Resultatet er et blødt, gennemtænkt udtryk og fuld kontrol over lys, indkig og varme.",
+        "Prøv fx en transparent voile mod ruden og et fyldigt foldegardin i en varm farve udenpå — eller et mørklæggende rullegardin skjult bag et luftigt hørgardin i soveværelset.",
+      ]},
+      { h: "Trend 5: Diskret teknik og motoriserede gardiner", p: [
+        "Smarte løsninger er blevet en naturlig del af gardinmoden — men teknikken skal helst ikke kunne ses. Motoriserede og solcelledrevne gardiner, der styres med app eller stemme, gør det nemt at trække for, når mørket falder på, uden at gå på kompromis med udtrykket.",
+      ]},
+      { h: "Sådan bruger du årets gardinmode derhjemme", p: [
+        "Du behøver ikke skifte alle gardiner på én gang. Start med det rum, du bruger mest — typisk stuen — og vælg én eller to trends, der passer til din stil. En ny farve og et højere, gulvlangt ophæng kan ændre rummet markant.",
+        "Trends ser meget forskellige ud på et billede og i dit eget lys. Derfor kommer Gardinbussen hjem til dig med prøver på årets stoffer og farver, så du kan se dem op ad dine egne vægge og møbler, før du beslutter dig.",
+      ]},
+    ],
+    pullQuote: "Efteråret og vinteren 2026 handler om varme, tekstur og ro.",
+    faq: [
+      { q: "Hvad er moderne gardiner i 2026?", a: "Gardinmoden i 2026 handler om varme jordfarver, taktile naturstoffer som hør og velour, gulvlange gardiner hængt højt ved loftet og lagdelte løsninger, der kombinerer et let og et tungere gardin." },
+      { q: "Hvilke farver er moderne til gardiner i år?", a: "Varme nuancer som karamel, terrakotta, rustrød, varm sand og støvet grøn er populære. Vil du have et tidløst valg, er varme neutrale farver som sand og havre et sikkert udgangspunkt." },
+      { q: "Er korte gardiner gået af mode?", a: "I stuer og soveværelser foretrækker mange i dag gulvlange gardiner hængt højt, fordi det får rummet til at virke større. Korte løsninger som rullegardiner og plisségardiner er dog stadig oplagte i køkken, bad og vinduer over møbler." },
+      { q: "Kan jeg se årets gardintrends hjemme hos mig selv?", a: "Ja. Ved et gratis og uforpligtende besøg tager Gardinbussen prøver med på stoffer og farver, måler op og rådgiver om, hvordan trends passer til netop dit hjem." },
+    ],
+    related: {
+      text: "Gardinmoden handler om farver, materialer og måden gardinerne hænges på. Få mere inspiration til efterårets udtryk her.",
+      links: [
+        { slug: "efteraarsfarver-gardiner-inspiration", label: "Efterårsfarver" },
+        { slug: "lagdelte-gardiner-efteraar", label: "Lagdelte gardiner" },
+        { slug: "nye-gardiner-til-efteraaret", label: "Nye gardiner til efteråret" },
+      ],
+    },
+    ctaNote: "Vil du se årets gardinmode i dit eget hjem? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver på årets stoffer og farver.",
+    ctaLead: "Se årets gardintrends hjemme hos dig — book et gratis besøg.",
+    bookingText: "Book dit gratis gardinbesøg online. Vælg en tid der passer dig — så kommer vi hjem med prøver på årets stoffer og farver, måler op og giver et fast tilbud. Ingen købepligt.",
   },
 ];
 
@@ -1926,6 +1954,6 @@ function ctaCard(label, lead) {
 }
 
 module.exports = {
-  AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, CITIES, REGION, CITY_LOCAL, BLOG, NEWS,
+  AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, GTM_ID, CITIES, REGION, BLOG, NEWS,
   slugify, esc, attr, bookBtn, ctaCard,
 };
