@@ -24,7 +24,7 @@ const { SITE, CITIES, REGION, CITY_LOCAL, BLOG, NEWS, slugify, esc, attr, bookBt
 const BOOK = attr(AFFILIATE_BOOK_URL); // klar til href="" i skabeloner
 
 // ---------- fælles skabelon-dele ----------
-function head({ title, desc, url, relPrefix, jsonld }) {
+function head({ title, desc, url, relPrefix, jsonld, ogType = "website" }) {
   const ld = jsonld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n");
   return `<!DOCTYPE html>
 <html lang="da">
@@ -45,7 +45,7 @@ function head({ title, desc, url, relPrefix, jsonld }) {
   <meta name="theme-color" content="#2f5d50" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="${url}" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="${ogType}" />
   <meta property="og:site_name" content="bookgardinbussen.online" />
   <meta property="og:locale" content="da_DK" />
   <meta property="og:title" content="${attr(title)}" />
@@ -492,7 +492,7 @@ ${post.related.links.map((l) => `          <a class="related-card" href="${l.slu
       { "@type": "ListItem", position: 3, name: post.tag, item: url },
     ],
   };
-  return `${head({ title: post.metaTitle, desc: post.desc, url, relPrefix: "../", jsonld: [article, breadcrumb, faq.ld] })}
+  return `${head({ title: post.metaTitle, desc: post.desc, url, relPrefix: "../", jsonld: [article, breadcrumb, faq.ld], ogType: "article" })}
 <body>
   <a class="skip-link" href="#booking">Gå til booking</a>
 ${header("../")}

@@ -54,6 +54,8 @@ const BLOG_TOPICS = {
   "solafskaermning-hjemmekontor": { product: "solafskærmning til hjemmekontoret", intro: "Blænding på skærmen og varme om eftermiddagen løses bedst med en løsning, der er tilpasset netop dit kontors vinduer.", related: ["screengardiner", "solfilm-til-vinduer", "persienner"] },
   "solcelledrevne-gardiner": { product: "solcelledrevne gardiner", intro: "Solcelledrevne gardiner kræver hverken stikkontakt eller elektriker, men placeringen af solcellen skal planlægges.", related: ["motoriserede-gardiner-smart-home", "gardiner-stemmestyring-smart-home", "luxaflex"] },
   "solfilm-mod-falmede-mobler": { product: "solfilm mod falmning", intro: "Hvor meget UV-lys der skal filtreres fra, afhænger af vinduernes retning og de møbler og gulve, du vil beskytte.", related: ["solfilm-til-vinduer", "solfilm-eller-gardiner", "screengardiner"] },
+  "nye-gardiner-til-efteraaret": { product: "nye gardiner til efteråret", intro: "Efterårets gardiner skal holde på varmen, mørklægge og skabe hygge, og den rigtige løsning afhænger af dine vinduer og rum.", related: ["hold-paa-varmen-med-gardiner", "gardiner-sovevaerelse-efteraar", "efteraarsklar-stue-gardiner"] },
+  "gardinmode-trends-2026": { product: "moderne gardiner", intro: "Årets farver og stoffer skal ses i dit eget lys og op ad dine egne møbler, før du ved, hvilke trends der passer til dit hjem.", related: ["naturmaterialer-gardiner-efteraarstrends", "efteraarsklar-stue-gardiner", "motoriserede-gardiner-smart-home"] },
   "tegn-paa-god-kvalitet-gardiner": { product: "gardiner i god kvalitet", intro: "Kvalitet skal mærkes og ses, så det er en fordel at have prøverne i hånden hjemme hos dig.", related: ["billige-gardiner-eller-god-kvalitet", "hvad-koster-gardiner", "gardiner"] },
 };
 
