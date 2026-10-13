@@ -9,7 +9,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
-const { SITE, AFFILIATE_BOOK_URL, esc, attr, bookBtn } = require("./site-data");
+const { SITE, AFFILIATE_BOOK_URL, CITIES, REGION, slugify, esc, attr, bookBtn } = require("./site-data");
 
 const ROOT = path.join(__dirname, "..");
 const START = "<!-- SEO-BOOK:START -->";
@@ -167,10 +167,9 @@ function wantsAlt(html) {
 // ---------- byer ----------
 const cityFiles = listHtml("byer");
 const cities = cityFiles.map((f) => {
-  const html = read(`byer/${f}`);
-  const name = h1Of(html).replace(/^Gardiner i /, "").replace(/ — .*$/, "");
-  const region = (html.match(/Bor du i [^?]*? eller i ([^?]+)\?/) || [])[1] || "Danmark";
-  return { file: f, slug: f.replace(/\.html$/, ""), name, region: region.trim() };
+  const slug = f.replace(/\.html$/, "");
+  const name = CITIES.find((c) => slugify(c) === slug) || h1Of(read(`byer/${f}`)).replace(/^Gardiner i /, "").replace(/ — .*$/, "");
+  return { file: f, slug, name, region: REGION[name] || "Danmark" };
 });
 
 for (const c of cities) {

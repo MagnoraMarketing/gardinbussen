@@ -62,112 +62,6 @@ const REGION = {
   "Hirtshals": "Nordjylland",
 };
 
-// Lokal sektion "Gardinløsninger til hjem i <by> og omegn" (valgfri pr. by):
-// character: hvad byen er kendetegnet ved, nearby: tre nabobyer,
-// popular: blogindlæg der linkes til som populært valg.
-const CITY_LOCAL = {
-  "Frederiksberg": {
-    character: "med sine markante boligkarréer, høje vinduespartier og hyggelige gårdmiljøer",
-    nearby: ["København", "Vanløse", "Valby"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Gentofte": {
-    character: "med store villaer og klassiske vinduer i flere fag",
-    nearby: ["Charlottenlund", "Hellerup", "Lyngby"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Lyngby": {
-    character: "fra de grønne villakvarterer til lejlighederne tæt på bymidten",
-    nearby: ["Gentofte", "Virum", "Sorgenfri"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Hørsholm": {
-    character: "med rækkehuse og villaer tæt på kysten",
-    nearby: ["Rungsted", "Kokkedal", "Birkerød"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
-  "Ishøj": {
-    character: "med både etagebyggeri og parcelhuskvarterer",
-    nearby: ["Greve", "Vallensbæk", "Hvidovre"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Glostrup": {
-    character: "med parcelhuse og lejligheder tæt på indfaldsvejene",
-    nearby: ["Albertslund", "Brøndby", "Rødovre"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Herlev": {
-    character: "med rækkehuse, villaer og etagebyggeri side om side",
-    nearby: ["Ballerup", "Gladsaxe", "Værløse"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Ribe": {
-    character: "med Danmarks ældste bykerne og mange bevaringsværdige huse",
-    nearby: ["Esbjerg", "Bramming", "Gram"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
-  "Varde": {
-    character: "med hyggelige villakvarterer tæt på Vesterhavet",
-    nearby: ["Esbjerg", "Grindsted", "Ølgod"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Tønder": {
-    character: "med den historiske bykerne og de omkringliggende landsbyer",
-    nearby: ["Højer", "Løgumkloster", "Skærbæk"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Aars": {
-    character: "med parcelhuskvarterer i det midtjyske Himmerland",
-    nearby: ["Løgstør", "Hobro", "Nibe"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Skagen": {
-    character: "med sommerhuse og byhuse helt ud til Danmarks nordligste spids",
-    nearby: ["Frederikshavn", "Hirtshals", "Aalbæk"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
-  "Hirtshals": {
-    character: "med havnenære boliger og sommerhuse langs kysten",
-    nearby: ["Hjørring", "Skagen", "Løkken"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Ebeltoft": {
-    character: "med den hyggelige bykerne og sommerhusområderne på Mols",
-    nearby: ["Rønde", "Grenaa", "Aarhus"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Struer": {
-    character: "med villakvarterer der løber ned mod Limfjorden",
-    nearby: ["Holstebro", "Lemvig", "Skive"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Lemvig": {
-    character: "med boliger langs fjorden og det åbne vestjyske landskab",
-    nearby: ["Struer", "Thyborøn", "Holstebro"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
-  "Faaborg": {
-    character: "med den bevaringsværdige bykerne og udsigt til det sydfynske øhav",
-    nearby: ["Svendborg", "Assens", "Odense"],
-    popular: { slug: "plissegardiner", label: "plisségardiner" },
-  },
-  "Kerteminde": {
-    character: "med havnenære boliger og sommerhuse langs kysten",
-    nearby: ["Odense", "Nyborg", "Munkebo"],
-    popular: { slug: "lamelgardiner", label: "lamelgardiner" },
-  },
-  "Sorø": {
-    character: "med villakvarterer omkring søerne og den grønne bymidte",
-    nearby: ["Ringsted", "Slagelse", "Holbæk"],
-    popular: { slug: "rullegardiner", label: "rullegardiner" },
-  },
-  "Maribo": {
-    character: "med boliger tæt på Maribosøerne på Lolland",
-    nearby: ["Nakskov", "Sakskøbing", "Nykøbing Falster"],
-    popular: { slug: "gardiner", label: "gardiner" },
-  },
-};
-
 // Blogindlæg. Rækkefølgen styrer blog-oversigten og llms.txt.
 // sections[].p: afsnit (tekst) eller { list: [...] } for en punktliste.
 // Valgfrit: eyebrow, card ({ title, desc } på blog-oversigten, hvis de
@@ -2056,6 +1950,6 @@ function ctaCard(label, lead) {
 }
 
 module.exports = {
-  AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, CITIES, REGION, CITY_LOCAL, BLOG, NEWS,
+  AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, CITIES, REGION, BLOG, NEWS,
   slugify, esc, attr, bookBtn, ctaCard,
 };
