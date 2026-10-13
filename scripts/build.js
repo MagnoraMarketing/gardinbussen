@@ -101,7 +101,7 @@ function footer(relPrefix) {
         <p>Uanset om du leder efter billige gardiner eller gardiner i god kvalitet, får du gratis rådgivning, opmåling og montering hjemme hos dig. <a href="${BOOK}" target="_blank" rel="noopener sponsored">Book Gardinbussen</a> og få et gratis, uforpligtende tilbud.</p>
       </div>
       <div class="footer-col">
-        <h4>Sider</h4>
+        <h2 class="footer-title">Sider</h2>
         <ul>
           <li><a href="${SITE}/">Forside</a></li>
           <li><a href="/#produkter">Produkter</a></li>
@@ -113,7 +113,7 @@ function footer(relPrefix) {
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kontakt</h4>
+        <h2 class="footer-title">Kontakt</h2>
         <ul>
           <li><a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a></li>
           <li><a href="${relPrefix}privatlivspolitik.html">Privatlivspolitik</a></li>
@@ -183,11 +183,15 @@ function cityPage(city) {
   const fullTitle = `Gardiner i ${city} – gratis hjemmebesøg | Gardinbussen`;
   const title = fullTitle.length > 60 ? `Gardiner i ${city} – gratis hjemmebesøg` : fullTitle;
   const homeLower = p.homes[0].title.toLowerCase();
-  const desc = pick(city, [
+  // Meta-beskrivelse: én af tre varianter, men aldrig over 155 tegn (Google klipper).
+  const descs = [
     `Nye gardiner i ${city}? Gardinbussen kommer hjem med prøver, måler op og monterer — også i ${p.areas[0]} og ${p.areas[1]}. Gratis og uforpligtende besøg.`,
     `Gardiner, plissé og persienner i ${city} og omegn. Gratis hjemmebesøg med prøver, opmåling og fast pris — vi kender ${homeLower} i ${city}.`,
     `Book gratis besøg af Gardinbussen i ${city}: prøver, rådgivning, opmåling og montering hjemme hos dig i ${city}, ${p.areas[0]} og resten af ${region}.`,
-  ]);
+    `Nye gardiner i ${city}? Gardinbussen kommer gratis hjem med prøver, måler op og giver en fast pris. Book et uforpligtende besøg.`,
+  ];
+  const fits = descs.slice(0, 3).filter((d) => d.length <= 155);
+  const desc = fits.length ? pick(city, fits) : descs[3];
   const someAreas = joinDa(p.areas.slice(0, 4));
   const faq = faqBlock([
     { q: `Kører Gardinbussen til ${city}?`, a: `Ja. Vi kommer i hele ${city} og omegn — blandt andet ${someAreas} — og i resten af ${region}. Besøget foregår hjemme hos dig.` },
@@ -523,8 +527,8 @@ ${post.related.links.map((l) => `          <a class="related-card" href="${l.slu
     "@context": "https://schema.org", "@type": "Article",
     headline: post.h1, description: post.desc, image: `${SITE}/assets/og-image.png`,
     mainEntityOfPage: url,
-    author: { "@type": "Organization", name: "bookgardinbussen.online" },
-    publisher: { "@type": "Organization", name: "bookgardinbussen.online", logo: { "@type": "ImageObject", url: `${SITE}/assets/logo.png`, width: 512, height: 512 } },
+    author: { "@type": "Organization", name: "bookgardinbussen.online", url: `${SITE}/om-os.html` },
+    publisher: { "@type": "Organization", name: "bookgardinbussen.online", url: `${SITE}/`, logo: { "@type": "ImageObject", url: `${SITE}/assets/logo.png`, width: 512, height: 512 } },
   };
   const breadcrumb = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",

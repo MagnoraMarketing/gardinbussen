@@ -11,6 +11,8 @@
 //   søgeresultaterne og foretrækker et rasterikon på mindst 48x48)
 // - Google Tag Manager (GTM_ID i site-data.js) øverst i <head> og lige
 //   efter <body> på alle sider, inkl. 404.html
+// - Cache-busting: styles.css og main.js får ?v=<indholds-hash>, så de kan
+//   caches i et år (vercel.json) og alligevel opdateres straks ved ændringer
 // - Kvadratisk logo (assets/logo.png) i JSON-LD i stedet for OG-billedet
 // - Kortere titler og meta-beskrivelser, så Google ikke klipper dem af
 // - Fjerner egen-anmeldelser (aggregateRating) fra JSON-LD, som Google ikke
@@ -23,6 +25,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
+const crypto = require("crypto");
 const { SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, GTM_ID, attr } = require("./site-data");
 
 const ROOT = path.join(__dirname, "..");
@@ -77,8 +80,15 @@ for (const [rel, m] of Object.entries(PAGE_META)) {
 }
 
 // ---------- alle sider ----------
-for (const rel of allPages) {
+const assetVer = (f) => crypto.createHash("sha1").update(fs.readFileSync(path.join(ROOT, f))).digest("hex").slice(0, 8);
+const CSS_V = assetVer("css/styles.css");
+const JS_V = assetVer("js/main.js");
+for (const rel of allPages.concat("404.html")) {
   let html = read(rel);
+
+  // Cache-busting af CSS og JS.
+  html = html.replace(/(href="[^"]*css\/styles\.css)(\?v=[0-9a-f]+)?"/g, `$1?v=${CSS_V}"`)
+    .replace(/(src="[^"]*js\/main\.js)(\?v=[0-9a-f]+)?"/g, `$1?v=${JS_V}"`);
   const inSub = rel.includes("/");
 
   // For lange titler: drop domænenavnet (Google viser selv sitenavnet).

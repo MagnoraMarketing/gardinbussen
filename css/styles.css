@@ -253,7 +253,7 @@ img, svg { max-width: 100%; }
 
 /* Breadcrumb ------------------------------------------------------------- */
 .breadcrumb { padding-top: 1.2rem; font-size: 0.9rem; color: var(--ink-soft); }
-.breadcrumb a { color: var(--green-700); }
+.breadcrumb a { color: var(--green-700); text-decoration: underline; text-underline-offset: 2px; }
 .breadcrumb span[aria-hidden] { margin: 0 0.15rem; color: var(--sand-200); }
 
 /* FAQ -------------------------------------------------------------------- */
@@ -429,7 +429,7 @@ img, svg { max-width: 100%; }
 .footer-brand p { margin: 0.6rem 0 0; color: #a9c7bd; }
 .footer-brand a { color: #fff; font-weight: 600; text-decoration: underline; }
 .footer-brand a:hover { color: var(--amber); }
-.footer-col h4 { color: #fff; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.footer-col .footer-title { color: #fff; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; }
 .footer-col li { margin-bottom: 0.4rem; }
 .footer-col a { color: #c9d8d1; }
