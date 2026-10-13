@@ -9,6 +9,8 @@
 // - Sprogsignal til Bing (content-language da-DK) og PNG-favicons/
 //   apple-touch-icon/manifest på alle sider (Bing og Google viser favicon i
 //   søgeresultaterne og foretrækker et rasterikon på mindst 48x48)
+// - Google Tag Manager (GTM_ID i site-data.js) øverst i <head> og lige
+//   efter <body> på alle sider, inkl. 404.html
 // - Kvadratisk logo (assets/logo.png) i JSON-LD i stedet for OG-billedet
 // - Kortere titler og meta-beskrivelser, så Google ikke klipper dem af
 // - Fjerner egen-anmeldelser (aggregateRating) fra JSON-LD, som Google ikke
@@ -21,7 +23,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
-const { SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, attr } = require("./site-data");
+const { SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, GTM_ID, attr } = require("./site-data");
 
 const ROOT = path.join(__dirname, "..");
 const read = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
@@ -128,6 +130,31 @@ for (const rel of allPages) {
   write(rel, html);
 }
 
+// ---------- Google Tag Manager ----------
+// Fjernes og indsættes igen ved hver kørsel, så et nyt GTM_ID slår igennem.
+const GTM_HEAD = /\n[ \t]*<!-- Google Tag Manager -->[\s\S]*?<!-- End Google Tag Manager -->/;
+const GTM_BODY = /\n[ \t]*<!-- Google Tag Manager \(noscript\) -->[\s\S]*?<!-- End Google Tag Manager \(noscript\) -->/;
+for (const rel of allPages.concat("404.html")) {
+  let html = read(rel).replace(GTM_HEAD, "").replace(GTM_BODY, "");
+  if (GTM_ID) {
+    const id = attr(GTM_ID);
+    html = html.replace(/(<head>)/, `$1
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','${id}');</script>
+  <!-- End Google Tag Manager -->`);
+    html = html.replace(/(<body[^>]*>)/, `$1
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${id}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->`);
+  }
+  write(rel, html);
+}
+
 // ---------- Article dateModified: kun ny dato ved reelle ændringer ----------
 // Er indholdet uændret i forhold til seneste commit (bortset fra
 // dateModified), beholdes den committede dato. Så ændrer en ny build ikke
@@ -173,6 +200,7 @@ console.log(`Teknisk SEO opdateret på ${allPages.length} sider. sitemap.xml: ${
 console.log(BING_SITE_VERIFICATION
   ? "Bing Webmaster Tools-verifikation indsat på alle sider."
   : "BING_SITE_VERIFICATION er tom i site-data.js — ingen msvalidate.01-tag indsat.");
+console.log(GTM_ID ? `Google Tag Manager (${GTM_ID}) indsat på alle sider.` : "GTM_ID er tom — ingen Google Tag Manager indsat.");
 console.log(GOOGLE_SITE_VERIFICATION
   ? "Google Search Console-verifikation indsat på alle sider."
   : "GOOGLE_SITE_VERIFICATION er tom i site-data.js — ingen verifikations-tag indsat.");

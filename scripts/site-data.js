@@ -18,6 +18,10 @@ const GOOGLE_SITE_VERIFICATION = "";
 // Search Console, som ikke kræver et tag).
 const BING_SITE_VERIFICATION = "";
 
+// Google Tag Manager: container-ID (GTM-XXXXXXX). Indsættes øverst i <head>
+// og lige efter <body> på alle sider af seo-technical.js. Tom = ingen GTM.
+const GTM_ID = "GTM-WPMBZL4K";
+
 const CITIES = [
   "København", "Aarhus", "Odense", "Aalborg", "Esbjerg",
   "Randers", "Kolding", "Horsens", "Vejle", "Roskilde",
@@ -1950,6 +1954,6 @@ function ctaCard(label, lead) {
 }
 
 module.exports = {
-  AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, CITIES, REGION, BLOG, NEWS,
+  AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, GTM_ID, CITIES, REGION, BLOG, NEWS,
   slugify, esc, attr, bookBtn, ctaCard,
 };
