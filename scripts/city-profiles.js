@@ -13,12 +13,12 @@ const HOME_TYPES = {
   lejlighed: {
     title: "Ældre etagelejligheder",
     text: "Høje vinduer, dybe karme og ofte flere fag. Plisségardiner monteret i rammen holder vindueskarmen fri, og gulvlange foldegardiner fremhæver lofthøjden.",
-    links: [["plissegardiner", "Plisségardiner"], ["foldegardiner", "Foldegardiner"]],
+    links: [["plissegardiner", "Plisségardiner"], ["foldegardiner", "Foldegardiner"], ["gardiner-til-stuen", "Gardiner til stuen"]],
   },
   nybyg: {
     title: "Nye boliger med store glaspartier",
     text: "Gulv-til-loft-vinduer og altandøre kræver løsninger til store flader: lamel- eller panelgardiner, screen mod sol og blænding — og gerne motorstyring.",
-    links: [["lamelgardiner", "Lamelgardiner"], ["screengardiner", "Screengardiner"], ["motoriserede-gardiner-smart-home", "Motoriserede gardiner"]],
+    links: [["gardiner-til-store-vinduer", "Store vinduer"], ["lamelgardiner", "Lamelgardiner"], ["screengardiner", "Screengardiner"], ["motoriserede-gardiner-smart-home", "Motoriserede gardiner"]],
   },
   villa: {
     title: "Villaer og parcelhuse",

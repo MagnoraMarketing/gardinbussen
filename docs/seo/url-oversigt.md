@@ -1,6 +1,6 @@
 # URL-oversigt — bookgardinbussen.online
 
-Genereret 2026-10-21 fra det byggede site. Alle eksisterende URL'er er bevaret (ingen er slettet, flyttet eller sammenlagt).
+Genereret fra det byggede site (opdateret 2026-10-21). Ingen eksisterende URL'er er slettet, flyttet eller sammenlagt; 5 nye guides er tilføjet.
 
 | URL | Title | H1 | Indeksering |
 |---|---|---|---|
@@ -46,6 +46,11 @@ Genereret 2026-10-21 fra det byggede site. Alle eksisterende URL'er er bevaret (
 | /blog/tegn-paa-god-kvalitet-gardiner.html | 7 tegn på gardiner i god kvalitet | bookgardinbussen.online | 7 tegn på gardiner i god kvalitet | index |
 | /blog/nye-gardiner-til-efteraaret.html | Nye gardiner til efteråret: sådan vælger du rigtigt | Nye gardiner til efteråret — sådan vælger du rigtigt | index |
 | /blog/gardinmode-trends-2026.html | Gardinmode 2026: årets gardintrends til efterår og vinter | Gardinmode 2026 — årets gardintrends til efterår og vinter | index |
+| /blog/opmaaling-af-gardiner.html | Opmåling af gardiner: Det skal du overveje først | Opmåling af gardiner — det skal du overveje, før du måler op | index |
+| /blog/plissegardiner-eller-rullegardiner.html | Plisségardiner eller rullegardiner? Sådan vælger du | Plisségardiner eller rullegardiner? Forskelle og valg | index |
+| /blog/gardiner-til-skraavinduer.html | Gardiner til skråvinduer og ovenlys: Guide | Gardiner til skråvinduer og ovenlys | index |
+| /blog/gardiner-til-store-vinduer.html | Gardiner til store vinduer og glaspartier: Guide | Gardiner til store vinduer og glaspartier | index |
+| /blog/gardiner-til-stuen.html | Gardiner til stuen: Sådan vælger du type og stof | Gardiner til stuen — type, stof og ophæng | index |
 | /byer/koebenhavn.html | Gardiner i København – gratis hjemmebesøg og guide | Gardiner i København — guide og gratis hjemmebesøg | index |
 | /byer/aarhus.html | Gardiner i Aarhus – gratis hjemmebesøg og guide | Gardiner i Aarhus — guide og gratis hjemmebesøg | index |
 | /byer/odense.html | Gardiner i Odense – gratis hjemmebesøg og guide | Gardiner i Odense — guide og gratis hjemmebesøg | index |
@@ -120,4 +125,4 @@ Genereret 2026-10-21 fra det byggede site. Alle eksisterende URL'er er bevaret (
 | /privatlivspolitik.html | Privatlivspolitik · bookgardinbussen.online | Privatlivs- og cookiepolitik | noindex |
 | /404.html | Siden findes ikke · bookgardinbussen.online | Siden findes ikke | noindex |
 
-I alt: 115 sider (37 blogindlæg, 70 bysider, 11 nyhedsartikler som ankre på /nyheder.html).
+I alt: 120 sider (42 blogindlæg, 70 bysider, 11 nyhedsartikler som ankre på /nyheder.html).
