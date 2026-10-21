@@ -480,4 +480,113 @@ const CITY_PROFILES = {
   },
 };
 
-module.exports = { HOME_TYPES, CITY_PROFILES };
+// Udvidede lokale guides til de 10 største byer. Hver bydel beskriver den
+// typiske boligmasse og de gardinløsninger, der ofte passer — kun almindeligt
+// kendte forhold om byen, ingen lokale kunder, kontorer eller tal.
+//   districts: [{ name, homes, advice, link: [slug, label] }]
+//   note:      { h, p } et praktisk råd om lokale forhold
+//   faq:       { q, a } et ekstra, byspecifikt spørgsmål
+const CITY_DISTRICTS = {
+  "København": {
+    districts: [
+      { name: "Østerbro, Nørrebro og Vesterbro", homes: "Brokvartererne er præget af etageejendomme fra omkring år 1900 med høje vinduer, dybe karme og ofte genboer tæt på.", advice: "Plissé, der kan køres oppefra og ned, skærmer for indkig og bevarer dagslyset. Gulvlange foldegardiner fremhæver loftshøjden.", link: ["plissegardiner", "Plisségardiner"] },
+      { name: "Ørestad, Nordhavn og Sydhavnen", homes: "Nyere byggeri med store glaspartier, altandøre og ofte gulv-til-loft-vinduer.", advice: "Løsninger til store flader — lamelgardiner, flere fag rullegardiner eller lysdæmpende stof mod blænding og varme.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+      { name: "Valby, Vanløse og Brønshøj", homes: "Villaer, rækkehuse og mindre etageejendomme med mange vinduer i forskellige størrelser.", advice: "Rullegardiner og persienner i sove- og arbejdsrum, bløde gardiner i stuen — gerne vurderet samlet for hele boligen.", link: ["gardiner-til-stuen", "Gardiner til stuen"] },
+      { name: "Amager", homes: "En blanding af ældre etageboliger, rækkehuse og nyere byggeri.", advice: "I etageboliger med standardvinduer giver mørklæggende rullegardiner og plissé meget for pengene.", link: ["plissegardiner-eller-rullegardiner", "Plissé eller rullegardiner?"] },
+    ],
+    note: { h: "Andelsbolig eller ejerforening?", p: "Mange københavnske etageejendomme er andels- eller ejerforeninger med regler for facaden. Indvendige gardiner er sjældent omfattet, men udvendig solafskærmning og farver, der kan ses udefra, kan være reguleret. Tjek husorden og vedtægter, før du bestiller." },
+    faq: { q: "Hvilke gardiner passer til en ældre lejlighed på brokvartererne?", a: "Høje vinduer med dybe karme passer godt til plissé monteret i rammen, eventuelt kombineret med gulvlange gardiner, der fremhæver loftshøjden. Tjek foreningens regler, hvis noget kan ses udefra." },
+  },
+  "Aarhus": {
+    districts: [
+      { name: "Frederiksbjerg og Trøjborg", homes: "Etagelejligheder fra omkring år 1900 med høje vinduer og tæt på genboer.", advice: "Plissé med indkigsværn forneden og foldegardiner, der får rummene til at virke højere.", link: ["plissegardiner", "Plisségardiner"] },
+      { name: "Aarhus Ø", homes: "Nyt byggeri ved bugten med store glaspartier og meget lys fra vandet.", advice: "Lysdæmpende løsninger mod blænding og varme, der bevarer udsigten — og flere fag på de største vinduer.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+      { name: "Risskov og Højbjerg", homes: "Villakvarterer med mange vinduer og ofte store stuevinduer mod haven.", advice: "En samlet plan for hele huset: mørklægning i soveværelser og gardiner i lag i stuen.", link: ["gardiner-til-stuen", "Gardiner til stuen"] },
+      { name: "Viby og Brabrand", homes: "En blanding af parcelhuse, rækkehuse og etageboliger.", advice: "Rullegardiner og persienner er robuste og prisvenlige valg til standardvinduer.", link: ["rullegardiner", "Rullegardiner"] },
+    ],
+    note: { h: "Bor du til leje?", p: "Mange i Aarhus bor til leje eller i almene boliger. Tjek lejekontrakten eller boligforeningens regler, før der bores i karme og vægge — plissé og rullegardiner kan ofte monteres i rammen med få skruer." },
+    faq: { q: "Hvad gør jeg mod blænding i en lejlighed på Aarhus Ø?", a: "Lysdæmpende rullegardiner, screenlignende stoffer eller solfilm tager toppen af lyset fra vandet uden at tage udsigten. På store partier er flere fag mere praktisk end ét stort gardin." },
+  },
+  "Odense": {
+    districts: [
+      { name: "Indre by og H.C. Andersen-kvarteret", homes: "Små, gamle byhuse med lave vinduer, sprosser og ofte skæve mål.", advice: "Gardiner syet præcist efter mål — plissé i hver rude eller klassiske foldegardiner, der passer til husets stil.", link: ["opmaaling-af-gardiner", "Før opmåling"] },
+      { name: "Hunderup og Dalum", homes: "Ældre villaer og murermestervillaer med mange forskellige vinduesstørrelser.", advice: "Bløde gardiner i stuen og mørklægning i soveværelserne — gerne vurderet samlet.", link: ["gardiner-til-stuen", "Gardiner til stuen"] },
+      { name: "Bolbro og Tarup", homes: "Parcelhuse og rækkehuse med standardvinduer.", advice: "Rullegardiner og persienner er enkle og prisvenlige; plissé giver indkigsværn mod naboer.", link: ["plissegardiner-eller-rullegardiner", "Plissé eller rullegardiner?"] },
+      { name: "Bellinge og Næsby", homes: "Nyere parcelhuskvarterer med større vinduespartier.", advice: "Lamelgardiner eller flere fag rullegardiner til de store stuevinduer og terrassedøre.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+    ],
+    note: { h: "Gamle huse kræver præcise mål", p: "I ældre odenseanske byhuse er vinduerne sjældent helt lige. Mål bredde og højde flere steder — eller lad konsulenten måle op ved besøget — så gardinerne slutter tæt i hele vinduet." },
+    faq: { q: "Kan man få gardiner til skæve vinduer i gamle huse?", a: "Ja. Gardiner efter mål laves til det konkrete vindue, og plissé i rammen er ofte en god løsning. Det vigtigste er en præcis opmåling flere steder i vinduet." },
+  },
+  "Aalborg": {
+    districts: [
+      { name: "Midtbyen og Vestbyen", homes: "Ældre etagelejligheder med høje vinduer og byliv tæt på.", advice: "Plissé med indkigsværn og mørklægning i soveværelset mod gadelys.", link: ["moerklaegningsgardiner-efteraar", "Mørklægning"] },
+      { name: "Havnefronten ved Limfjorden", homes: "Nyt byggeri med store vinduer og meget lys fra vandet.", advice: "Lysdæmpende løsninger, der bevarer fjordudsigten — og flere fag på de største partier.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+      { name: "Hasseris", homes: "Villakvarter med mange og forskelligartede vinduer.", advice: "En samlet plan for hele huset med gardiner i lag i stuen og rullegardiner eller persienner i de øvrige rum.", link: ["gardiner-til-stuen", "Gardiner til stuen"] },
+      { name: "Gug og Aalborg Øst", homes: "Parcelhuse, rækkehuse og etageboliger.", advice: "Robuste, prisvenlige løsninger som rullegardiner og persienner til standardvinduer.", link: ["rullegardiner", "Rullegardiner"] },
+    ],
+    note: { h: "Nordjyske vintre", p: "Lange, mørke vintre gør det oplagt at tænke på både mørklægning om morgenen og tætte gardiner, der kan holde lidt bedre på varmen ved ældre vinduer." },
+    faq: { q: "Hvilke gardiner er gode mod kulde ved ældre vinduer?", a: "Tætte, forede gardiner og plissé med cellestruktur, der slutter tæt til vinduet, kan dæmpe træk. Se også guiden til gardiner mod træk og kulde." },
+  },
+  "Esbjerg": {
+    districts: [
+      { name: "Centrum", homes: "Ældre etageejendomme og byhuse tæt på havnen.", advice: "Plissé og rullegardiner i rammen giver et roligt udtryk og fri vindueskarm.", link: ["plissegardiner", "Plisségardiner"] },
+      { name: "Hjerting og Sædding", homes: "Villaer tæt på vandet med store vinduer mod udsigten.", advice: "Lysdæmpende løsninger mod blænding fra vandet og gardiner, der kan holde på varmen i blæsevejr.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+      { name: "Jerne og Gjesing", homes: "Parcelhuse og rækkehuse.", advice: "Rullegardiner med mørklægning i soveværelser og plissé mod indkig, hvor naboerne er tæt på.", link: ["plissegardiner-eller-rullegardiner", "Plissé eller rullegardiner?"] },
+      { name: "Bramming og Tarp", homes: "Mindre byer med parcelhuse og landejendomme.", advice: "Tætte, forede gardiner til de koldere rum og enkle løsninger til resten af huset.", link: ["gardiner-mod-traek-og-kulde", "Mod træk og kulde"] },
+    ],
+    note: { h: "Vestenvind og saltluft", p: "Kystnære boliger får meget vind og lys. Vælg materialer, der tåler sol, og overvej tætsluttende løsninger ved vinduer, hvor du mærker træk." },
+    faq: { q: "Hvilke gardiner passer til et hus tæt på vandet?", a: "Lysdæmpende stoffer og løsninger i flere fag dæmper blænding uden at tage udsigten. Ved ældre vinduer kan tætte gardiner dæmpe træk." },
+  },
+  "Randers": {
+    districts: [
+      { name: "Midtbyen", homes: "Gamle byhuse og lejligheder i den historiske bykerne.", advice: "Gardiner efter mål til ældre vinduer — plissé i rammen eller klassiske foldegardiner.", link: ["foldegardiner", "Foldegardiner"] },
+      { name: "Vorup og Kristrup", homes: "Villakvarterer på hver side af Gudenåen.", advice: "Gardiner i lag i stuen og mørklægning i soveværelser.", link: ["gardiner-til-stuen", "Gardiner til stuen"] },
+      { name: "Paderup og Dronningborg", homes: "Parcelhuse og rækkehuse med standardvinduer.", advice: "Rullegardiner og persienner er enkle og prisvenlige valg.", link: ["rullegardiner", "Rullegardiner"] },
+      { name: "Assentoft og Spentrup", homes: "Nyere parcelhuse og mindre byer i oplandet.", advice: "Løsninger til store stuevinduer og terrassedøre, fx lamelgardiner eller flere fag.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+    ],
+    note: { h: "Sydvendte stuer", p: "Mange parcelhuse har stuen mod syd. Lysdæmpende rullegardiner, persienner eller solfilm holder sommervarmen nede, uden at stuen bliver mørk." },
+    faq: { q: "Hvordan holder jeg varmen ude af en sydvendt stue?", a: "Lysdæmpende rullegardiner, persienner eller solfilm tager det værste af solen. Udvendig afskærmning er mest effektiv, men kræver en anden type løsning." },
+  },
+  "Kolding": {
+    districts: [
+      { name: "Midtbyen omkring Koldinghus", homes: "Ældre byhuse og lejligheder.", advice: "Plissé eller foldegardiner efter mål til ældre vinduer.", link: ["plissegardiner", "Plisségardiner"] },
+      { name: "Seest og Bramdrupdam", homes: "Parcelhuskvarterer med standardvinduer.", advice: "Rullegardiner og persienner i de fleste rum, gardiner i lag i stuen.", link: ["plissegardiner-eller-rullegardiner", "Plissé eller rullegardiner?"] },
+      { name: "Nyt byggeri ved fjorden", homes: "Lejligheder med store vinduer og altandøre.", advice: "Lamelgardiner eller flere fag, der kan trækkes fri af altandøren.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+      { name: "Christiansfeld", homes: "Den historiske brødremenighedsby med bevaringsværdige huse.", advice: "Diskrete, klassiske løsninger i rammen — og tjek, om der gælder regler for det, der kan ses udefra.", link: ["opmaaling-af-gardiner", "Før opmåling"] },
+    ],
+    note: { h: "Bevaringsværdige huse", p: "I historiske områder som Christiansfeld kan der gælde lokalplaner eller bevaringsregler for facader. Indvendige gardiner er som regel ikke omfattet, men udvendig afskærmning kan være det — tjek med kommunen, hvis du er i tvivl." },
+    faq: { q: "Må jeg sætte solafskærmning op på et bevaringsværdigt hus?", a: "Indvendige gardiner er sjældent reguleret, men udvendig afskærmning kan være omfattet af lokalplaner. Spørg kommunen, før du bestiller udvendige løsninger." },
+  },
+  "Horsens": {
+    districts: [
+      { name: "Midtbyen", homes: "Etagelejligheder og ældre byhuse.", advice: "Plissé med indkigsværn og mørklægning i soveværelset.", link: ["plissegardiner", "Plisségardiner"] },
+      { name: "Havnen", homes: "Nyt byggeri med store vinduer og altandøre.", advice: "Løsninger, der kan trækkes helt fri af døren, fx lamelgardiner eller løse gardiner på skinne.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+      { name: "Stensballe", homes: "Villaer tæt på fjorden.", advice: "Lysdæmpende løsninger mod blænding og gardiner i lag i stuen.", link: ["gardiner-til-stuen", "Gardiner til stuen"] },
+      { name: "Hatting og Torsted", homes: "Parcelhuse og rækkehuse.", advice: "Rullegardiner og persienner er enkle, holdbare valg.", link: ["rullegardiner", "Rullegardiner"] },
+    ],
+    note: { h: "Altandøre i nyt byggeri", p: "I nyere lejligheder er altandøre standard. Mål, hvor langt gardinet skal kunne trækkes til siden, så døren kan åbnes helt." },
+    faq: { q: "Hvilke gardiner passer til en altandør?", a: "Lamelgardiner og løse gardiner på skinne kan trækkes helt til siden. Plissé eller rullegardin i selve dørens ramme følger med, når døren åbnes." },
+  },
+  "Vejle": {
+    districts: [
+      { name: "Midtbyen", homes: "Ældre byhuse og lejligheder.", advice: "Gardiner efter mål til ældre vinduer, fx plissé i rammen.", link: ["plissegardiner", "Plisségardiner"] },
+      { name: "Havnen", homes: "Moderne byggeri med store glaspartier mod fjorden.", advice: "Løsninger til store flader og lysdæmpende stof mod blænding fra vandet.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+      { name: "Bredballe og Grejsdalen", homes: "Villaer på skrænterne med udsigt og ofte høje vinduer.", advice: "Høje eller svært tilgængelige vinduer kan være lettere at betjene med motor — spørg konsulenten, hvad der kan leveres.", link: ["motoriserede-gardiner-smart-home", "Motoriserede gardiner"] },
+      { name: "Jelling, Give og Børkop", homes: "Mindre byer med parcelhuse.", advice: "Enkle, prisvenlige løsninger som rullegardiner og persienner.", link: ["rullegardiner", "Rullegardiner"] },
+    ],
+    note: { h: "Udsigt og skrænter", p: "Boliger på Vejles skrænter har ofte store vinduer mod udsigten. Vælg løsninger, der kan dæmpe lyset uden at lukke helt for udsigten, og tænk betjeningen igennem på høje vinduer." },
+    faq: { q: "Hvordan skærmer jeg for solen uden at miste udsigten?", a: "Lysdæmpende rullegardiner, persienner eller solfilm dæmper lyset, mens du stadig kan se ud. På store partier giver flere fag mest fleksibilitet." },
+  },
+  "Roskilde": {
+    districts: [
+      { name: "Bymidten", homes: "Ældre byhuse og lejligheder omkring domkirken.", advice: "Plissé eller foldegardiner efter mål til ældre vinduer.", link: ["foldegardiner", "Foldegardiner"] },
+      { name: "Musicon og Trekroner", homes: "Nyere byggeri med store vinduer.", advice: "Løsninger til store flader — lamelgardiner eller flere fag.", link: ["gardiner-til-store-vinduer", "Gardiner til store vinduer"] },
+      { name: "Himmelev og Svogerslev", homes: "Villa- og rækkehuskvarterer.", advice: "Plissé mod indkig, hvor naboerne er tæt på, og mørklægning i soveværelserne.", link: ["plissegardiner-eller-rullegardiner", "Plissé eller rullegardiner?"] },
+      { name: "Jyllinge", homes: "Parcelhuse og boliger tæt på Roskilde Fjord.", advice: "Lysdæmpende løsninger mod lys fra vandet og insektnet til sommerhalvåret.", link: ["insektnet-til-vinduer-og-doere", "Insektnet"] },
+    ],
+    note: { h: "Rækkehuse og privatliv", p: "I rækkehusområder er haverne tætte. Plissé, der kan køres både oppefra og nedefra, giver privatliv i stueetagen uden at lukke dagslyset ude." },
+    faq: { q: "Hvordan får jeg privatliv i et rækkehus uden at miste lyset?", a: "Plissé, der kan køres oppefra og ned, dækker den nederste del af vinduet og lader lyset komme ind foroven. Privatlivsfilm er et andet alternativ." },
+  },
+};
+
+module.exports = { HOME_TYPES, CITY_PROFILES, CITY_DISTRICTS };

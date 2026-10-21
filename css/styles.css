@@ -279,6 +279,7 @@ img, svg { max-width: 100%; }
 
 /* By-sider: boligtyper, lokalt råd, områder og fakta ---------------------- */
 .home-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.home-grid.district-grid { grid-template-columns: repeat(2, 1fr); }
 .home-card {
   background: var(--white); border: 1px solid var(--sand-200); border-radius: var(--radius);
   padding: 1.5rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--green-600);
@@ -310,7 +311,7 @@ img, svg { max-width: 100%; }
 .city-facts dd { margin: 0.15rem 0 0; font-weight: 600; color: var(--ink); }
 
 @media (max-width: 900px) {
-  .home-grid, .city-area { grid-template-columns: 1fr; }
+  .home-grid, .home-grid.district-grid, .city-area { grid-template-columns: 1fr; }
 }
 
 /* Reviews ---------------------------------------------------------------- */

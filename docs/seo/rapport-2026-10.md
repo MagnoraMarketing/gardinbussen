@@ -238,7 +238,7 @@ dækningen af Lolland-Falster er ikke eksplicit bekræftet.
 | 1 | Verificér GSC + Bing, indsend sitemap, hent baseline-data | Høj (forudsætning for alt andet) | Lav |
 | 2 | Klik-test bookinglinket og deeplinks i Partner-ads | Høj (konvertering/provision) | Lav |
 | 3 | Tjek i GTM, at alle tags respekterer Consent Mode (banner er implementeret) | Høj (jura/tillid) | Lav |
-| 4 | Udbyg de 10 største bysider med mere lokalt indhold (fx typiske vinduestyper pr. bydel) | Mellem–høj | Mellem |
+| 4 | ✅ Udført: de 10 største bysider har fået bydelsguide (4 bydele med boligtyper og anbefalinger), lokalt råd og et ekstra byspecifikt FAQ-spørgsmål | Mellem–høj | — |
 | 5 | ✅ Udført (#41): 5 nye guides — opmåling, plissé vs. rullegardiner, skråvinduer, store vinduer, stuen — linket fra forside, relaterede guides og bysider | Mellem–høj | — |
 | 6 | Egne fotos/illustrationer pr. produktguide (i dag én illustration pr. kategori) | Mellem | Mellem |
 | 7 | Brug `uid` i Partner-ads-links pr. sidetype for at måle konvertering | Mellem | Lav |
