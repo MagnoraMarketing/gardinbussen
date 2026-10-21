@@ -812,6 +812,35 @@ fs.writeFileSync(path.join(ROOT, "nyheder.html"), newsPage());
 // llms.txt (AI-søgemaskiner)
 fs.writeFileSync(path.join(ROOT, "llms.txt"), llmsTxt());
 
+// README.md: de 20 største byer og produktguides med kort tekst og link.
+// Udskiftes mellem markørerne ved hver kørsel, så listerne følger sitet.
+const README_PRODUCTS = [
+  "gardiner", "rullegardiner", "plissegardiner", "persienner", "traepersienner",
+  "lamelgardiner", "foldegardiner", "panelgardiner", "screengardiner", "luxaflex",
+  "moerklaegningsgardiner-efteraar", "termogardiner-spar-paa-varmen",
+  "motoriserede-gardiner-smart-home", "insektnet-til-vinduer-og-doere",
+  "gardinstaenger-og-skinner", "solfilm-til-vinduer", "privatlivsfilm-til-vinduer",
+];
+{
+  const readmePath = path.join(ROOT, "README.md");
+  let readme = fs.readFileSync(readmePath, "utf8");
+  const cityLines = CITIES.slice(0, 20).map((city) => {
+    return `- **[Gardiner i ${city}](${SITE}/byer/${slugify(city)}.html)** — ${CITY_PROFILES[city].intro} Se gardinløsninger til boligerne i ${city}, og book et gratis besøg med prøver og opmåling.`;
+  });
+  const productLines = README_PRODUCTS.map((slug) => {
+    const post = BLOG.find((b) => b.slug === slug);
+    if (!post) throw new Error(`README_PRODUCTS: ukendt blogindlæg ${slug}`);
+    return `- **[${post.tag}](${SITE}/blog/${slug}.html)** — ${post.desc}`;
+  });
+  const put = (name, lines) => {
+    readme = readme.replace(new RegExp(`<!-- ${name}:START -->[\\s\\S]*?<!-- ${name}:END -->`),
+      () => `<!-- ${name}:START -->\n${lines.join("\n")}\n<!-- ${name}:END -->`);
+  };
+  put("README-BYER", cityLines);
+  put("README-PRODUKTER", productLines);
+  fs.writeFileSync(readmePath, readme);
+}
+
 // SEO-sektioner, teknisk SEO og sitemap.xml (kører efter skabelonerne).
 const { execFileSync } = require("child_process");
 for (const script of ["seo-sections.js", "seo-technical.js"]) {
