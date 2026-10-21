@@ -239,7 +239,7 @@ dækningen af Lolland-Falster er ikke eksplicit bekræftet.
 | 2 | Klik-test bookinglinket og deeplinks i Partner-ads | Høj (konvertering/provision) | Lav |
 | 3 | Tjek i GTM, at alle tags respekterer Consent Mode (banner er implementeret) | Høj (jura/tillid) | Lav |
 | 4 | Udbyg de 10 største bysider med mere lokalt indhold (fx typiske vinduestyper pr. bydel) | Mellem–høj | Mellem |
-| 5 | Nye guides (kræver godkendelse af nye URL'er): skråvinduer/ovenlys, store vinduer, plissé vs. rullegardiner, før opmåling | Mellem–høj | Mellem |
+| 5 | ✅ Udført (#41): 5 nye guides — opmåling, plissé vs. rullegardiner, skråvinduer, store vinduer, stuen — linket fra forside, relaterede guides og bysider | Mellem–høj | — |
 | 6 | Egne fotos/illustrationer pr. produktguide (i dag én illustration pr. kategori) | Mellem | Mellem |
 | 7 | Brug `uid` i Partner-ads-links pr. sidetype for at måle konvertering | Mellem | Lav |
 | 8 | Linkbuilding: lokale/bolig-medier og indretningsblogs | Mellem–høj (konkurrencen har fysisk virksomhed og ældre domæne — hypotese) | Høj |

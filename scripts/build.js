@@ -358,6 +358,7 @@ ${homeCards}
         <ul class="area-list city-usp">
 ${checklist.map((u) => `          <li>${esc(u)}</li>`).join("\n")}
         </ul>
+        <p>Læs mere i guiderne <a href="../blog/opmaaling-af-gardiner.html">Før opmåling af gardiner</a> og <a href="../blog/hvad-koster-gardiner.html">Hvad koster gardiner?</a>.</p>
       </div>
     </section>
 
