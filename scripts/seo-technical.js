@@ -61,15 +61,16 @@ const getTitle = (html) => decode((html.match(/<title>([^<]*)<\/title>/) || [])[
 // ---------- håndskrevne sider ----------
 const PAGE_META = {
   "index.html": {
-    desc: "Book Gardinbussen: gratis og uforpligtende hjemmebesøg med prøver, opmåling og montering af gardiner, rullegardiner, persienner og plisségardiner.",
+    title: "Gardiner efter mål – guides og gratis gardinbus-besøg",
+    desc: "Find den rigtige gardintype til dine vinduer med uafhængige guides – og book et gratis, uforpligtende besøg med prøver og opmåling hos Gardinbus.nu.",
   },
   "om-os.html": {
-    title: "Om os – gratis og uforpligtende hjemmebesøg | Gardinbussen",
-    desc: "Mød bookgardinbussen.online og book et gratis, uforpligtende hjemmebesøg. Vi kommer med prøver, måler op og giver et fast tilbud på stedet.",
+    title: "Om bookgardinbussen.online – og affiliate-oplysning",
+    desc: "Hvem står bag bookgardinbussen.online, hvordan sitet tjener penge via affiliate-links til Gardinbus.nu, og hvem der leverer besøg, tilbud og montering.",
   },
   "hvorfor-gardinbussen.html": {
-    title: "Hvorfor Gardinbussen? Bedste tilbud på gardiner",
-    desc: "Hvorfor vælge Gardinbussen? Få det bedste tilbud på gardiner — billige eller i god kvalitet, valgt hjemme hos dig. Gratis og uforpligtende besøg.",
+    title: "Gardinbus-besøg: sådan foregår det, og hvad koster det?",
+    desc: "Sådan foregår et gratis gardinbus-besøg fra Gardinbus.nu: booking, prøver, opmåling og tilbud – plus råd til at få det bedste tilbud på gardiner.",
   },
 };
 for (const [rel, m] of Object.entries(PAGE_META)) {

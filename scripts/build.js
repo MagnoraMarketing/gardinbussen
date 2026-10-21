@@ -23,6 +23,7 @@ const ROOT = path.join(__dirname, "..");
 const BYER_DIR = path.join(ROOT, "byer");
 const BLOG_DIR = path.join(ROOT, "blog");
 const { SITE, CITIES, REGION, BLOG, NEWS, slugify, esc, attr, bookBtn, ctaCard, AFFILIATE_BOOK_URL } = D;
+const { affiliateUrl, landsdel, citySupplierKey, DISCLOSURE_SHORT } = require("./supplier");
 const BOOK = attr(AFFILIATE_BOOK_URL); // klar til href="" i skabeloner
 
 // ---------- fælles skabelon-dele ----------
@@ -56,7 +57,7 @@ function head({ title, desc, url, relPrefix, jsonld, ogType = "website" }) {
   <meta property="og:image" content="${SITE}/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Gardinbussen – vi kører gardinbutikken hjem til dig" />
+  <meta property="og:image:alt" content="bookgardinbussen.online – guides til gardiner og gratis gardinbus-besøg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${attr(title)}" />
   <meta name="twitter:description" content="${attr(desc)}" />
@@ -65,6 +66,18 @@ function head({ title, desc, url, relPrefix, jsonld, ogType = "website" }) {
   <link rel="stylesheet" href="${relPrefix}css/styles.css" />
 ${ld}
 </head>`;
+}
+
+function navList(relPrefix) {
+  return `<ul class="nav-list" id="nav-list">
+          <li><a href="${SITE}/">Forside</a></li>
+          <li><a href="/#produkter">Produkter</a></li>
+          <li><a href="${relPrefix}blog/index.html">Guides</a></li>
+          <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
+          <li><a href="/#omraade">Byer</a></li>
+          <li><a href="${relPrefix}om-os.html">Om sitet</a></li>
+          <li><a class="nav-cta" href="${BOOK}" target="_blank" rel="sponsored noopener" title="Åbner Gardinbus.nu (affiliate-link)">Book gratis besøg</a></li>
+        </ul>`;
 }
 
 function header(relPrefix) {
@@ -78,46 +91,40 @@ function header(relPrefix) {
           <span class="sr-only">Menu</span>
           <span class="nav-toggle-bar" aria-hidden="true"></span>
         </button>
-        <ul class="nav-list" id="nav-list">
-          <li><a href="${SITE}/">Forside</a></li>
-          <li><a href="/#produkter">Produkter</a></li>
-          <li><a href="${relPrefix}blog/index.html">Blog</a></li>
-          <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
-          <li><a href="/#omraade">Byer</a></li>
-          <li><a href="${relPrefix}om-os.html">Om os</a></li>
-          <li><a class="nav-cta" href="${BOOK}" target="_blank" rel="noopener sponsored">Book hjemmebesøg</a></li>
-        </ul>
+        ${navList(relPrefix)}
       </nav>
     </div>
   </header>`;
 }
 
-function footer(relPrefix) {
+function footerHtml(relPrefix) {
   return `  <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
         <span class="brand-text">bookgardinbussen<span>.online</span></span>
-        <p>Vi kører gardinbutikken hjem til dig.</p>
-        <p>Uanset om du leder efter billige gardiner eller gardiner i god kvalitet, får du gratis rådgivning, opmåling og montering hjemme hos dig. <a href="${BOOK}" target="_blank" rel="noopener sponsored">Book Gardinbussen</a> og få et gratis, uforpligtende tilbud.</p>
+        <p>Uafhængige guides til gardiner, solafskærmning og gratis gardinbus-besøg.</p>
+        <p>Besøg, prøver, opmåling og tilbud leveres af Gardinbus.nu. Du kan <a href="${BOOK}" target="_blank" rel="sponsored noopener">booke et gratis, uforpligtende besøg hos Gardinbus.nu</a>.</p>
+        <p class="footer-disclosure">${esc(DISCLOSURE_SHORT)} <a href="${relPrefix}om-os.html#affiliate">Læs mere om, hvordan sitet tjener penge</a>.</p>
       </div>
       <div class="footer-col">
         <h2 class="footer-title">Sider</h2>
         <ul>
           <li><a href="${SITE}/">Forside</a></li>
           <li><a href="/#produkter">Produkter</a></li>
-          <li><a href="${relPrefix}blog/index.html">Blog</a></li>
+          <li><a href="${relPrefix}blog/index.html">Guides</a></li>
           <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
           <li><a href="/#omraade">Byer</a></li>
-          <li><a href="${relPrefix}om-os.html">Om os</a></li>
-          <li><a href="${relPrefix}hvorfor-gardinbussen.html">Hvorfor Gardinbussen</a></li>
+          <li><a href="${relPrefix}hvorfor-gardinbussen.html">Sådan foregår et gardinbus-besøg</a></li>
+          <li><a href="${relPrefix}om-os.html">Om sitet</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h2 class="footer-title">Kontakt</h2>
         <ul>
           <li><a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a></li>
-          <li><a href="${relPrefix}privatlivspolitik.html">Privatlivspolitik</a></li>
-          <li><a href="${BOOK}" target="_blank" rel="noopener sponsored">Book hjemmebesøg</a></li>
+          <li><a href="${relPrefix}om-os.html#affiliate">Affiliate-oplysning</a></li>
+          <li><a href="${relPrefix}privatlivspolitik.html">Privatlivs- og cookiepolitik</a></li>
+          <li><a href="${BOOK}" target="_blank" rel="sponsored noopener">Book besøg hos Gardinbus.nu</a></li>
         </ul>
       </div>
     </div>
@@ -125,7 +132,11 @@ function footer(relPrefix) {
       <p>© <span id="year"></span> bookgardinbussen.online. Alle rettigheder forbeholdes.</p>
       <p class="footer-credit">Lavet af <a href="https://magnoramarketing.dk/" target="_blank" rel="noopener">magnoramarketing.dk</a></p>
     </div>
-  </footer>
+  </footer>`;
+}
+
+function footer(relPrefix) {
+  return `${footerHtml(relPrefix)}
   <script src="${relPrefix}js/main.js" defer></script>
 </body>
 </html>
@@ -175,58 +186,68 @@ function cityProfile(city) {
   return { ...p, homes, popular };
 }
 
+// Navn på leverandørens regionale side til link-tekst.
+const SUPPLIER_AREA_LABEL = {
+  koebenhavn: "København", aarhus: "Aarhus", aalborg: "Aalborg", odense: "Odense",
+  esbjerg: "Esbjerg", roskilde: "Roskilde", vejle: "Vejle",
+  fyn: "Fyn", sjaelland: "Sjælland", jylland: "Jylland",
+};
+
+// Spørgsmål, der er gode at afklare før et besøg. Hver by får fem i
+// forskellig rækkefølge.
+const BEFORE_VISIT = [
+  "Hvilke rum og vinduer skal have nyt — og hvad er det vigtigste: mørklægning, indkigsværn, varme eller udseende?",
+  "Skal gardinet sidde i vinduesrammen, på væggen over vinduet eller i loftet?",
+  "Åbnes vinduet ofte, eller er der en altan- eller terrassedør, der skal kunne bruges frit?",
+  "Har du et prisniveau, du gerne vil holde dig inden for? Sig det gerne, så konsulenten kan vise prøver i den rigtige ende.",
+  "Ønsker du montering? Spørg, hvilke betingelser der gælder for montering på det tidspunkt, du booker.",
+  "Bor du til leje eller i andelsbolig? Tjek, om du må bore i vægge, lofter og karme.",
+];
+
 function cityPage(city) {
   const slug = slugify(city);
   const region = REGION[city] || "Danmark";
+  const part = landsdel(city, region);
+  const supplierKey = citySupplierKey(city, region);
+  const supplierLabel = SUPPLIER_AREA_LABEL[supplierKey];
   const url = `${SITE}/byer/${slug}.html`;
   const p = cityProfile(city);
-  const fullTitle = `Gardiner i ${city} – gratis hjemmebesøg | Gardinbussen`;
+  const fullTitle = `Gardiner i ${city} – gratis hjemmebesøg og guide`;
   const title = fullTitle.length > 60 ? `Gardiner i ${city} – gratis hjemmebesøg` : fullTitle;
   const homeLower = p.homes[0].title.toLowerCase();
   // Meta-beskrivelse: én af tre varianter, men aldrig over 155 tegn (Google klipper).
   const descs = [
-    `Nye gardiner i ${city}? Gardinbussen kommer hjem med prøver, måler op og monterer — også i ${p.areas[0]} og ${p.areas[1]}. Gratis og uforpligtende besøg.`,
-    `Gardiner, plissé og persienner i ${city} og omegn. Gratis hjemmebesøg med prøver, opmåling og fast pris — vi kender ${homeLower} i ${city}.`,
-    `Book gratis besøg af Gardinbussen i ${city}: prøver, rådgivning, opmåling og montering hjemme hos dig i ${city}, ${p.areas[0]} og resten af ${region}.`,
-    `Nye gardiner i ${city}? Gardinbussen kommer gratis hjem med prøver, måler op og giver en fast pris. Book et uforpligtende besøg.`,
+    `Nye gardiner i ${city}? Se løsninger til boligerne i ${p.areas[0]} og omegn, og book et gratis besøg med prøver og opmåling hos Gardinbus.nu.`,
+    `Gardiner, plissé og persienner i ${city}: guide til ${homeLower} og info om gratis, uforpligtende gardinbus-besøg fra Gardinbus.nu.`,
+    `Guide til gardiner i ${city}: typiske vinduer, gode løsninger og sådan booker du et gratis besøg med prøver og opmåling i ${part}.`,
+    `Guide til gardiner i ${city} og sådan booker du et gratis, uforpligtende besøg med prøver og opmåling hos Gardinbus.nu.`,
   ];
   const fits = descs.slice(0, 3).filter((d) => d.length <= 155);
   const desc = fits.length ? pick(city, fits) : descs[3];
   const someAreas = joinDa(p.areas.slice(0, 4));
   const faq = faqBlock([
-    { q: `Kører Gardinbussen til ${city}?`, a: `Ja. Vi kommer i hele ${city} og omegn — blandt andet ${someAreas} — og i resten af ${region}. Besøget foregår hjemme hos dig.` },
-    { q: `Hvilke gardiner passer til ${homeLower} i ${city}?`, a: `${p.homes[0].text} Ved besøget ser vi på netop dine vinduer og anbefaler den løsning, der passer bedst.` },
+    { q: `Kører gardinbussen til ${city}?`, a: `Gardinbus.nu oplyser, at deres gardinbusser dækker hele ${part} — også mindre byer og landområder. ${city} og områder som ${someAreas} ligger i det område. Leverandøren bekræfter din adresse, når du booker.` },
+    { q: `Hvilke gardiner passer til ${homeLower} i ${city}?`, a: `${p.homes[0].text} Ved et besøg kan du få konsulentens vurdering af netop dine vinduer.` },
     pick(city + "f1", [
-      { q: `Hvad koster et hjemmebesøg i ${city}?`, a: `Besøget er gratis og uforpligtende. Du får en fast pris på stedet med opmåling og montering, og du bestemmer selv, om du vil gå videre.` },
-      { q: `Er besøget i ${city} virkelig gratis?`, a: `Ja. Det koster ikke noget at få Gardinbussen på besøg i ${city}, og du forpligter dig ikke til at købe. Du får en fast pris, inden du beslutter dig.` },
-      { q: `Hvad skal jeg betale for at få et tilbud i ${city}?`, a: `Ingenting. Prøver, rådgivning, opmåling og tilbud er gratis. Først hvis du siger ja til tilbuddet, betaler du for gardinerne og monteringen.` },
+      { q: `Hvad koster et besøg i ${city}?`, a: `Ifølge Gardinbus.nu er besøg, rådgivning, opmåling og tilbud gratis og uforpligtende. Du betaler kun, hvis du takker ja til tilbuddet.` },
+      { q: `Er besøget i ${city} virkelig gratis?`, a: `Ja, Gardinbus.nu oplyser, at besøget, rådgivningen, opmålingen og tilbuddet er gratis og uforpligtende. Du kan sige nej tak uden at skylde noget.` },
+      { q: `Hvad skal jeg betale for at få et tilbud i ${city}?`, a: `Ingenting for selve tilbuddet. Gardinbus.nu oplyser, at besøg, opmåling og tilbud er gratis. Først hvis du accepterer tilbuddet, betaler du for gardinerne efter leverandørens betingelser.` },
     ]),
     pick(city + "f2", [
-      { q: `Kan I komme om aftenen eller i weekenden i ${city}?`, a: `Ja. Når du booker, vælger du selv en tid, der passer dig — også uden for almindelig arbejdstid.` },
-      { q: `Hvordan booker jeg et besøg i ${city}?`, a: `Du booker online på under et minut og vælger selv dag og tidspunkt. Derefter kommer Gardinbussen hjem til dig i ${city} med prøverne.` },
-      { q: `Hvor lang tid tager et besøg?`, a: `Det afhænger af, hvor mange vinduer du vil have kigget på. Vi tager os tid til at vise prøver, måle op og give et samlet tilbud, mens vi er hos dig.` },
+      { q: `Hvordan booker jeg et besøg i ${city}?`, a: `Du udfylder bookingformularen hos Gardinbus.nu med adresse og antal vinduer. Leverandøren kontakter dig derefter for at aftale et tidspunkt.` },
+      { q: `Hvordan aftaler jeg en tid i ${city}?`, a: `Når du har sendt en booking via Gardinbus.nu, kontakter leverandøren dig for at finde et tidspunkt, der passer. Har du særlige ønsker til tidspunkt, så skriv det i bookingen.` },
     ]),
     pick(city + "f3", [
-      { q: `Måler og monterer I også gardinerne?`, a: `Ja. Vi måler professionelt op, gardinerne laves efter mål, og vi står for monteringen, så du får et færdigt resultat uden besvær.` },
-      { q: `Skal jeg selv måle mine vinduer op i ${city}?`, a: `Nej. Vi måler alle vinduer op ved besøget, så gardinerne passer præcist. Monteringen klarer vi også.` },
-      { q: `Hvem sætter gardinerne op?`, a: `Det gør vi. Opmåling og montering er en del af tilbuddet, så du ikke selv skal bore eller justere noget.` },
+      { q: `Kan jeg få gardinerne monteret i ${city}?`, a: `Ja, Gardinbus.nu tilbyder montering. Leverandøren oplyser, at montering er gratis ved udvalgte bookingtider — ellers fremgår prisen af tilbuddet. Tjek betingelserne, når du booker.` },
+      { q: `Skal jeg selv måle mine vinduer op?`, a: `Nej. Opmålingen er en del af det gratis besøg fra Gardinbus.nu, så gardinerne kan laves efter mål. Det er en god idé at have overvejet, hvor gardinet skal sidde (ramme, væg eller loft).` },
     ]),
-    pick(city + "f4", [
-      { q: `Er jeg bundet til at købe noget?`, a: `Nej. Både besøg, rådgivning og tilbud er uforpligtende.` },
-      { q: `Hvad hvis jeg ikke vil købe efter besøget?`, a: `Så siger du bare nej tak. Besøget i ${city} er uforpligtende, og du skylder ingenting.` },
-      { q: `Kan jeg få et tilbud på hele huset på én gang?`, a: `Ja. Vi kigger gerne på alle rum ved samme besøg og giver ét samlet tilbud, så du kan se den samlede pris for hele hjemmet i ${city}.` },
-    ]),
+    { q: "Hvem står bag denne side?", a: "bookgardinbussen.online er et uafhængigt guide-site, der samarbejder med Gardinbus.nu som affiliate-partner. Besøg, tilbud og levering aftales direkte med Gardinbus.nu." },
   ]);
-  // Service (ikke LocalBusiness): sitet har ingen fysisk adresse, og Google
-  // kræver address på LocalBusiness.
-  const business = {
-    "@context": "https://schema.org", "@type": "Service",
-    name: `Mobil gardinservice i ${city}`,
-    serviceType: "Gardiner, opmåling og montering",
-    description: `Mobil gardinservice i ${city} og ${region}: gratis hjemmebesøg med prøver, opmåling, rådgivning og montering. ${p.intro}`,
-    url, image: `${SITE}/assets/og-image.png`,
-    provider: { "@type": "Organization", name: "bookgardinbussen.online", url: `${SITE}/`, email: "mail@bookgardinbussen.online" },
-    areaServed: [{ "@type": "City", name: city }].concat(p.areas.map((a) => ({ "@type": "Place", name: a }))),
+  const webPage = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    name: title, description: desc, url, inLanguage: "da-DK",
+    isPartOf: { "@type": "WebSite", name: "bookgardinbussen.online", url: `${SITE}/` },
+    about: { "@type": "Place", name: city },
   };
   const breadcrumb = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -242,19 +263,16 @@ function cityPage(city) {
             <p class="home-card-links">${h.links.map(([s, l]) => `<a href="../blog/${s}.html">${esc(l)}</a>`).join(" ")}</p>
           </article>`).join("\n");
   const chips = p.areas.map((a) => `<li>${esc(a)}</li>`).join("");
-  const usp = pick(city + "u", [
-    ["Gratis og uforpligtende hjemmebesøg", "Prøver på stoffer og farver i dit eget lys", "Præcis opmåling af alle vinduer", "Montering inkluderet i prisen", "Fast tilbud på stedet"],
-    ["Rådgivning fra en gardinkonsulent hjemme hos dig", "Gardiner, plissé, persienner og solafskærmning", "Gardiner lavet efter mål", "Fast pris uden skjulte gebyrer", "Ingen købepligt"],
-    ["Vi kommer med prøverne — du skal ingen steder", "Opmåling og montering klares af os", "Løsninger til alle vinduer og budgetter", "Fast tilbud, mens vi er hos dig", "Book på under et minut"],
-  ]);
+  const start = [...city].reduce((n, ch) => n + ch.charCodeAt(0), 0) % BEFORE_VISIT.length;
+  const checklist = BEFORE_VISIT.slice(start).concat(BEFORE_VISIT.slice(0, start)).slice(0, 5);
   const offer = pick(city + "t", [
-    `Prisen på gardiner afhænger af dine vinduer, stoffet og ophænget. Derfor giver vi ikke listepriser, men en fast, uforpligtende pris på stedet, når vi har set dit hjem i ${city} og målt op. Du kan tage dig god tid til at sammenligne, før du beslutter dig.`,
-    `Et godt tilbud på gardiner i ${city} kræver, at nogen har målt dine vinduer op og set lyset i rummet. Det gør vi ved det gratis besøg, hvor du også får en samlet pris på ét vindue eller hele hjemmet — med montering og uden skjulte gebyrer.`,
-    `Hos Gardinbussen får du ikke et gæt, men en fast pris. Vi kommer hjem til dig i ${city}, viser prøver i alle prisklasser, måler op og regner prisen ud på stedet. Du bestemmer selv, om du vil sige ja — besøget er gratis uanset hvad.`,
+    `Prisen på gardiner afhænger af vinduernes størrelse, gardintypen og stoffet. Derfor findes der ikke én listepris — et retvisende tilbud kræver, at nogen har set dine vinduer i ${city} og målt op. Det er netop formålet med det gratis besøg fra Gardinbus.nu, hvor du får et uforpligtende tilbud og kan tage dig tid til at sammenligne.`,
+    `Et godt tilbud på gardiner i ${city} starter med en præcis opmåling. Ved besøget fra Gardinbus.nu viser konsulenten prøver i forskellige prisklasser, måler op og giver et uforpligtende tilbud på ét vindue eller hele boligen. Montering kan tilvælges — tjek betingelserne i tilbuddet.`,
+    `Vil du sammenligne priser på gardiner i ${city}, så bed om et tilbud, der viser gardintype, stof, mål og montering hver for sig. Så kan du holde det op mod andre tilbud. Besøget fra Gardinbus.nu er gratis og uforpligtende, så det koster ikke noget at få et konkret tal at sammenligne med.`,
   ]);
-  return `${head({ title, desc, url, relPrefix: "../", jsonld: [business, breadcrumb, faq.ld] })}
+  return `${head({ title, desc, url, relPrefix: "../", jsonld: [webPage, breadcrumb, faq.ld] })}
 <body>
-  <a class="skip-link" href="#booking">Gå til booking</a>
+  <a class="skip-link" href="#main">Gå til indhold</a>
 ${header("../")}
   <main id="main">
     <nav class="breadcrumb container" aria-label="Sti">
@@ -266,31 +284,32 @@ ${header("../")}
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow">Mobil gardinservice i ${esc(city)} · ${esc(region)}</p>
-          <h1>Gardiner i ${esc(city)} — vi kommer hjem til dig</h1>
+          <p class="eyebrow">Gardinguide til ${esc(city)} · ${esc(part)}</p>
+          <h1>Gardiner i ${esc(city)} — guide og gratis hjemmebesøg</h1>
           <p class="lead">
-            ${esc(p.intro)} Gardinbussen kører hele gardinbutikken hjem til dig
-            med prøver, måler op og monterer — alt sammen på ét besøg.
+            ${esc(p.intro)} Her får du overblik over de gardinløsninger, der passer
+            til boligerne i ${esc(city)}, og hvordan du kan få besøg af en gardinbus
+            fra Gardinbus.nu med prøver og opmåling.
           </p>
           <div class="hero-actions">
-            ${bookBtn(`Book gratis hjemmebesøg i ${city}`, "btn-primary")}
+            ${bookBtn(`Book gratis besøg i ${city}`, "btn-primary")}
             <a class="btn btn-ghost" href="#boliger">Se løsninger i ${esc(city)}</a>
           </div>
           <ul class="hero-badges">
-            <li>Gratis opmåling i ${esc(city)}</li>
-            <li>Ingen købepligt</li>
-            <li>Montering inkluderet</li>
+            <li>Gratis besøg og opmåling</li>
+            <li>Uforpligtende tilbud</li>
+            <li>Leveres af Gardinbus.nu</li>
           </ul>
         </div>
         <div class="hero-card">
           <div class="hero-card-inner">
-            <p class="hero-card-tag">Sådan booker du</p>
+            <p class="hero-card-tag">Sådan foregår det</p>
             <ol class="hero-steps">
-              <li><span>1</span> Vælg en dag der passer dig</li>
-              <li><span>2</span> Vi kommer hjem med prøver</li>
-              <li><span>3</span> Du får et fast tilbud på stedet</li>
+              <li><span>1</span> Du booker hos Gardinbus.nu</li>
+              <li><span>2</span> Leverandøren aftaler en tid med dig</li>
+              <li><span>3</span> Prøver, opmåling og et uforpligtende tilbud</li>
             </ol>
-            ${bookBtn("Find en ledig tid", "btn-primary btn-block")}
+            ${bookBtn("Gå til booking", "btn-primary btn-block")}
           </div>
         </div>
       </div>
@@ -301,13 +320,13 @@ ${header("../")}
         <header class="section-head">
           <p class="eyebrow">Boliger i ${esc(city)}</p>
           <h2>Gardinløsninger til hjemmene i ${esc(city)}</h2>
-          <p class="section-sub">Vinduerne i ${esc(city)} er lige så forskellige som boligerne. Her er de løsninger, vi oftest anbefaler til de typiske hjem i byen og omegnen.</p>
+          <p class="section-sub">Vinduerne i ${esc(city)} er lige så forskellige som boligerne. Her er de løsninger, der ofte giver mening til de typiske hjem i byen og omegnen.</p>
         </header>
         <div class="home-grid">
 ${homeCards}
         </div>
         <aside class="city-tip" aria-label="Lokalt råd">
-          <p class="city-tip-tag">Lokalt råd til dig i ${esc(city)}</p>
+          <p class="city-tip-tag">Råd til dig i ${esc(city)}</p>
           <p>${esc(p.tip)}</p>
         </aside>
       </div>
@@ -316,15 +335,16 @@ ${homeCards}
     <section class="section section-alt">
       <div class="container city-area">
         <div class="city-area-copy legal">
-          <h2>Vi kører til hele ${esc(city)} og omegn</h2>
-          <p>Gardinbussen kommer hjem til dig, uanset om du bor centralt i ${esc(city)} eller i ${esc(joinDa(p.areas.slice(-3)))}. Du vælger selv tidspunktet, og vi tager prøverne med, så du kan se stof og farver præcis der, hvor gardinerne skal hænge.</p>
-          <ul class="area-chips" aria-label="Områder vi kører til">${chips}</ul>
+          <h2>Kommer gardinbussen til ${esc(city)}?</h2>
+          <p>Gardinbus.nu oplyser, at deres gardinbusser kører i hele ${esc(part)} — også i mindre byer og landområder. ${esc(city)} ligger i ${esc(part)}, så du kan som udgangspunkt booke et besøg, uanset om du bor centralt eller i ${esc(joinDa(p.areas.slice(-3)))}. Leverandøren bekræfter din adresse, når du booker.</p>
+          <p><a href="${attr(affiliateUrl(supplierKey))}" target="_blank" rel="sponsored noopener">Læs Gardinbus.nu's side om ${esc(supplierLabel)}</a></p>
+          <ul class="area-chips" aria-label="Bydele og nabobyer">${chips}</ul>
         </div>
         <dl class="city-facts">
-          <div><dt>Område</dt><dd>${esc(city)} og ${esc(region)}</dd></div>
+          <div><dt>Område</dt><dd>${esc(city)} · ${esc(part)}</dd></div>
           <div><dt>Typiske boliger</dt><dd>${esc(p.homes.map((h) => h.title).join(", "))}</dd></div>
           <div><dt>Populære løsninger</dt><dd>${p.popular.map(([s, l]) => `<a href="../blog/${s}.html">${esc(l)}</a>`).join(", ")}</dd></div>
-          <div><dt>Pris for besøget</dt><dd>0 kr. — gratis og uforpligtende</dd></div>
+          <div><dt>Besøget</dt><dd>Gratis og uforpligtende (ifølge Gardinbus.nu)</dd></div>
         </dl>
       </div>
     </section>
@@ -333,9 +353,9 @@ ${homeCards}
       <div class="container legal">
         <h2>Tilbud på gardiner i ${esc(city)}</h2>
         <p>${esc(offer)}</p>
-        <h3>Det får du, når Gardinbussen kommer til ${esc(city)}</h3>
+        <h3>Afklar dette før besøget i ${esc(city)}</h3>
         <ul class="area-list city-usp">
-${usp.map((u) => `          <li>${esc(u)}</li>`).join("\n")}
+${checklist.map((u) => `          <li>${esc(u)}</li>`).join("\n")}
         </ul>
       </div>
     </section>
@@ -352,24 +372,23 @@ ${faq.html}
     <section class="section booking" id="booking">
       <div class="container booking-inner">
         <div class="booking-copy">
-          <p class="eyebrow">Book hjemmebesøg i ${esc(city)}</p>
-          <h2>Gratis og uforpligtende</h2>
+          <p class="eyebrow">Book besøg i ${esc(city)}</p>
+          <h2>Gratis og uforpligtende besøg fra Gardinbus.nu</h2>
           <p>${esc(pick(city + "b", [
-            `Book dit gardinbesøg i ${city} online. Vælg en tid der passer dig — så kommer vi hjem til dig med prøver, måler op og giver et fast tilbud.`,
-            `Vælg en ledig tid, så kommer Gardinbussen hjem til dig i ${city} med prøver på stoffer og løsninger. Du får et fast tilbud, mens vi er der.`,
-            `Det tager under et minut at booke. Vi kommer hjem til dig i ${city}, måler op og giver dig en fast pris — helt uden købepligt.`,
+            `Du booker besøget i ${city} hos Gardinbus.nu. Leverandøren kontakter dig for at aftale en tid og kommer derefter med prøver, måler op og giver et uforpligtende tilbud.`,
+            `Når du har booket hos Gardinbus.nu, aftaler leverandøren en tid med dig. Ved besøget i ${city} ser du prøverne i dit eget lys og får et uforpligtende tilbud.`,
           ]))}</p>
           <ul class="booking-points">
-            <li>Gratis og uforpligtende besøg</li>
-            <li>Prøver og rådgivning med hjemme</li>
-            <li>Fast tilbud på stedet</li>
+            <li>Gratis besøg, rådgivning og opmåling</li>
+            <li>Prøver på stoffer og farver i dit eget hjem</li>
+            <li>Uforpligtende tilbud</li>
           </ul>
           <p class="booking-alt">
-            Vil du hellere skrive? Send en mail til
-            <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>
+            Spørgsmål om booking, tilbud og levering besvares af Gardinbus.nu.
+            Spørgsmål til denne side: <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>
           </p>
         </div>
-${ctaCard(`Book gardinbesøg i ${city}`, `Vælg en ledig tid i ${city} — det tager under et minut.`)}
+${ctaCard(`Book besøg i ${city}`, `Gå videre til Gardinbus.nu og book et gratis besøg i ${city}.`)}
       </div>
     </section>
   </main>
@@ -425,7 +444,7 @@ ${item.related.map((r) => `            <a href="${attr(r.href)}">${esc(r.label)}
             </div>
           </div>` : "";
     const link = item.link.href === "book"
-      ? bookBtn(item.link.text, "btn-ghost")
+      ? bookBtn(item.link.text, "btn-ghost", item.supplier)
       : `<a class="btn btn-ghost" href="${item.link.href}">${esc(item.link.text)}</a>`;
     return `      <article class="news-row" id="${item.slug}">
         <div class="news-media">
@@ -469,7 +488,7 @@ ${header("")}
         <header class="section-head">
           <p class="eyebrow">Nyheder & inspiration</p>
           <h1>Nyt om gardiner, lys og indeklima</h1>
-          <p class="section-sub">Bliv inspireret af de nyeste trends og løsninger — og book et gratis hjemmebesøg, når du er klar.</p>
+          <p class="section-sub">Bliv inspireret af trends og løsninger til vinduerne — og se, hvordan du kan få et gratis besøg med prøver fra Gardinbus.nu, når du er klar.</p>
         </header>
         <div class="news-list" id="nyheder">
 ${rows}
@@ -480,16 +499,16 @@ ${rows}
     <section class="section section-alt booking" id="booking">
       <div class="container booking-inner">
         <div class="booking-copy">
-          <p class="eyebrow">Book hjemmebesøg</p>
-          <h2>Gratis og uforpligtende</h2>
-          <p>Vælg en tid der passer dig — så kommer vi hjem til dig med prøver, måler op og giver et fast tilbud. Ingen købepligt.</p>
+          <p class="eyebrow">Gratis hjemmebesøg</p>
+          <h2>Se løsningerne i dit eget hjem</h2>
+          <p>Gardinbus.nu tilbyder et gratis og uforpligtende besøg, hvor en konsulent viser prøver, måler op og giver et tilbud. Du booker hos Gardinbus.nu, som derefter kontakter dig for at aftale en tid.</p>
           <ul class="booking-points">
-            <li>Gratis og uforpligtende besøg</li>
-            <li>Prøver og rådgivning med hjemme</li>
-            <li>Fast tilbud på stedet</li>
+            <li>Gratis besøg, rådgivning og opmåling</li>
+            <li>Prøver på stoffer og farver i dit eget lys</li>
+            <li>Uforpligtende tilbud</li>
           </ul>
         </div>
-${ctaCard("Book et gardinbesøg", "Det tager under et minut at vælge en ledig tid.")}
+${ctaCard("Book et gardinbesøg", "Gå videre til Gardinbus.nu og book et gratis besøg.")}
       </div>
     </section>
   </main>
@@ -497,7 +516,19 @@ ${footer("")}`;
 }
 
 // ---------- blog ----------
+// Knaptekst til leverandørsiden, som indlæggets `supplier` peger på.
+const SUPPLIER_CTA = {
+  gardiner: "Se gardiner hos Gardinbus.nu",
+  persienner: "Se persienner hos Gardinbus.nu",
+  luxaflex: "Se Luxaflex hos Gardinbus.nu",
+  insektnet: "Se insektnet hos Gardinbus.nu",
+  produkter: "Se produktudvalget hos Gardinbus.nu",
+  faq: "Læs Gardinbus.nu's svar på ofte stillede spørgsmål",
+  book: "Gå til booking hos Gardinbus.nu",
+};
+
 function blogPost(post) {
+  if (!SUPPLIER_CTA[post.supplier || "book"]) throw new Error(`Ukendt supplier "${post.supplier}" i blog/${post.slug}`);
   const url = `${SITE}/blog/${post.slug}.html`;
   const faq = faqBlock(post.faq);
   const block = (p) => typeof p === "string"
@@ -527,7 +558,7 @@ ${post.related.links.map((l) => `          <a class="related-card" href="${l.slu
     "@context": "https://schema.org", "@type": "Article",
     headline: post.h1, description: post.desc, image: `${SITE}/assets/og-image.png`,
     mainEntityOfPage: url,
-    author: { "@type": "Organization", name: "bookgardinbussen.online", url: `${SITE}/om-os.html` },
+    author: { "@type": "Organization", name: "Redaktionen på bookgardinbussen.online", url: `${SITE}/om-os.html` },
     publisher: { "@type": "Organization", name: "bookgardinbussen.online", url: `${SITE}/`, logo: { "@type": "ImageObject", url: `${SITE}/assets/logo.png`, width: 512, height: 512 } },
   };
   const breadcrumb = {
@@ -561,27 +592,28 @@ ${sectionsHtml}
 ${faq.html}
         </div>
 
-${related}        <p class="blog-cta-note">${esc(post.ctaNote || `Vil du se ${post.tag.toLowerCase()} i dit eget hjem? Book et gratis hjemmebesøg nedenfor — vi kommer med prøver og måler op.`)}</p>
+${related}        <p class="blog-cta-note">${esc(post.ctaNote || `Vil du se ${post.tag.toLowerCase()} i dit eget hjem? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.`)}</p>
+        <p class="blog-supplier-link">${bookBtn(SUPPLIER_CTA[post.supplier || "book"], "btn-ghost", post.supplier)}</p>
       </div>
     </article>
 
     <section class="section section-alt booking" id="booking">
       <div class="container booking-inner">
         <div class="booking-copy">
-          <p class="eyebrow">Book hjemmebesøg</p>
-          <h2>Gratis og uforpligtende</h2>
-          <p>${esc(post.bookingText || "Book dit gardinbesøg online. Vælg en tid der passer dig — så kommer vi hjem med prøver, måler op og giver et fast tilbud. Ingen købepligt.")}</p>
+          <p class="eyebrow">Gratis hjemmebesøg</p>
+          <h2>Få et uforpligtende tilbud fra Gardinbus.nu</h2>
+          <p>${esc(post.bookingText || "Du booker besøget hos Gardinbus.nu. Leverandøren kontakter dig for at aftale en tid og kommer derefter med prøver, måler op og giver et uforpligtende tilbud.")}</p>
           <ul class="booking-points">
-            <li>Gratis og uforpligtende besøg</li>
-            <li>Prøver og rådgivning med hjemme</li>
-            <li>Fast tilbud på stedet</li>
+            <li>Gratis besøg, rådgivning og opmåling</li>
+            <li>Prøver på stoffer og farver i dit eget lys</li>
+            <li>Uforpligtende tilbud</li>
           </ul>
           <p class="booking-alt">
-            Vil du hellere skrive? Send en mail til
-            <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>
+            Spørgsmål om booking, tilbud og levering besvares af Gardinbus.nu.
+            Spørgsmål til artiklen: <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>
           </p>
         </div>
-${ctaCard("Book et gardinbesøg", post.ctaLead || `Se ${post.tag.toLowerCase()} i dit eget hjem — book et gratis besøg.`)}
+${ctaCard("Book et gardinbesøg", post.ctaLead || `Se ${post.tag.toLowerCase()} i dit eget hjem — book et gratis besøg hos Gardinbus.nu.`)}
       </div>
     </section>
   </main>
@@ -642,12 +674,12 @@ ${posts.map(card).join("\n")}
   sections.push(`    <section class="section${sections.length % 2 ? "" : " section-alt"}">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Hvorfor Gardinbussen</p>
-          <h2>Få det bedste tilbud på gardiner — billige eller i topkvalitet</h2>
-          <p class="section-sub">Læs hvorfor tusindvis af danskere vælger Gardinbussen til billige gardiner og gardiner i god kvalitet — og book dit gratis, uforpligtende besøg.</p>
+          <p class="eyebrow">Gratis hjemmebesøg</p>
+          <h2>Sådan får du et tilbud på gardiner — billige eller i god kvalitet</h2>
+          <p class="section-sub">Læs, hvordan et gratis og uforpligtende besøg fra Gardinbus.nu foregår, hvad du kan forvente, og hvad du med fordel kan afklare på forhånd.</p>
         </header>
         <p class="section-cta">
-          <a class="btn btn-primary" href="../hvorfor-gardinbussen.html">Se hvorfor Gardinbussen</a>
+          <a class="btn btn-primary" href="../hvorfor-gardinbussen.html">Sådan foregår et gardinbus-besøg</a>
         </p>
       </div>
     </section>`);
@@ -658,7 +690,7 @@ ${posts.map(card).join("\n")}
   };
   return `${head({
     title: "Blog: Guides og inspiration om gardiner | bookgardinbussen.online",
-    desc: "Guides og inspiration om gardiner — samlet efter kategori: gardintyper, efterårsguides og inspiration. Find den rigtige løsning, og book en gratis opmåling.",
+    desc: "Uafhængige guides om gardiner: gardintyper, solafskærmning, mørklægning, pris og kvalitet. Find den rigtige løsning til dine vinduer.",
     url, relPrefix: "../", jsonld: [itemList],
   })}
 <body>
@@ -675,7 +707,7 @@ ${header("../")}
         <header class="section-head">
           <p class="eyebrow">Blog</p>
           <h1>Guides og inspiration om gardiner</h1>
-          <p class="section-sub">Alle vores artikler samlet efter kategori — så du hurtigt finder det, du leder efter.</p>
+          <p class="section-sub">Alle vores guides samlet efter kategori — fra valg af gardintype til solafskærmning, pris og kvalitet.</p>
         </header>
       </div>
     </section>
@@ -690,15 +722,16 @@ function llmsTxt() {
   const lines = [];
   lines.push("# bookgardinbussen.online");
   lines.push("");
-  lines.push("> Mobil gardinservice i Danmark. bookgardinbussen.online kører hele gardinbutikken hjem til kunden med gratis og uforpligtende hjemmebesøg: prøver, opmåling, rådgivning og montering af gardiner, rullegardiner, persienner, plisségardiner og lamelgardiner — i hele landet.");
+  lines.push("> Uafhængigt dansk guide-site om gardiner, solafskærmning og gratis gardinbus-besøg. bookgardinbussen.online er et informations- og affiliatesite og henviser via affiliate-links til Gardinbus.nu, som leverer selve servicen: gratis og uforpligtende hjemmebesøg med prøver, opmåling og tilbud.");
   lines.push("");
   lines.push("## Om");
-  lines.push("- Gratis og uforpligtende hjemmebesøg i hele Danmark");
-  lines.push("- Opmåling, rådgivning og montering på stedet");
-  lines.push("- Fast tilbud uden købepligt");
+  lines.push("- bookgardinbussen.online udfører ikke selv opmåling, produktion eller montering");
+  lines.push("- Leverandør: Gardinbus.nu (https://gardinbus.nu/) — oplyser at dække Jylland, Fyn og Sjælland");
+  lines.push("- Ifølge Gardinbus.nu er besøg, rådgivning, opmåling og tilbud gratis og uforpligtende");
+  lines.push("- Sitet kan modtage provision, når besøgende booker via affiliate-links (Partner-ads)");
   lines.push(`- Forside: ${SITE}/`);
-  lines.push(`- Om os: ${SITE}/om-os.html`);
-  lines.push(`- Hvorfor Gardinbussen (bedste tilbud på gardiner): ${SITE}/hvorfor-gardinbussen.html`);
+  lines.push(`- Om sitet og affiliate-oplysning: ${SITE}/om-os.html`);
+  lines.push(`- Sådan foregår et gardinbus-besøg: ${SITE}/hvorfor-gardinbussen.html`);
   lines.push("- Kontakt: mail@bookgardinbussen.online");
   lines.push("");
   for (const cat of BLOG_CATEGORIES) {
@@ -710,7 +743,7 @@ function llmsTxt() {
     }
     lines.push("");
   }
-  lines.push("## Byer vi dækker");
+  lines.push("## Byguides");
   lines.push(CITIES.map((c) => `- [${c}](${SITE}/byer/${slugify(c)}.html)`).join("\n"));
   lines.push("");
   return lines.join("\n");
@@ -734,6 +767,18 @@ index = index.replace(
   `<!-- CITIES:START -->\n${listItems.join("\n")}\n          <!-- CITIES:END -->`
 );
 fs.writeFileSync(indexPath, index);
+
+// Håndskrevne sider får samme menu og footer som de genererede, så
+// navigation og affiliate-oplysning er ens overalt.
+for (const f of ["index.html", "om-os.html", "hvorfor-gardinbussen.html", "tak.html", "privatlivspolitik.html", "404.html"]) {
+  const file = path.join(ROOT, f);
+  // 404.html vises under vilkårlige stier, så den skal have rod-relative links.
+  const pre = f === "404.html" ? "/" : "";
+  let html = fs.readFileSync(file, "utf8");
+  html = html.replace(/<ul class="nav-list" id="nav-list">[\s\S]*?<\/ul>/, () => navList(pre))
+    .replace(/  <footer class="site-footer">[\s\S]*?<\/footer>/, () => footerHtml(pre));
+  fs.writeFileSync(file, html);
+}
 
 // blog
 for (const post of BLOG) {

@@ -205,7 +205,7 @@ img, svg { max-width: 100%; }
   list-style: none; padding: 0; margin: 1.2rem 0 1.8rem;
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem;
 }
-.area-list li { position: relative; padding-left: 1.4rem; font-weight: 600; }
+.area-list li { position: relative; padding-left: 1.4rem; font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
 .area-list li::before { content: "📍"; position: absolute; left: 0; }
 .area-card {
   background: var(--green-700); color: #fff; border-radius: var(--radius-lg);
@@ -242,6 +242,8 @@ img, svg { max-width: 100%; }
 .blog-card p { color: var(--ink-soft); margin: 0; font-size: 0.98rem; }
 .blog-card-link { margin-top: auto; color: var(--green-700); font-weight: 700; }
 .blog-cta-note { margin-top: 2rem; font-weight: 600; color: var(--green-900); }
+.blog-supplier-link { margin: 0.8rem 0 0; }
+.hero-note, .seo-book-note { font-size: 0.82rem; color: var(--ink-soft); margin: 0.8rem 0 0; }
 .article h2 { margin-top: 2rem; }
 
 /* Booking CTA card ------------------------------------------------------- */
@@ -427,6 +429,7 @@ img, svg { max-width: 100%; }
 .footer-brand .brand-text { color: #fff; font-size: 1.3rem; font-weight: 800; }
 .footer-brand .brand-text span { color: var(--amber); }
 .footer-brand p { margin: 0.6rem 0 0; color: #a9c7bd; }
+.footer-brand .footer-disclosure { font-size: 0.82rem; }
 .footer-brand a { color: #fff; font-weight: 600; text-decoration: underline; }
 .footer-brand a:hover { color: var(--amber); }
 .footer-col .footer-title { color: #fff; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }

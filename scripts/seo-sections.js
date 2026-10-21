@@ -1,4 +1,4 @@
-// SEO-sektion "Book gratis besøg af Gardinbussen og få pris på …" på alle
+// SEO-sektion "Få et gratis besøg og et tilbud på …" (Gardinbus.nu) på alle
 // sider + tekniske SEO-opdateringer (sitemap med lastmod, datoer i
 // Article-schema, PNG-delingsbillede).
 //
@@ -9,7 +9,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
-const { SITE, AFFILIATE_BOOK_URL, CITIES, REGION, slugify, esc, attr, bookBtn } = require("./site-data");
+const { SITE, CITIES, REGION, slugify, esc, bookBtn } = require("./site-data");
 
 const ROOT = path.join(__dirname, "..");
 const START = "<!-- SEO-BOOK:START -->";
@@ -93,56 +93,38 @@ function guideCards(slugs, prefix) {
     .join("\n");
 }
 
-function serviceLd({ name, desc, url, area }) {
-  return JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name,
-    description: desc,
-    serviceType: "Gratis hjemmebesøg med opmåling og tilbud på gardiner",
-    url,
-    provider: { "@type": "Organization", name: "Gardinbussen", url: "https://gardinbus.nu/" },
-    areaServed: area,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "DKK",
-      description: "Gratis og uforpligtende hjemmebesøg med prøver, opmåling og fast pris.",
-      url: AFFILIATE_BOOK_URL,
-    },
-  });
-}
-
 // Selve sektionen. `topic` er fx "nye rullegardiner"; `where` fx " i Køge".
-function section({ key, topic, where = "", intro, relatedHtml, relatedTitle, extraHtml = "", url, area, alt }) {
-  const heading = `Book gratis besøg af Gardinbussen${where} og få pris på ${topic}`;
+// Sektionen beskriver leverandørens (Gardinbus.nu) gratis besøg — sitet selv
+// udfører ikke besøg, opmåling eller montering.
+function section({ key, topic, where = "", intro, relatedHtml, relatedTitle, extraHtml = "", alt }) {
+  const heading = `Få et gratis besøg${where} og et tilbud på ${topic}`;
   const body = pick(key, [
-    `Med Gardinbussen kommer hele gardinbutikken hjem til dig${where}. En konsulent tager prøver med, viser dig stoffer og løsninger i dit eget lys, måler dine vinduer op og giver dig en fast pris på ${topic} — mens du sidder i din egen sofa. Besøget er gratis, og du forpligter dig ikke til noget.`,
-    `Du behøver ikke køre rundt til flere butikker for at få pris på ${topic}. Book et gratis besøg af Gardinbussen${where}, så kommer vi hjem til dig med prøver, rådgiver om de rigtige løsninger, måler op og giver dig et fast, uforpligtende tilbud på stedet.`,
-    `Gardinbussen kører ud til dig${where} med prøver på stoffer, farver og ophæng. Vi måler op, rådgiver ud fra dine vinduer og din indretning og giver dig en fast pris på ${topic} med opmåling og montering — helt gratis og uden købepligt.`,
+    `Gardinbus.nu tilbyder et gratis og uforpligtende besøg${where}, hvor en konsulent tager prøver med, viser stoffer og løsninger i dit eget lys, måler vinduerne op og giver et tilbud på ${topic}. Du forpligter dig ikke til noget.`,
+    `Du behøver ikke køre rundt til flere butikker for at få pris på ${topic}. Ved et gratis besøg fra Gardinbus.nu${where} får du prøver, rådgivning og opmåling hjemme hos dig — og et uforpligtende tilbud, du kan sammenligne med andre.`,
+    `Med en gardinbus fra Gardinbus.nu kommer prøverne hjem til dig${where}. Konsulenten måler op, rådgiver ud fra dine vinduer og din indretning og giver et uforpligtende tilbud på ${topic}. Besøget er gratis.`,
   ]);
   const cls = alt ? "section section-alt seo-book" : "section seo-book";
   return `${START}
     <section class="${cls}" aria-labelledby="gratis-besoeg-titel">
       <div class="container legal">
-        <p class="eyebrow">Gratis besøg af Gardinbussen</p>
+        <p class="eyebrow">Gratis besøg fra Gardinbus.nu</p>
         <h2 id="gratis-besoeg-titel">${esc(heading)}</h2>
         <p>${esc(intro)}</p>
         <p>${esc(body)}</p>
-        <h3>Sådan får du pris på ${esc(topic)}</h3>
+        <h3>Sådan får du et tilbud på ${esc(topic)}</h3>
         <ol class="seo-book-steps">
-          <li><strong>Book online på under et minut.</strong> Vælg en dag og et tidspunkt, der passer dig — også aften og weekend.</li>
-          <li><strong>Gardinbussen kommer hjem til dig${esc(where)}.</strong> Du ser prøverne i dit eget lys og får personlig rådgivning.</li>
-          <li><strong>Du får en fast pris på stedet.</strong> Opmåling og montering er med i tilbuddet, og du bestemmer selv, om du vil gå videre.</li>
+          <li><strong>Book hos Gardinbus.nu.</strong> Udfyld bookingformularen med adresse og antal vinduer.</li>
+          <li><strong>Aftal en tid.</strong> Leverandøren kontakter dig og finder et tidspunkt, der passer.</li>
+          <li><strong>Se prøverne${esc(where)}.</strong> Konsulenten måler op og giver et uforpligtende tilbud — du bestemmer selv, om du vil gå videre.</li>
         </ol>
         <p class="seo-book-cta">${bookBtn(`Book gratis besøg${where}`, "btn-primary")}</p>
+        <p class="seo-book-note">Linket fører til Gardinbus.nu og er et affiliate-link.</p>
 ${extraHtml}        <h3>${esc(relatedTitle)}</h3>
         <div class="related-grid">
 ${relatedHtml}
         </div>
       </div>
     </section>
-    <script type="application/ld+json">${serviceLd({ name: cap(heading), desc: `${intro} ${body}`, url, area })}</script>
     ${END}`;
 }
 
@@ -180,21 +162,19 @@ for (const c of cities) {
   const start = neighbours.length ? (cities.indexOf(c) % neighbours.length) : 0;
   const near = neighbours.slice(start).concat(neighbours.slice(0, start)).slice(0, 8);
   const nearHtml = near.length
-    ? `        <h3>Vi kommer også i nærheden af ${esc(c.name)}</h3>
+    ? `        <h3>Byguides i nærheden af ${esc(c.name)}</h3>
         <p class="news-related-links">
 ${near.map((o) => `          <a href="${o.slug}.html">Gardiner i ${esc(o.name)}</a>`).join("\n")}
         </p>
 `
     : "";
   const intro = pick(c.slug, [
-    `Skal du have nye gardiner, rullegardiner eller persienner i ${c.name}? Så er den nemmeste vej til en præcis pris et gratis besøg af Gardinbussen, der kører ud i hele ${c.region}.`,
-    `Mange i ${c.name} og resten af ${c.region} vil gerne kende prisen på nye gardiner, før de beslutter sig. Derfor kommer Gardinbussen gratis hjem til dig og giver dig en fast pris på stedet.`,
-    `Bor du i ${c.name}, kan du få besøg af Gardinbussen uden at betale for det. Vi dækker hele ${c.region} og kommer hjem til dig med prøver på gardiner, plisségardiner, persienner og meget mere.`,
+    `Skal du have nye gardiner, rullegardiner eller persienner i ${c.name}? Den nemmeste vej til en præcis pris er en opmåling af dine egne vinduer.`,
+    `Mange i ${c.name} vil gerne kende prisen på nye gardiner, før de beslutter sig. Et retvisende tilbud kræver, at nogen har set vinduerne og målt op.`,
+    `Bor du i ${c.name}, kan du få prøver på gardiner, plisségardiner, persienner og meget mere vist hjemme hos dig i stedet for i en butik.`,
   ]);
-  const url = `${SITE}/byer/${c.file}`;
   html = inject(html, section({
-    key: c.slug, topic: "nye gardiner", where: ` i ${c.name}`, intro, url,
-    area: { "@type": "City", name: c.name },
+    key: c.slug, topic: "nye gardiner", where: ` i ${c.name}`, intro,
     relatedTitle: `Guides til dig, der skal have nye gardiner i ${c.name}`,
     relatedHtml: guideCards(pick(c.slug + "g", [
       ["gardiner", "plissegardiner", "hvad-koster-gardiner"],
@@ -221,11 +201,10 @@ for (const f of listHtml("blog")) {
     .map((c) => `          <a href="../byer/${c.slug}.html">Gardiner i ${esc(c.name)}</a>`)
     .join("\n");
   html = inject(html, section({
-    key: slug, topic: t.product, intro: t.intro, url: `${SITE}/blog/${f}`,
-    area: { "@type": "Country", name: "Danmark" },
+    key: slug, topic: t.product, intro: t.intro,
     relatedTitle: "Flere guides, der hjælper dig med at vælge",
     relatedHtml: guideCards(t.related, ""),
-    extraHtml: `        <h3>Gardinbussen kommer i hele Danmark</h3>
+    extraHtml: `        <h3>Byguides: gardiner i din by</h3>
         <p class="news-related-links">
 ${cityLinks}
           <a href="../index.html#omraade">Se alle byer</a>
@@ -238,18 +217,16 @@ ${cityLinks}
 
 // ---------- øvrige sider ----------
 const OTHER = [
-  { file: "index.html", prefix: "blog/", topic: "nye gardiner", intro: "Leder du efter nye gardiner, rullegardiner, plisségardiner eller persienner? Så er et gratis besøg af Gardinbussen den hurtigste vej til den rigtige løsning og en præcis pris — uden at du skal ud af døren." },
-  { file: "om-os.html", prefix: "blog/", topic: "nye gardiner", intro: "Vores koncept er enkelt: Gardinbussen kører gardinbutikken hjem til dig, så du kan vælge gardiner i ro og mag og få en præcis pris uden at bruge en hel lørdag i butikkerne." },
-  { file: "hvorfor-gardinbussen.html", prefix: "blog/", topic: "nye gardiner", intro: "Det bedste tilbud på gardiner får du, når prisen bygger på en præcis opmåling og de stoffer, du faktisk har set og mærket. Det er præcis, hvad et gratis besøg af Gardinbussen giver dig." },
-  { file: "nyheder.html", prefix: "blog/", topic: "nye gardiner og solafskærmning", intro: "Har du fået lyst til en af nyhederne ovenfor? Så book et gratis besøg af Gardinbussen, og se løsningerne i dit eget hjem, før du bestemmer dig." },
+  { file: "index.html", prefix: "blog/", topic: "nye gardiner", intro: "Har du læst dig frem til, hvilken gardintype du er interesseret i? Så er næste skridt at se prøverne i dit eget lys og få dine vinduer målt op, så du kan få en præcis pris." },
+  { file: "om-os.html", prefix: "blog/", topic: "nye gardiner", intro: "Vores guides hjælper dig med at blive klogere på gardiner. Når du vil have en konkret pris, kan du gå videre til Gardinbus.nu, der tilbyder gratis besøg med prøver og opmåling." },
+  { file: "hvorfor-gardinbussen.html", prefix: "blog/", topic: "nye gardiner", intro: "Et godt tilbud på gardiner bygger på en præcis opmåling og stoffer, du faktisk har set og mærket. Det er formålet med et gratis besøg fra Gardinbus.nu." },
+  { file: "nyheder.html", prefix: "blog/", topic: "nye gardiner og solafskærmning", intro: "Har du fået lyst til en af løsningerne ovenfor? Så kan du se dem i dit eget hjem, før du bestemmer dig." },
   { file: "blog/index.html", prefix: "", topic: "nye gardiner", intro: "Når du har læst dig klog på gardintyper, stoffer og solafskærmning, er næste skridt at se løsningerne i dit eget hjem og få en præcis pris." },
 ];
 for (const p of OTHER) {
   let html = read(p.file);
-  const url = p.file === "index.html" ? `${SITE}/` : `${SITE}/${p.file}`;
   html = inject(html, section({
-    key: p.file, topic: p.topic, intro: p.intro, url,
-    area: { "@type": "Country", name: "Danmark" },
+    key: p.file, topic: p.topic, intro: p.intro,
     relatedTitle: "Populære guides om gardiner",
     relatedHtml: guideCards(CORE_GUIDES.slice(0, 3), p.prefix),
     alt: wantsAlt(html),
@@ -292,7 +269,7 @@ for (const f of allPages) {
   html = html.split(`${SITE}/assets/og-image.svg`).join(`${SITE}/assets/og-image.png`);
   if (!html.includes('property="og:image:width"')) {
     html = html.replace(/(\n([ \t]*)<meta property="og:image" content="[^"]*" \/>)/,
-      `$1\n$2<meta property="og:image:width" content="1200" />\n$2<meta property="og:image:height" content="630" />\n$2<meta property="og:image:alt" content="Gardinbussen – vi kører gardinbutikken hjem til dig" />`);
+      `$1\n$2<meta property="og:image:width" content="1200" />\n$2<meta property="og:image:height" content="630" />\n$2<meta property="og:image:alt" content="bookgardinbussen.online – guides til gardiner og gratis gardinbus-besøg" />`);
   }
   write(f, html);
 }
