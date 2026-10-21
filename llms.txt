@@ -1,66 +1,67 @@
 # bookgardinbussen.online
 
-> Mobil gardinservice i Danmark. bookgardinbussen.online kører hele gardinbutikken hjem til kunden med gratis og uforpligtende hjemmebesøg: prøver, opmåling, rådgivning og montering af gardiner, rullegardiner, persienner, plisségardiner og lamelgardiner — i hele landet.
+> Uafhængigt dansk guide-site om gardiner, solafskærmning og gratis gardinbus-besøg. bookgardinbussen.online er et informations- og affiliatesite og henviser via affiliate-links til Gardinbus.nu, som leverer selve servicen: gratis og uforpligtende hjemmebesøg med prøver, opmåling og tilbud.
 
 ## Om
-- Gratis og uforpligtende hjemmebesøg i hele Danmark
-- Opmåling, rådgivning og montering på stedet
-- Fast tilbud uden købepligt
+- bookgardinbussen.online udfører ikke selv opmåling, produktion eller montering
+- Leverandør: Gardinbus.nu (https://gardinbus.nu/) — oplyser at dække Jylland, Fyn og Sjælland
+- Ifølge Gardinbus.nu er besøg, rådgivning, opmåling og tilbud gratis og uforpligtende
+- Sitet kan modtage provision, når besøgende booker via affiliate-links (Partner-ads)
 - Forside: https://www.bookgardinbussen.online/
-- Om os: https://www.bookgardinbussen.online/om-os.html
-- Hvorfor Gardinbussen (bedste tilbud på gardiner): https://www.bookgardinbussen.online/hvorfor-gardinbussen.html
+- Om sitet og affiliate-oplysning: https://www.bookgardinbussen.online/om-os.html
+- Sådan foregår et gardinbus-besøg: https://www.bookgardinbussen.online/hvorfor-gardinbussen.html
 - Kontakt: mail@bookgardinbussen.online
 
 ## Gardintyper
-- [Gardiner](https://www.bookgardinbussen.online/blog/gardiner.html): Alt om gardiner: typer, stoffer, ophæng og hvordan du vælger de rigtige gardiner til hvert rum. Få gratis rådgivning og opmåling hjemme hos dig.
-- [Rullegardiner](https://www.bookgardinbussen.online/blog/rullegardiner.html): Rullegardiner er enkle, funktionelle og fås også som mørklægning. Læs guiden til valg, materialer og montering — og book gratis opmåling hjemme.
-- [Persienner](https://www.bookgardinbussen.online/blog/persienner.html): Persienner giver præcis kontrol over lys og indblik. Læs om alu- og træpersienner, farver og montering, og book en gratis opmåling hjemme hos dig.
-- [Plisségardiner](https://www.bookgardinbussen.online/blog/plissegardiner.html): Plisségardiner kan skærme oppefra og nedefra og passer perfekt til ovenlys og specielle vinduer. Læs guiden, og book en gratis opmåling hjemme.
-- [Lamelgardiner](https://www.bookgardinbussen.online/blog/lamelgardiner.html): Lamelgardiner er den elegante løsning til store vinduespartier og skydedøre. Læs om funktion, stoffer og montering, og book en gratis opmåling.
-- [Gardinstænger & skinner](https://www.bookgardinbussen.online/blog/gardinstaenger-og-skinner.html): Gardinstang eller skinne? Guide til det rigtige ophæng til dine gardiner — udtryk, funktion og montering. Book en gratis opmåling hjemme hos dig.
-- [Foldegardiner](https://www.bookgardinbussen.online/blog/foldegardiner.html): Foldegardiner samler stoffet i bløde, vandrette folder — et roligt og elegant udtryk. Læs om stof, montering og valg, og book en gratis opmåling hjemme.
-- [Træpersienner](https://www.bookgardinbussen.online/blog/traepersienner.html): Træpersienner giver et varmt udtryk med brede lameller og præcis lysstyring. Læs om farver, lamelbredde og montering — book en gratis opmåling hjemme.
-- [Insektnet](https://www.bookgardinbussen.online/blog/insektnet-til-vinduer-og-doere.html): Insektnet til vinduer og døre holder myg, fluer og hvepse ude. Læs om rullenet, faste rammer og plisségittre — og book en gratis opmåling hjemme.
-- [Luxaflex](https://www.bookgardinbussen.online/blog/luxaflex.html): Luxaflex er et førende gardinmærke med høj kvalitet og PowerView-motorstyring. Læs om fordele og løsninger — og book en gratis opmåling hjemme.
-- [Panelgardiner](https://www.bookgardinbussen.online/blog/panelgardiner.html): Panelgardiner er en enkel og fleksibel løsning til store vinduespartier og skydedøre. Læs om stof og montering — og book en gratis opmåling hjemme.
-- [Screengardiner](https://www.bookgardinbussen.online/blog/screengardiner.html): Screengardiner filtrerer sollys og holder varmen ude, uden at du mister udsigten. Læs om vævning og montering — og book en gratis opmåling hjemme.
+- [Gardiner](https://www.bookgardinbussen.online/blog/gardiner.html): Guide til gardiner: typer, stoffer, ophæng og valg til hvert rum. Se også, hvordan du får gratis rådgivning og opmåling hjemme via Gardinbus.nu.
+- [Rullegardiner](https://www.bookgardinbussen.online/blog/rullegardiner.html): Rullegardiner er enkle og fås også som mørklægning. Læs om varianter, materialer og montering — og hvordan du får rullegardiner målt op gratis hjemme.
+- [Persienner](https://www.bookgardinbussen.online/blog/persienner.html): Persienner giver præcis kontrol over lys og indblik. Læs om alu- og træpersienner, lamelbredde, farver og montering — og få gratis opmåling hjemme.
+- [Plisségardiner](https://www.bookgardinbussen.online/blog/plissegardiner.html): Plisségardiner kan skærme oppefra og nedefra og passer til ovenlys og specielle vinduer. Læs om stoffer, funktion og montering i guiden.
+- [Lamelgardiner](https://www.bookgardinbussen.online/blog/lamelgardiner.html): Lamelgardiner er en elegant løsning til store vinduespartier og skydedøre. Læs om funktion, stoffer, mørklægning og montering i vores guide.
+- [Gardinstænger & skinner](https://www.bookgardinbussen.online/blog/gardinstaenger-og-skinner.html): Gardinstang eller skinne? Guide til det rigtige ophæng til dine gardiner — udtryk, funktion, højde og montering, så gardinet falder pænt.
+- [Foldegardiner](https://www.bookgardinbussen.online/blog/foldegardiner.html): Foldegardiner samler stoffet i bløde, vandrette folder. Læs om stof, mørklægning, montering og forskellen på folde- og rullegardiner i guiden.
+- [Træpersienner](https://www.bookgardinbussen.online/blog/traepersienner.html): Træpersienner giver et varmt udtryk med brede lameller og præcis lysstyring. Læs om farver, lamelbredde, fugt og montering i vores guide.
+- [Insektnet](https://www.bookgardinbussen.online/blog/insektnet-til-vinduer-og-doere.html): Insektnet til vinduer og døre holder myg, fluer og hvepse ude. Læs om rullenet, plissénet og skydedørsløsninger — og hvordan du vælger rigtigt.
+- [Luxaflex](https://www.bookgardinbussen.online/blog/luxaflex.html): Luxaflex er et kendt gardinmærke i den høje ende med bl.a. plissé, persienner og PowerView-motorstyring. Læs om produkter, fordele og pris.
+- [Panelgardiner](https://www.bookgardinbussen.online/blog/panelgardiner.html): Panelgardiner glider til side på en skinne og passer til brede vinduer og skydedøre. Læs om stof, antal paneler, skinne og typiske fejl før du vælger.
+- [Screengardiner](https://www.bookgardinbussen.online/blog/screengardiner.html): Screengardiner filtrerer sollys og dæmper blænding, uden at du mister udsigten. Læs om åbenhedsgrad, stoffarve og placering, før du vælger løsning.
 
 ## Solfilm & solafskærmning
-- [Solfilm til vinduer](https://www.bookgardinbussen.online/blog/solfilm-til-vinduer.html): Solfilm kan reducere varmen med op til 85 % og blokere 99 % UV. Læs om varmeafvisning og valg af solfilm — og book gratis rådgivning hjemme.
-- [Solfilm eller gardiner](https://www.bookgardinbussen.online/blog/solfilm-eller-gardiner.html): Solfilm eller gardiner mod varme og sol? Sammenlign varmeafvisning, lys, privatliv og pris — og book gratis rådgivning om solafskærmning hjemme.
-- [Privatlivsfilm](https://www.bookgardinbussen.online/blog/privatlivsfilm-til-vinduer.html): Privatlivsfilm skærmer for indblik, men lader lyset ind. Læs om spejlfilm, mat film og frostfilm — og book gratis rådgivning hjemme hos dig.
-- [Solfilmsrullegardiner](https://www.bookgardinbussen.online/blog/solfilmsrullegardiner.html): Solfilmsrullegardiner kaster solens varme tilbage og dæmper blænding uden at lukke udsigten helt. Læs guiden, og book en gratis opmåling hjemme.
-- [Solfilm mod falmede møbler](https://www.bookgardinbussen.online/blog/solfilm-mod-falmede-mobler.html): UV-stråler kan falme møbler, gulve og tæpper. Læs hvordan solfilm blokerer op til 99 % UV og beskytter indboet — og book en gratis opmåling hjemme hos dig.
-- [Solafskærmning til hjemmekontoret](https://www.bookgardinbussen.online/blog/solafskaermning-hjemmekontor.html): Generende reflekser på skærmen og en overophedet stue? Læs om solafskærmning til hjemmekontoret — solfilm, gardiner og persienner — og book en gratis opmåling.
+- [Solfilm til vinduer](https://www.bookgardinbussen.online/blog/solfilm-til-vinduer.html): Solfilm reflekterer solens varme og dæmper UV, før det når ind i rummet. Læs om filmtyper, indvendig eller udvendig montering, og hvornår solfilm passer.
+- [Solfilm eller gardiner](https://www.bookgardinbussen.online/blog/solfilm-eller-gardiner.html): Solfilm eller gardiner mod varme og sol? Sammenlign varmeafvisning, lys, privatliv og økonomi, og find ud af, hvornår en kombination giver mest mening.
+- [Privatlivsfilm](https://www.bookgardinbussen.online/blog/privatlivsfilm-til-vinduer.html): Privatlivsfilm skærmer for indblik, men lader lyset komme ind. Læs om spejlfilm, mat film og frostfilm, og hvordan de virker om dagen og om aftenen.
+- [Solfilmsrullegardiner](https://www.bookgardinbussen.online/blog/solfilmsrullegardiner.html): Solfilmsrullegardiner kaster en del af solens varme tilbage og dæmper blænding, uden at lukke udsigten helt. Læs om stoftyper, tæthed og placering.
+- [Solfilm mod falmede møbler](https://www.bookgardinbussen.online/blog/solfilm-mod-falmede-mobler.html): UV-stråler kan falme møbler, gulve og tæpper. Læs hvorfor det sker, hvordan solfilm dæmper UV-belastningen, og hvilke rum der har mest gavn af den.
+- [Solafskærmning til hjemmekontoret](https://www.bookgardinbussen.online/blog/solafskaermning-hjemmekontor.html): Reflekser på skærmen og et overophedet kontor? Læs om solafskærmning til hjemmekontoret — solfilm, persienner og gardiner — og hvordan du kombinerer dem.
 
 ## Trends & smart home
-- [Motoriserede gardiner](https://www.bookgardinbussen.online/blog/motoriserede-gardiner-smart-home.html): Motoriserede gardiner er en af årets største trends: styr lys, varme og privatliv med app, tidsplan eller stemme. Book en gratis opmåling hjemme.
-- [Solcelledrevne gardiner](https://www.bookgardinbussen.online/blog/solcelledrevne-gardiner.html): Solcelledrevne gardiner oplader sig selv med dagslys og kræver ingen stikkontakt. Læs om fordele og drift — og book en gratis opmåling hjemme.
-- [Gardiner med stemmestyring](https://www.bookgardinbussen.online/blog/gardiner-stemmestyring-smart-home.html): Styr dine gardiner med stemmen via Alexa eller Google Home. Læs hvordan stemmestyrede gardiner fungerer — og book en gratis opmåling hjemme.
+- [Motoriserede gardiner](https://www.bookgardinbussen.online/blog/motoriserede-gardiner-smart-home.html): Motoriserede gardiner styres med app, tidsplan eller stemme. Læs hvordan de virker, hvad de kræver, og hvornår de giver mening i dit hjem.
+- [Solcelledrevne gardiner](https://www.bookgardinbussen.online/blog/solcelledrevne-gardiner.html): Solcelledrevne gardiner oplader sig selv med dagslys og kræver ingen stikkontakt. Læs hvordan de virker, og hvilke vinduer de passer bedst til.
+- [Gardiner med stemmestyring](https://www.bookgardinbussen.online/blog/gardiner-stemmestyring-smart-home.html): Styr gardinerne med stemmen via Alexa, Google Home eller HomeKit. Læs hvordan stemmestyring virker, og hvad du skal bruge for at komme i gang.
 
 ## Efterår – guides & fordele
-- [Mørklægningsgardiner](https://www.bookgardinbussen.online/blog/moerklaegningsgardiner-efteraar.html): Mørklægningsgardiner lukker gadelys og træk ude om efteråret. Læs om fordele, materialer og montering — og book en gratis opmåling hjemme hos dig.
-- [Hold på varmen](https://www.bookgardinbussen.online/blog/hold-paa-varmen-med-gardiner.html): Gardiner kan mindske varmetab ved vinduerne om efteråret. Læs hvordan tætte stoffer og korrekt ophæng holder på varmen — og book en gratis opmåling.
-- [Termogardiner](https://www.bookgardinbussen.online/blog/termogardiner-spar-paa-varmen.html): Termogardiner isolerer vinduet og mindsker træk og varmetab om efteråret. Læs om fordele, materialer og montering — og book en gratis opmåling hjemme.
-- [Soveværelse om efteråret](https://www.bookgardinbussen.online/blog/gardiner-sovevaerelse-efteraar.html): De rigtige gardiner giver ro, mørke og lunt soveværelse om efteråret. Læs om mørklægning, stof og montering — og book en gratis opmåling hjemme hos dig.
-- [Træk og kulde](https://www.bookgardinbussen.online/blog/gardiner-mod-traek-og-kulde.html): Mærker du træk fra vinduerne om efteråret? Sådan mindsker gardiner kuldenedfald og træk. Læs guiden — og book en gratis opmåling hjemme hos dig.
-- [Gardiner og fugt om efteråret](https://www.bookgardinbussen.online/blog/gardiner-fugt-kondens-efteraar.html): Kolde vinduer og høj luftfugtighed giver kondens og skimmel om efteråret. Sådan vælger og bruger du gardiner rigtigt — book en gratis opmåling.
-- [Nye gardiner til efteråret](https://www.bookgardinbussen.online/blog/nye-gardiner-til-efteraaret.html): Guide til at vælge nye gardiner til efteråret: hvornår man bør skifte, hvilke gardintyper der passer til den mørke tid (mørklægning, termo, lagdelte gardiner), tjekliste til opmåling og gratis hjemmebesøg.
+- [Mørklægningsgardiner](https://www.bookgardinbussen.online/blog/moerklaegningsgardiner-efteraar.html): Mørklægningsgardiner lukker gadelys ude og dæmper træk om efteråret. Læs om fuld mørklægning vs. dimout, stofvalg og korrekt montering.
+- [Hold på varmen](https://www.bookgardinbussen.online/blog/hold-paa-varmen-med-gardiner.html): Gardiner kan mindske varmetab og kuldenedfald ved vinduerne. Læs hvordan tætte stoffer, foer og det rigtige ophæng holder bedre på varmen.
+- [Termogardiner](https://www.bookgardinbussen.online/blog/termogardiner-spar-paa-varmen.html): Termogardiner har et isolerende foer, der mindsker træk og varmetab ved vinduet. Læs hvordan de virker, og hvor de gør størst gavn i boligen.
+- [Soveværelse om efteråret](https://www.bookgardinbussen.online/blog/gardiner-sovevaerelse-efteraar.html): De rigtige gardiner giver mørke, ro og et lunt soveværelse om efteråret. Læs om mørklægning, stofvalg og ophæng, der lukker lyset ude.
+- [Træk og kulde](https://www.bookgardinbussen.online/blog/gardiner-mod-traek-og-kulde.html): Mærker du træk fra vinduerne om efteråret? Læs hvorfor kuldenedfald opstår, og hvordan tætte gardiner og det rigtige ophæng mindsker trækken.
+- [Gardiner og fugt om efteråret](https://www.bookgardinbussen.online/blog/gardiner-fugt-kondens-efteraar.html): Kolde ruder og høj luftfugtighed giver kondens og skimmel om efteråret. Læs hvordan du vælger og bruger gardiner, så fugten kan slippe væk.
+- [Nye gardiner til efteråret](https://www.bookgardinbussen.online/blog/nye-gardiner-til-efteraaret.html): Guide til at vælge nye gardiner til efteråret: hvorfor man skifter, hvilke gardintyper der passer til den mørke tid (mørklægning, isolerende plissé, lagdelte gardiner), tjekliste før køb og gratis, uforpligtende besøg med opmåling via Gardinbus.nu.
 
 ## Efterår – inspiration
-- [Efterårshygge](https://www.bookgardinbussen.online/blog/gardiner-om-efteraaret-hygge.html): Skab efterårshygge med de rigtige gardiner. Guide til bløde stoffer, varme farver og lune rammer, der gør hjemmet klar til den mørke tid.
-- [Efterårsfarver](https://www.bookgardinbussen.online/blog/efteraarsfarver-gardiner-inspiration.html): Find efterårets smukkeste gardinfarver: rustrød, karrygul, oliven og varm sand. Inspiration til paletten, der gør hjemmet lunt — book en gratis opmåling.
-- [Efterårsklar stue](https://www.bookgardinbussen.online/blog/efteraarsklar-stue-gardiner.html): Gør stuen efterårsklar med gardiner, der skaber stemning og lune rammer. Inspiration til stof, farve og lag — og book en gratis opmåling hjemme hos dig.
-- [Efterårets gardintrends](https://www.bookgardinbussen.online/blog/naturmaterialer-gardiner-efteraarstrends.html): Hør, bomuld og naturlige teksturer er efterårets gardintrends. Få inspiration til materialer og udtryk — og book en gratis opmåling hjemme hos dig.
-- [Lagdelte gardiner](https://www.bookgardinbussen.online/blog/lagdelte-gardiner-efteraar.html): Lagdelte gardiner kombinerer let lysfiltrering med mørklægning — perfekt til efterårets skiftende lys. Få inspiration, og book en gratis opmåling hjemme.
-- [Gardinmode 2026: efterår og vinter](https://www.bookgardinbussen.online/blog/gardinmode-trends-2026.html): Overblik over gardinmode og gardintrends i efteråret og vinteren 2026: varme jordfarver, taktile naturstoffer, gulvlange gardiner hængt højt, lagdelte løsninger og diskret smart home-styring — og hvordan man får trends vist hjemme.
+- [Efterårshygge](https://www.bookgardinbussen.online/blog/gardiner-om-efteraaret-hygge.html): Skab efterårshygge med de rigtige gardiner: bløde stoffer, varme farver, højt ophæng og lag af lys, der gør hjemmet klar til den mørke tid.
+- [Efterårsfarver](https://www.bookgardinbussen.online/blog/efteraarsfarver-gardiner-inspiration.html): Find efterårets smukkeste gardinfarver: rustrød, karrygul, oliven og varm sand. Inspiration til en palette, der gør hjemmet lunt uden at blive tungt.
+- [Efterårsklar stue](https://www.bookgardinbussen.online/blog/efteraarsklar-stue-gardiner.html): Gør stuen efterårsklar med gardiner, der skaber stemning og lune rammer. Inspiration til stof, farve og lag — uden at du skal møblere om.
+- [Efterårets gardintrends](https://www.bookgardinbussen.online/blog/naturmaterialer-gardiner-efteraarstrends.html): Hør, bomuld og naturlige teksturer er efterårets gardintrends. Få inspiration til materialer, farver og udtryk samt fordele og ulemper ved hvert stof.
+- [Lagdelte gardiner](https://www.bookgardinbussen.online/blog/lagdelte-gardiner-efteraar.html): Lagdelte gardiner kombinerer let lysfiltrering med mørklægning — ideelt til efterårets skiftende lys. Se kombinationer, der virker, og få råd om ophæng.
+- [Gardinmode 2026: efterår og vinter](https://www.bookgardinbussen.online/blog/gardinmode-trends-2026.html): Overblik over gardinmode og gardintrends i efteråret og vinteren 2026: varme jordfarver, taktile naturstoffer, gulvlange gardiner hængt højt, lagdelte løsninger og diskret teknik — og hvordan man ser stofprøver hjemme via et gratis besøg fra Gardinbus.nu.
 
 ## Pris & kvalitet
-- [Billige gardiner eller god kvalitet?](https://www.bookgardinbussen.online/blog/billige-gardiner-eller-god-kvalitet.html): Ærligt overblik over billige gardiner vs. gardiner i god kvalitet — hvad koster de, hvad kendetegner god kvalitet, og hvordan får du det bedste forhold mellem pris og kvalitet. Gratis opmåling hjemme.
-- [Hvad koster gardiner?](https://www.bookgardinbussen.online/blog/hvad-koster-gardiner.html): Prisguide til alle gardintyper — hvad der styrer prisen (stof, mængde, ophæng, montering), og hvordan du får en præcis pris. Gratis opmåling hjemme.
-- [7 tegn på god kvalitet](https://www.bookgardinbussen.online/blog/tegn-paa-god-kvalitet-gardiner.html): 7 konkrete tegn på gardiner i god kvalitet — stof, syning, ophæng og mekanik. Gratis opmåling hjemme, så du kan tjekke tegnene selv.
+- [Billige gardiner eller god kvalitet?](https://www.bookgardinbussen.online/blog/billige-gardiner-eller-god-kvalitet.html): Ærlig guide til billige gardiner vs. gardiner i god kvalitet: hvad der driver prisen, hvordan du genkender kvalitet, hvor det betaler sig at spare, og hvordan du sammenligner tilbud. Henviser til Gardinbus.nu for gratis, uforpligtende besøg med prøver, opmåling og tilbud.
+- [Hvad koster gardiner?](https://www.bookgardinbussen.online/blog/hvad-koster-gardiner.html): Prisguide til gardiner: hvad der styrer prisen (stof, mængde, gardintype, ophæng, montering), hvorfor der sjældent findes faste listepriser, og hvordan man får et uforpligtende tilbud via et gratis besøg fra Gardinbus.nu.
+- [7 tegn på god kvalitet](https://www.bookgardinbussen.online/blog/tegn-paa-god-kvalitet-gardiner.html): 7 konkrete tegn på gardiner i god kvalitet — stoftæthed, fald, underkant, syning, ophæng, mekanik og farveægthed — og hvordan man tjekker dem på stofprøver i sit eget hjem.
 
-## Byer vi dækker
+## Byguides
 - [København](https://www.bookgardinbussen.online/byer/koebenhavn.html)
 - [Aarhus](https://www.bookgardinbussen.online/byer/aarhus.html)
 - [Odense](https://www.bookgardinbussen.online/byer/odense.html)

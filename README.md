@@ -1,13 +1,24 @@
-# Gardinbussen
+# bookgardinbussen.online
 
-Hjemmeside for **Gardinbussen** — en mobil gardinservice, der kører hele
-gardinbutikken hjem til kunden. I stedet for at kunden selv skal ud og handle
-gardiner, kommer Gardinbussen hjem med prøver, måler op, rådgiver og
-monterer — helt gratis og uforpligtende.
+Uafhængigt informations- og affiliatesite om gardiner, solafskærmning og
+gardinbus-besøg. Sitet har guides til gardintyper, pris og kvalitet samt
+byguides, og henviser via affiliate-links (Partner-ads) til **Gardinbus.nu**,
+som leverer selve servicen: gratis og uforpligtende besøg med prøver,
+opmåling og tilbud.
 
-Siden præsenterer konceptet, de forskellige gardintyper og
-solafskærmningsløsninger, dækningsområdet i Danmark, og gør det nemt for
-besøgende at booke et gratis hjemmebesøg.
+Sitet må ikke fremstå som leverandøren: skriv aldrig, at sitet selv måler op,
+monterer eller kommer hjem, og brug kun leverandørfakta fra
+`docs/seo/leverandoerkatalog.md` (se også `scripts/supplier.js`).
+
+## Byg og kontrollér
+
+```
+node scripts/build.js        # genererer by-, blog- og nyhedssider, sitemap m.m.
+node scripts/check-site.js   # links, metadata, schema, affiliate-links, ordvalg
+```
+
+SEO-dokumentation: `docs/seo/` (rapport, leverandørkatalog, keyword map,
+URL-oversigt). Mappen udrulles ikke (`.vercelignore`).
 
 ## Søgemaskiner (Google og Bing)
 

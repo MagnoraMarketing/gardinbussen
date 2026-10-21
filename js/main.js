@@ -72,6 +72,44 @@
 
   initBottomNav();
 
+  // Cookiebanner — samtykke til statistik (Google Analytics via GTM/gtag).
+  // Standard er "afvist" (Consent Mode i <head>); valget gemmes i
+  // localStorage. Links med data-cookie-settings åbner banneret igen.
+  function setConsent(value) {
+    try { localStorage.setItem("cookie-consent", value); } catch (e) { /* privat tilstand */ }
+    window.dataLayer = window.dataLayer || [];
+    var g = window.gtag || function () { window.dataLayer.push(arguments); };
+    g("consent", "update", { analytics_storage: value });
+  }
+  function showCookieBanner() {
+    if (document.querySelector(".cookie-banner")) return;
+    var box = document.createElement("div");
+    box.className = "cookie-banner";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-label", "Cookies");
+    box.innerHTML = '<p>Vi vil gerne bruge cookies til anonym statistik (Google Analytics), så vi kan se, hvilke guides der hjælper. ' +
+      'Du kan altid ændre dit valg. <a href="/privatlivspolitik.html">Læs mere</a></p>' +
+      '<div class="cookie-banner-actions">' +
+      '<button type="button" class="btn btn-ghost" data-consent="denied">Kun nødvendige</button>' +
+      '<button type="button" class="btn btn-primary" data-consent="granted">Accepter statistik</button></div>';
+    box.addEventListener("click", function (e) {
+      var v = e.target.getAttribute && e.target.getAttribute("data-consent");
+      if (!v) return;
+      setConsent(v);
+      box.parentNode.removeChild(box);
+    });
+    document.body.appendChild(box);
+  }
+  var storedConsent = null;
+  try { storedConsent = localStorage.getItem("cookie-consent"); } catch (e) { /* privat tilstand */ }
+  if (storedConsent !== "granted" && storedConsent !== "denied") showCookieBanner();
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest && e.target.closest("[data-cookie-settings]");
+    if (!t) return;
+    e.preventDefault();
+    showCookieBanner();
+  });
+
   // Bus widget — drives in from fully off-screen, all the way across, ~20s
   // after landing, once per browser session. A literal bus graphic with
   // the slogan on its side, topped with a "Book Gardinbussen" heading,

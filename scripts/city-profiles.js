@@ -4,7 +4,7 @@
 // HOME_TYPES: boligtyper med anbefalede gardinløsninger (vises som kort).
 // CITY_PROFILES[by]:
 //   intro: 1–2 sætninger om byens boliger og vinduer (hero + lokal sektion)
-//   areas: bydele, forstæder og nabobyer vi kører til
+//   areas: bydele, forstæder og nabobyer (vises som områder på bysiden)
 //   homes: tre nøgler fra HOME_TYPES, mest typiske først
 //   tip:   et lokalt råd til netop denne by
 // Ny by: tilføj den i CITIES/REGION i site-data.js og her, og kør build.js.
