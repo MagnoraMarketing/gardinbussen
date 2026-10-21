@@ -17,7 +17,7 @@
 const fs = require("fs");
 const path = require("path");
 const D = require("./site-data");
-const { HOME_TYPES, CITY_PROFILES } = require("./city-profiles");
+const { HOME_TYPES, CITY_PROFILES, CITY_DISTRICTS } = require("./city-profiles");
 
 const ROOT = path.join(__dirname, "..");
 const BYER_DIR = path.join(ROOT, "byer");
@@ -226,7 +226,9 @@ function cityPage(city) {
   const fits = descs.slice(0, 3).filter((d) => d.length <= 155);
   const desc = fits.length ? pick(city, fits) : descs[3];
   const someAreas = joinDa(p.areas.slice(0, 4));
+  const local = CITY_DISTRICTS[city];
   const faq = faqBlock([
+    ...(local ? [local.faq] : []),
     { q: `Kører gardinbussen til ${city}?`, a: `Gardinbus.nu oplyser, at deres gardinbusser dækker hele ${part} — også mindre byer og landområder. ${city} og områder som ${someAreas} ligger i det område. Leverandøren bekræfter din adresse, når du booker.` },
     { q: `Hvilke gardiner passer til ${homeLower} i ${city}?`, a: `${p.homes[0].text} Ved et besøg kan du få konsulentens vurdering af netop dine vinduer.` },
     pick(city + "f1", [
@@ -330,6 +332,20 @@ ${homeCards}
           <p class="city-tip-tag">Råd til dig i ${esc(city)}</p>
           <p>${esc(p.tip)}</p>
         </aside>
+${local ? `        <h3 class="city-heading">Gardiner i ${esc(/[sxz]$/.test(city) ? `${city}'` : `${city}s`)} bydele</h3>
+        <div class="home-grid district-grid">
+${local.districts.map((d) => `          <article class="home-card">
+            <p class="home-card-tag">${esc(d.name)}</p>
+            <p>${esc(d.homes)}</p>
+            <p><strong>Ofte et godt valg:</strong> ${esc(d.advice)}</p>
+            <p class="home-card-links"><a href="../blog/${d.link[0]}.html">${esc(d.link[1])}</a></p>
+          </article>`).join("\n")}
+        </div>
+        <aside class="city-tip" aria-label="${attr(local.note.h)}">
+          <p class="city-tip-tag">${esc(local.note.h)}</p>
+          <p>${esc(local.note.p)}</p>
+        </aside>
+` : ""}
       </div>
     </section>
 
