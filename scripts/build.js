@@ -627,6 +627,8 @@ ${footer("../")}`;
 const BLOG_CATEGORIES = [
   { name: "Gardintyper", sub: "Produktguides til hver type gardin — find den løsning der passer til dine vinduer.",
     img: "gardintyper.svg", alt: "Illustration af gardiner ved et vindue" },
+  { name: "Rum, vinduer & opmåling", sub: "Guides til bestemte rum og vinduer — og til det, du skal overveje før opmåling.",
+    img: "gardintyper.svg", alt: "Illustration af gardiner ved et vindue" },
   { name: "Solfilm & solafskærmning", sub: "Hold varmen og solen ude: guider til solfilm, privatlivsfilm og solafskærmning til dine vinduer.",
     img: "solafskaermning.svg", alt: "Illustration af solafskærmning og solfilm på et vindue" },
   { name: "Trends & smart home", sub: "De nyeste trends i hjemmet — fra motoriserede gardiner til smarte løsninger for lys og varme.",

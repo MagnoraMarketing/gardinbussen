@@ -36,13 +36,17 @@ produktguides tager produktnavnet, prisguides tager pris/kvalitet, bysider tager
 | /blog/*-efteraar*, /blog/gardinmode-trends-2026.html | Inspiration | (sæson) gardiner efterår, gardintrends 2026 | — | Information | book/gardiner | ikke verificeret | Opdatér årstal hvert år |
 | /byer/<by>.html (70) | Byside | gardiner <by> | gardinbus <by>, gratis opmåling <by> | Lokal kommerciel | regional side hos Gardinbus.nu + book | ikke verificeret | Mål pr. by i GSC; udbyg de 10 største byer først |
 
-## Huller i indholdet (forslag — ikke oprettet uden godkendelse)
+## Nye guides (oprettet oktober 2026)
 
-Nye URL'er kræver din godkendelse. Disse emner fra opgavebeskrivelsen har ingen
-dedikeret side i dag:
+| URL | Sidetype | Primært søgeord | Sekundære søgeord | Intention | Affiliate-destination | Placering | Anbefaling |
+|---|---|---|---|---|---|---|---|
+| /blog/opmaaling-af-gardiner.html | Guide | opmåling af gardiner | hvordan måler man gardiner, gardiner i rammen eller på væggen | Information | faq | ikke verificeret | Link fra bysidernes tjekliste kan overvejes |
+| /blog/plissegardiner-eller-rullegardiner.html | Sammenligning | plissé eller rullegardiner | forskel på plisségardiner og rullegardiner | Kommerciel undersøgelse | produkter | ikke verificeret | — |
+| /blog/gardiner-til-skraavinduer.html | Guide | gardiner til skråvinduer | gardiner til ovenlys, mørklægning ovenlys | Kommerciel undersøgelse | produkter | ikke verificeret | Overlapper let med plissé-guiden; plissé-guiden tager "plissé", denne tager vinduestypen |
+| /blog/gardiner-til-store-vinduer.html | Guide | gardiner til store vinduer | gardiner til skydedør, gardiner glasparti | Kommerciel undersøgelse | produkter | ikke verificeret | Lamelguiden tager "lamelgardiner", denne tager vinduestypen |
+| /blog/gardiner-til-stuen.html | Hub-guide | gardiner til stuen | gardiner stue ideer, gardiner stue moderne | Information | gardiner | ikke verificeret | "Efterårsklar stue" er sæsonvinklen; denne er den stedsegrønne hub |
 
-- Gardiner til skråvinduer / ovenlys
-- Gardiner til store vinduer (kan evt. dækkes af lamel-/panelguiderne)
-- Hvad skal man overveje før opmåling af gardiner? (delvist dækket af bysidernes tjekliste og gardinbus-siden)
-- Forskel på plisségardiner og rullegardiner (sammenligningsguide)
-- Gardiner til stuen (hub)
+Interne links: forsidens nye sektion "Guides til rum, vinduer og opmåling", kategorien
+"Rum, vinduer & opmåling" på blogoversigten, "Læs også" i guiderne til gardiner,
+rullegardiner, lamelgardiner og plissé, samt boligkortene på bysiderne (nybyggeri
+→ store vinduer, ældre lejligheder → gardiner til stuen).

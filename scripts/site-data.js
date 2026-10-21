@@ -119,7 +119,7 @@ const BLOG = [
       links: [
         { slug: "rullegardiner", label: "Rullegardiner" },
         { slug: "persienner", label: "Persienner" },
-        { slug: "plissegardiner", label: "Plisségardiner" },
+        { slug: "gardiner-til-stuen", label: "Gardiner til stuen" },
       ],
     },
     ctaNote: "Vil du se gardinstoffer i dit eget lys? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med stofprøver og opmåling.",
@@ -166,7 +166,7 @@ const BLOG = [
       links: [
         { slug: "persienner", label: "Persienner" },
         { slug: "plissegardiner", label: "Plisségardiner" },
-        { slug: "lamelgardiner", label: "Lamelgardiner" },
+        { slug: "plissegardiner-eller-rullegardiner", label: "Plissé eller rullegardiner?" },
       ],
     },
     ctaNote: "Vil du se rullegardiner i dit eget vindue? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.",
@@ -254,7 +254,7 @@ const BLOG = [
       links: [
         { slug: "lamelgardiner", label: "Lamelgardiner" },
         { slug: "gardinstaenger-og-skinner", label: "Gardinstænger & skinner" },
-        { slug: "foldegardiner", label: "Foldegardiner" },
+        { slug: "gardiner-til-skraavinduer", label: "Gardiner til skråvinduer" },
       ],
     },
     ctaNote: "Vil du se plisségardiner i dit eget vindue? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.",
@@ -301,7 +301,7 @@ const BLOG = [
       links: [
         { slug: "gardinstaenger-og-skinner", label: "Gardinstænger & skinner" },
         { slug: "foldegardiner", label: "Foldegardiner" },
-        { slug: "traepersienner", label: "Træpersienner" },
+        { slug: "gardiner-til-store-vinduer", label: "Gardiner til store vinduer" },
       ],
     },
     ctaNote: "Har du et stort vinduesparti eller en skydedør? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.",
@@ -1952,6 +1952,313 @@ const BLOG = [
     ctaNote: "Vil du se årets gardinmode i dit eget hjem? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver på stoffer og farver.",
     ctaLead: "Se årets gardintrends hjemme hos dig — book et gratis besøg.",
     bookingText: "Du booker via Gardinbus.nu's bookingformular, og leverandøren kontakter dig for at aftale en tid. Besøget med prøver, opmåling og et uforpligtende tilbud er gratis.",
+  },
+  {
+    slug: "opmaaling-af-gardiner",
+    category: "Rum, vinduer & opmåling",
+    metaTitle: "Opmåling af gardiner: Det skal du overveje først",
+    h1: "Opmåling af gardiner — det skal du overveje, før du måler op",
+    tag: "Opmåling af gardiner",
+    supplier: "faq",
+    eyebrow: "Guide · Opmåling",
+    desc: "Skal gardinet sidde i rammen, på væggen eller i loftet? Se hvad du skal afklare før opmåling af gardiner – og typiske fejl, du undgår.",
+    card: { title: "Før opmåling af gardiner", desc: "Placering, funktion og typiske fejl: det skal du have styr på, før dine vinduer bliver målt op til gardiner efter mål." },
+    intro: [
+      "Gardiner efter mål bliver kun så gode som opmålingen bag dem. Men før nogen finder målebåndet frem, er der en række valg, der afgør, hvilke mål der overhovedet skal tages: hvor gardinet skal sidde, hvad det skal kunne, og hvordan vinduet bruges i hverdagen.",
+      "I denne guide gennemgår vi de beslutninger, der er gode at have truffet før opmålingen — uanset om du selv måler, eller om en konsulent måler op ved et besøg.",
+    ],
+    sections: [
+      { h: "1. Hvad skal gardinet kunne?", p: [
+        "Start med formålet, fordi det styrer både gardintype og placering. Skal gardinet mørklægge, skærme for indblik, holde på varmen, dæmpe sol og blænding — eller primært pynte?",
+        { list: [
+          "Mørklægning: gardinet skal dække tæt og gerne lidt ud over vinduet",
+          "Indkigsværn: overvej plissé, der kan køres både oppefra og nedefra",
+          "Sol og blænding: let lysdæmpende stof, persienner eller solfilm",
+          "Hygge og akustik: løse gardiner eller foldegardiner i tættere stof",
+        ] },
+      ]},
+      { h: "2. I rammen, på væggen eller i loftet?", p: [
+        "Montering i vinduesrammen holder vindueskarmen fri og giver et stramt, moderne udtryk — men kræver nok dybde i rammen, og der kan slippe lys ind langs kanterne.",
+        "Montering på væggen over vinduet dækker mere og lukker bedre for lyset. Løse gardiner hængt i loftet eller højt på væggen får rummet til at virke højere.",
+        "Valget ændrer, hvilke mål der skal tages: i rammen måles den indvendige bredde og højde, på væggen måles det område, gardinet skal dække, inklusive overlap.",
+      ]},
+      { h: "3. Hvordan bruges vinduet?", p: [
+        "Åbnes vinduet ofte, skal gardinet ikke være i vejen for håndtaget eller ramme, når vinduet går op. Ved altan- og terrassedøre skal du kunne komme frit ud og ind.",
+        "Plissé og persienner, der sidder i selve rammen og følger med, når vinduet åbnes, er ofte en god løsning her. Løse gardiner kræver plads til at blive trukket helt til side.",
+      ]},
+      { h: "4. Typiske fejl ved opmåling", p: [
+        { list: [
+          "At måle ét sted: vinduer er sjældent helt lige — mål bredde og højde flere steder",
+          "At glemme håndtag, radiatorer og vindueskarme, der kan stå i vejen",
+          "At bestille løse gardiner i vinduets bredde: et fyldigt fald kræver typisk 1,5–2,5 gange bredden i stof",
+          "At blande mål for montering i rammen og på væggen",
+        ] },
+        "Har du gamle eller skæve vinduer, er det en fordel at få målt op af en, der gør det til daglig. Ved et gratis besøg fra Gardinbus.nu måler konsulenten vinduerne op, så gardinerne kan laves efter mål.",
+      ]},
+      { h: "Tjekliste før opmålingen", p: [
+        { list: [
+          "Hvilke rum og vinduer skal have nyt?",
+          "Hvad er det vigtigste for hvert vindue: mørke, indkigsværn, varme eller udseende?",
+          "Skal gardinet sidde i rammen, på væggen eller i loftet?",
+          "Er du lejer eller i andelsbolig? Tjek, om du må bore",
+          "Har du et prisniveau, du vil holde dig inden for?",
+        ] },
+      ]},
+    ],
+    pullQuote: "De vigtigste beslutninger om gardiner bliver truffet, før målebåndet kommer frem.",
+    faq: [
+      { q: "Skal jeg selv måle mine vinduer op til gardiner efter mål?", a: "Det kan du, men så har du selv ansvaret for, at målene passer. Ved et besøg fra Gardinbus.nu er opmålingen gratis og en del af besøget." },
+      { q: "Hvor meget bredere end vinduet skal et gardin være?", a: "Løse gardiner kræver typisk 1,5–2,5 gange vinduets bredde i stof for et fyldigt fald. Rullegardiner og plissé på væggen dækker gerne lidt ud over vinduet i hver side for at lukke bedre for lyset." },
+      { q: "Er det bedst at montere gardinet i rammen?", a: "Det afhænger af formålet. I rammen giver et stramt udtryk og en fri karm, mens montering på væggen dækker bedre og mørklægger mere effektivt." },
+      { q: "Hvad skal jeg have klar til et opmålingsbesøg?", a: "Gør dig klart, hvilke vinduer der skal have nyt, og hvad hvert gardin skal kunne. Sørg for, at der er fri adgang til vinduerne." },
+    ],
+    related: {
+      text: "Når du ved, hvad gardinet skal kunne, og hvor det skal sidde, er det lettere at vælge type. Læs videre om prisen og om de gardintyper, der passer til netop dine vinduer.",
+      links: [
+        { slug: "hvad-koster-gardiner", label: "Hvad koster gardiner?" },
+        { slug: "plissegardiner-eller-rullegardiner", label: "Plissé eller rullegardiner?" },
+        { slug: "gardinstaenger-og-skinner", label: "Gardinstænger & skinner" },
+      ],
+    },
+    ctaNote: "Vil du have dine vinduer målt op? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.",
+    ctaLead: "Få dine vinduer målt op ved et gratis besøg hos Gardinbus.nu.",
+  },
+  {
+    slug: "plissegardiner-eller-rullegardiner",
+    category: "Rum, vinduer & opmåling",
+    metaTitle: "Plisségardiner eller rullegardiner? Sådan vælger du",
+    h1: "Plisségardiner eller rullegardiner? Forskelle og valg",
+    tag: "Plissé eller rullegardiner",
+    supplier: "produkter",
+    eyebrow: "Sammenligning · Gardintyper",
+    desc: "Plisségardiner eller rullegardiner? Sammenlign lysstyring, mørklægning, udseende og vinduestyper, og find den løsning, der passer til dit rum.",
+    card: { title: "Plissé eller rullegardiner?", desc: "Lysstyring, mørklægning, udseende og vinduestyper: en ærlig sammenligning af de to mest populære gardintyper." },
+    intro: [
+      "Plisségardiner og rullegardiner er to af de mest valgte løsninger til moderne boliger. Begge er enkle, fylder lidt og fås i både lysdæmpende og mørklæggende stoffer — men de opfører sig forskelligt i hverdagen.",
+      "Her sammenligner vi de to typer punkt for punkt, så du kan vælge den, der passer bedst til hvert rum.",
+    ],
+    sections: [
+      { h: "Den korte forskel", p: [
+        "Et rullegardin er en glat stofbane, der rulles op på en rulle i toppen. Et plisségardin er et foldet stof, der samles i en pakke, og som ofte kan køres både oppefra og nedefra.",
+        "Rullegardinet giver den roligste, mest grafiske flade. Plisségardinet giver mere fleksibel lysstyring og passer til flere vinduestyper.",
+      ]},
+      { h: "Lys og indkigsværn", p: [
+        "Den største fordel ved plissé er muligheden for at dække den nederste del af vinduet og lade lyset komme ind foroven. Det er praktisk i stueetagen, i rækkehuse og i badeværelser, hvor indkig er et problem.",
+        "Et rullegardin dækker oppefra og ned. Vil du have både dagslys og privatliv, kan det kombineres med et lystransparent stof eller med løse gardiner.",
+      ]},
+      { h: "Mørklægning", p: [
+        "Begge fås med mørklæggende stof. Rullegardinet kan monteres på væggen, så det dækker lidt ud over vinduet og mindsker lysstriber i siderne.",
+        "Plisségardiner monteres ofte i rammen. Det giver et pænt udtryk, men der kan slippe lidt lys ind langs kanterne — spørg konsulenten, hvordan løsningen kan monteres, hvis fuld mørklægning er vigtig.",
+      ]},
+      { h: "Vinduestyper", p: [
+        "Plissé er det mest fleksible valg til skrå vinduer, ovenlys og specielle former, fordi det kan holdes på plads med sidewires. Rullegardiner er bedst til almindelige, rektangulære vinduer og brede partier.",
+        "Til vinduer, der åbnes ofte, er en løsning i rammen, der følger med vinduet, praktisk — det gælder især plissé.",
+      ]},
+      { h: "Fordele og ulemper side om side", p: [
+        { list: [
+          "Plissé + kan køres oppefra og nedefra; + passer til skrå og specielle vinduer; − folderne samler støv lidt lettere",
+          "Rullegardin + rolig, glat flade; + let at holde rent; + godt til brede vinduer; − dækker kun oppefra og ned",
+          "Begge: fås lysdæmpende og mørklæggende, laves efter mål og fylder lidt, når de er trukket op",
+        ] },
+        "Mange vælger begge dele: plissé i stuen og på badeværelset, rullegardiner i sove- og børneværelser.",
+      ]},
+    ],
+    pullQuote: "Plissé giver fleksibel lysstyring — rullegardinet giver den roligste flade.",
+    faq: [
+      { q: "Hvad er billigst: plisségardiner eller rullegardiner?", a: "Det afhænger af stof, størrelse og betjening. Enkle rullegardiner i standardstof hører ofte til de billigste løsninger, men prisen varierer — bed om et tilbud på begge typer til dine vinduer." },
+      { q: "Hvad er bedst til soveværelset?", a: "Begge kan mørklægge. Et mørklæggende rullegardin monteret på væggen lukker typisk bedst for lyset i siderne, mens plissé er godt, hvis du også vil kunne styre indkig." },
+      { q: "Kan plisségardiner sidde i vinduer, der åbnes?", a: "Ja, plissé monteret i rammen følger med, når vinduet åbnes, og er ikke i vejen for håndtaget." },
+      { q: "Kan jeg få begge typer hos Gardinbus.nu?", a: "Ja. Ifølge Gardinbus.nu omfatter sortimentet både plisségardiner og rullegardiner, og en konsulent kan vise prøver på begge ved et gratis besøg." },
+    ],
+    related: {
+      text: "Læs de fulde guider til de to gardintyper, og se, hvordan de passer til skrå vinduer og ovenlys.",
+      links: [
+        { slug: "plissegardiner", label: "Plisségardiner" },
+        { slug: "rullegardiner", label: "Rullegardiner" },
+        { slug: "gardiner-til-skraavinduer", label: "Gardiner til skråvinduer" },
+      ],
+    },
+    ctaNote: "I tvivl mellem plissé og rullegardiner? Ved et gratis besøg fra Gardinbus.nu kan du se prøver på begge i dit eget vindue.",
+    ctaLead: "Se plissé og rullegardiner side om side — book et gratis besøg hos Gardinbus.nu.",
+  },
+  {
+    slug: "gardiner-til-skraavinduer",
+    category: "Rum, vinduer & opmåling",
+    metaTitle: "Gardiner til skråvinduer og ovenlys: Guide",
+    h1: "Gardiner til skråvinduer og ovenlys",
+    tag: "Gardiner til skråvinduer",
+    supplier: "produkter",
+    eyebrow: "Guide · Specielle vinduer",
+    desc: "Skråvinduer og ovenlys kræver gardiner, der bliver siddende i vinklen. Se hvilke typer der virker, hvad du skal måle, og typiske fejl.",
+    card: { title: "Skråvinduer og ovenlys", desc: "Hvilke gardiner bliver siddende i vinklen? Guide til plissé, mørklægning og opmåling af skrå vinduer og ovenlys." },
+    intro: [
+      "Skråvinduer og ovenlys giver masser af dagslys under taget — men også varme om sommeren, lys om natten og et gardinproblem: almindelige gardiner hænger lodret og følger ikke vinduets vinkel.",
+      "Her gennemgår vi, hvilke gardintyper der fungerer i skrå vinduer, hvad du skal være opmærksom på, og hvordan du undgår de typiske fejl.",
+    ],
+    sections: [
+      { h: "Hvorfor almindelige gardiner ikke virker", p: [
+        "Et løst gardin eller et almindeligt rullegardin falder lige ned på grund af tyngdekraften. I et skråt vindue hænger det derfor ud fra ruden og dækker ikke. Løsningen er gardiner, der holdes fast i siderne, så de følger vinduets hældning.",
+      ]},
+      { h: "Gardintyper, der fungerer i skrå vinduer", p: [
+        { list: [
+          "Plissé med sidewires eller skinner: holdes på plads i alle vinkler og kan ofte stoppes, hvor du vil",
+          "Rullegardiner med sideskinner: glat flade, der føres i skinner langs siderne",
+          "Mørklægningsgardiner med skinner: til sove- og børneværelser under taget",
+          "Udvendig solafskærmning: dæmper varmen, før den når ruden",
+        ] },
+        "Mange ovenlysvinduer har deres egne, mærkespecifikke gardiner. Spørg konsulenten, hvilke løsninger der kan leveres til netop dit vindue.",
+      ]},
+      { h: "Varme, lys og søvn under taget", p: [
+        "Rum under taget bliver hurtigt varme, fordi solen står direkte på ruden. Et lyst, reflekterende stof eller udvendig afskærmning dæmper varmen bedst. Om natten giver et mørklæggende stof i skinner den mest effektive mørklægning.",
+        "Overvej også, om gardinet skal kunne betjenes uden stige — høje ovenlys kan fås med stang, elektrisk betjening eller lignende.",
+      ]},
+      { h: "Typiske fejl", p: [
+        { list: [
+          "At vælge et gardin uden sidestyring, der hænger ud fra ruden",
+          "At glemme, at ovenlysvinduer ofte kræver mål fra en bestemt type og størrelse af vindue",
+          "At vælge et mørkt stof, der optager varme, i et sydvendt tagvindue",
+          "At placere betjeningen, så den ikke kan nås",
+        ] },
+      ]},
+    ],
+    pullQuote: "Et gardin til et skråt vindue skal holdes fast i siderne — ellers falder det bare lodret ned.",
+    faq: [
+      { q: "Hvilke gardiner passer til skråvinduer?", a: "Plissé med sidewires og rullegardiner eller mørklægning i sideskinner er de mest brugte løsninger, fordi de følger vinduets vinkel." },
+      { q: "Kan man mørklægge et ovenlysvindue?", a: "Ja, med et mørklæggende gardin, der føres i skinner langs siderne. Det lukker langt bedre for lyset end et løst gardin." },
+      { q: "Hvordan holder jeg varmen ude fra et tagvindue?", a: "Et lyst eller reflekterende stof hjælper, men udvendig afskærmning stopper varmen, før den når ruden. Solfilm er en anden mulighed." },
+      { q: "Kan Gardinbus.nu levere gardiner til mit ovenlys?", a: "Plissé indgår i Gardinbus.nu's sortiment, men løsninger til ovenlys afhænger af vinduets type og størrelse. Spørg konsulenten ved besøget." },
+    ],
+    related: {
+      text: "Plissé er ofte det mest fleksible valg til skrå og specielle vinduer. Læs mere om plissé, mørklægning og solfilm.",
+      links: [
+        { slug: "plissegardiner", label: "Plisségardiner" },
+        { slug: "moerklaegningsgardiner-efteraar", label: "Mørklægningsgardiner" },
+        { slug: "solfilm-til-vinduer", label: "Solfilm til vinduer" },
+      ],
+    },
+    ctaNote: "Har du skråvinduer eller ovenlys? Ved et gratis besøg fra Gardinbus.nu kan du spørge konsulenten, hvilke løsninger der passer til dine vinduer.",
+    ctaLead: "Få rådgivning om skråvinduer og ovenlys ved et gratis besøg hos Gardinbus.nu.",
+  },
+  {
+    slug: "gardiner-til-store-vinduer",
+    category: "Rum, vinduer & opmåling",
+    metaTitle: "Gardiner til store vinduer og glaspartier: Guide",
+    h1: "Gardiner til store vinduer og glaspartier",
+    tag: "Gardiner til store vinduer",
+    supplier: "produkter",
+    eyebrow: "Guide · Store vinduer",
+    desc: "Store vinduer, glaspartier og skydedøre kræver andre løsninger end standardvinduer. Se hvilke gardintyper der virker, og hvad du skal overveje.",
+    card: { title: "Store vinduer og glaspartier", desc: "Lamelgardiner, løse gardiner, rullegardiner i flere fag eller persienner: sådan vælger du til store vinduespartier." },
+    intro: [
+      "Store vinduespartier, gulv-til-loft-vinduer og skydedøre giver lys og udsigt — men også udfordringer med blænding, varme, indkig om aftenen og ekko i rummet. Og et gardin, der er perfekt til et almindeligt vindue, kan være upraktisk på fire meter glas.",
+      "Her gennemgår vi de gardintyper, der fungerer bedst på store flader, og hvad du skal tænke over, før du vælger.",
+    ],
+    sections: [
+      { h: "Gardintyper til store vinduer", p: [
+        { list: [
+          "Lamelgardiner: lodrette lameller, der kan vendes og trækkes til siden — gode til skydedøre",
+          "Løse gardiner på skinne: bløde, gulvlange og gode for akustikken i store rum",
+          "Rullegardiner eller plissé i flere fag: hvert fag betjenes for sig, så du kan dække præcis, hvor solen står på",
+          "Persienner: præcis lysstyring, bedst til fag af moderat bredde",
+        ] },
+        "Panelgardiner er også et oplagt valg til store partier; spørg konsulenten, om de kan leveres.",
+      ]},
+      { h: "Ét stort gardin eller flere fag?", p: [
+        "Ét bredt gardin giver et roligt udtryk, men bliver tungt og kan være upraktisk at betjene. Flere smallere fag gør det muligt at skærme for solen ét sted og bevare udsigten et andet — og hvert gardin bliver lettere.",
+        "Ved skydedøre er det vigtigt, at gardinet kan trækkes helt fri af døråbningen.",
+      ]},
+      { h: "Sol, varme og blænding", p: [
+        "Store sydvendte vinduer kan give meget varme om sommeren. Lysdæmpende stof, persienner eller solfilm tager toppen af solen, uden at rummet bliver mørkt. Løse gardiner i tættere stof hjælper om aftenen og vinteren, hvor de også kan holde lidt bedre på varmen.",
+      ]},
+      { h: "Typiske fejl", p: [
+        { list: [
+          "At undervurdere stofforbruget: løse gardiner kræver typisk 1,5–2,5 gange bredden i stof",
+          "At vælge én stor bane, der er svær at betjene",
+          "At glemme, at gardinet skal kunne trækkes helt fri af en skydedør",
+          "At vælge en skinne eller stang, der ikke er dimensioneret til vægten",
+        ] },
+        "På store partier betyder en præcis opmåling meget for både udseende og funktion.",
+      ]},
+    ],
+    pullQuote: "På store glaspartier er flere smallere fag ofte smartere end ét stort gardin.",
+    faq: [
+      { q: "Hvilke gardiner er bedst til store vinduer?", a: "Lamelgardiner og løse gardiner på skinne er klassiske valg. Rullegardiner eller plissé i flere fag giver mere fleksibel lysstyring." },
+      { q: "Hvilke gardiner passer til en skydedør?", a: "Lamelgardiner og løse gardiner på skinne kan trækkes helt til siden, så døren kan bruges frit." },
+      { q: "Bliver store gardiner dyre?", a: "Prisen stiger med størrelse og stofforbrug. Flere enkle fag kan være billigere end én stor specialløsning — bed om tilbud på begge dele." },
+      { q: "Kan jeg få et tilbud på store vinduer?", a: "Ja. Ved et gratis besøg fra Gardinbus.nu måler konsulenten partierne op og giver et uforpligtende tilbud." },
+    ],
+    related: {
+      text: "Læs mere om de gardintyper, der fungerer bedst på store flader og skydedøre.",
+      links: [
+        { slug: "lamelgardiner", label: "Lamelgardiner" },
+        { slug: "panelgardiner", label: "Panelgardiner" },
+        { slug: "gardinstaenger-og-skinner", label: "Gardinstænger & skinner" },
+      ],
+    },
+    ctaNote: "Har du store vinduer eller en skydedør? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.",
+    ctaLead: "Få dine store vinduer målt op ved et gratis besøg hos Gardinbus.nu.",
+  },
+  {
+    slug: "gardiner-til-stuen",
+    category: "Rum, vinduer & opmåling",
+    metaTitle: "Gardiner til stuen: Sådan vælger du type og stof",
+    h1: "Gardiner til stuen — type, stof og ophæng",
+    tag: "Gardiner til stuen",
+    supplier: "gardiner",
+    eyebrow: "Guide · Stuen",
+    desc: "Find de rigtige gardiner til stuen: lys, indkig, hygge og akustik. Se hvilke typer og stoffer der passer, og hvordan du kombinerer dem.",
+    card: { title: "Gardiner til stuen", desc: "Lys, indkig, hygge og akustik: sådan vælger du gardintype, stof og ophæng til stuen — og kombinerer dem." },
+    intro: [
+      "Stuen er det rum, hvor gardinerne skal kunne mest: lukke dagslys ind, skærme for indkig om aftenen, dæmpe sol på tv'et og gøre rummet hyggeligt og mindre rungende. Derfor ender mange med en kombination af to typer.",
+      "Her får du overblik over de gardintyper og stoffer, der passer til stuen, og hvordan du sætter dem sammen.",
+    ],
+    sections: [
+      { h: "Hvad skal gardinerne i stuen kunne?", p: [
+        { list: [
+          "Dagslys: lette, lystransparente stoffer eller plissé, der kan køres oppefra og ned",
+          "Indkig om aftenen: tættere stof, der kan trækkes for",
+          "Sol og blænding på skærmen: persienner, lysdæmpende rullegardiner eller solfilm",
+          "Akustik og hygge: løse gardiner i fyldige stoffer dæmper ekko",
+        ] },
+      ]},
+      { h: "Gardintyper til stuen", p: [
+        "Løse gardiner eller foldegardiner er klassikeren i stuen — de blødgør rummet og kan hænges højt og bredt for at få vinduerne til at virke større.",
+        "Plisségardiner og persienner er gode, hvis indkig og lysstyring er det vigtigste, og de kan kombineres med løse gardiner i siderne.",
+      ]},
+      { h: "Kombinér to lag", p: [
+        "En udbredt løsning er et funktionelt lag tæt på ruden (plissé, rullegardin eller persienne) kombineret med løse gardiner foran. Det funktionelle lag styrer lyset i dagtimerne, mens de løse gardiner giver hygge og privatliv om aftenen.",
+        "Læg mærke til, at to lag kræver plads til ophæng — enten et dobbelt spor eller to separate ophæng.",
+      ]},
+      { h: "Stof og farve", p: [
+        "Farver ser forskellige ud i butikken og i din egen stue. Hold prøver op ved vinduet på forskellige tidspunkter af dagen, og se dem op mod gulv, vægge og møbler.",
+        "Lyse, naturlige stoffer giver et let udtryk; tungere stoffer giver mere hygge og dæmper lyden bedre.",
+      ]},
+      { h: "Typiske fejl", p: [
+        { list: [
+          "At hænge gardinerne lige over vinduet i stedet for højt — det får loftet til at virke lavere",
+          "At spare på stoffet, så gardinerne ser flade ud",
+          "At vælge farve ud fra et billede på skærmen",
+          "At glemme, hvordan tv-skærm og sofa står i forhold til solen",
+        ] },
+      ]},
+    ],
+    pullQuote: "Stuen kræver ofte to lag: ét til lyset om dagen og ét til hyggen om aftenen.",
+    faq: [
+      { q: "Hvilke gardiner er bedst til stuen?", a: "Det afhænger af lys og indkig. Mange vælger løse gardiner for hygge og akustik kombineret med plissé, rullegardiner eller persienner til lysstyring." },
+      { q: "Skal gardinerne i stuen gå til gulvet?", a: "Gulvlange gardiner giver et roligt, eksklusivt udtryk og får rummet til at virke højere. Korte gardiner kan være praktiske over radiatorer eller vindueskarme, der bruges." },
+      { q: "Hvordan undgår jeg genskin på tv'et?", a: "Persienner, lysdæmpende rullegardiner eller plissé gør det muligt at dæmpe solen uden at mørklægge hele stuen." },
+      { q: "Kan jeg se stofprøver i min egen stue?", a: "Ja. Ved et gratis besøg fra Gardinbus.nu medbringer konsulenten prøver, så du kan se stofferne i dit eget lys." },
+    ],
+    related: {
+      text: "Læs videre om de gardintyper, der passer bedst i stuen, og om at lægge lag på lag.",
+      links: [
+        { slug: "foldegardiner", label: "Foldegardiner" },
+        { slug: "lagdelte-gardiner-efteraar", label: "Lagdelte gardiner" },
+        { slug: "efteraarsklar-stue-gardiner", label: "Efterårsklar stue" },
+      ],
+    },
+    ctaNote: "Vil du se gardiner til stuen i dit eget lys? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.",
+    ctaLead: "Se stofferne i din egen stue — book et gratis besøg hos Gardinbus.nu.",
   },
 ];
 
