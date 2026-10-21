@@ -10,7 +10,8 @@
 //   apple-touch-icon/manifest på alle sider (Bing og Google viser favicon i
 //   søgeresultaterne og foretrækker et rasterikon på mindst 48x48)
 // - Google Tag Manager (GTM_ID i site-data.js) øverst i <head> og lige
-//   efter <body> på alle sider, inkl. 404.html
+//   efter <body> på alle sider, inkl. 404.html, med Google Consent Mode v2
+//   (statistik afvist som standard, indtil cookiebanneret giver samtykke)
 // - Cache-busting: styles.css og main.js får ?v=<indholds-hash>, så de kan
 //   caches i et år (vercel.json) og alligevel opdateres straks ved ændringer
 // - Kvadratisk logo (assets/logo.png) i JSON-LD i stedet for OG-billedet
@@ -143,10 +144,11 @@ for (const rel of allPages.concat("404.html")) {
 
 // ---------- Google Tag Manager ----------
 // Fjernes og indsættes igen ved hver kørsel, så et nyt GTM_ID slår igennem.
+const CONSENT_HEAD = /\n[ \t]*<!-- Consent Mode -->[\s\S]*?<!-- End Consent Mode -->/;
 const GTM_HEAD = /\n[ \t]*<!-- Google Tag Manager -->[\s\S]*?<!-- End Google Tag Manager -->/;
 const GTM_BODY = /\n[ \t]*<!-- Google Tag Manager \(noscript\) -->[\s\S]*?<!-- End Google Tag Manager \(noscript\) -->/;
 for (const rel of allPages.concat("404.html")) {
-  let html = read(rel).replace(GTM_HEAD, "").replace(GTM_BODY, "");
+  let html = read(rel).replace(CONSENT_HEAD, "").replace(GTM_HEAD, "").replace(GTM_BODY, "");
   if (GTM_ID) {
     const id = attr(GTM_ID);
     html = html.replace(/(<head>)/, `$1
@@ -163,6 +165,14 @@ for (const rel of allPages.concat("404.html")) {
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->`);
   }
+  // Google Consent Mode v2: statistik-cookies er afvist, indtil den besøgende
+  // siger ja i cookiebanneret (js/main.js). Skal ligge før GTM og gtag.js.
+  html = html.replace(/(<head>)/, `$1
+  <!-- Consent Mode -->
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+  var cc=null;try{cc=localStorage.getItem("cookie-consent");}catch(e){}
+  gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:cc==="granted"?"granted":"denied",wait_for_update:500});</script>
+  <!-- End Consent Mode -->`);
   write(rel, html);
 }
 

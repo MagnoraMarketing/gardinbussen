@@ -124,6 +124,7 @@ function footerHtml(relPrefix) {
           <li><a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a></li>
           <li><a href="${relPrefix}om-os.html#affiliate">Affiliate-oplysning</a></li>
           <li><a href="${relPrefix}privatlivspolitik.html">Privatlivs- og cookiepolitik</a></li>
+          <li><a href="#" data-cookie-settings>Cookieindstillinger</a></li>
           <li><a href="${BOOK}" target="_blank" rel="sponsored noopener">Book besøg hos Gardinbus.nu</a></li>
         </ul>
       </div>

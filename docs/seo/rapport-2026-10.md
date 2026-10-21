@@ -222,8 +222,10 @@ dækningen af Lolland-Falster er ikke eksplicit bekræftet.
 3. **Partner-ads:** bekræft at `/gardinbus-book/` er den korrekte landingsside
    (søgeindekset kender kun `/book-gardinbus/`), at deeplinks er tilladt og
    registreres, og om `uid` kan bruges til at måle hvilke sider der konverterer.
-4. **Cookie-samtykke:** GA4/GTM sætter cookies uden et samtykkebanner. Det bør
-   løses med en CMP (fx Cookiebot/CookieInformation) — kræver din beslutning.
+4. **Cookie-samtykke:** Løst med et eget cookiebanner og Google Consent Mode v2
+   (statistik afvist som standard, valget gemmes, "Cookieindstillinger" i
+   footeren). Konfigurér GTM-tags til at respektere consent, og få evt. en
+   jurist til at se teksten igennem.
 5. **Founder-videoen** fra gardinbus.nu: bekræft at I må vise den.
 6. **Gennemgå leverandørkataloget** direkte på gardinbus.nu (især dækning af
    Lolland-Falster og produktudvalget).
@@ -235,7 +237,7 @@ dækningen af Lolland-Falster er ikke eksplicit bekræftet.
 |---|---|---|---|
 | 1 | Verificér GSC + Bing, indsend sitemap, hent baseline-data | Høj (forudsætning for alt andet) | Lav |
 | 2 | Klik-test bookinglinket og deeplinks i Partner-ads | Høj (konvertering/provision) | Lav |
-| 3 | Cookie-samtykke (CMP) og GA4 consent mode | Høj (jura/tillid) | Lav–mellem |
+| 3 | Tjek i GTM, at alle tags respekterer Consent Mode (banner er implementeret) | Høj (jura/tillid) | Lav |
 | 4 | Udbyg de 10 største bysider med mere lokalt indhold (fx typiske vinduestyper pr. bydel) | Mellem–høj | Mellem |
 | 5 | Nye guides (kræver godkendelse af nye URL'er): skråvinduer/ovenlys, store vinduer, plissé vs. rullegardiner, før opmåling | Mellem–høj | Mellem |
 | 6 | Egne fotos/illustrationer pr. produktguide (i dag én illustration pr. kategori) | Mellem | Mellem |
