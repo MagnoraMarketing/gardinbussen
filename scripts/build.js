@@ -75,7 +75,7 @@ function navList(relPrefix) {
           <li><a href="${relPrefix}blog/index.html">Guides</a></li>
           <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
           <li><a href="/#omraade">Byer</a></li>
-          <li><a href="${relPrefix}om-os.html">Om sitet</a></li>
+          <li><a href="${relPrefix}om-os.html">Om Gardinbussen</a></li>
           <li><a class="nav-cta" href="${BOOK}" target="_blank" rel="sponsored noopener" title="Åbner Gardinbus.nu (affiliate-link)">Book gratis besøg</a></li>
         </ul>`;
 }
@@ -115,7 +115,7 @@ function footerHtml(relPrefix) {
           <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
           <li><a href="/#omraade">Byer</a></li>
           <li><a href="${relPrefix}hvorfor-gardinbussen.html">Sådan foregår et gardinbus-besøg</a></li>
-          <li><a href="${relPrefix}om-os.html">Om sitet</a></li>
+          <li><a href="${relPrefix}om-os.html">Om Gardinbussen</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -750,7 +750,7 @@ function llmsTxt() {
   lines.push("- Ifølge Gardinbus.nu er besøg, rådgivning, opmåling og tilbud gratis og uforpligtende");
   lines.push("- Sitet kan modtage provision, når besøgende booker via affiliate-links (Partner-ads)");
   lines.push(`- Forside: ${SITE}/`);
-  lines.push(`- Om sitet og affiliate-oplysning: ${SITE}/om-os.html`);
+  lines.push(`- Om Gardinbussen, sitet og affiliate-oplysning: ${SITE}/om-os.html`);
   lines.push(`- Sådan foregår et gardinbus-besøg: ${SITE}/hvorfor-gardinbussen.html`);
   lines.push("- Kontakt: mail@bookgardinbussen.online");
   lines.push("");

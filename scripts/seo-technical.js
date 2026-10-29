@@ -66,8 +66,8 @@ const PAGE_META = {
     desc: "Find den rigtige gardintype til dine vinduer med uafhængige guides – og book et gratis, uforpligtende besøg med prøver og opmåling hos Gardinbus.nu.",
   },
   "om-os.html": {
-    title: "Om bookgardinbussen.online – og affiliate-oplysning",
-    desc: "Hvem står bag bookgardinbussen.online, hvordan sitet tjener penge via affiliate-links til Gardinbus.nu, og hvem der leverer besøg, tilbud og montering.",
+    title: "Om Gardinbussen – book gratis besøg og billige gardiner",
+    desc: "Hvad er Gardinbussen, og hvordan booker du et gratis besøg med prøver og opmåling? Få tips til billige gardiner efter mål og se, hvem der står bag sitet.",
   },
   "hvorfor-gardinbussen.html": {
     title: "Gardinbus-besøg: sådan foregår det, og hvad koster det?",

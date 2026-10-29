@@ -15,6 +15,7 @@ produktguides tager produktnavnet, prisguides tager pris/kvalitet, bysider tager
 | URL | Sidetype | Primært søgeord | Sekundære søgeord | Intention | Affiliate-destination | Placering | Anbefaling |
 |---|---|---|---|---|---|---|---|
 | / | Forside | gardiner efter mål | gardinbus, gratis opmåling gardiner, gardiner med hjemmebesøg, book gardinbussen | Kommerciel/navigation | book, produkter, daekning | ikke verificeret | Følg CTR i GSC; test title-varianter |
+| /om-os.html | Om-side | om gardinbussen | book gardinbussen, hvad er gardinbussen, billige gardiner (linker videre til prisguiden) | Navigation/information | book, faq | ikke verificeret | "billige gardiner" ejes af prisguiden — om-siden linker dertil i stedet for at konkurrere |
 | /hvorfor-gardinbussen.html | Guide (proces) | gardinbus besøg | gratis opmåling af gardiner, bedste tilbud på gardiner, gardiner med montering | Kommerciel undersøgelse | book, handelsbetingelser, erhverv | ikke verificeret | Kan udbygges med "før besøget"-tjekliste som download |
 | /blog/hvad-koster-gardiner.html | Guide (pris) | pris på gardiner | hvad koster gardiner, gardiner efter mål pris | Information/kommerciel | faq | ikke verificeret | Prioritér — høj kommerciel værdi |
 | /blog/billige-gardiner-eller-god-kvalitet.html | Guide (pris) | billige gardiner | gardiner god kvalitet | Kommerciel undersøgelse | faq | ikke verificeret | Undgå overlap med "tegn på god kvalitet" (den tager "kvalitet") |
