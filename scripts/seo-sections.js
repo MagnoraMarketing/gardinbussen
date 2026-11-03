@@ -9,7 +9,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
-const { SITE, CITIES, REGION, slugify, esc, bookBtn } = require("./site-data");
+const { SITE, CITIES, REGION, BLOG, LANDING, ROOT_PAGES, slugify, esc, bookBtn } = require("./site-data");
 
 const ROOT = path.join(__dirname, "..");
 const START = "<!-- SEO-BOOK:START -->";
@@ -184,7 +184,7 @@ ${near.map((o) => `          <a href="${o.slug}.html">Gardiner i ${esc(o.name)}<
     relatedHtml: guideCards(pick(c.slug + "g", [
       ["gardiner", "plissegardiner", "hvad-koster-gardiner"],
       ["rullegardiner", "persienner", "billige-gardiner-eller-god-kvalitet"],
-      ["lamelgardiner", "moerklaegningsgardiner-efteraar", "tegn-paa-god-kvalitet-gardiner"],
+      ["lamelgardiner", "moerklaegningsgardiner", "tegn-paa-god-kvalitet-gardiner"],
     ]), "../blog/"),
     extraHtml: nearHtml,
     alt: wantsAlt(html),
@@ -196,8 +196,10 @@ ${near.map((o) => `          <a href="${o.slug}.html">Gardiner i ${esc(o.name)}<
 for (const f of listHtml("blog")) {
   if (f === "index.html") continue;
   const slug = f.replace(/\.html$/, "");
-  const t = BLOG_TOPICS[slug];
-  if (!t) throw new Error(`Mangler emne i BLOG_TOPICS for blog/${f}`);
+  // Nye indlæg kan angive emnet direkte i site-data (post.topic).
+  const post = BLOG.find((b) => b.slug === slug);
+  const t = BLOG_TOPICS[slug] || (post && post.topic);
+  if (!t) throw new Error(`Mangler emne for blog/${f} (BLOG_TOPICS eller topic i site-data)`);
   let html = read(`blog/${f}`);
   const bigCities = ["koebenhavn", "aarhus", "odense", "aalborg", "esbjerg", "vejle", "roskilde", "kolding"];
   const cityLinks = bigCities
@@ -248,13 +250,13 @@ function gitDate(file, first) {
 }
 const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 
-// ---------- Article-schema: datoer + PNG-billede ----------
-for (const f of listHtml("blog")) {
-  if (f === "index.html") continue;
-  const rel = `blog/${f}`;
+// ---------- Article/WebPage-schema: datoer + PNG-billede ----------
+const datedPages = listHtml("blog").filter((f) => f !== "index.html").map((f) => `blog/${f}`)
+  .concat(LANDING.map((p) => `${p.slug}.html`));
+for (const rel of datedPages) {
   let html = read(rel);
   const published = gitDate(rel, true) || today;
-  html = html.replace(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema.org","@type":"Article"[\s\S]*?)<\/script>/, (m, json) => {
+  html = html.replace(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema.org","@type":"(?:Article|WebPage)"[\s\S]*?)<\/script>/, (m, json) => {
     const o = JSON.parse(json);
     o.image = `${SITE}/assets/og-image.png`;
     o.datePublished = o.datePublished || published;
@@ -266,7 +268,7 @@ for (const f of listHtml("blog")) {
 }
 
 // ---------- delingsbillede: SVG -> PNG på alle sider ----------
-const allPages = ["index.html", "om-os.html", "hvorfor-gardinbussen.html", "nyheder.html", "tak.html", "privatlivspolitik.html"]
+const allPages = ROOT_PAGES
   .concat(listHtml("blog").map((f) => `blog/${f}`))
   .concat(listHtml("byer").map((f) => `byer/${f}`));
 for (const f of allPages) {

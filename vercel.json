@@ -16,9 +16,146 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/gardinbus-gratis",
+      "destination": "/gardinbus.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus",
+      "destination": "/gardinbus.html",
+      "permanent": true
+    },
+    {
+      "source": "/gratis-gardinmaaling",
+      "destination": "/gratis-gardinmaaling.html",
+      "permanent": true
+    },
+    {
+      "source": "/gratis-opmaaling",
+      "destination": "/gratis-gardinmaaling.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardiner-efter-maal",
+      "destination": "/gardiner-efter-maal.html",
+      "permanent": true
+    },
+    {
+      "source": "/plissegardiner",
+      "destination": "/blog/plissegardiner.html",
+      "permanent": true
+    },
+    {
+      "source": "/rullegardiner",
+      "destination": "/blog/rullegardiner.html",
+      "permanent": true
+    },
+    {
+      "source": "/lamelgardiner",
+      "destination": "/blog/lamelgardiner.html",
+      "permanent": true
+    },
+    {
+      "source": "/persienner",
+      "destination": "/blog/persienner.html",
+      "permanent": true
+    },
+    {
+      "source": "/moerklaegningsgardiner",
+      "destination": "/blog/moerklaegningsgardiner.html",
+      "permanent": true
+    },
+    {
+      "source": "/foldegardiner",
+      "destination": "/blog/foldegardiner.html",
+      "permanent": true
+    },
+    {
+      "source": "/duo-rullegardiner",
+      "destination": "/blog/duo-rullegardiner.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides",
+      "destination": "/blog/index.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-koebenhavn",
+      "destination": "/byer/koebenhavn.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-aarhus",
+      "destination": "/byer/aarhus.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-odense",
+      "destination": "/byer/odense.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-aalborg",
+      "destination": "/byer/aalborg.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-esbjerg",
+      "destination": "/byer/esbjerg.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-roskilde",
+      "destination": "/byer/roskilde.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-kolding",
+      "destination": "/byer/kolding.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-vejle",
+      "destination": "/byer/vejle.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-randers",
+      "destination": "/byer/randers.html",
+      "permanent": true
+    },
+    {
+      "source": "/gardinbus-silkeborg",
+      "destination": "/byer/silkeborg.html",
+      "permanent": true
     }
   ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    },
     {
       "source": "/sitemap.xml",
       "headers": [
@@ -52,6 +189,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(llms.txt|robots.txt)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
         }
       ]
     }

@@ -56,7 +56,8 @@ solafskærmning — med fordele, ulemper og råd før du bestiller gardiner efte
 - **[Panelgardiner](https://www.bookgardinbussen.online/blog/panelgardiner.html)** — Panelgardiner glider til side på en skinne og passer til brede vinduer og skydedøre. Læs om stof, antal paneler, skinne og typiske fejl før du vælger.
 - **[Screengardiner](https://www.bookgardinbussen.online/blog/screengardiner.html)** — Screengardiner filtrerer sollys og dæmper blænding, uden at du mister udsigten. Læs om åbenhedsgrad, stoffarve og placering, før du vælger løsning.
 - **[Luxaflex](https://www.bookgardinbussen.online/blog/luxaflex.html)** — Luxaflex er et kendt gardinmærke i den høje ende med bl.a. plissé, persienner og PowerView-motorstyring. Læs om produkter, fordele og pris.
-- **[Mørklægningsgardiner](https://www.bookgardinbussen.online/blog/moerklaegningsgardiner-efteraar.html)** — Mørklægningsgardiner lukker gadelys ude og dæmper træk om efteråret. Læs om fuld mørklægning vs. dimout, stofvalg og korrekt montering.
+- **[Mørklægningsgardiner](https://www.bookgardinbussen.online/blog/moerklaegningsgardiner.html)** — Mørklægningsgardiner forklaret: fuld mørklægning vs. dimout, de bedste typer, montering uden lysindfald og typiske fejl. Guide før du vælger.
+- **[Duo rullegardiner](https://www.bookgardinbussen.online/blog/duo-rullegardiner.html)** — Duo rullegardiner har to lag stof med striber, der kan forskydes. Læs hvordan de virker, hvor de passer, fordele og ulemper, og hvordan du holder dem rene.
 - **[Termogardiner](https://www.bookgardinbussen.online/blog/termogardiner-spar-paa-varmen.html)** — Termogardiner har et isolerende foer, der mindsker træk og varmetab ved vinduet. Læs hvordan de virker, og hvor de gør størst gavn i boligen.
 - **[Motoriserede gardiner](https://www.bookgardinbussen.online/blog/motoriserede-gardiner-smart-home.html)** — Motoriserede gardiner styres med app, tidsplan eller stemme. Læs hvordan de virker, hvad de kræver, og hvornår de giver mening i dit hjem.
 - **[Insektnet](https://www.bookgardinbussen.online/blog/insektnet-til-vinduer-og-doere.html)** — Insektnet til vinduer og døre holder myg, fluer og hvepse ude. Læs om rullenet, plissénet og skydedørsløsninger — og hvordan du vælger rigtigt.
@@ -71,8 +72,16 @@ Se alle guides på [bookgardinbussen.online/blog](https://www.bookgardinbussen.o
 
 ```
 node scripts/build.js        # genererer by-, blog- og nyhedssider, sitemap m.m.
-node scripts/check-site.js   # links, metadata, schema, affiliate-links, ordvalg
+node scripts/check-site.js   # links, metadata, schema, affiliate-links, ordvalg, dato, tyndt indhold
+node scripts/url-overview.js # opdaterer docs/seo/url-oversigt.md
 ```
+
+Indhold: søjlesider (`/gardinbus.html`, `/gratis-gardinmaaling.html`,
+`/gardiner-efter-maal.html`) i `scripts/landing-data.js`, guides i
+`scripts/site-data.js` og `scripts/guides-2026-11.js`, udvidelser af
+produktguides i `scripts/guide-upgrades.js`. Sæt `draft: true` på en side,
+der ikke er færdig — så bygges den med noindex og holdes ude af sitemap,
+oversigter og llms.txt.
 
 SEO-dokumentation: `docs/seo/` (rapport, leverandørkatalog, keyword map,
 URL-oversigt). Mappen udrulles ikke (`.vercelignore`).

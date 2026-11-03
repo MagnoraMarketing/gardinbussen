@@ -11,7 +11,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { SITE, AFFILIATE_BOOK_URL } = require("./site-data");
+const { SITE, AFFILIATE_BOOK_URL, ROOT_PAGES, LANDING, DRAFT_FILES } = require("./site-data");
 
 const ROOT = path.join(__dirname, "..");
 const read = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
@@ -19,7 +19,7 @@ const listHtml = (dir) => fs.readdirSync(path.join(ROOT, dir)).filter((f) => f.e
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 
 const NOINDEX = ["tak.html", "privatlivspolitik.html", "404.html"];
-const pages = ["index.html", "om-os.html", "hvorfor-gardinbussen.html", "nyheder.html", ...NOINDEX]
+const pages = [...new Set(ROOT_PAGES.concat(NOINDEX))]
   .concat(listHtml("blog").map((f) => `blog/${f}`))
   .concat(listHtml("byer").map((f) => `byer/${f}`));
 
@@ -40,6 +40,14 @@ const partnerParams = new URL(AFFILIATE_BOOK_URL).searchParams;
 const errors = [];
 const warn = [];
 const err = (f, m) => errors.push(`${f}: ${m}`);
+
+// Sider med brødtekst (guides og søjlesider): kræver synlig dato og et
+// minimum af indhold, så tynde sider ikke indekseres.
+const ARTICLE_FILES = new Set(pages.filter((f) => /^blog\/(?!index\.html)/.test(f))
+  .concat(LANDING.map((p) => `${p.slug}.html`)));
+const MIN_WORDS = 450;
+const seenTitles = new Map();
+const seenDescs = new Map();
 
 const idsCache = {};
 function ids(file) {
@@ -68,7 +76,17 @@ for (const f of pages) {
     if (canon !== url) err(f, `canonical er ${canon}, forventet ${url}`);
   }
   const noindex = /<meta name="robots" content="[^"]*noindex/.test(html);
-  if (noindex && !NOINDEX.includes(f)) err(f, "har noindex");
+  const draft = DRAFT_FILES.includes(f);
+  if (noindex && !NOINDEX.includes(f) && !draft) err(f, "har noindex");
+  if (draft && !noindex) err(f, "kladde uden noindex");
+
+  // Unikke titler og beskrivelser på indekserbare sider
+  if (!noindex && !NOINDEX.includes(f)) {
+    if (seenTitles.has(title)) err(f, `samme title som ${seenTitles.get(title)}`);
+    seenTitles.set(title, f);
+    if (seenDescs.has(desc)) err(f, `samme meta-beskrivelse som ${seenDescs.get(desc)}`);
+    seenDescs.set(desc, f);
+  }
 
   // JSON-LD
   const visible = decode(html.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ");
@@ -111,6 +129,17 @@ for (const f of pages) {
     if (hit) err(f, `forbudt formulering: "${hit[0]}"`);
   }
   if (f !== "404.html" && !NOINDEX.includes(f) && !/footer-disclosure/.test(html)) err(f, "mangler affiliate-oplysning i footer");
+
+  // Guides og søjlesider: synlig opdateringsdato = dateModified, og nok indhold
+  if (ARTICLE_FILES.has(f)) {
+    const shown = (html.match(/<time datetime="([^"]*)" data-modified>/) || [])[1];
+    const mod = (html.match(/"dateModified":"([^"]*)"/) || [])[1];
+    if (!shown) err(f, "mangler synlig opdateringsdato");
+    else if (shown !== mod) err(f, `synlig dato ${shown} matcher ikke dateModified ${mod}`);
+    const main = html.slice(html.indexOf("<main"), html.indexOf("<!-- SEO-BOOK:START -->") > 0 ? html.indexOf("<!-- SEO-BOOK:START -->") : html.indexOf('id="booking"'));
+    const words = decode(main.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ")).split(/\s+/).filter(Boolean).length;
+    if (!draft && words < MIN_WORDS) warn.push(`${f}: kun ${words} ord brødtekst (tyndt indhold?)`);
+  }
 }
 
 // Sitemap
@@ -119,9 +148,9 @@ const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 for (const loc of locs) {
   const file = loc === `${SITE}/` ? "index.html" : loc.replace(`${SITE}/`, "");
   if (!fs.existsSync(path.join(ROOT, file))) err("sitemap.xml", `findes ikke: ${loc}`);
-  if (NOINDEX.includes(file)) err("sitemap.xml", `noindex-side i sitemap: ${loc}`);
+  if (NOINDEX.includes(file) || DRAFT_FILES.includes(file)) err("sitemap.xml", `noindex-side i sitemap: ${loc}`);
 }
-for (const f of pages.filter((p) => !NOINDEX.includes(p))) {
+for (const f of pages.filter((p) => !NOINDEX.includes(p) && !DRAFT_FILES.includes(p))) {
   const loc = f === "index.html" ? `${SITE}/` : `${SITE}/${f}`;
   if (!locs.includes(loc)) err("sitemap.xml", `mangler ${loc}`);
 }

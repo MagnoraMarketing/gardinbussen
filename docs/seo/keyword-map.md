@@ -14,7 +14,7 @@ produktguides tager produktnavnet, prisguides tager pris/kvalitet, bysider tager
 
 | URL | Sidetype | Primært søgeord | Sekundære søgeord | Intention | Affiliate-destination | Placering | Anbefaling |
 |---|---|---|---|---|---|---|---|
-| / | Forside | gardiner efter mål | gardinbus, gratis opmåling gardiner, gardiner med hjemmebesøg, book gardinbussen | Kommerciel/navigation | book, produkter, daekning | ikke verificeret | Følg CTR i GSC; test title-varianter |
+| / | Forside | book gardinbussen | gardinbussen, gardiner med hjemmebesøg, guides til gardiner (de brede intentioner "gardinbus", "gratis gardinmåling" og "gardiner efter mål" er flyttet til egne søjlesider, nov. 2026) | Navigation/kommerciel | book, produkter, daekning | ikke verificeret | Følg CTR i GSC; test title-varianter |
 | /om-os.html | Om-side | om gardinbussen | book gardinbussen, hvad er gardinbussen, billige gardiner (linker videre til prisguiden) | Navigation/information | book, faq | ikke verificeret | "billige gardiner" ejes af prisguiden — om-siden linker dertil i stedet for at konkurrere |
 | /hvorfor-gardinbussen.html | Guide (proces) | gardinbus besøg | gratis opmåling af gardiner, bedste tilbud på gardiner, gardiner med montering | Kommerciel undersøgelse | book, handelsbetingelser, erhverv | ikke verificeret | Kan udbygges med "før besøget"-tjekliste som download |
 | /blog/hvad-koster-gardiner.html | Guide (pris) | pris på gardiner | hvad koster gardiner, gardiner efter mål pris | Information/kommerciel | faq | ikke verificeret | Prioritér — høj kommerciel værdi |
@@ -51,3 +51,37 @@ Interne links: forsidens nye sektion "Guides til rum, vinduer og opmåling", kat
 "Rum, vinduer & opmåling" på blogoversigten, "Læs også" i guiderne til gardiner,
 rullegardiner, lamelgardiner og plissé, samt boligkortene på bysiderne (nybyggeri
 → store vinduer, ældre lejligheder → gardiner til stuen).
+
+## Søjlesider og nye guides (november 2026)
+
+Datagrundlag uændret: ingen adgang til Keyword Planner, Ahrefs, Semrush, GSC
+eller Bing Webmaster Tools fra udviklingsmiljøet. Ingen søgevolumener eller
+placeringer er angivet. Prioriteringen bygger på søgeintention og på, hvilke
+termer konkurrenterne (Bauhaus/DEBEL, Gardin Lis, Botex m.fl.) bruger i
+indekserede titler.
+
+| URL | Sidetype | Primært søgeord | Sekundære søgeord | Intention | Affiliate-destination | Placering | Anbefaling |
+|---|---|---|---|---|---|---|---|
+| /gardinbus.html | Søjleside | gardinbus | gardinbus gratis, hvad er en gardinbus, hvem tilbyder gratis gardinbus, gardinbus i nærheden, gardinbus vs. gardinmontør | Kommerciel undersøgelse | book | ikke verificeret | Primær side for "gardinbus"; byguides linker hertil |
+| /gratis-gardinmaaling.html | Søjleside | gratis gardinmåling | gratis opmåling af gardiner, gardiner med opmåling, hvor kan jeg få gratis gardinmåling | Kommerciel | book | ikke verificeret | Adskilt fra /blog/opmaaling-af-gardiner.html (= gør-det-selv) |
+| /gardiner-efter-maal.html | Søjleside (hub) | gardiner efter mål | køb gardiner, gardiner i specialmål, hvad koster gardiner efter mål, gardiner med professionel opmåling | Kommerciel undersøgelse | book | ikke verificeret | Hub til alle produktguides; tabel med typer |
+| /blog/moerklaegningsgardiner.html | Produktguide | mørklægningsgardiner | blackout gardiner, dimout, mørklægning soveværelse | Kommerciel undersøgelse | gardiner | ikke verificeret | Overtager "mørklægningsgardiner" fra efterårsindlægget (som nu linker hertil) |
+| /blog/duo-rullegardiner.html | Produktguide | duo rullegardiner | zebragardiner, dag og nat rullegardin | Kommerciel undersøgelse | produkter | ikke verificeret | Ikke bekræftet i leverandørens sortiment — "spørg konsulenten" |
+| /blog/saadan-vaelger-du-gardiner.html | Guide | hvordan vælger jeg de rigtige gardiner | valg af gardiner, hvilke gardiner skal jeg vælge | Information | book | ikke verificeret | Indgang for brede informationssøgninger |
+| /blog/persienner-eller-gardiner.html | Sammenligning | persienner eller gardiner | forskel på persienner og gardiner | Kommerciel undersøgelse | persienner | ikke verificeret | — |
+| /blog/farver-paa-gardiner.html | Guide | farver på gardiner | hvilken farve gardiner, gardinfarve stue | Information | gardiner | ikke verificeret | — |
+| /blog/gardiner-til-privatliv.html | Guide | gardiner mod indkig | privatliv gardiner, indkigsværn vindue | Information/kommerciel | produkter | ikke verificeret | Tæt på privatlivsfilm-guiden; denne tager gardin-intentionen |
+| /blog/vedligeholdelse-af-gardiner.html | Guide | rengøring af gardiner | vask af gardiner, rengør plisségardiner/persienner | Information | produkter | ikke verificeret | — |
+| /blog/gardiner-til-sovevaerelset.html | Rumguide | gardiner til soveværelset | mørke gardiner soveværelse | Kommerciel undersøgelse | gardiner | ikke verificeret | Helårsside; efterårsindlægget er sæsonvinklen |
+| /blog/gardiner-til-boernevaerelset.html | Rumguide | gardiner til børneværelset | børnesikre gardiner, mørklægning børneværelse | Kommerciel undersøgelse | produkter | ikke verificeret | — |
+| /blog/gardiner-til-koekken-og-badevaerelse.html | Rumguide | gardiner til badeværelset | gardiner til køkken, fugtbestandige gardiner | Kommerciel undersøgelse | persienner | ikke verificeret | — |
+| /blog/gardiner-til-kontoret.html | Rumguide (erhverv) | gardiner til kontoret | solafskærmning kontor, gardiner erhverv | Kommerciel | erhverv | ikke verificeret | Linker til leverandørens erhvervsside |
+
+### Lokale søgninger ("gardinbus <by>")
+
+Bysiderne (/byer/<by>.html) har primært søgeord "gardiner <by>" og sekundært
+"gardinbus <by>". De korte URL'er /gardinbus-koebenhavn, -aarhus, -odense,
+-aalborg, -esbjerg, -roskilde, -kolding, -vejle, -randers og -silkeborg
+viderestilles (301) til de eksisterende bysider i stedet for at oprette nye,
+næsten identiske sider. "gardinbus i nærheden" dækkes af /gardinbus.html
+(afsnit om dækning + links til byguides).

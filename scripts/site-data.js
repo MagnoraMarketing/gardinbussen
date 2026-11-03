@@ -1110,7 +1110,7 @@ const BLOG = [
     related: {
       text: "Mørklægningsgardiner er en af de mest populære løsninger mod gadelys og tidligt mørke om efteråret. Vælger du et tykkere stof i god kvalitet, får du samtidig bedre isolering og mindre træk fra vinduet.",
       links: [
-        { slug: "hold-paa-varmen-med-gardiner", label: "Hold på varmen" },
+        { slug: "moerklaegningsgardiner", label: "Mørklægningsgardiner – komplet guide" },
         { slug: "termogardiner-spar-paa-varmen", label: "Termogardiner" },
         { slug: "gardiner-sovevaerelse-efteraar", label: "Soveværelse om efteråret" },
       ],
@@ -1257,9 +1257,9 @@ const BLOG = [
     related: {
       text: "Soveværelset har brug for gardiner, der både lukker lyset ude og holder på varmen om efteråret. Mørklægningsgardiner i god kvalitet er ofte det bedste valg, men selv et billigere alternativ kan gøre en mærkbar forskel for søvnen.",
       links: [
-        { slug: "gardiner-mod-traek-og-kulde", label: "Træk og kulde" },
+        { slug: "gardiner-til-sovevaerelset", label: "Gardiner til soveværelset (helår)" },
         { slug: "gardiner-fugt-kondens-efteraar", label: "Gardiner og fugt om efteråret" },
-        { slug: "moerklaegningsgardiner-efteraar", label: "Mørklægningsgardiner" },
+        { slug: "moerklaegningsgardiner", label: "Mørklægningsgardiner – komplet guide" },
       ],
     },
     ctaNote: "Vil du se mørklæggende stoffer i dit eget soveværelse? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.",
@@ -2504,7 +2504,34 @@ function ctaCard(label, lead, key) {
         </div>`;
 }
 
+// Udvidelser af de centrale produktguides (scripts/guide-upgrades.js).
+for (const [slug, u] of Object.entries(require("./guide-upgrades"))) {
+  const post = BLOG.find((b) => b.slug === slug);
+  if (!post) throw new Error(`guide-upgrades.js: ukendt guide ${slug}`);
+  Object.assign(post, {
+    summary: u.summary, facts: u.facts, prosCons: u.prosCons,
+    sections: post.sections.concat(u.sections || []),
+    faq: post.faq.concat(u.faq || []),
+  });
+}
+
+// Nye guides (november 2026) ligger i egen fil for overskuelighedens skyld.
+BLOG.push(...require("./guides-2026-11"));
+
+// Søjlesider i roden (/gardinbus.html m.fl.), se scripts/landing-data.js.
+const LANDING = require("./landing-data");
+
+// Håndskrevne sider i roden. build.js synkroniserer menu og footer på dem.
+const HANDWRITTEN_PAGES = ["index.html", "om-os.html", "hvorfor-gardinbussen.html", "tak.html", "privatlivspolitik.html"];
+// Alle sider i roden (uden 404.html), som SEO-scripts og kontrol gennemgår.
+const ROOT_PAGES = ["index.html", "om-os.html", "hvorfor-gardinbussen.html", "nyheder.html", "tak.html", "privatlivspolitik.html"]
+  .concat(LANDING.map((p) => `${p.slug}.html`));
+// Kladder: bygges med noindex og holdes ude af sitemap og oversigter.
+const DRAFT_FILES = BLOG.filter((p) => p.draft).map((p) => `blog/${p.slug}.html`)
+  .concat(LANDING.filter((p) => p.draft).map((p) => `${p.slug}.html`));
+
 module.exports = {
+  LANDING, HANDWRITTEN_PAGES, ROOT_PAGES, DRAFT_FILES,
   affiliateUrl, AFFILIATE_BOOK_URL, SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, GTM_ID, CITIES, REGION, BLOG, NEWS,
   slugify, esc, attr, bookBtn, ctaCard,
 };

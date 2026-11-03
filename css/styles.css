@@ -641,3 +641,73 @@ img, svg { max-width: 100%; }
 .cookie-banner-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: flex-end; }
 .cookie-banner-actions .btn { padding: 0.55rem 1rem; }
 body.has-bottom-nav .cookie-banner { bottom: calc(84px + env(safe-area-inset-bottom)); }
+
+/* ---------- Guides og søjlesider: byline, kort svar, indhold, tabeller ---------- */
+.article-meta { font-size: 0.9rem; color: var(--ink-soft); margin: 0.2rem 0 1.2rem; }
+.article-meta a { color: var(--green-700); }
+.answer-box {
+  background: var(--green-100); border-left: 4px solid var(--green-700);
+  border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: 0 0 1.5rem;
+}
+.answer-box p { margin: 0; }
+.answer-box-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-700); margin-bottom: 0.35rem !important; }
+.fact-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem 1.2rem; margin: 1rem 0 0; }
+.fact-list div { background: var(--white); border-radius: 10px; padding: 0.6rem 0.8rem; }
+.fact-list dt { font-size: 0.8rem; font-weight: 700; color: var(--green-900); }
+.fact-list dd { margin: 0.15rem 0 0; font-size: 0.93rem; color: var(--ink-soft); }
+.toc { background: var(--sand-50); border: 1px solid var(--sand-200); border-radius: var(--radius); padding: 1rem 1.3rem; margin: 1.5rem 0; }
+.toc-title { font-weight: 700; margin: 0 0 0.4rem; color: var(--green-900); }
+.toc ol { margin: 0; padding-left: 1.2rem; columns: 2; column-gap: 2rem; }
+.toc li { margin: 0.2rem 0; break-inside: avoid; font-size: 0.95rem; }
+.legal h2[id] { scroll-margin-top: 90px; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0 1.4rem; border: 1px solid var(--sand-200); border-radius: var(--radius); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; background: var(--white); }
+.data-table caption { text-align: left; font-size: 0.82rem; color: var(--ink-soft); padding: 0.6rem 0.9rem; caption-side: top; }
+.data-table th, .data-table td { text-align: left; vertical-align: top; padding: 0.65rem 0.9rem; border-top: 1px solid var(--sand-100); }
+.data-table thead th { background: var(--green-900); color: var(--white); font-weight: 600; border-top: 0; }
+.data-table tbody th { font-weight: 700; color: var(--green-900); background: var(--sand-50); }
+.data-table a { color: var(--green-700); }
+.tip-box { background: #fff7ec; border-left: 4px solid var(--amber); border-radius: 10px; padding: 0.8rem 1rem; }
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 1.5rem; }
+.pros-cons > div { border-radius: var(--radius); padding: 1rem 1.2rem; background: var(--white); border: 1px solid var(--sand-200); }
+.pros-cons h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+.pros-cons ul { margin: 0; padding-left: 1.1rem; }
+.pros-cons li { margin: 0.3rem 0; }
+.pros { border-top: 4px solid var(--green-700) !important; }
+.cons { border-top: 4px solid var(--amber) !important; }
+.pillar-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; margin: 1.5rem 0; }
+.explain-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+.explain-card { background: var(--white); border: 1px solid var(--sand-200); border-radius: var(--radius-lg); padding: 1.4rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+.explain-card h3 { margin: 0 0 0.5rem; font-size: 1.12rem; color: var(--green-900); }
+.explain-card p { margin: 0 0 1rem; color: var(--ink-soft); flex: 1; }
+.explain-card a.explain-link { font-weight: 700; color: var(--green-700); }
+@media (max-width: 780px) {
+  .fact-list, .pros-cons, .pillar-cards, .explain-grid { grid-template-columns: 1fr; }
+  .toc ol { columns: 1; }
+  .data-table { font-size: 0.88rem; }
+  .data-table th, .data-table td { padding: 0.55rem 0.65rem; }
+}
+.nav-list a { white-space: nowrap; }
+.header-inner { gap: 1.5rem; }
+@media (min-width: 1025px) {
+  .nav-list { gap: 1.05rem; }
+  .nav-list a { font-size: 0.93rem; }
+}
+/* Lange danske sammensatte ord (fx "Mørklægningsgardiner") må ikke give vandret scroll på mobil */
+h1, h2, h3 { overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+/* Links i brødtekst skal kunne skelnes uden farve (WCAG 1.4.1) */
+.legal p a, .legal li a, .legal td a, .legal th a, .legal dd a, .article-meta a, .hero-note a, .answer-box a, .faq-item p a, .tip-box a {
+  text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px;
+}
+/* Tabeller som stablede kort på smalle skærme */
+@media (max-width: 600px) {
+  .table-wrap { border: 0; overflow: visible; }
+  .data-table, .data-table tbody, .data-table tr, .data-table th, .data-table td { display: block; width: 100%; }
+  .data-table { background: transparent; }
+  .data-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .data-table caption { display: block; padding: 0 0 0.5rem; }
+  .data-table tr { background: var(--white); border: 1px solid var(--sand-200); border-radius: var(--radius); margin-bottom: 0.7rem; overflow: hidden; }
+  .data-table tbody th { border-top: 0; }
+  .data-table td { border-top: 1px solid var(--sand-100); display: grid; grid-template-columns: 40% 1fr; gap: 0.6rem; }
+  .data-table td::before { content: attr(data-label); font-weight: 600; color: var(--green-900); font-size: 0.84rem; }
+}
