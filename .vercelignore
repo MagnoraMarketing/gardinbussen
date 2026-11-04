@@ -1,1 +1,9 @@
+# Filer, der ligger i repoet, men ikke skal udrulles til bookgardinbussen.online.
+# Sitet er statisk HTML, der bygges lokalt (node scripts/build.js) og committes,
+# så build-scripts, data og dokumentation skal ikke være offentligt tilgængelige.
 docs/
+scripts/
+.github/
+README.md
+LICENSE
+.gitignore

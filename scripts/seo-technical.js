@@ -117,7 +117,8 @@ for (const rel of allPages.concat("404.html")) {
   }
 
   // Favicons i PNG + apple-touch-icon + manifest efter SVG-ikonet.
-  const pre = inSub ? "../" : "";
+  // 404.html vises under vilkårlige stier og skal derfor have rod-relative links.
+  const pre = rel === "404.html" ? "/" : inSub ? "../" : "";
   html = html.replace(/\n[ \t]*<link rel="(?:icon" type="image\/png"|apple-touch-icon|manifest)[^>]*\/>/g, "");
   html = html.replace(/(\n([ \t]*)<link rel="icon" href="[^"]*favicon\.svg"[^>]*\/>)/, (m, line, ind) => line +
     `\n${ind}<link rel="icon" type="image/png" sizes="48x48" href="${pre}assets/favicon-48.png" />` +
