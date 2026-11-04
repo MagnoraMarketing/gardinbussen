@@ -22,31 +22,25 @@ const { HOME_TYPES, CITY_PROFILES, CITY_DISTRICTS } = require("./city-profiles")
 const ROOT = path.join(__dirname, "..");
 const BYER_DIR = path.join(ROOT, "byer");
 const BLOG_DIR = path.join(ROOT, "blog");
-const { SITE, CITIES, REGION, BLOG, NEWS, slugify, esc, attr, bookBtn, ctaCard, AFFILIATE_BOOK_URL } = D;
+const { SITE, CITIES, REGION, BLOG, NEWS, LANDING, HANDWRITTEN_PAGES, slugify, esc, attr, bookBtn, ctaCard, AFFILIATE_BOOK_URL } = D;
+// Kladder (draft: true) bygges med noindex og holdes ude af oversigter,
+// sitemap, llms.txt og interne links, indtil de er færdige.
+const PUBLISHED = BLOG.filter((p) => !p.draft);
 const { affiliateUrl, landsdel, citySupplierKey, DISCLOSURE_SHORT } = require("./supplier");
 const BOOK = attr(AFFILIATE_BOOK_URL); // klar til href="" i skabeloner
 
 // ---------- fælles skabelon-dele ----------
-function head({ title, desc, url, relPrefix, jsonld, ogType = "website" }) {
+function head({ title, desc, url, relPrefix, jsonld, ogType = "website", noindex = false }) {
   const ld = jsonld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n");
   return `<!DOCTYPE html>
 <html lang="da">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PZWVB1XWK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-0PZWVB1XWK');
-  </script>
   <title>${esc(title)}</title>
   <meta name="description" content="${attr(desc)}" />
   <meta name="theme-color" content="#2f5d50" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="robots" content="${noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}" />
   <link rel="canonical" href="${url}" />
   <meta property="og:type" content="${ogType}" />
   <meta property="og:site_name" content="bookgardinbussen.online" />
@@ -70,12 +64,12 @@ ${ld}
 
 function navList(relPrefix) {
   return `<ul class="nav-list" id="nav-list">
-          <li><a href="${SITE}/">Forside</a></li>
-          <li><a href="/#produkter">Produkter</a></li>
+          <li><a href="${relPrefix}gardinbus.html">Gardinbus</a></li>
+          <li><a href="${relPrefix}gratis-gardinmaaling.html">Gratis opmåling</a></li>
+          <li><a href="${relPrefix}gardiner-efter-maal.html">Gardiner efter mål</a></li>
           <li><a href="${relPrefix}blog/index.html">Guides</a></li>
-          <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
           <li><a href="/#omraade">Byer</a></li>
-          <li><a href="${relPrefix}om-os.html">Om Gardinbussen</a></li>
+          <li><a href="${relPrefix}om-os.html">Om sitet</a></li>
           <li><a class="nav-cta" href="${BOOK}" target="_blank" rel="sponsored noopener" title="Åbner Gardinbus.nu (affiliate-link)">Book gratis besøg</a></li>
         </ul>`;
 }
@@ -110,12 +104,15 @@ function footerHtml(relPrefix) {
         <h2 class="footer-title">Sider</h2>
         <ul>
           <li><a href="${SITE}/">Forside</a></li>
-          <li><a href="/#produkter">Produkter</a></li>
+          <li><a href="${relPrefix}gardinbus.html">Hvad er en gardinbus?</a></li>
+          <li><a href="${relPrefix}gratis-gardinmaaling.html">Gratis gardinmåling</a></li>
+          <li><a href="${relPrefix}gardiner-efter-maal.html">Gardiner efter mål</a></li>
+          <li><a href="${relPrefix}hvorfor-gardinbussen.html">Sådan foregår et gardinbus-besøg</a></li>
+          <li><a href="/#produkter">Gardintyper</a></li>
           <li><a href="${relPrefix}blog/index.html">Guides</a></li>
           <li><a href="${relPrefix}nyheder.html">Nyheder</a></li>
           <li><a href="/#omraade">Byer</a></li>
-          <li><a href="${relPrefix}hvorfor-gardinbussen.html">Sådan foregår et gardinbus-besøg</a></li>
-          <li><a href="${relPrefix}om-os.html">Om Gardinbussen</a></li>
+          <li><a href="${relPrefix}om-os.html">Om sitet og redaktionen</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -416,7 +413,9 @@ ${footer("../")}`;
 // ---------- nyheder ----------
 // Tekst med links skrevet som [tekst](url) -> HTML.
 function inline(text) {
-  return esc(text).replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, label, href) => `<a href="${attr(href)}">${label}</a>`);
+  return esc(text)
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, label, href) => `<a href="${attr(href)}">${label}</a>`);
 }
 
 function newsArt(item) {
@@ -542,85 +541,132 @@ const SUPPLIER_CTA = {
   insektnet: "Se insektnet hos Gardinbus.nu",
   produkter: "Se produktudvalget hos Gardinbus.nu",
   faq: "Læs Gardinbus.nu's svar på ofte stillede spørgsmål",
+  erhverv: "Se erhvervsløsninger hos Gardinbus.nu",
   book: "Gå til booking hos Gardinbus.nu",
 };
 
-function blogPost(post) {
-  if (!SUPPLIER_CTA[post.supplier || "book"]) throw new Error(`Ukendt supplier "${post.supplier}" i blog/${post.slug}`);
-  const url = `${SITE}/blog/${post.slug}.html`;
+// ---------- fælles indholdsblokke (guides og søjlesider) ----------
+// sections[].p er en liste af blokke:
+//   "tekst"                          -> afsnit; [tekst](url) bliver et link
+//   { list: [...] }                  -> punktliste
+//   { steps: [...] }                 -> nummereret liste
+//   { h3: "..." }                    -> underoverskrift
+//   { tip: "..." }                   -> fremhævet råd
+//   { table: { caption, head: [...], rows: [[...], ...] } } -> tabel
+const MONTHS_DA = ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december"];
+function dateDa(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${d}. ${MONTHS_DA[m - 1]} ${y}`;
+}
+const BUILD_TODAY = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
+
+function contentBlock(b, ind = "        ") {
+  if (typeof b === "string") return `${ind}<p>${inline(b)}</p>`;
+  if (b.list) return `${ind}<ul class="area-list city-usp">\n${b.list.map((li) => `${ind}  <li>${inline(li)}</li>`).join("\n")}\n${ind}</ul>`;
+  if (b.steps) return `${ind}<ol class="seo-book-steps">\n${b.steps.map((li) => `${ind}  <li>${inline(li)}</li>`).join("\n")}\n${ind}</ol>`;
+  if (b.h3) return `${ind}<h3>${esc(b.h3)}</h3>`;
+  if (b.tip) return `${ind}<p class="tip-box">${inline(b.tip)}</p>`;
+  if (b.table) {
+    const t = b.table;
+    return `${ind}<div class="table-wrap">
+${ind}  <table class="data-table">${t.caption ? `\n${ind}    <caption>${esc(t.caption)}</caption>` : ""}
+${ind}    <thead><tr>${t.head.map((h) => `<th scope="col">${esc(h)}</th>`).join("")}</tr></thead>
+${ind}    <tbody>
+${t.rows.map((r) => `${ind}      <tr>${r.map((c, i) => i === 0 ? `<th scope="row">${inline(c)}</th>` : `<td data-label="${attr(t.head[i])}">${inline(c)}</td>`).join("")}</tr>`).join("\n")}
+${ind}    </tbody>
+${ind}  </table>
+${ind}</div>`;
+  }
+  throw new Error(`Ukendt indholdsblok: ${JSON.stringify(b).slice(0, 80)}`);
+}
+
+const plainText = (s) => String(s).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+function wordCount(post) {
+  const parts = [post.h1, ...(post.intro || []), post.summary || ""];
+  for (const s of post.sections) {
+    parts.push(s.h);
+    for (const b of s.p) {
+      if (typeof b === "string") parts.push(b);
+      else if (b.list || b.steps) parts.push(...(b.list || b.steps));
+      else if (b.table) parts.push(...b.table.rows.flat());
+      else parts.push(b.h3 || b.tip || "");
+    }
+  }
+  if (post.prosCons) parts.push(...post.prosCons.pros, ...post.prosCons.cons);
+  for (const f of post.faq || []) parts.push(f.q, f.a);
+  return parts.map(plainText).join(" ").split(/\s+/).filter(Boolean).length;
+}
+
+// Brødteksten i en guide/søjleside: byline, kort svar, indholdsfortegnelse,
+// sektioner, fordele/ulemper, FAQ og "Læs også".
+function articleBody(post, { omPrefix, linkPrefix, pullQuote = "" }) {
   const faq = faqBlock(post.faq);
-  const block = (p) => typeof p === "string"
-    ? `        <p>${esc(p)}</p>`
-    : `        <ul class="area-list city-usp">\n${p.list.map((li) => `          <li>${esc(li)}</li>`).join("\n")}\n        </ul>`;
-  const pullQuote = post.pullQuote
-    ? `\n        <div class="pull-quote">\n          <p>${esc(post.pullQuote)}</p>\n        </div>`
-    : "";
-  const sectionsHtml = post.sections.map((s, i) =>
-    `        <h2>${esc(s.h)}</h2>\n${s.p.map(block).join("\n")}${i === 0 ? pullQuote : ""}`
-  ).join("\n");
-  const cat = BLOG_CATEGORIES.find((c) => c.name === post.category);
-  const hero = cat && cat.img
-    ? `    <div class="container">\n      <img class="article-hero" src="../assets/blog/${cat.img}" alt="${attr(`${cat.alt} – ${post.tag}`)}" fetchpriority="high" decoding="async" width="1200" height="400" />\n    </div>\n\n`
-    : "";
+  const ids = new Set();
+  const idOf = (h) => { let id = slugify(h).slice(0, 60); while (ids.has(id)) id += "-2"; ids.add(id); return id; };
+  const secs = post.sections.map((s) => ({ ...s, id: s.id || idOf(s.h) }));
+  if (post.prosCons) secs.push({ h: post.prosCons.h || "Fordele og ulemper", id: idOf(post.prosCons.h || "fordele-og-ulemper"), prosCons: post.prosCons });
+  const minutes = Math.max(2, Math.round(wordCount(post) / 200));
+  const meta = `        <p class="article-meta">Af <a href="${omPrefix}om-os.html#redaktion">redaktionen på bookgardinbussen.online</a> · Opdateret <time datetime="${BUILD_TODAY}" data-modified>${dateDa(BUILD_TODAY)}</time> · Læsetid ca. ${minutes} min.</p>`;
+  const summary = post.summary ? `
+        <div class="answer-box">
+          <p class="answer-box-label">Kort fortalt</p>
+          <p>${inline(post.summary)}</p>${post.facts ? `
+          <dl class="fact-list">
+${post.facts.map(([k, v]) => `            <div><dt>${esc(k)}</dt><dd>${inline(v)}</dd></div>`).join("\n")}
+          </dl>` : ""}
+        </div>` : "";
+  const toc = secs.length >= 4 ? `
+        <nav class="toc" aria-label="Indhold">
+          <p class="toc-title">Indhold</p>
+          <ol>
+${secs.map((s) => `            <li><a href="#${s.id}">${esc(s.h)}</a></li>`).join("\n")}
+            <li><a href="#faq">Ofte stillede spørgsmål</a></li>
+          </ol>
+        </nav>` : "";
+  const sectionsHtml = secs.map((s, i) => {
+    if (s.prosCons) {
+      return `        <h2 id="${s.id}">${esc(s.h)}</h2>
+        <div class="pros-cons">
+          <div class="pros"><h3>Fordele</h3><ul>
+${s.prosCons.pros.map((x) => `            <li>${inline(x)}</li>`).join("\n")}
+          </ul></div>
+          <div class="cons"><h3>Ulemper</h3><ul>
+${s.prosCons.cons.map((x) => `            <li>${inline(x)}</li>`).join("\n")}
+          </ul></div>
+        </div>`;
+    }
+    return `        <h2 id="${s.id}">${esc(s.h)}</h2>\n${s.p.map((b) => contentBlock(b)).join("\n")}${i === 0 ? pullQuote : ""}`;
+  }).join("\n");
   const related = post.related ? `        <div class="related-reads">
           <h2>Læs også</h2>
-          <p>${esc(post.related.text)}</p>
+          <p>${inline(post.related.text)}</p>
           <div class="related-grid">
-${post.related.links.map((l) => `          <a class="related-card" href="${l.slug}.html"><span>${esc(l.label)}</span><em>Læs guiden →</em></a>`).join("\n")}
+${post.related.links.map((l) => `          <a class="related-card" href="${l.href || `${linkPrefix}${l.slug}.html`}"><span>${esc(l.label)}</span><em>Læs guiden →</em></a>`).join("\n")}
           </div>
         </div>
 
 ` : "";
-  const introHtml = post.intro.map((p) => `        <p class="lead">${esc(p)}</p>`).join("\n");
-  const article = {
-    "@context": "https://schema.org", "@type": "Article",
-    headline: post.h1, description: post.desc, image: `${SITE}/assets/og-image.png`,
-    mainEntityOfPage: url,
-    author: { "@type": "Organization", name: "Redaktionen på bookgardinbussen.online", url: `${SITE}/om-os.html` },
-    publisher: { "@type": "Organization", name: "bookgardinbussen.online", url: `${SITE}/`, logo: { "@type": "ImageObject", url: `${SITE}/assets/logo.png`, width: 512, height: 512 } },
-  };
-  const breadcrumb = {
-    "@context": "https://schema.org", "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Forside", item: `${SITE}/` },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog/index.html` },
-      { "@type": "ListItem", position: 3, name: post.tag, item: url },
-    ],
-  };
-  return `${head({ title: post.metaTitle, desc: post.desc, url, relPrefix: "../", jsonld: [article, breadcrumb, faq.ld], ogType: "article" })}
-<body>
-  <a class="skip-link" href="#booking">Gå til booking</a>
-${header("../")}
-  <main id="main">
-    <nav class="breadcrumb container" aria-label="Sti">
-      <a href="/">Forside</a> <span aria-hidden="true">›</span>
-      <a href="index.html">Blog</a> <span aria-hidden="true">›</span>
-      <span>${esc(post.tag)}</span>
-    </nav>
-
-${hero}    <article class="section">
-      <div class="container legal">
-        <p class="eyebrow">${esc(post.eyebrow || `Guide · ${post.tag}`)}</p>
-        <h1>${esc(post.h1)}</h1>
-${introHtml}
+  const introHtml = (post.intro || []).map((p) => `        <p class="lead">${inline(p)}</p>`).join("\n");
+  const html = `${meta}${summary}
+${introHtml}${toc}
 ${sectionsHtml}
 
-        <h2>Ofte stillede spørgsmål</h2>
+        <h2 id="faq">Ofte stillede spørgsmål</h2>
         <div class="faq">
 ${faq.html}
         </div>
 
-${related}        <p class="blog-cta-note">${esc(post.ctaNote || `Vil du se ${post.tag.toLowerCase()} i dit eget hjem? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.`)}</p>
-        <p class="blog-supplier-link">${bookBtn(SUPPLIER_CTA[post.supplier || "book"], "btn-ghost", post.supplier)}</p>
-      </div>
-    </article>
+${related}`;
+  return { html, faqLd: faq.ld };
+}
 
-    <section class="section section-alt booking" id="booking">
+function bookingSection(text, ctaLabel, ctaLead) {
+  return `    <section class="section section-alt booking" id="booking">
       <div class="container booking-inner">
         <div class="booking-copy">
           <p class="eyebrow">Gratis hjemmebesøg</p>
           <h2>Få et uforpligtende tilbud fra Gardinbus.nu</h2>
-          <p>${esc(post.bookingText || "Du booker besøget hos Gardinbus.nu. Leverandøren kontakter dig for at aftale en tid og kommer derefter med prøver, måler op og giver et uforpligtende tilbud.")}</p>
+          <p>${esc(text || "Du booker besøget hos Gardinbus.nu. Leverandøren kontakter dig for at aftale en tid og kommer derefter med prøver, måler op og giver et uforpligtende tilbud.")}</p>
           <ul class="booking-points">
             <li>Gratis besøg, rådgivning og opmåling</li>
             <li>Prøver på stoffer og farver i dit eget lys</li>
@@ -631,11 +677,114 @@ ${related}        <p class="blog-cta-note">${esc(post.ctaNote || `Vil du se ${po
             Spørgsmål til artiklen: <a href="mailto:mail@bookgardinbussen.online">mail@bookgardinbussen.online</a>
           </p>
         </div>
-${ctaCard("Book et gardinbesøg", post.ctaLead || `Se ${post.tag.toLowerCase()} i dit eget hjem — book et gratis besøg hos Gardinbus.nu.`)}
+${ctaCard(ctaLabel, ctaLead)}
       </div>
-    </section>
+    </section>`;
+}
+
+const ORG_AUTHOR = { "@type": "Organization", name: "Redaktionen på bookgardinbussen.online", url: `${SITE}/om-os.html#redaktion` };
+const ORG_PUBLISHER = { "@type": "Organization", name: "bookgardinbussen.online", url: `${SITE}/`, logo: { "@type": "ImageObject", url: `${SITE}/assets/logo.png`, width: 512, height: 512 } };
+
+function blogPost(post) {
+  if (!SUPPLIER_CTA[post.supplier || "book"]) throw new Error(`Ukendt supplier "${post.supplier}" i blog/${post.slug}`);
+  const url = `${SITE}/blog/${post.slug}.html`;
+  const pullQuote = post.pullQuote
+    ? `\n        <div class="pull-quote">\n          <p>${esc(post.pullQuote)}</p>\n        </div>`
+    : "";
+  const body = articleBody(post, { omPrefix: "../", linkPrefix: "", pullQuote });
+  const cat = BLOG_CATEGORIES.find((c) => c.name === post.category);
+  const hero = cat && cat.img
+    ? `    <div class="container">\n      <img class="article-hero" src="../assets/blog/${cat.img}" alt="${attr(`${cat.alt} – ${post.tag}`)}" fetchpriority="high" decoding="async" width="1200" height="400" />\n    </div>\n\n`
+    : "";
+  const article = {
+    "@context": "https://schema.org", "@type": "Article",
+    headline: post.h1, description: post.desc, image: `${SITE}/assets/og-image.png`,
+    mainEntityOfPage: url,
+    author: ORG_AUTHOR,
+    publisher: ORG_PUBLISHER,
+  };
+  if (post.category) article.articleSection = post.category;
+  const breadcrumb = {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Forside", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE}/blog/index.html` },
+      { "@type": "ListItem", position: 3, name: post.tag, item: url },
+    ],
+  };
+  return `${head({ title: post.metaTitle, desc: post.desc, url, relPrefix: "../", jsonld: [article, breadcrumb, body.faqLd], ogType: "article", noindex: !!post.draft })}
+<body>
+  <a class="skip-link" href="#booking">Gå til booking</a>
+${header("../")}
+  <main id="main">
+    <nav class="breadcrumb container" aria-label="Sti">
+      <a href="/">Forside</a> <span aria-hidden="true">›</span>
+      <a href="index.html">Guides</a> <span aria-hidden="true">›</span>
+      <span>${esc(post.tag)}</span>
+    </nav>
+
+${hero}    <article class="section">
+      <div class="container legal">
+        <p class="eyebrow">${esc(post.eyebrow || `Guide · ${post.tag}`)}</p>
+        <h1>${esc(post.h1)}</h1>
+${body.html}        <p class="blog-cta-note">${esc(post.ctaNote || `Vil du se ${post.tag.toLowerCase()} i dit eget hjem? Gardinbus.nu tilbyder et gratis, uforpligtende besøg med prøver og opmåling.`)}</p>
+        <p class="blog-supplier-link">${bookBtn(SUPPLIER_CTA[post.supplier || "book"], "btn-ghost", post.supplier)}</p>
+      </div>
+    </article>
+
+${bookingSection(post.bookingText, "Book et gardinbesøg", post.ctaLead || `Se ${post.tag.toLowerCase()} i dit eget hjem — book et gratis besøg hos Gardinbus.nu.`)}
   </main>
 ${footer("../")}`;
+}
+
+// ---------- søjlesider (gardinbus, gratis gardinmåling, gardiner efter mål) ----------
+// Data i scripts/landing-data.js. Ligger i roden, fx /gardinbus.html.
+function landingPage(page) {
+  const url = `${SITE}/${page.slug}.html`;
+  const body = articleBody(page, { omPrefix: "", linkPrefix: "blog/" });
+  const webpage = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    name: page.h1, headline: page.h1, description: page.desc, url,
+    isPartOf: { "@type": "WebSite", name: "bookgardinbussen.online", url: `${SITE}/` },
+    about: page.about.map((name) => ({ "@type": "Thing", name })),
+    author: ORG_AUTHOR,
+    publisher: ORG_PUBLISHER,
+  };
+  const breadcrumb = {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Forside", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: page.crumb, item: url },
+    ],
+  };
+  const cards = page.cards ? `
+        <div class="pillar-cards">
+${page.cards.map((c) => `          <a class="related-card" href="${c.href}"><span>${esc(c.label)}</span><em>${esc(c.text)}</em></a>`).join("\n")}
+        </div>` : "";
+  return `${head({ title: page.metaTitle, desc: page.desc, url, relPrefix: "", jsonld: [webpage, breadcrumb, body.faqLd], noindex: !!page.draft })}
+<body>
+  <a class="skip-link" href="#main-content">Gå til indhold</a>
+${header("")}
+  <main id="main">
+    <nav class="breadcrumb container" aria-label="Sti">
+      <a href="/">Forside</a> <span aria-hidden="true">›</span>
+      <span>${esc(page.crumb)}</span>
+    </nav>
+
+    <article class="section pillar" id="main-content">
+      <div class="container legal">
+        <p class="eyebrow">${esc(page.eyebrow)}</p>
+        <h1>${esc(page.h1)}</h1>
+${body.html}${cards}
+        <p class="blog-cta-note">${esc(page.ctaNote)}</p>
+        <p class="blog-supplier-link">${bookBtn("Book gratis besøg hos Gardinbus.nu", "btn-primary")}</p>
+        <p class="seo-book-note">${esc(require("./supplier").DISCLOSURE_CTA)}</p>
+      </div>
+    </article>
+
+${bookingSection(page.bookingText, page.ctaLabel || "Book et gardinbesøg", page.ctaLead)}
+  </main>
+${footer("")}`;
 }
 
 // Kategorier vises i denne rækkefølge på blog-oversigten, hver med sin egen
@@ -643,6 +792,8 @@ ${footer("../")}`;
 // img/alt er illustrationen øverst i hvert indlæg i kategorien (assets/blog/).
 const BLOG_CATEGORIES = [
   { name: "Gardintyper", sub: "Produktguides til hver type gardin — find den løsning der passer til dine vinduer.",
+    img: "gardintyper.svg", alt: "Illustration af gardiner ved et vindue" },
+  { name: "Valg af gardiner", sub: "Kom godt fra start: sådan vælger du gardintype, farve og løsning til privatliv — og holder gardinerne pæne bagefter.",
     img: "gardintyper.svg", alt: "Illustration af gardiner ved et vindue" },
   { name: "Rum, vinduer & opmåling", sub: "Guides til bestemte rum og vinduer — og til det, du skal overveje før opmåling.",
     img: "gardintyper.svg", alt: "Illustration af gardiner ved et vindue" },
@@ -669,13 +820,13 @@ function blogIndex() {
   // Grupper indlæg efter kategori. Ukendte/ukategoriserede lander til sidst.
   const seen = new Set(BLOG_CATEGORIES.map((c) => c.name));
   const cats = [...BLOG_CATEGORIES];
-  for (const p of BLOG) {
+  for (const p of PUBLISHED) {
     const c = p.category || "Andet";
     if (!seen.has(c)) { seen.add(c); cats.push({ name: c, sub: "" }); }
   }
 
   const sections = cats.map((cat, idx) => {
-    const posts = BLOG.filter((p) => (p.category || "Andet") === cat.name);
+    const posts = PUBLISHED.filter((p) => (p.category || "Andet") === cat.name);
     if (!posts.length) return "";
     const gridId = idx === 0 ? ' id="blog-list"' : "";
     const sub = cat.sub ? `\n          <p class="section-sub">${esc(cat.sub)}</p>` : "";
@@ -706,7 +857,7 @@ ${posts.map(card).join("\n")}
 
   const itemList = {
     "@context": "https://schema.org", "@type": "ItemList",
-    itemListElement: BLOG.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/blog/${p.slug}.html`, name: p.tag })),
+    itemListElement: PUBLISHED.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/blog/${p.slug}.html`, name: p.tag })),
   };
   return `${head({
     title: "Blog: Guides og inspiration om gardiner | bookgardinbussen.online",
@@ -719,7 +870,7 @@ ${header("../")}
   <main id="main">
     <nav class="breadcrumb container" aria-label="Sti">
       <a href="/">Forside</a> <span aria-hidden="true">›</span>
-      <span>Blog</span>
+      <span>Guides</span>
     </nav>
 
     <section class="section">
@@ -754,8 +905,12 @@ function llmsTxt() {
   lines.push(`- Sådan foregår et gardinbus-besøg: ${SITE}/hvorfor-gardinbussen.html`);
   lines.push("- Kontakt: mail@bookgardinbussen.online");
   lines.push("");
+  lines.push("## Kernesider");
+  for (const p of LANDING.filter((x) => !x.draft)) lines.push(`- [${p.h1}](${SITE}/${p.slug}.html): ${p.llmsDesc || p.desc}`);
+  lines.push(`- [Sådan foregår et gardinbus-besøg](${SITE}/hvorfor-gardinbussen.html): Booking, prøver, opmåling og tilbud trin for trin.`);
+  lines.push("");
   for (const cat of BLOG_CATEGORIES) {
-    const posts = BLOG.filter((p) => (p.category || "Andet") === cat.name);
+    const posts = PUBLISHED.filter((p) => (p.category || "Andet") === cat.name);
     if (!posts.length) continue;
     lines.push(`## ${cat.name}`);
     for (const p of posts) {
@@ -790,7 +945,7 @@ fs.writeFileSync(indexPath, index);
 
 // Håndskrevne sider får samme menu og footer som de genererede, så
 // navigation og affiliate-oplysning er ens overalt.
-for (const f of ["index.html", "om-os.html", "hvorfor-gardinbussen.html", "tak.html", "privatlivspolitik.html", "404.html"]) {
+for (const f of HANDWRITTEN_PAGES.concat("404.html")) {
   const file = path.join(ROOT, f);
   // 404.html vises under vilkårlige stier, så den skal have rod-relative links.
   const pre = f === "404.html" ? "/" : "";
@@ -806,6 +961,11 @@ for (const post of BLOG) {
 }
 fs.writeFileSync(path.join(BLOG_DIR, "index.html"), blogIndex());
 
+// søjlesider i roden
+for (const page of LANDING) {
+  fs.writeFileSync(path.join(ROOT, `${page.slug}.html`), landingPage(page));
+}
+
 // nyheder
 fs.writeFileSync(path.join(ROOT, "nyheder.html"), newsPage());
 
@@ -817,7 +977,7 @@ fs.writeFileSync(path.join(ROOT, "llms.txt"), llmsTxt());
 const README_PRODUCTS = [
   "gardiner", "rullegardiner", "plissegardiner", "persienner", "traepersienner",
   "lamelgardiner", "foldegardiner", "panelgardiner", "screengardiner", "luxaflex",
-  "moerklaegningsgardiner-efteraar", "termogardiner-spar-paa-varmen",
+  "moerklaegningsgardiner", "duo-rullegardiner", "termogardiner-spar-paa-varmen",
   "motoriserede-gardiner-smart-home", "insektnet-til-vinduer-og-doere",
   "gardinstaenger-og-skinner", "solfilm-til-vinduer", "privatlivsfilm-til-vinduer",
 ];
@@ -847,5 +1007,5 @@ for (const script of ["seo-sections.js", "seo-technical.js"]) {
   execFileSync(process.execPath, [path.join(__dirname, script)], { stdio: "inherit" });
 }
 
-console.log(`Genererede ${CITIES.length} by-sider og ${BLOG.length} blogindlæg. Opdaterede index.html, nyheder.html, llms.txt og sitemap.xml.`);
+console.log(`Genererede ${CITIES.length} by-sider, ${LANDING.length} søjlesider og ${BLOG.length} blogindlæg (${BLOG.length - PUBLISHED.length} kladder). Opdaterede index.html, nyheder.html, llms.txt og sitemap.xml.`);
 console.log(`Alle book-CTA'er peger på: ${AFFILIATE_BOOK_URL}`);

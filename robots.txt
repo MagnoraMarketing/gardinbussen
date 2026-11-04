@@ -24,6 +24,10 @@ User-agent: PerplexityBot
 Allow: /
 Disallow: /api/
 
+User-agent: Perplexity-User
+Allow: /
+Disallow: /api/
+
 # Anthropic (Claude)
 User-agent: ClaudeBot
 Allow: /
@@ -34,6 +38,14 @@ Allow: /
 Disallow: /api/
 
 User-agent: Claude-Web
+Allow: /
+Disallow: /api/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+
+User-agent: Claude-User
 Allow: /
 Disallow: /api/
 

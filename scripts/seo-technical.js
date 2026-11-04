@@ -27,7 +27,7 @@ const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 const crypto = require("crypto");
-const { SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, GTM_ID, attr } = require("./site-data");
+const { SITE, GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION, GTM_ID, LANDING, ROOT_PAGES, attr } = require("./site-data");
 
 const ROOT = path.join(__dirname, "..");
 const read = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
@@ -36,7 +36,6 @@ const listHtml = (dir) => fs.readdirSync(path.join(ROOT, dir)).filter((f) => f.e
 const git = (cmd) => { try { return execSync(`git ${cmd}`, { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch { return ""; } };
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 
-const ROOT_PAGES = ["index.html", "om-os.html", "hvorfor-gardinbussen.html", "nyheder.html", "tak.html", "privatlivspolitik.html"];
 const allPages = ROOT_PAGES
   .concat(listHtml("blog").map((f) => `blog/${f}`))
   .concat(listHtml("byer").map((f) => `byer/${f}`));
@@ -62,8 +61,8 @@ const getTitle = (html) => decode((html.match(/<title>([^<]*)<\/title>/) || [])[
 // ---------- håndskrevne sider ----------
 const PAGE_META = {
   "index.html": {
-    title: "Gardiner efter mål – guides og gratis gardinbus-besøg",
-    desc: "Find den rigtige gardintype til dine vinduer med uafhængige guides – og book et gratis, uforpligtende besøg med prøver og opmåling hos Gardinbus.nu.",
+    title: "Book Gardinbussen – gratis besøg og guides til gardiner",
+    desc: "Uafhængige guides til gardiner efter mål, gardinbus og gratis opmåling – og book et gratis, uforpligtende besøg med prøver hos Gardinbus.nu.",
   },
   "om-os.html": {
     title: "Om Gardinbussen – book gratis besøg og billige gardiner",
@@ -142,6 +141,15 @@ for (const rel of allPages.concat("404.html")) {
   write(rel, html);
 }
 
+// ---------- Google Analytics kun via GTM ----------
+// GA4 (G-0PZWVB1XWK) indlæses af Google Tag Manager. Et direkte gtag.js-tag
+// ved siden af ville tælle hvert besøg to gange, så det fjernes overalt.
+const GTAG_DIRECT = /\n[ \t]*<!-- Google tag \(gtag\.js\) -->\n[ \t]*<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=[^"]*"><\/script>\n[ \t]*<script>[\s\S]*?gtag\('config', '[^']*'\);\n[ \t]*<\/script>/;
+for (const rel of allPages.concat("404.html")) {
+  const html = read(rel);
+  if (GTAG_DIRECT.test(html)) write(rel, html.replace(GTAG_DIRECT, ""));
+}
+
 // ---------- Google Tag Manager ----------
 // Fjernes og indsættes igen ved hver kørsel, så et nyt GTM_ID slår igennem.
 const CONSENT_HEAD = /\n[ \t]*<!-- Consent Mode -->[\s\S]*?<!-- End Consent Mode -->/;
@@ -181,15 +189,24 @@ for (const rel of allPages.concat("404.html")) {
 // dateModified), beholdes den committede dato. Så ændrer en ny build ikke
 // datoen på alle indlæg, og filen forbliver uændret i git.
 const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
+// Den synlige "Opdateret"-dato (<time data-modified>) følger altid
+// dateModified i JSON-LD, så schema og synligt indhold stemmer overens.
 const DATE_MOD = /"dateModified":"[^"]*"/;
-for (const f of listHtml("blog")) {
-  const rel = `blog/${f}`;
-  const html = read(rel);
+const TIME_MOD = /<time datetime="[^"]*" data-modified>[^<]*<\/time>/;
+const MONTHS_DA = ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december"];
+const dateDa = (iso) => { const [y, m, d] = iso.split("-").map(Number); return `${d}. ${MONTHS_DA[m - 1]} ${y}`; };
+const strip = (h) => h.replace(DATE_MOD, "").replace(TIME_MOD, "").trim();
+const datedPages = listHtml("blog").filter((f) => f !== "index.html").map((f) => `blog/${f}`)
+  .concat(LANDING.map((p) => `${p.slug}.html`));
+for (const rel of datedPages) {
+  let html = read(rel);
+  if (!DATE_MOD.test(html)) continue;
   const committed = git(`show HEAD:"${rel}"`);
   const m = committed && committed.match(DATE_MOD);
-  if (!m || !DATE_MOD.test(html)) continue;
-  const same = html.replace(DATE_MOD, "").trim() === committed.replace(DATE_MOD, "").trim();
-  write(rel, html.replace(DATE_MOD, same ? m[0] : `"dateModified":"${today}"`));
+  if (m) html = html.replace(DATE_MOD, strip(html) === strip(committed) ? m[0] : `"dateModified":"${today}"`);
+  const iso = html.match(/"dateModified":"([^"]*)"/)[1];
+  html = html.replace(TIME_MOD, `<time datetime="${iso}" data-modified>${dateDa(iso)}</time>`);
+  write(rel, html);
 }
 
 // ---------- sitemap.xml med rigtig lastmod ----------
@@ -201,6 +218,7 @@ function lastmod(file) {
 }
 const sitemapPages = [
   { file: "index.html", loc: `${SITE}/`, freq: "weekly", pri: "1.0" },
+  ...LANDING.map((p) => ({ file: `${p.slug}.html`, freq: "monthly", pri: "0.9" })),
   { file: "hvorfor-gardinbussen.html", freq: "monthly", pri: "0.8" },
   { file: "om-os.html", freq: "monthly", pri: "0.5" },
   { file: "nyheder.html", freq: "weekly", pri: "0.6" },
