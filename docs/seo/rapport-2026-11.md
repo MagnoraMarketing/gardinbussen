@@ -38,7 +38,7 @@ og en kvalitetskontrol (`check-site.js`).
 | 11 | Ingen kontrol af dublerede titler/beskrivelser eller tyndt indhold | Mellem | **Rettet** i `check-site.js` |
 | 12 | Nye sider krævede manuelle lister i 4 scripts | Mellem | **Rettet** — én kilde (`site-data.js`) |
 | 13 | Ingen sikkerheds-headers | Lav | **Rettet** (`vercel.json`) |
-| 14 | To Google-tags: gtag.js (G-0PZWVB1XWK) hardkodet + GTM. Risiko for dobbelt GA4-måling, hvis GTM også har et GA4-tag | Mellem | **Ikke ændret** (eksisterende måling bevares) — tjek i GTM |
+| 14 | To Google-tags: gtag.js (G-0PZWVB1XWK) hardkodet + GTM, som også indlæser G-0PZWVB1XWK → dobbelt GA4-måling | Mellem | **Rettet** — GA4 indlæses kun via GTM; `check-site.js` fejler ved direkte gtag.js |
 | 15 | Kun SVG-illustrationer, ingen egne fotos | Mellem | Ikke rettet — kræver rettighedsfrie/egne fotos |
 | 16 | Ingen backlinks/omtale kendt; sitet gav intet resultat i søgeindekset for "bookgardinbussen.online" | Høj | Se 90-dages-plan |
 | 17 | /om-os.html har title/H1 "Om Gardinbussen – book gratis besøg …", som kan læses, som om sitet er Gardinbussen | Lav–mellem | Ikke ændret (bevidst valg i #45); siden forklarer rollerne tydeligt — overvej at omdøbe |
@@ -261,7 +261,7 @@ INP kan ikke måles i laboratoriet; TBT ≈ 0 tyder på lav risiko.
 2. Ingen søgevolumen-, placerings-, backlink- eller AI-synlighedsdata.
 3. Duo rullegardiner er ikke bekræftet i leverandørens sortiment (skrevet som
    "spørg konsulenten").
-4. Mulig dobbelt GA4-måling (gtag.js + GTM) — kontrollér i GTM.
+4. ~~Dobbelt GA4-måling~~ — rettet: kun GTM. Kontrollér i GA4 → Realtid efter deploy, at besøg stadig registreres (efter samtykke).
 5. Ingen egne fotos; illustrationerne er generiske pr. kategori.
 6. Kladder (noindex) kan stadig modtage interne links fra publicerede guides.
 7. Om-sidens title "Om Gardinbussen …" kan misforstås (se audit #17).
@@ -274,7 +274,7 @@ INP kan ikke måles i laboratoriet; TBT ≈ 0 tyder på lav risiko.
    indeksering af søjlesiderne; kør IndexNow-workflowet manuelt.
 3. Klik-test bookinglinket og 3–4 deeplinks; bekræft i Partner-ads.
 4. Kør PageSpeed Insights (mobil/desktop) på forside og søjlesider.
-5. Ryd op i GA4-måling (kun via GTM, consent respekteres).
+5. Bekræft i GA4 Realtid, at målingen via GTM virker efter deploy (gtag.js er fjernet), og at GA4-tagget i GTM respekterer Consent Mode.
 6. Opsæt `uid` pr. sidetype i Partner-ads (fx `uid=soejle`, `uid=guide`,
    `uid=by`) for at se, hvilke sider der konverterer.
 

@@ -141,6 +141,15 @@ for (const rel of allPages.concat("404.html")) {
   write(rel, html);
 }
 
+// ---------- Google Analytics kun via GTM ----------
+// GA4 (G-0PZWVB1XWK) indlæses af Google Tag Manager. Et direkte gtag.js-tag
+// ved siden af ville tælle hvert besøg to gange, så det fjernes overalt.
+const GTAG_DIRECT = /\n[ \t]*<!-- Google tag \(gtag\.js\) -->\n[ \t]*<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=[^"]*"><\/script>\n[ \t]*<script>[\s\S]*?gtag\('config', '[^']*'\);\n[ \t]*<\/script>/;
+for (const rel of allPages.concat("404.html")) {
+  const html = read(rel);
+  if (GTAG_DIRECT.test(html)) write(rel, html.replace(GTAG_DIRECT, ""));
+}
+
 // ---------- Google Tag Manager ----------
 // Fjernes og indsættes igen ved hver kørsel, så et nyt GTM_ID slår igennem.
 const CONSENT_HEAD = /\n[ \t]*<!-- Consent Mode -->[\s\S]*?<!-- End Consent Mode -->/;

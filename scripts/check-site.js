@@ -123,6 +123,10 @@ for (const f of pages) {
     if (hash && target.endsWith(".html") && !ids(target).has(hash)) err(f, `ankeret #${hash} findes ikke i ${target}`);
   }
 
+  // Måling: GA4 må kun indlæses via GTM (ellers dobbelt måling)
+  if (/googletagmanager\.com\/gtag\/js/.test(html)) err(f, "direkte gtag.js-tag (GA4 skal kun indlæses via GTM)");
+  if (!/googletagmanager\.com\/gtm\.js/.test(html)) err(f, "mangler Google Tag Manager");
+
   // Indhold
   for (const re of FORBIDDEN) {
     const hit = visible.match(re);
