@@ -255,7 +255,11 @@ const datedPages = listHtml("blog").filter((f) => f !== "index.html").map((f) =>
   .concat(LANDING.map((p) => `${p.slug}.html`));
 for (const rel of datedPages) {
   let html = read(rel);
-  const published = gitDate(rel, true) || today;
+  // Behold den publiceringsdato, siden allerede har (en squash-merge giver
+  // ellers filen en ny "første" commit-dato). Ellers: første commit, ellers i dag.
+  let committedPub = "";
+  try { committedPub = (execSync(`git show HEAD:"${rel}"`, { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().match(/"datePublished":"(\d{4}-\d{2}-\d{2})"/) || [])[1] || ""; } catch { /* ny fil */ }
+  const published = committedPub || gitDate(rel, true) || today;
   html = html.replace(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema.org","@type":"(?:Article|WebPage)"[\s\S]*?)<\/script>/, (m, json) => {
     const o = JSON.parse(json);
     o.image = `${SITE}/assets/og-image.png`;
